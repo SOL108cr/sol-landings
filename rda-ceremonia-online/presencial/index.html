@@ -731,16 +731,37 @@
     </footer>
 
     <script>
-        // Reveal on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        // Reveal on scroll — robust version
+        function revealElements() {
+            const els = document.querySelectorAll('.reveal:not(.visible)');
+            els.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 40) {
+                    el.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        }
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // Use IntersectionObserver where supported, with scroll fallback
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+
+        // Fallback: also check on scroll and on load
+        window.addEventListener('scroll', revealElements, { passive: true });
+        window.addEventListener('resize', revealElements, { passive: true });
+        document.addEventListener('DOMContentLoaded', () => {
+            revealElements();
+            setTimeout(revealElements, 300);
+        });
+        revealElements();
     </script>
 
 </body>
