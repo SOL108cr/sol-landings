@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Respiración del Alma Online — Invitación especial para quienes ya vivieron la ceremonia presencial.">
+    <meta name="theme-color" content="#0D0B2E">
+    <title>Respiración del Alma — Invitación Especial | School of Love</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root {
+            --bg-deep: #0D0B2E;
+            --bg-dark: #110E3A;
+            --bg-mid: #1A1450;
+            --bg-card: #16123E;
+            --bg-light: #F8F5F0;
+            --gold: #D4A843;
+            --gold-light: #E8C97A;
+            --gold-dark: #B08A2E;
+            --gold-glow: rgba(212, 168, 67, 0.25);
+            --purple: #6B2D9B;
+            --purple-soft: rgba(107, 45, 155, 0.15);
+            --teal: #2DD4BF;
+            --text-white: #FFFFFF;
+            --text-cream: #F0E6D3;
+            --text-muted: rgba(255, 255, 255, 0.65);
+            --text-dark: #2D2A3E;
+            --text-dark-muted: #6B6880;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text-white);
+            line-height: 1.7;
+            background: var(--bg-deep);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.2; }
+        a { text-decoration: none; }
+
+        .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+        /* ═══ HERO ═══ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px;
+            position: relative;
+            background: linear-gradient(160deg, #0D0B2E 0%, #1A1450 30%, #2D1B5E 60%, #1A0E3A 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.08) 0%, rgba(107, 45, 155, 0.06) 40%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content { position: relative; z-index: 1; max-width: 680px; }
+
+        .hero-overline {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 7vw, 4rem);
+            font-weight: 300;
+            color: var(--text-cream);
+            margin-bottom: 12px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold-light);
+            font-weight: 400;
+        }
+
+        .hero-message {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            color: var(--text-muted);
+            font-style: italic;
+            max-width: 560px;
+            margin: 24px auto 0;
+            line-height: 1.8;
+        }
+
+        .hero-line {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 32px auto;
+            opacity: 0.5;
+        }
+
+        /* ═══ SECTIONS SHARED ═══ */
+        .section-dark {
+            padding: 80px 0;
+            background: var(--bg-dark);
+            position: relative;
+        }
+
+        .section-mid {
+            padding: 80px 0;
+            background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+            position: relative;
+        }
+
+        .section-light {
+            padding: 80px 0;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .overline {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+
+        /* ═══ GRATITUDE SECTION ═══ */
+        .gratitude {
+            text-align: center;
+            padding: 80px 24px 60px;
+            background: var(--bg-dark);
+        }
+
+        .gratitude-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+            color: var(--text-cream);
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.9;
+            font-style: italic;
+        }
+
+        .gratitude-text strong {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* ═══ THE DIFFERENCE (Online ≠ Menos) ═══ */
+        .difference-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 640px) {
+            .difference-grid { grid-template-columns: 1fr; gap: 20px; }
+        }
+
+        .diff-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 168, 67, 0.1);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .diff-card:hover {
+            border-color: rgba(212, 168, 67, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .diff-icon { font-size: 2rem; margin-bottom: 12px; }
+
+        .diff-card h4 {
+            font-size: 1.15rem;
+            color: var(--text-cream);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .diff-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ═══ COMPARISON ═══ */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin-top: 48px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 168, 67, 0.15);
+        }
+
+        @media (max-width: 640px) {
+            .comparison { grid-template-columns: 1fr; }
+        }
+
+        .comparison-col {
+            padding: 36px 28px;
+        }
+
+        .comparison-col.before {
+            background: rgba(255, 255, 255, 0.03);
+            border-right: 1px solid rgba(212, 168, 67, 0.1);
+        }
+
+        @media (max-width: 640px) {
+            .comparison-col.before { border-right: none; border-bottom: 1px solid rgba(212, 168, 67, 0.1); }
+        }
+
+        .comparison-col.after {
+            background: rgba(212, 168, 67, 0.04);
+        }
+
+        .comparison-col h4 {
+            font-size: 1rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+        }
+
+        .comparison-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .comparison-col ul li {
+            font-size: 0.9rem;
+            color: var(--text-cream);
+            padding-left: 24px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .comparison-col.before ul li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        .comparison-col.after ul li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.7rem;
+            top: 3px;
+        }
+
+        /* ═══ TIMELINE ═══ */
+        .timeline {
+            position: relative;
+            padding-left: 48px;
+            margin-top: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(180deg, var(--gold) 0%, rgba(212, 168, 67, 0.1) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 36px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 12px var(--gold-glow);
+        }
+
+        .timeline-phase {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.2rem;
+            color: var(--text-cream);
+            margin: 4px 0 6px;
+            font-weight: 600;
+        }
+
+        .timeline-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ═══ CTA SECTION ═══ */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(107, 45, 155, 0.12) 0%, rgba(212, 168, 67, 0.05) 40%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content { position: relative; z-index: 1; }
+
+        .cta-content h2 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+
+        .cta-content h2 em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .cta-price-box {
+            display: inline-block;
+            margin: 32px auto;
+            padding: 32px 48px;
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 168, 67, 0.2);
+            border-radius: 16px;
+        }
+
+        .cta-price-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .cta-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--text-cream);
+        }
+
+        .cta-price .currency {
+            font-size: 1.5rem;
+            vertical-align: super;
+            color: var(--gold);
+            margin-right: 2px;
+        }
+
+        .cta-price-note {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .cta-regular-price {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        .cta-regular-price s { opacity: 0.5; }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--bg-deep);
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 24px;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 168, 67, 0.35);
+        }
+
+        .cta-trust {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        .cta-trust span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* ═══ QUOTE ═══ */
+        .closing-quote {
+            text-align: center;
+            padding: 64px 24px;
+            background: var(--bg-deep);
+        }
+
+        .closing-quote p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-style: italic;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .closing-quote cite {
+            display: block;
+            margin-top: 16px;
+            font-size: 0.82rem;
+            color: var(--gold);
+            font-style: normal;
+        }
+
+        /* ═══ FOOTER ═══ */
+        .footer {
+            padding: 36px 0;
+            background: #080620;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--text-cream);
+            font-weight: 600;
+        }
+
+        .footer-sub {
+            font-size: 0.65rem;
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .footer-copy {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.25);
+            margin-top: 8px;
+        }
+
+        /* ═══ ANIMATIONS ═══ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.15s; }
+        .reveal-delay-2 { transition-delay: 0.3s; }
+        .reveal-delay-3 { transition-delay: 0.45s; }
+
+        /* ═══ MOBILE ═══ */
+        @media (max-width: 640px) {
+            .hero { padding: 60px 20px; min-height: 90vh; }
+            .hero h1 { font-size: 2.2rem; }
+            .section-dark, .section-mid, .section-light, .cta-section { padding: 60px 0; }
+            .cta-price-box { padding: 24px 32px; }
+            .cta-price { font-size: 2.8rem; }
+            .timeline { padding-left: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-overline">School of Love · Invitación especial</span>
+            <h1>Gracias por<br><em>estar presente</em></h1>
+            <div class="hero-line"></div>
+            <p class="hero-message">
+                Lo que compartimos en la ceremonia del equinoccio fue extraordinario.
+                Algo se movió en todos nosotros ese día.<br><br>
+                Y ahora, eso que comenzó presencialmente quiere seguir expandiéndose.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══ GRATITUDE ═══ -->
+    <section class="gratitude reveal">
+        <div class="container">
+            <p class="gratitude-text">
+                Sabemos que la experiencia que viviste el 21 de marzo fue intensa, profunda y real.
+                Por eso queremos invitarte a algo que hemos diseñado pensando en llevarlo <strong>aún más lejos</strong>.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══ WHAT'S NEW ═══ -->
+    <section class="section-mid">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="overline">Lo que viene</span>
+                <h2>Respiración del Alma<br><em>Ceremonia Online</em></h2>
+                <p>Sábado 9 de mayo · 19:00 hrs Chile · Vía Zoom</p>
+            </div>
+
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; max-width: 580px; margin: 0 auto 16px;" class="reveal">
+                Tal vez estás pensando: <em>¿online? ¿puede ser igual de profundo?</em>
+            </p>
+            <p style="text-align: center; color: var(--text-cream); font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; max-width: 580px; margin: 0 auto;" class="reveal reveal-delay-1">
+                La respuesta honesta es: no va a ser igual.<br>
+                <strong style="color: var(--gold-light);">Va a ser distinto. Y en muchos sentidos, más profundo.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══ THE DIFFERENCE ═══ -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="overline">La diferencia</span>
+                <h2>Lo que esta vez <em>sí vas a tener</em></h2>
+                <p>En la ceremonia presencial llegaste, respiraste y te transformaste en dos horas. Pero faltaba algo. Esta vez lo incluimos.</p>
+            </div>
+
+            <div class="difference-grid">
+                <div class="diff-card reveal">
+                    <div class="diff-icon">🌬️</div>
+                    <h4>Técnicas de respiración diarias</h4>
+                    <p>Antes de la ceremonia, vas a aprender y practicar pranayama de verdad. Técnicas que te quedan para la vida, no solo para un día.</p>
+                </div>
+                <div class="diff-card reveal reveal-delay-1">
+                    <div class="diff-icon">🧘</div>
+                    <h4>Trabajo con el cuerpo</h4>
+                    <p>Ejercicios diarios de movimiento y activación corporal que van abriendo tu sistema nervioso. Llegarás a la ceremonia con el cuerpo preparado.</p>
+                </div>
+                <div class="diff-card reveal reveal-delay-2">
+                    <div class="diff-icon">📿</div>
+                    <h4>10 días de preparación</h4>
+                    <p>Cada día recibís un contenido breve por WhatsApp — videos, audios, guías. El proceso empieza antes de la ceremonia. Y eso cambia todo.</p>
+                </div>
+                <div class="diff-card reveal reveal-delay-3">
+                    <div class="diff-icon">🔮</div>
+                    <h4>Tu espacio sagrado</h4>
+                    <p>Vas a crear tu propio altar en casa. Tu espacio, tu intención, tu silencio. Hay algo poderoso en respirar donde te sentís seguro/a.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ COMPARISON ═══ -->
+    <section class="section-mid">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Del presencial al <em>viaje completo</em></h2>
+            </div>
+
+            <div class="comparison reveal">
+                <div class="comparison-col before">
+                    <h4>Ceremonia presencial</h4>
+                    <ul>
+                        <li>Llegaste al evento sin preparación previa</li>
+                        <li>2 horas de experiencia intensa</li>
+                        <li>La experiencia terminó ese día</li>
+                        <li>No hubo herramientas para llevar a casa</li>
+                    </ul>
+                </div>
+                <div class="comparison-col after">
+                    <h4>Ceremonia online · Mayo 2026</h4>
+                    <ul>
+                        <li>10 días de preparación paso a paso</li>
+                        <li>Técnicas de respiración para tu vida diaria</li>
+                        <li>Tu cuerpo llega listo, abierto, receptivo</li>
+                        <li>Herramientas que te quedan para siempre</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ THE JOURNEY ═══ -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="overline">El viaje</span>
+                <h2>Así se vive la <em>experiencia completa</em></h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <span class="timeline-phase">Días 1–3 · Despertar</span>
+                    <h4>Abriendo el cuerpo</h4>
+                    <p>Respiración básica, nutrición consciente y movimiento suave. Empezás a sentir el cambio desde el primer día.</p>
+                </div>
+                <div class="timeline-item reveal reveal-delay-1">
+                    <span class="timeline-phase">Días 4–7 · Profundizar</span>
+                    <h4>La práctica se instala</h4>
+                    <p>Meditaciones guiadas, respiración de fuego y caminata consciente. Tu capacidad respiratoria se expande notablemente.</p>
+                </div>
+                <div class="timeline-item reveal reveal-delay-2">
+                    <span class="timeline-phase">Días 8–10 · Preparación</span>
+                    <h4>Listo/a para la ceremonia</h4>
+                    <p>Práctica combinada, creación de tu intención y preparación de tu espacio sagrado. Todo listo para el gran día.</p>
+                </div>
+                <div class="timeline-item reveal reveal-delay-3">
+                    <span class="timeline-phase">Sábado 9 de mayo · 19:00</span>
+                    <h4>La Ceremonia</h4>
+                    <p>2 horas de ceremonia en vivo por Zoom. Apertura, pranayama profundo, Respiración del Alma, baño de sonido, integración y cierre. Guiada por Navkiran y Satya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cta-section" id="inscripcion">
+        <div class="container">
+            <div class="cta-content">
+                <span class="overline reveal">Tu lugar está reservado</span>
+                <h2 class="reveal">Un precio especial<br>para quienes <em>ya estuvieron</em></h2>
+
+                <div class="cta-price-box reveal reveal-delay-1">
+                    <div class="cta-price-label">Precio exclusivo ex-presenciales</div>
+                    <div class="cta-price"><span class="currency">$</span>27</div>
+                    <div class="cta-price-note">USD · Pago único</div>
+                    <div class="cta-regular-price">Precio general: <s>$47 USD</s></div>
+                </div>
+
+                <div class="reveal reveal-delay-2" style="margin-top: 32px;">
+                    <a href="https://pay.hotmart.com/K105151596T?off=018qpges" class="btn-gold" target="_blank" rel="noopener">
+                        Quiero vivir la experiencia completa
+                    </a>
+                </div>
+
+                <div class="cta-trust reveal reveal-delay-3">
+                    <span>🔒 Pago seguro</span>
+                    <span>🌬️ 10 días de preparación incluidos</span>
+                    <span>📱 Todo vía WhatsApp + Zoom</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CLOSING QUOTE ═══ -->
+    <section class="closing-quote reveal">
+        <p>
+            Lo que vivimos juntos fue solo el comienzo.<br>
+            Ahora, lo que sigue es el viaje completo.
+        </p>
+        <cite>— Navkiran &amp; Satya</cite>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="footer-brand">School of Love</div>
+        <div class="footer-sub">Navkiran &amp; Satya</div>
+        <div class="footer-copy">&copy; 2026 School of Love. Con amor desde Costa Rica.</div>
+    </footer>
+
+    <script>
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

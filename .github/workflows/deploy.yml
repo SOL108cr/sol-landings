@@ -51,6 +51,17 @@ jobs:
           accountId: 217bc3420af5e0d4007dc2336df35db2
           workingDirectory: meditacion-luz-cristica
 
+  deploy-rda-presencial:
+    name: 🙏 RDA Presencial → Online
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 217bc3420af5e0d4007dc2336df35db2
+          command: pages deploy rda-presencial --project-name=rda-presencial --branch=main
+
 # ── AGREGAR NUEVOS PROYECTOS AQUÍ ──────────────────────────────────────────
 #
 # Para un nuevo Cloudflare PAGES:
