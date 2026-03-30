@@ -5,7 +5,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# ── CLOUDFLARE PAGES ────────────────────────────────────────────────────────
 jobs:
 
   deploy-rda-ceremonia-online:
@@ -13,41 +12,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: cloudflare/pages-action@v1
+      - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 217bc3420af5e0d4007dc2336df35db2
-          projectName: rda-ceremonia-online
-          directory: rda-ceremonia-online
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy rda-ceremonia-online --project-name=rda-ceremonia-online --branch=main
 
   deploy-rda-acceso-anticipado:
     name: 🔔 RDA Acceso Anticipado
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: cloudflare/pages-action@v1
+      - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 217bc3420af5e0d4007dc2336df35db2
-          projectName: rda-acceso-anticipado
-          directory: rda-acceso-anticipado
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy rda-acceso-anticipado --project-name=rda-acceso-anticipado --branch=main
 
   deploy-comunicacion-celestial:
     name: ✨ Comunicación Celestial
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: cloudflare/pages-action@v1
+      - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 217bc3420af5e0d4007dc2336df35db2
-          projectName: comunicacion-celestial
-          directory: comunicacion-celestial
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-
-# ── CLOUDFLARE WORKERS (mecanismo diferente) ─────────────────────────────────
+          command: pages deploy comunicacion-celestial --project-name=comunicacion-celestial --branch=main
 
   deploy-meditacion-luz-cristica:
     name: 🕊️ Meditación Luz Crística (Worker)
@@ -64,10 +55,10 @@ jobs:
 #
 # Para un nuevo Cloudflare PAGES:
 #   - Copiar bloque "deploy-rda-ceremonia-online"
-#   - Cambiar: name, projectName, directory
+#   - Cambiar: name, carpeta en "pages deploy CARPETA", --project-name=NOMBRE
 #
 # Para un nuevo Cloudflare WORKER:
 #   - Copiar bloque "deploy-meditacion-luz-cristica"
-#   - Cambiar: name, workingDirectory (carpeta con wrangler.toml)
+#   - Cambiar: name, workingDirectory
 #
 # ───────────────────────────────────────────────────────────────────────────
