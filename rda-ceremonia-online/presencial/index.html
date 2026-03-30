@@ -52,12 +52,12 @@
 
         /* ═══ HERO ═══ */
         .hero {
-            min-height: 100vh;
+            min-height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 80px 24px;
+            padding: 80px 24px 56px;
             position: relative;
             background: linear-gradient(160deg, #0D0B2E 0%, #1A1450 30%, #2D1B5E 60%, #1A0E3A 100%);
             overflow: hidden;
@@ -77,11 +77,11 @@
 
         .hero-overline {
             display: inline-block;
-            font-size: 0.72rem;
+            font-size: 0.8rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             font-weight: 500;
         }
 
@@ -100,11 +100,11 @@
 
         .hero-message {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            font-size: clamp(1.2rem, 3vw, 1.45rem);
             color: var(--text-muted);
             font-style: italic;
             max-width: 560px;
-            margin: 24px auto 0;
+            margin: 20px auto 0;
             line-height: 1.8;
         }
 
@@ -112,32 +112,59 @@
             width: 60px;
             height: 1px;
             background: var(--gold);
-            margin: 32px auto;
+            margin: 24px auto;
             opacity: 0.5;
+        }
+
+        .hero-cta {
+            margin-top: 28px;
+        }
+
+        .btn-gold-sm {
+            display: inline-block;
+            padding: 14px 36px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--bg-deep);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-gold-sm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 168, 67, 0.35);
+        }
+
+        .hero-cta-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 10px;
         }
 
         /* ═══ SECTIONS SHARED ═══ */
         .section-dark {
-            padding: 80px 0;
+            padding: 56px 0;
             background: var(--bg-dark);
             position: relative;
         }
 
         .section-mid {
-            padding: 80px 0;
+            padding: 56px 0;
             background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
             position: relative;
         }
 
         .section-light {
-            padding: 80px 0;
+            padding: 56px 0;
             background: var(--bg-light);
             color: var(--text-dark);
         }
 
         .overline {
             display: block;
-            font-size: 0.7rem;
+            font-size: 0.78rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--gold);
@@ -147,11 +174,11 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 36px;
         }
 
         .section-header h2 {
-            font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+            font-size: clamp(2rem, 5vw, 2.8rem);
             font-weight: 300;
             margin-bottom: 12px;
         }
@@ -163,21 +190,21 @@
 
         .section-header p {
             color: var(--text-muted);
-            max-width: 560px;
+            max-width: 580px;
             margin: 0 auto;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
         }
 
         /* ═══ GRATITUDE SECTION ═══ */
         .gratitude {
             text-align: center;
-            padding: 80px 24px 60px;
+            padding: 48px 24px 40px;
             background: var(--bg-dark);
         }
 
         .gratitude-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
             color: var(--text-cream);
             max-width: 620px;
             margin: 0 auto;
@@ -219,14 +246,14 @@
         .diff-icon { font-size: 2rem; margin-bottom: 12px; }
 
         .diff-card h4 {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             color: var(--text-cream);
             margin-bottom: 8px;
             font-weight: 600;
         }
 
         .diff-card p {
-            font-size: 0.88rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
             line-height: 1.6;
         }
@@ -282,7 +309,7 @@
         }
 
         .comparison-col ul li {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--text-cream);
             padding-left: 24px;
             position: relative;
@@ -340,7 +367,7 @@
         }
 
         .timeline-phase {
-            font-size: 0.7rem;
+            font-size: 0.78rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--gold);
@@ -348,21 +375,21 @@
         }
 
         .timeline-item h4 {
-            font-size: 1.2rem;
+            font-size: 1.35rem;
             color: var(--text-cream);
             margin: 4px 0 6px;
             font-weight: 600;
         }
 
         .timeline-item p {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--text-muted);
             line-height: 1.6;
         }
 
         /* ═══ CTA SECTION ═══ */
         .cta-section {
-            padding: 100px 0;
+            padding: 64px 0;
             text-align: center;
             background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
             position: relative;
@@ -464,7 +491,7 @@
         }
 
         .cta-trust span {
-            font-size: 0.78rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
         }
 
@@ -477,7 +504,7 @@
 
         .closing-quote p {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
             font-style: italic;
             color: var(--text-muted);
             max-width: 520px;
@@ -524,22 +551,58 @@
         /* ═══ ANIMATIONS ═══ */
         .reveal {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .reveal.visible { opacity: 1; transform: translateY(0); }
         .reveal-delay-1 { transition-delay: 0.15s; }
         .reveal-delay-2 { transition-delay: 0.3s; }
         .reveal-delay-3 { transition-delay: 0.45s; }
 
+        /* Slide from left */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+        /* Scale up */
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
         /* ═══ MOBILE ═══ */
         @media (max-width: 640px) {
-            .hero { padding: 60px 20px; min-height: 90vh; }
-            .hero h1 { font-size: 2.2rem; }
-            .section-dark, .section-mid, .section-light, .cta-section { padding: 60px 0; }
+            html { font-size: 17px; }
+            .hero { padding: 56px 20px 40px; min-height: auto; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero-message { font-size: 1.15rem; }
+            .section-dark, .section-mid, .section-light { padding: 44px 0; }
+            .cta-section { padding: 52px 0; }
+            .section-header { margin-bottom: 28px; }
+            .section-header h2 { font-size: 1.9rem; }
+            .section-header p { font-size: 1rem; }
+            .gratitude { padding: 36px 20px 28px; }
+            .gratitude-text { font-size: 1.15rem; }
+            .diff-card { padding: 24px 20px; }
+            .diff-card h4 { font-size: 1.15rem; }
+            .diff-card p { font-size: 0.95rem; }
+            .comparison-col { padding: 28px 20px; }
+            .comparison-col h4 { font-size: 0.75rem; }
+            .comparison-col ul li { font-size: 0.98rem; }
             .cta-price-box { padding: 24px 32px; }
-            .cta-price { font-size: 2.8rem; }
+            .cta-price { font-size: 3rem; }
+            .cta-trust { gap: 16px; }
+            .cta-trust span { font-size: 0.85rem; }
             .timeline { padding-left: 36px; }
+            .timeline-item h4 { font-size: 1.2rem; }
+            .timeline-item p { font-size: 0.95rem; }
+            .closing-quote { padding: 44px 20px; }
+            .closing-quote p { font-size: 1.15rem; }
         }
     </style>
 </head>
@@ -556,6 +619,10 @@
                 Algo se movió en todos nosotros ese día.<br><br>
                 Y ahora, eso que comenzó presencialmente quiere seguir expandiéndose.
             </p>
+            <div class="hero-cta">
+                <a href="https://pay.hotmart.com/K105151596T?off=018qpges" class="btn-gold-sm" target="_blank" rel="noopener">Sí, quiero participar — $27</a>
+                <p class="hero-cta-note">o seguí leyendo para conocer todos los detalles</p>
+            </div>
         </div>
     </section>
 
@@ -578,10 +645,10 @@
                 <p>Sábado 9 de mayo · 19:00 hrs Chile · Vía Zoom</p>
             </div>
 
-            <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; max-width: 580px; margin: 0 auto 16px;" class="reveal">
+            <p style="text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 580px; margin: 0 auto 16px;" class="reveal">
                 Tal vez estás pensando: <em>¿online? ¿puede ser igual de profundo?</em>
             </p>
-            <p style="text-align: center; color: var(--text-cream); font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; max-width: 580px; margin: 0 auto;" class="reveal reveal-delay-1">
+            <p style="text-align: center; color: var(--text-cream); font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; max-width: 580px; margin: 0 auto;" class="reveal reveal-delay-1">
                 La respuesta honesta es: no va a ser igual.<br>
                 <strong style="color: var(--gold-light);">Va a ser distinto. Y en muchos sentidos, más profundo.</strong>
             </p>
@@ -629,7 +696,7 @@
                 <h2>Del presencial al <em>viaje completo</em></h2>
             </div>
 
-            <div class="comparison reveal">
+            <div class="comparison reveal-scale">
                 <div class="comparison-col before">
                     <h4>Ceremonia presencial</h4>
                     <ul>
@@ -661,22 +728,22 @@
             </div>
 
             <div class="timeline">
-                <div class="timeline-item reveal">
+                <div class="timeline-item reveal-left">
                     <span class="timeline-phase">Días 1–3 · Despertar</span>
                     <h4>Abriendo el cuerpo</h4>
                     <p>Respiración básica, nutrición consciente y movimiento suave. Empezás a sentir el cambio desde el primer día.</p>
                 </div>
-                <div class="timeline-item reveal reveal-delay-1">
+                <div class="timeline-item reveal-left reveal-delay-1">
                     <span class="timeline-phase">Días 4–7 · Profundizar</span>
                     <h4>La práctica se instala</h4>
                     <p>Meditaciones guiadas, respiración de fuego y caminata consciente. Tu capacidad respiratoria se expande notablemente.</p>
                 </div>
-                <div class="timeline-item reveal reveal-delay-2">
+                <div class="timeline-item reveal-left reveal-delay-2">
                     <span class="timeline-phase">Días 8–10 · Preparación</span>
                     <h4>Listo/a para la ceremonia</h4>
                     <p>Práctica combinada, creación de tu intención y preparación de tu espacio sagrado. Todo listo para el gran día.</p>
                 </div>
-                <div class="timeline-item reveal reveal-delay-3">
+                <div class="timeline-item reveal-left reveal-delay-3">
                     <span class="timeline-phase">Sábado 9 de mayo · 19:00</span>
                     <h4>La Ceremonia</h4>
                     <p>2 horas de ceremonia en vivo por Zoom. Apertura, pranayama profundo, Respiración del Alma, baño de sonido, integración y cierre. Guiada por Navkiran y Satya.</p>
@@ -731,18 +798,19 @@
     </footer>
 
     <script>
-        // Reveal on scroll — robust version
+        // Reveal on scroll — robust version with multiple animation types
+        const animSelectors = '.reveal:not(.visible), .reveal-left:not(.visible), .reveal-scale:not(.visible)';
+
         function revealElements() {
-            const els = document.querySelectorAll('.reveal:not(.visible)');
-            els.forEach(el => {
+            document.querySelectorAll(animSelectors).forEach(el => {
                 const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 40) {
+                if (rect.top < window.innerHeight - 30) {
                     el.classList.add('visible');
                 }
             });
         }
 
-        // Use IntersectionObserver where supported, with scroll fallback
+        // IntersectionObserver for smooth detection
         if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -750,16 +818,18 @@
                         entry.target.classList.add('visible');
                     }
                 });
-            }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
+
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => observer.observe(el));
         }
 
-        // Fallback: also check on scroll and on load
+        // Fallback: scroll + load
         window.addEventListener('scroll', revealElements, { passive: true });
         window.addEventListener('resize', revealElements, { passive: true });
         document.addEventListener('DOMContentLoaded', () => {
             revealElements();
-            setTimeout(revealElements, 300);
+            setTimeout(revealElements, 200);
+            setTimeout(revealElements, 600);
         });
         revealElements();
     </script>
