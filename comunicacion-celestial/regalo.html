@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Regalo: Los 3 Mantras Sagrados &mdash; School of Love</title>
+    <meta name="description" content="Descarga gratis la Gu&iacute;a de los 3 Mantras Sagrados para prepararte para tu primera Comunicaci&oacute;n Celestial.">
+    <meta property="og:title" content="Los 3 Mantras Sagrados &mdash; Gu&iacute;a Gratuita">
+    <meta property="og:description" content="Descarga gratis la gu&iacute;a de preparaci&oacute;n para tu primera Comunicaci&oacute;n Celestial.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://comunicacion-celestial.schooloflove.cl/img/og-image.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #6B3FA0;
+            --purple-dark: #4A2B70;
+            --purple-deep: #2D1B69;
+            --purple-light: #F3EEFB;
+            --gold: #C9A227;
+            --gold-light: #F5EED4;
+            --dark: #1A1A2E;
+            --cream: #FAF8F5;
+            --text: #333340;
+            --text-light: #6B6B80;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: linear-gradient(180deg, #F5F0FA 0%, var(--cream) 30%, var(--cream) 100%);
+            line-height: 1.7;
+            font-weight: 300;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.2; }
+
+        /* ======== HERO ======== */
+        .hero {
+            background: linear-gradient(135deg, rgba(26,26,46,0.92) 0%, rgba(45,27,105,0.88) 50%, rgba(74,43,112,0.85) 100%);
+            color: white;
+            padding: 60px 24px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 40% 50%, rgba(201,162,39,0.06) 0%, transparent 50%),
+                        radial-gradient(ellipse at 60% 30%, rgba(107,63,160,0.12) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+        @keyframes float { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-2%,2%); } }
+
+        .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201,162,39,0.15);
+            border: 1px solid rgba(201,162,39,0.3);
+            color: var(--gold);
+            padding: 6px 20px;
+            border-radius: 24px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            margin-bottom: 16px;
+        }
+        .hero h1 em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 550px;
+            margin: 0 auto 8px;
+            font-weight: 300;
+        }
+
+        .hero-brand {
+            font-size: 0.8rem;
+            opacity: 0.5;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* ======== MAIN CONTENT ======== */
+        .main-section {
+            max-width: 660px;
+            margin: 0 auto;
+            padding: 40px 24px 36px;
+            text-align: center;
+        }
+
+        .gift-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--purple-deep), var(--purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 30px rgba(107,63,160,0.2);
+        }
+        .gift-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--gold);
+        }
+
+        .main-section h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            color: var(--purple-deep);
+            margin-bottom: 12px;
+        }
+
+        .main-section .description {
+            font-size: 0.97rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            line-height: 1.75;
+        }
+
+        /* ======== MANTRA CARDS ======== */
+        .mantra-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 28px 0 32px;
+            text-align: left;
+        }
+
+        .mantra-card {
+            background: linear-gradient(135deg, var(--purple-deep) 0%, #3d2480 100%);
+            border-radius: 12px;
+            padding: 22px 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 6px 24px rgba(45,27,105,0.25);
+            border: 1px solid rgba(201,162,39,0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .mantra-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.6;
+        }
+        .mantra-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px rgba(45,27,105,0.35);
+        }
+
+        .mantra-num {
+            width: 44px;
+            height: 44px;
+            background: rgba(201,162,39,0.15);
+            border: 1.5px solid rgba(201,162,39,0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .mantra-card-body {
+            flex: 1;
+        }
+        .mantra-card-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.35rem, 3vw, 1.65rem);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 5px;
+            letter-spacing: 0.02em;
+        }
+        .mantra-card-label {
+            display: inline-block;
+            background: rgba(201,162,39,0.18);
+            color: var(--gold);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 6px;
+        }
+        .mantra-card-desc {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+        }
+
+        /* ======== DOWNLOAD BUTTON ======== */
+        .download-area {
+            margin: 10px 0 0;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold), #D4AF37);
+            color: var(--purple-deep);
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(201,162,39,0.3);
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(201,162,39,0.4);
+        }
+        .btn-download svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--purple-deep);
+        }
+
+        /* ======== SUCCESS STATE ======== */
+        .success-state {
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+        .success-state.visible {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-check {
+            width: 56px;
+            height: 56px;
+            background: #22C55E;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            animation: scaleIn 0.4s ease;
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+        .success-check svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .success-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--purple-deep);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .success-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        .success-hint {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+
+        .retry-link {
+            font-size: 0.82rem;
+            color: var(--purple);
+            text-decoration: underline;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 4px;
+            background: none;
+            border: none;
+            font-family: inherit;
+        }
+
+        /* ======== TRANSITION / CTA TO MAIN LP ======== */
+        .transition-section {
+            display: none;
+            background: linear-gradient(135deg, var(--purple-deep), var(--purple-dark));
+            color: white;
+            padding: 45px 24px;
+            text-align: center;
+            animation: fadeInUp 0.6s ease;
+            margin-top: 40px;
+        }
+        .transition-section.visible {
+            display: block;
+        }
+
+        .transition-inner {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .transition-divider {
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto 20px;
+        }
+
+        .transition-section h3 {
+            font-size: clamp(1.4rem, 3vw, 1.9rem);
+            margin-bottom: 14px;
+            color: var(--gold);
+        }
+
+        .transition-section p {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 24px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .btn-discover {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold);
+            color: var(--purple-deep);
+            padding: 14px 36px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(201,162,39,0.25);
+        }
+        .btn-discover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(201,162,39,0.4);
+        }
+        .btn-discover svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--purple-deep);
+        }
+
+        .transition-note {
+            font-size: 0.78rem;
+            opacity: 0.45;
+            margin-top: 16px;
+        }
+
+        /* ======== FOOTER ======== */
+        footer {
+            text-align: center;
+            padding: 30px 24px;
+            font-size: 0.78rem;
+            color: var(--text-light);
+            opacity: 0.6;
+        }
+
+        /* ======== RESPONSIVE ======== */
+        @media (max-width: 480px) {
+            .hero { padding: 45px 20px 35px; }
+            .main-section { padding: 30px 16px 28px; }
+            .btn-download { padding: 14px 24px; font-size: 0.95rem; width: 100%; justify-content: center; }
+            .mantra-cards { gap: 12px; margin: 22px 0 26px; }
+            .mantra-card { padding: 18px 18px; gap: 14px; }
+            .mantra-card-name { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">School of Love &middot; Regalo para ti</div>
+            <h1>Los 3 <em>Mantras Sagrados</em></h1>
+            <p class="hero-subtitle">
+                Gu&iacute;a de preparaci&oacute;n para tu primera Comunicaci&oacute;n Celestial
+            </p>
+            <p class="hero-brand">NAVKIRAN KAUR &middot; INSTRUCTORA CERTIFICADA KRI</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-section">
+
+        <div class="gift-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 7h-1.209A4.92 4.92 0 0 0 19 5.5C19 3.57 17.43 2 15.5 2c-1.622 0-2.705 1.482-3.404 3.085C11.498 3.527 10.39 2 8.5 2 6.57 2 5 3.57 5 5.5c0 .596.079 1.089.209 1.5H4c-1.103 0-2 .897-2 2v2c0 .55.447 1 1 1h2v7c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-7h2c.553 0 1-.45 1-1V9c0-1.103-.897-2-2-2zm-4.5-3c.827 0 1.5.673 1.5 1.5C17 6.327 16.327 7 15.5 7H13c.252-1.727 1.178-3 2.5-3zM7 5.5C7 4.673 7.673 4 8.5 4c1.322 0 2.248 1.273 2.5 3H8.5C7.673 7 7 6.327 7 5.5zM4 9h7v2H4V9zm3 10v-7h4v7H7zm10 0h-4v-7h4v7zm-1-9h-3V9h7l.001 2H17z"/></svg>
+        </div>
+
+        <h2>Preparamos algo especial para ti</h2>
+
+        <p class="description">
+            Dentro de esta gu&iacute;a vas a encontrar la historia, el significado
+            y los efectos de los 3 mantras que vamos a practicar en el taller
+            de Comunicaci&oacute;n Celestial:
+        </p>
+
+        <div class="mantra-cards">
+
+            <div class="mantra-card">
+                <div class="mantra-num">1</div>
+                <div class="mantra-card-body">
+                    <div class="mantra-card-label">Sesi&oacute;n 1 &middot; 2 de Abril</div>
+                    <div class="mantra-card-name">Ra Ma Da Sa</div>
+                    <div class="mantra-card-desc">El mantra de sanaci&oacute;n &mdash; conecta tu cuerpo con la energ&iacute;a del universo</div>
+                </div>
+            </div>
+
+            <div class="mantra-card">
+                <div class="mantra-num">2</div>
+                <div class="mantra-card-body">
+                    <div class="mantra-card-label">Sesi&oacute;n 2 &middot; 9 de Abril</div>
+                    <div class="mantra-card-name">Humee Hum Tumee Tum</div>
+                    <div class="mantra-card-desc">El mantra de la unidad &mdash; disuelve la separaci&oacute;n entre t&uacute; y lo divino</div>
+                </div>
+            </div>
+
+            <div class="mantra-card">
+                <div class="mantra-num">3</div>
+                <div class="mantra-card-body">
+                    <div class="mantra-card-label">Sesi&oacute;n 3 &middot; 16 de Abril</div>
+                    <div class="mantra-card-name">Wahe Guru Wahe Jio</div>
+                    <div class="mantra-card-desc">El mantra de la expansi&oacute;n &mdash; abre tu conciencia al &eacute;xtasis interior</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Download area: initial state -->
+        <div class="download-area" id="downloadArea">
+            <button class="btn-download" id="btnDownload" onclick="handleDownload()">
+                <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4h14v2H5v-2z"/></svg>
+                Descargar mi Gu&iacute;a Gratuita
+            </button>
+        </div>
+
+        <!-- Success state: appears after download -->
+        <div class="success-state" id="successState">
+            <div class="success-check">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            </div>
+            <div class="success-title">&iexcl;Tu gu&iacute;a se descarg&oacute;!</div>
+            <p class="success-subtitle">Rev&iacute;sala en tu carpeta de <strong>Descargas</strong></p>
+            <p class="success-hint">Es un PDF de 5 p&aacute;ginas con todo lo que necesitas saber.</p>
+            <button class="retry-link" onclick="handleDownload()">&iquest;No la ves? Haz clic aqu&iacute; para descargarla de nuevo</button>
+        </div>
+
+    </section>
+
+    <!-- TRANSITION TO MAIN LANDING (appears after download) -->
+    <section class="transition-section" id="transitionSection">
+        <div class="transition-inner">
+            <div class="transition-divider"></div>
+            <h3>Ahora te queremos invitar a algo especial</h3>
+            <p>
+                Estos 3 mantras cobran vida cuando los practicas en
+                <strong>Comunicaci&oacute;n Celestial</strong> &mdash; una meditaci&oacute;n en
+                movimiento donde tu cuerpo se mueve, tu mente se aquieta
+                y tu coraz&oacute;n se abre.
+            </p>
+            <p>
+                Navkiran te gu&iacute;a en vivo en 3 sesiones donde
+                vas a experimentar cada uno de estos mantras en tu propio cuerpo.
+            </p>
+            <a href="https://comunicacion-celestial.schooloflove.cl" class="btn-discover">
+                Quiero saber m&aacute;s
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg>
+            </a>
+            <p class="transition-note">School of Love &middot; Navkiran Kaur</p>
+        </div>
+    </section>
+
+    <footer>
+        School of Love &middot; @schooloflove_sol &middot; schooloflove.cl
+    </footer>
+
+    <script>
+        // URL del PDF - actualizar cuando se suba a Cloudflare
+        const PDF_URL = 'Los_3_Mantras_Sagrados_Guia.pdf';
+
+        function handleDownload() {
+            // Trigger the download
+            const link = document.createElement('a');
+            link.href = PDF_URL;
+            link.download = 'Los_3_Mantras_Sagrados_Guia_SchoolOfLove.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Show success state
+            document.getElementById('downloadArea').style.display = 'none';
+            document.getElementById('successState').classList.add('visible');
+
+            // Show transition section after a brief pause
+            setTimeout(function() {
+                document.getElementById('transitionSection').classList.add('visible');
+
+                // Smooth scroll to transition section
+                setTimeout(function() {
+                    document.getElementById('transitionSection').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }, 300);
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>

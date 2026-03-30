@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masterclass Gratuita — Kundalini Yoga | School of Love</title>
+<meta name="description" content="Descubre en esta Masterclass gratuita de 2 horas la tecnología ancestral que ha transformado miles de vidas. Meditación guiada, enseñanzas profundas y testimonios reales.">
+<meta property="og:title" content="Masterclass Gratuita — Kundalini Yoga">
+<meta property="og:description" content="2 horas que pueden cambiar tu vida para siempre. Meditación guiada + enseñanzas + testimonios reales.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1a1a2e;
+  line-height: 1.7;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════ */
+.font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; line-height: 1.2; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+h3 { font-size: clamp(1.3rem, 3vw, 1.8rem); }
+p { font-size: 1.05rem; margin-bottom: 1rem; }
+
+/* ═══════════════════════════════════════════════════════════
+   COLORS
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --purple-deep: #2d1b3d;
+  --purple: #4a2545;
+  --purple-light: #6b3a6b;
+  --gold: #c9a84c;
+  --gold-light: #e8d5a0;
+  --gold-glow: #f5ecd7;
+  --cream: #faf7f2;
+  --warm-gray: #f7f5f2;
+  --text: #1a1a2e;
+  --text-light: #555;
+  --green-wa: #25D366;
+  --green-wa-dark: #1ea952;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════════════ */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+.container-narrow { max-width: 750px; margin: 0 auto; padding: 0 1.5rem; }
+section { padding: 5rem 0; }
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(170deg, var(--purple-deep) 0%, #1a0a2e 40%, #0d0618 100%);
+  overflow: hidden;
+  padding: 2rem 1.5rem;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 30%, rgba(107, 58, 107, 0.12) 0%, transparent 50%);
+  animation: pulse 8s ease-in-out infinite;
+}
+.hero-content { position: relative; z-index: 2; max-width: 800px; }
+.hero-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease 0.3s both;
+}
+.hero h1 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease 0.5s both;
+}
+.hero h1 em {
+  color: var(--gold);
+  font-style: italic;
+}
+.hero-subtitle {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  animation: fadeInUp 1s ease 0.7s both;
+}
+.hero-cta {
+  animation: fadeInUp 1s ease 0.9s both;
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.4);
+  font-size: 0.85rem;
+  animation: fadeIn 1s ease 1.5s both;
+}
+.scroll-hint span {
+  display: block;
+  margin-top: 0.5rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════════ */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  letter-spacing: 0.5px;
+}
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, #d4b45c 100%);
+  color: var(--purple-deep);
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.35);
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.5);
+}
+.btn-purple {
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(74, 37, 69, 0.3);
+}
+.btn-purple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(74, 37, 69, 0.45);
+}
+.btn-whatsapp {
+  background: var(--green-wa);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+  font-size: 1.1rem;
+  padding: 1.1rem 2.8rem;
+}
+.btn-whatsapp:hover {
+  background: var(--green-wa-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+}
+.btn-whatsapp svg {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--purple);
+  border: 2px solid var(--purple);
+}
+.btn-outline:hover {
+  background: var(--purple);
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INTRO + TRUST BAR
+   ═══════════════════════════════════════════════════════════ */
+.intro { background: #fff; text-align: center; }
+.intro h2 { color: var(--purple); margin-bottom: 1.5rem; }
+.intro p { color: var(--text-light); max-width: 650px; margin: 0 auto 1rem; font-size: 1.1rem; }
+
+.trust-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 3rem;
+  background: var(--cream);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+.trust-item {
+  padding: 2rem 1rem;
+  text-align: center;
+  background: #fff;
+}
+.trust-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.trust-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 0.3rem;
+  line-height: 1.3;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   VIDEO / GATED CONTENT
+   ═══════════════════════════════════════════════════════════ */
+.video-section {
+  background: linear-gradient(180deg, #fff 0%, var(--cream) 100%);
+  text-align: center;
+}
+.video-section h2 { color: var(--purple); margin-bottom: 0.5rem; }
+.video-subtitle {
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+/* Gate overlay */
+.video-gate-wrapper {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.15);
+}
+.video-preview {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--purple-deep), #1a0a2e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.video-preview::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(201,168,76,0.1) 0%, transparent 70%);
+}
+.play-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(201, 168, 76, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.play-icon::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 25px solid var(--purple-deep);
+  margin-left: 5px;
+}
+
+/* Gate form overlay */
+.gate-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 10, 46, 0.92);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 1.5rem;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.gate-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.gate-form-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.gate-form-card h3 {
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+.gate-form-card .gate-subtitle {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+.gate-form-card .privacy-note {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 1rem;
+}
+
+/* Form styles */
+.form-group { margin-bottom: 1rem; text-align: left; }
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
+  background: #fafafa;
+}
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--gold);
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+}
+.btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Video embed (shown after gate) */
+.video-embed {
+  display: none;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+.video-embed.active { display: block; }
+.video-preview.hidden-preview { display: none; }
+
+.video-benefits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 700px;
+  margin: 2.5rem auto 0;
+  text-align: left;
+}
+.benefit-item {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+.benefit-icon {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TESTIMONIALS
+   ═══════════════════════════════════════════════════════════ */
+.testimonials {
+  background: var(--cream);
+  text-align: center;
+}
+.testimonials h2 { color: var(--purple); margin-bottom: 0.3rem; }
+.testimonials .section-subtitle {
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 750px;
+  margin: 0 auto;
+}
+.testimonial-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-left: 4px solid var(--gold);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+.testimonial-card:hover { transform: translateY(-3px); }
+.testimonial-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--purple);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+.testimonial-author { font-weight: 600; color: var(--text); font-size: 0.95rem; }
+.testimonial-detail { color: var(--text-light); font-size: 0.85rem; }
+
+/* ═══════════════════════════════════════════════════════════
+   FORMATION INFO
+   ═══════════════════════════════════════════════════════════ */
+.formation { background: #fff; }
+.formation-header { text-align: center; margin-bottom: 3rem; }
+.formation-header h2 { color: var(--purple); margin-bottom: 0.5rem; }
+.formation-badges {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+}
+.badge {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  background: var(--gold-glow);
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+.facts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+.fact-item {
+  padding: 1.3rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.fact-item:nth-child(odd) { border-right: 1px solid #f0f0f0; }
+.fact-icon { font-size: 1.5rem; flex-shrink: 0; }
+.fact-label { font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; }
+.fact-value { font-weight: 600; color: var(--text); font-size: 1rem; }
+.formation-quote {
+  text-align: center;
+  max-width: 650px;
+  margin: 3rem auto 0;
+  padding: 2rem;
+  background: var(--gold-glow);
+  border-radius: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--purple);
+}
+.payment-note {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--green-wa-dark);
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOR WHOM
+   ═══════════════════════════════════════════════════════════ */
+.for-whom {
+  background: var(--cream);
+  text-align: center;
+}
+.for-whom h2 { color: var(--purple); margin-bottom: 2.5rem; }
+.for-whom-list {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: left;
+}
+.for-whom-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.for-whom-item:last-child { border-bottom: none; }
+.check-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--gold-glow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 0.1rem;
+}
+.for-whom-text { font-size: 1.05rem; color: var(--text); line-height: 1.5; }
+.for-whom-note {
+  margin-top: 2.5rem;
+  padding: 1.5rem 2rem;
+  background: #fff;
+  border-radius: 12px;
+  border-left: 4px solid var(--gold);
+  font-style: italic;
+  color: var(--purple);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GUIDES
+   ═══════════════════════════════════════════════════════════ */
+.guides { background: #fff; text-align: center; }
+.guides h2 { color: var(--purple); margin-bottom: 2.5rem; }
+.guides-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.guide-card {
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--cream);
+  transition: transform 0.3s;
+}
+.guide-card:hover { transform: translateY(-3px); }
+.guide-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--purple-light));
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.guide-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--purple); }
+.guide-role { color: var(--gold); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin: 0.3rem 0 0.8rem; }
+.guide-bio { color: var(--text-light); font-size: 0.9rem; line-height: 1.5; }
+.guide-card-full {
+  grid-column: 1 / -1;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.association-note {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FINAL CTA
+   ═══════════════════════════════════════════════════════════ */
+.final-cta {
+  background: linear-gradient(170deg, var(--purple-deep) 0%, #1a0a2e 100%);
+  text-align: center;
+  padding: 6rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 50%);
+}
+.final-cta-content { position: relative; z-index: 2; }
+.final-cta h2 { color: #fff; margin-bottom: 1.5rem; }
+.final-cta h2 em { color: var(--gold); font-style: italic; }
+.final-cta p { color: rgba(255,255,255,0.8); font-size: 1.15rem; max-width: 550px; margin: 0 auto; }
+.final-cta .cta-group {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.final-cta .urgency-badge {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.or-divider {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+.final-cta .secondary-text {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+footer {
+  background: #0d0618;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.footer-locations { font-size: 0.9rem; margin-bottom: 1.5rem; }
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.footer-socials a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+.footer-socials a:hover { color: var(--gold); }
+.footer-contact { font-size: 0.85rem; }
+.footer-contact a { color: var(--gold-light); text-decoration: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   SUCCESS MESSAGE
+   ═══════════════════════════════════════════════════════════ */
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 1rem;
+}
+.success-message.show { display: block; }
+.success-message h3 {
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+}
+.success-message p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  section { padding: 3.5rem 0; }
+
+  .trust-bar { grid-template-columns: 1fr 1fr; }
+
+  .video-benefits { grid-template-columns: 1fr; }
+
+  .facts-grid { grid-template-columns: 1fr; }
+  .fact-item:nth-child(odd) { border-right: none; }
+
+  .guides-grid { grid-template-columns: 1fr; }
+  .guide-card-full { max-width: none; }
+
+  /* FIX: Allow form to be fully visible on mobile */
+  .video-gate-wrapper { overflow: visible; }
+  .gate-overlay {
+    position: relative;
+    inset: auto;
+    min-height: 100%;
+    overflow-y: auto;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  .video-preview { display: none; }
+  .gate-form-card {
+    padding: 1.5rem 1.2rem;
+    max-width: 100%;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+  .gate-form-card h3 { font-size: 1.3rem; }
+  .gate-form-card .gate-subtitle { font-size: 0.85rem; margin-bottom: 1rem; }
+  .form-group { margin-bottom: 0.75rem; }
+  .form-group input, .form-group select { padding: 0.6rem 0.8rem; font-size: 0.9rem; }
+  .btn-submit { padding: 0.8rem; font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .trust-bar { grid-template-columns: 1fr 1fr; }
+  .trust-number { font-size: 1.8rem; }
+
+  .hero-badge { font-size: 0.75rem; letter-spacing: 2px; padding: 0.4rem 1rem; }
+
+  .btn { padding: 0.85rem 1.8rem; font-size: 0.95rem; }
+  .btn-whatsapp { padding: 0.95rem 2rem; font-size: 1rem; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STICKY MOBILE CTA
+   ═══════════════════════════════════════════════════════════ */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 0.8rem 1.5rem;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  z-index: 100;
+  text-align: center;
+}
+.sticky-cta.visible { display: block; }
+.sticky-cta .btn { width: 100%; max-width: 400px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-content">
+    <div class="hero-badge">School of Love</div>
+    <h1>¿Alguna vez has sentido que hay algo <em>poderoso</em> dormido dentro de ti?</h1>
+    <p class="hero-subtitle">Descubre en esta Masterclass gratuita la tecnología ancestral que ha transformado miles de vidas en todo el mundo.</p>
+    <div class="hero-cta">
+      <a href="#masterclass" class="btn btn-gold">Ver Masterclass Gratuita</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>▼</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     INTRO + TRUST
+     ═══════════════════════════════════════════════════════════ -->
+<section class="intro" id="intro">
+  <div class="container-narrow">
+    <div class="animate-on-scroll">
+      <h2 class="font-serif">Esta Masterclass no es una clase común.<br>Es una <em>experiencia.</em></h2>
+      <p>Durante más de 2 horas, Satya te guiará por un viaje profundo donde no solo aprenderás sobre Kundalini Yoga — lo sentirás en tu propio cuerpo.</p>
+      <p>Incluye una meditación guiada en vivo, enseñanzas sobre la historia y filosofía de esta práctica milenaria, y los testimonios reales de personas cuyas vidas cambiaron después de decir "sí" a este camino.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="trust-bar animate-on-scroll">
+      <div class="trust-item">
+        <div class="trust-number">+20</div>
+        <div class="trust-label">años formando<br>instructores</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">+500</div>
+        <div class="trust-label">alumnos<br>certificados</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">KRI+YAI</div>
+        <div class="trust-label">certificación<br>internacional</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">100%</div>
+        <div class="trust-label">online<br>en vivo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MASTERCLASS VIDEO (GATED)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="video-section" id="masterclass">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <h2 class="font-serif">Tu Masterclass Gratuita</h2>
+      <div class="video-subtitle">Kundalini Yoga: El Despertar de Tu Poder Interior</div>
+    </div>
+
+    <div class="video-gate-wrapper animate-on-scroll" id="videoWrapper">
+      <!-- Preview background -->
+      <div class="video-preview" id="videoPreview">
+        <div class="play-icon"></div>
+      </div>
+
+      <!-- Gate form overlay -->
+      <div class="gate-overlay" id="gateOverlay">
+        <div class="gate-form-card">
+          <h3 class="font-serif">Accede a tu Masterclass</h3>
+          <p class="gate-subtitle">Déjanos tus datos para ver la Masterclass completa de forma gratuita.</p>
+          <form id="gateForm" onsubmit="handleGateSubmit(event)">
+            <div class="form-group">
+              <label for="gate-name">Tu nombre</label>
+              <input type="text" id="gate-name" name="nombre" required placeholder="¿Cómo te llamas?">
+            </div>
+            <div class="form-group">
+              <label for="gate-email">Tu email</label>
+              <input type="email" id="gate-email" name="email" required placeholder="tu@email.com">
+            </div>
+            <div class="form-group">
+              <label for="gate-country">Tu país</label>
+              <input type="text" id="gate-country" name="pais" required placeholder="¿Desde dónde nos ves?">
+            </div>
+            <div class="form-group">
+              <label for="gate-yoga">¿Has practicado yoga antes?</label>
+              <select id="gate-yoga" name="experiencia_yoga">
+                <option value="">Selecciona...</option>
+                <option value="no">No, nunca</option>
+                <option value="poco">Sí, un poco</option>
+                <option value="regular">Sí, practico regularmente</option>
+                <option value="instructor">Soy instructor/a de yoga</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-gold btn-submit">Ver Masterclass Ahora</button>
+            <p class="privacy-note">🔒 Tus datos están seguros. No compartimos tu información con terceros.</p>
+          </form>
+          <div class="success-message" id="successMessage">
+            <h3 class="font-serif">¡Bienvenida! ✨</h3>
+            <p>Preparando tu Masterclass...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actual YouTube embed (hidden until form submitted) -->
+      <iframe
+        class="video-embed"
+        id="videoEmbed"
+        src=""
+        data-src=""
+        title="Masterclass Kundalini Yoga"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="video-benefits animate-on-scroll">
+      <div class="benefit-item">
+        <span class="benefit-icon">✨</span>
+        <span>Meditación guiada para sentir la energía Kundalini en tu propio cuerpo</span>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">✨</span>
+        <span>La historia secreta detrás de esta práctica milenaria</span>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">✨</span>
+        <span>Testimonios reales de alumnos que transformaron su vida</span>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">✨</span>
+        <span>El camino para convertirte en instructor/a certificado/a</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     TESTIMONIALS
+     ═══════════════════════════════════════════════════════════ -->
+<section class="testimonials" id="testimonios">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <h2 class="font-serif">Ellos ya dieron el paso</h2>
+      <p class="section-subtitle">Y sus vidas no volvieron a ser las mismas</p>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card animate-on-scroll">
+        <p class="testimonial-quote">"Yo me sentía estancada, desmotivada... había llegado a un tope. Recibí una clase de Kundalini y me cambió la vida. No entendí nada, pero lo que percibí fue algo increíble."</p>
+        <p class="testimonial-author">— Cindy</p>
+        <p class="testimonial-detail">Profesora de Yoga (Costa Rica) · 9 años de experiencia</p>
+      </div>
+
+      <div class="testimonial-card animate-on-scroll">
+        <p class="testimonial-quote">"En una meditación muy profunda recibí una voz clara que me dijo: enséñales. El proceso de formación ha sido increíble, mágico, poderoso."</p>
+        <p class="testimonial-author">— Andrea</p>
+        <p class="testimonial-detail">Alumna de la Formación de Instructores</p>
+      </div>
+
+      <div class="testimonial-card animate-on-scroll">
+        <p class="testimonial-quote">"La misma energía te sostiene. No necesitas ser flexible. El pranayama te sostiene, el mantra te sostiene, la meditación te sostiene."</p>
+        <p class="testimonial-author">— Valentina</p>
+        <p class="testimonial-detail">Sobre los miedos antes de empezar</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FORMATION INFO
+     ═══════════════════════════════════════════════════════════ -->
+<section class="formation" id="formacion">
+  <div class="container">
+    <div class="formation-header animate-on-scroll">
+      <h2 class="font-serif">Formación de Maestros de<br>Kundalini Yoga 2026</h2>
+      <div class="formation-badges">
+        <span class="badge">200 horas</span>
+        <span class="badge">Certificación Internacional</span>
+        <span class="badge">100% Online en Vivo</span>
+      </div>
+    </div>
+
+    <div class="facts-grid animate-on-scroll">
+      <div class="fact-item">
+        <span class="fact-icon">📅</span>
+        <div>
+          <div class="fact-label">Inicio</div>
+          <div class="fact-value">25 de Abril 2026</div>
+        </div>
+      </div>
+      <div class="fact-item">
+        <span class="fact-icon">🕐</span>
+        <div>
+          <div class="fact-label">Duración</div>
+          <div class="fact-value">8 módulos (Abr - Oct)</div>
+        </div>
+      </div>
+      <div class="fact-item">
+        <span class="fact-icon">🏆</span>
+        <div>
+          <div class="fact-label">Certificación</div>
+          <div class="fact-value">KRI (USA) + Yoga Alliance (India)</div>
+        </div>
+      </div>
+      <div class="fact-item">
+        <span class="fact-icon">👥</span>
+        <div>
+          <div class="fact-label">Guías</div>
+          <div class="fact-value">Siri Marka Singh (+51 años)</div>
+        </div>
+      </div>
+      <div class="fact-item">
+        <span class="fact-icon">💰</span>
+        <div>
+          <div class="fact-label">Inversión</div>
+          <div class="fact-value">$2,890 USD</div>
+        </div>
+      </div>
+      <div class="fact-item">
+        <span class="fact-icon">✨</span>
+        <div>
+          <div class="fact-label">Facilidades</div>
+          <div class="fact-value">Descuentos y planes de pago personalizados</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="payment-note animate-on-scroll">✓ Planes de pago flexibles disponibles</p>
+
+    <div class="formation-quote animate-on-scroll">
+      "Este es el momento de escuchar el llamado interno, avanzar en saltos cuánticos hacia el bienestar, la felicidad y la realización personal."
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOR WHOM
+     ═══════════════════════════════════════════════════════════ -->
+<section class="for-whom" id="para-quien">
+  <div class="container">
+    <h2 class="font-serif animate-on-scroll">Esta formación es para ti si...</h2>
+    <div class="for-whom-list">
+      <div class="for-whom-item animate-on-scroll">
+        <div class="check-icon">✓</div>
+        <p class="for-whom-text">Sientes una atracción profunda hacia el Kundalini Yoga que no puedes explicar con palabras</p>
+      </div>
+      <div class="for-whom-item animate-on-scroll">
+        <div class="check-icon">✓</div>
+        <p class="for-whom-text">Quieres ser un agente de cambio y ayudar a transformar el mundo a través de la enseñanza</p>
+      </div>
+      <div class="for-whom-item animate-on-scroll">
+        <div class="check-icon">✓</div>
+        <p class="for-whom-text">Buscas claridad, motivación y propósito en tu vida</p>
+      </div>
+      <div class="for-whom-item animate-on-scroll">
+        <div class="check-icon">✓</div>
+        <p class="for-whom-text">Quieres aprender herramientas poderosas para eliminar estrés, ansiedad o depresión en ti y en otros</p>
+      </div>
+      <div class="for-whom-item animate-on-scroll">
+        <div class="check-icon">✓</div>
+        <p class="for-whom-text">Eres profesora de yoga o meditación y sientes que es hora de elevar tu práctica al siguiente nivel</p>
+      </div>
+      <div class="for-whom-item animate-on-scroll">
+        <div class="check-icon">✓</div>
+        <p class="for-whom-text">Eres terapeuta holística y quieres potenciar tus habilidades, mover más energía y ser un mejor canal</p>
+      </div>
+      <div class="for-whom-item animate-on-scroll">
+        <div class="check-icon">✓</div>
+        <p class="for-whom-text">Simplemente sientes el llamado interior y estás lista para responder</p>
+      </div>
+    </div>
+    <div class="for-whom-note animate-on-scroll">
+      No necesitas experiencia previa en yoga. La energía Kundalini te sostiene desde el primer día.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     GUIDES
+     ═══════════════════════════════════════════════════════════ -->
+<section class="guides" id="guias">
+  <div class="container">
+    <h2 class="font-serif animate-on-scroll">Tus Guías en Este Camino</h2>
+    <div class="guides-grid">
+      <div class="guide-card animate-on-scroll">
+        <div class="guide-avatar">SM</div>
+        <h3 class="guide-name">Siri Marka Singh</h3>
+        <p class="guide-role">Profesor Líder</p>
+        <p class="guide-bio">Más de 51 años enseñando Kundalini Yoga. Coach de Vida Yóguica en Beverly Hills. Formador principal de profesores especializado en el "Arte de vivir, amar y ser feliz".</p>
+      </div>
+      <div class="guide-card animate-on-scroll">
+        <div class="guide-avatar">JS</div>
+        <h3 class="guide-name">Jaidev Singh</h3>
+        <p class="guide-role">Profesor Líder</p>
+        <p class="guide-bio">Formador de Instructores desde 2006. Certificación de la academia de formadores del KRI (USA). Coach de equipos de gobierno y grandes empresas de Sudamérica.</p>
+      </div>
+      <div class="guide-card guide-card-full animate-on-scroll">
+        <div class="guide-avatar">S&N</div>
+        <h3 class="guide-name">Satya & Navkiran</h3>
+        <p class="guide-role">Formadores de Instructores</p>
+        <p class="guide-bio">Fundadores de School Of Love. Instructores de Kundalini Yoga certificados KRI desde 2012. Terapeutas Holísticos desde 2008. Formadores de Sanadores Divine Touch desde 2016. Más de una década transformando vidas a través de la enseñanza.</p>
+      </div>
+    </div>
+    <p class="association-note animate-on-scroll">Asociados a Escuela Savittar — más de 20 años formando instructores de Kundalini Yoga en Latinoamérica.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FINAL CTA
+     ═══════════════════════════════════════════════════════════ -->
+<section class="final-cta" id="contacto">
+  <div class="final-cta-content container">
+    <div class="animate-on-scroll">
+      <div class="urgency-badge">⏰ Inicio: 25 de Abril 2026 · Cupos limitados</div>
+      <h2 class="font-serif">¿Sientes <em>el llamado</em>?</h2>
+      <p>La Formación de Maestros 2026 está por comenzar. Los cupos son limitados y puedes inscribirte hasta el Módulo 3.</p>
+      <div class="cta-group">
+        <a href="https://wa.me/50660020622?text=Hola%2C%20vi%20la%20Masterclass%20y%20quiero%20saber%20m%C3%A1s%20sobre%20la%20Formaci%C3%B3n%20de%20Kundalini%20Yoga%202026" class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quiero Despertar Mi Camino
+        </a>
+        <span class="or-divider">o si prefieres</span>
+        <a href="#masterclass" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.3);" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Ver la Masterclass Primero</a>
+        <p class="secondary-text">WhatsApp: +506 6002 0622 · schooloflove.info@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-brand">School of Love</div>
+    <p class="footer-locations">Santiago, Chile · Puerto Viejo, Costa Rica</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/schooloflove_sol/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/sanavibracion/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/channel/UCNn9UIDqhNWTKoZqJcBHpRA" target="_blank" rel="noopener">YouTube</a>
+    </div>
+    <p class="footer-contact">
+      <a href="mailto:schooloflove.info@gmail.com">schooloflove.info@gmail.com</a> · +506 6002 0622
+    </p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     STICKY MOBILE CTA
+     ═══════════════════════════════════════════════════════════ -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="https://wa.me/50660020622?text=Hola%2C%20vi%20la%20Masterclass%20y%20quiero%20saber%20m%C3%A1s%20sobre%20la%20Formaci%C3%B3n%20de%20Kundalini%20Yoga%202026" class="btn btn-whatsapp" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Escríbenos por WhatsApp
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════════════ -->
+<script>
+// ── Scroll animations ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+// ── Sticky CTA on mobile ──
+const stickyCta = document.getElementById('stickyCta');
+const heroSection = document.querySelector('.hero');
+const stickyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting && window.innerWidth <= 768) {
+      stickyCta.classList.add('visible');
+    } else {
+      stickyCta.classList.remove('visible');
+    }
+  });
+}, { threshold: 0 });
+stickyObserver.observe(heroSection);
+
+// ══════════════════════════════════════════════════════════════
+// CONFIGURACIÓN — Solo necesitas cambiar estas 2 cosas:
+// ══════════════════════════════════════════════════════════════
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwan4Jq03cgegMbMs42X2eYxmgGGAhLJZb1yqLpUwLvwEsXe-43ME6JRh8Ott7TyhMc4A/exec';
+
+const YOUTUBE_VIDEO_ID = '63AtuvZuHtU';
+// ══════════════════════════════════════════════════════════════
+
+// ── Gate form handler ──
+function handleGateSubmit(e) {
+  e.preventDefault();
+
+  const form = document.getElementById('gateForm');
+  const submitBtn = form.querySelector('.btn-submit');
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  // Add metadata
+  data.fecha = new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago' });
+  data.pagina = window.location.href;
+
+  // Disable button while sending
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando...';
+
+  // Send to Google Sheets (using text/plain to avoid CORS preflight)
+  if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'PEGA_TU_URL_AQUI') {
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(data)
+    }).catch(err => console.log('Sheet save attempted:', err));
+  } else {
+    console.log('Google Script URL no configurada. Lead capturado localmente:', data);
+  }
+
+  console.log('Lead capturado:', data);
+
+  // Show success & reveal video
+  form.style.display = 'none';
+  document.getElementById('successMessage').classList.add('show');
+
+  setTimeout(() => {
+    // Hide gate overlay
+    document.getElementById('gateOverlay').classList.add('hidden');
+    // Hide preview, show embed
+    document.getElementById('videoPreview').classList.add('hidden-preview');
+    const embed = document.getElementById('videoEmbed');
+    embed.src = 'https://www.youtube.com/embed/' + YOUTUBE_VIDEO_ID + '?autoplay=1&rel=0';
+    embed.classList.add('active');
+  }, 1500);
+}
+
+// ── Smooth scroll for anchor links ──
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>

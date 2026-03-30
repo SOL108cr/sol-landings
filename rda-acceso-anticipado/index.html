@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acceso Anticipado — Respiración del Alma · Ceremonia Online. Sé de los primeros en vivir esta experiencia transformadora.">
+    <meta property="og:title" content="Respiración del Alma · Ceremonia Online — 9 de mayo 2026">
+    <meta property="og:description" content="Reserva tu lugar antes que nadie. 10 días de preparación + ceremonia en vivo de respiración consciente con Navkiran & Satya · School of Love.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rda-acceso-anticipado.pages.dev">
+    <meta property="og:image" content="https://img.youtube.com/vi/-6VNL_0z-0U/maxresdefault.jpg">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
+    <meta property="og:image:alt" content="Respiración del Alma — Ceremonia Online School of Love">
+    <meta property="og:site_name" content="School of Love">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Respiración del Alma · Ceremonia Online — 9 de mayo 2026">
+    <meta name="twitter:description" content="Reserva tu lugar antes que nadie. 10 días de preparación + ceremonia en vivo de respiración consciente.">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/-6VNL_0z-0U/maxresdefault.jpg">
+    <meta name="theme-color" content="#0D0B2E">
+    <title>Acceso Anticipado — Respiración del Alma | School of Love</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-deep: #0D0B2E;
+            --bg-dark: #110E3A;
+            --bg-mid: #1A1450;
+            --gold: #D4A843;
+            --gold-light: #E8C97A;
+            --gold-glow: rgba(212, 168, 67, 0.25);
+            --purple: #6B2D9B;
+            --text-white: #FFFFFF;
+            --text-cream: #F0E6D3;
+            --text-muted: rgba(255, 255, 255, 0.65);
+            --teal: #2DD4BF;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        /* ─── PARTICLES ─── */
+        canvas#particles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ─── MAIN CONTAINER ─── */
+        .page {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 24px;
+        }
+
+        /* ─── RADIAL GLOW ─── */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(107, 45, 155, 0.18) 0%, rgba(212, 168, 67, 0.06) 40%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: glow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+        }
+
+        /* Sacred rings */
+        .sacred-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid rgba(212, 168, 67, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .sacred-ring-1 {
+            width: 500px; height: 500px;
+            transform: translate(-50%, -50%);
+            animation: rotate 25s linear infinite;
+        }
+
+        .sacred-ring-2 {
+            width: 380px; height: 380px;
+            transform: translate(-50%, -50%);
+            animation: rotate 35s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* ─── CONTENT ─── */
+        .content {
+            position: relative;
+            z-index: 2;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Brand */
+        .brand {
+            margin-bottom: 40px;
+        }
+
+        .brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-cream);
+            letter-spacing: 0.02em;
+        }
+
+        .brand-sub {
+            font-size: 0.6rem;
+            color: var(--gold);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(212, 168, 67, 0.1);
+            border: 1px solid rgba(212, 168, 67, 0.25);
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 32px;
+        }
+
+        .badge .dot {
+            width: 6px; height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--gold-glow); }
+            50% { opacity: 0.6; box-shadow: 0 0 0 6px transparent; }
+        }
+
+        /* Title */
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 7vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.15;
+            margin-bottom: 8px;
+            color: var(--text-white);
+        }
+
+        h1 em {
+            font-weight: 400;
+            font-style: italic;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: var(--text-muted);
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .event-date {
+            font-size: 0.85rem;
+            color: var(--gold);
+            letter-spacing: 0.04em;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        /* Description */
+        .description {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 460px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .description strong {
+            color: var(--text-cream);
+            font-weight: 500;
+        }
+
+        /* ─── FORM CARD ─── */
+        .form-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 36px 32px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.5;
+        }
+
+        .form-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--text-cream);
+            margin-bottom: 6px;
+        }
+
+        .form-card .form-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.09);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--gold) 0%, #B08A2E 100%);
+            color: var(--bg-deep);
+            border: none;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-top: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 36px rgba(212, 168, 67, 0.35);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .btn-submit::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
+            transition: transform 0.6s;
+            transform: translateX(-100%);
+        }
+
+        .btn-submit:hover::after {
+            transform: translateX(100%);
+        }
+
+        .form-disclaimer {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.35);
+            margin-top: 14px;
+        }
+
+        /* Success state */
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 24px 0;
+        }
+
+        .success-state .check {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(45, 212, 191, 0.12);
+            border: 2px solid var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .success-state h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--text-cream);
+            margin-bottom: 8px;
+        }
+
+        .success-state p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .success-state .highlight {
+            color: var(--teal);
+            font-weight: 500;
+        }
+
+        /* ─── WHAT TO EXPECT (mini) ─── */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            max-width: 500px;
+        }
+
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .feature-icon {
+            font-size: 1.3rem;
+        }
+
+        .feature-text {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* ─── VIDEO SECTION ─── */
+        .video-block {
+            width: 100%;
+            margin-top: 40px;
+            margin-bottom: 8px;
+        }
+
+        .video-label-top {
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .video-frame {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212, 168, 67, 0.1);
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* ─── LEAD MAGNET HIGHLIGHT ─── */
+        .lead-magnet-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(45, 212, 191, 0.08);
+            border: 1px solid rgba(45, 212, 191, 0.2);
+            border-radius: 12px;
+            padding: 12px 20px;
+            margin-bottom: 24px;
+            font-size: 0.82rem;
+            color: var(--teal);
+        }
+
+        .lead-magnet-badge .gift-icon {
+            font-size: 1.1rem;
+        }
+
+        /* ─── FOOTER ─── */
+        .footer-mini {
+            position: relative;
+            z-index: 2;
+            margin-top: 56px;
+            text-align: center;
+        }
+
+        .footer-mini a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.78rem;
+            transition: color 0.3s;
+        }
+
+        .footer-mini a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copy {
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.2);
+            margin-top: 8px;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 500px) {
+            .page { padding: 32px 16px; }
+            .form-card { padding: 28px 20px; }
+            .features { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particles"></canvas>
+
+    <div class="page">
+        <div class="sacred-ring sacred-ring-1"></div>
+        <div class="sacred-ring sacred-ring-2"></div>
+
+        <div class="content">
+            <!-- Brand -->
+            <div class="brand">
+                <div class="brand-name">School of Love</div>
+                <div class="brand-sub">Navkiran &amp; Satya</div>
+            </div>
+
+            <!-- Badge -->
+            <div class="badge">
+                <span class="dot"></span>
+                Acceso anticipado
+            </div>
+
+            <!-- Title -->
+            <h1>Respiración<br><em>del Alma</em></h1>
+            <p class="subtitle">Ceremonia Online de Respiración Consciente</p>
+            <p class="event-date">Sábado 9 de Mayo 2026 · 19:00 hrs Chile</p>
+
+            <!-- Video Testimonial -->
+            <div class="video-block">
+                <p class="video-label-top">Mira lo que vivieron los participantes</p>
+                <div class="video-frame">
+                    <iframe
+                        src="https://www.youtube.com/embed/-6VNL_0z-0U?rel=0&modestbranding=1"
+                        title="Testimonios Respiración del Alma"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="video-caption">Testimonios reales · Ceremonia presencial Equinoccio 2026</p>
+            </div>
+
+            <!-- Description -->
+            <p class="description">
+                Estamos preparando algo especial: una ceremonia online de respiración consciente con
+                <strong>10 días de preparación guiada + 2 horas de experiencia en vivo</strong>.
+                Dejá tus datos para ser de los primeros en acceder a toda la información y al
+                <strong>precio más bajo disponible</strong>.
+            </p>
+
+            <!-- Form Card -->
+            <div class="form-card">
+                <div id="formContent">
+                    <div class="lead-magnet-badge">
+                        <span class="gift-icon">🎁</span>
+                        <span>Registrate y recibí gratis la guía <strong>"3 Respiraciones Científicas"</strong></span>
+                    </div>
+                    <h3>Reservá tu acceso anticipado</h3>
+                    <p class="form-sub">Te avisaremos antes que a nadie + recibís la guía en tu email al instante.</p>
+
+                    <form id="earlyAccessForm">
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Tu email" required>
+                        </div>
+                        <button type="submit" class="btn-submit">Quiero acceso anticipado</button>
+                        <p class="form-disclaimer">Tu información es 100% privada. No spam, nunca. Solo información del evento.</p>
+                    </form>
+                </div>
+
+                <div class="success-state" id="successState">
+                    <div class="check">✓</div>
+                    <h3>¡Estás dentro!</h3>
+                    <p>
+                        Revisá tu email — te enviamos la <span class="highlight">guía "3 Respiraciones con Respaldo Científico"</span>
+                        para que empieces a practicar hoy mismo.<br><br>
+                        Serás de los primeros en recibir toda la información del evento y acceder al mejor precio disponible.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Mini features -->
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">🌬️</span>
+                    <span class="feature-text">Pranayama</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🔊</span>
+                    <span class="feature-text">Baño de sonido</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🧠</span>
+                    <span class="feature-text">Neurociencia</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🌍</span>
+                    <span class="feature-text">Online global</span>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer-mini">
+                <a href="https://www.schooloflove.cl" target="_blank">schooloflove.cl</a>
+                &nbsp;·&nbsp;
+                <a href="https://www.instagram.com/schooloflove_sol" target="_blank">@schooloflove_sol</a>
+                <p class="footer-copy">&copy; 2026 School of Love</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // ─── PARTICLES ─────────────────────
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function init() {
+            particles = [];
+            const count = Math.min(45, Math.floor(window.innerWidth / 30));
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 1.5 + 0.3,
+                    dx: (Math.random() - 0.5) * 0.25,
+                    dy: (Math.random() - 0.5) * 0.25,
+                    o: Math.random() * 0.35 + 0.08,
+                    c: Math.random() > 0.5 ? '212,168,67' : '107,45,155'
+                });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (const p of particles) {
+                p.x += p.dx;
+                p.y += p.dy;
+                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${p.c},${p.o})`;
+                ctx.fill();
+            }
+            requestAnimationFrame(draw);
+        }
+
+        resize(); init(); draw();
+        window.addEventListener('resize', () => { resize(); init(); });
+
+        // ─── FORM SUBMISSION ────────────────
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwOTXbfFf9LTIzU0uSpHzpnCC5IeyTuZzRXh3cY_S8RU7BolDKMk5EXkiDYA99vr8G1/exec';
+        const form = document.getElementById('earlyAccessForm');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const nombre = form.querySelector('[name="nombre"]').value.trim();
+            const email = form.querySelector('[name="email"]').value.trim();
+            if (!email) return;
+
+            const btn = form.querySelector('.btn-submit');
+            btn.textContent = 'Registrando...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+
+            try {
+                await fetch(WEB_APP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: email,
+                        nombre: nombre,
+                        origen: 'Pre-registro — Acceso Anticipado'
+                    })
+                });
+
+                // Show success
+                document.getElementById('formContent').querySelector('form').style.display = 'none';
+                document.getElementById('formContent').querySelector('h3').style.display = 'none';
+                document.getElementById('formContent').querySelector('.form-sub').style.display = 'none';
+                document.getElementById('successState').style.display = 'block';
+
+            } catch (err) {
+                btn.textContent = 'Error — intentar de nuevo';
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            }
+        });
+
+    })();
+    </script>
+
+</body>
+</html>

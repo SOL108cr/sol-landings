@@ -1,0 +1,2511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Respiración del Alma — Ceremonia Online. Una experiencia transformadora de respiración consciente guiada por Navkiran y Satya. 10 días de preparación + ceremonia en vivo. 9 de mayo 2026.">
+    <meta name="keywords" content="respiración consciente, breathwork, ceremonia online, meditación, sanación, coherencia cardíaca, School of Love, Navkiran, Satya">
+    <meta property="og:title" content="Respiración del Alma — Ceremonia Online">
+    <meta property="og:description" content="Reestablece tu coherencia interna. 10 días de preparación + ceremonia en vivo con Navkiran y Satya. 9 de mayo 2026.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/0D0B2E/D4A843?text=Respiraci%C3%B3n+del+Alma">
+    <meta name="theme-color" content="#0D0B2E">
+    <title>Respiración del Alma — Ceremonia Online | School of Love</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ═══════════════════════════════════════════
+           RESET & BASE
+           ═══════════════════════════════════════════ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        :root {
+            /* Deep cosmic palette */
+            --bg-deep: #0D0B2E;
+            --bg-dark: #110E3A;
+            --bg-mid: #1A1450;
+            --bg-card: #16123E;
+            --bg-card-hover: #1E1A52;
+            --bg-light-section: #F8F5F0;
+            --bg-cream: #FAF7F2;
+
+            /* Gold spectrum */
+            --gold: #D4A843;
+            --gold-light: #E8C97A;
+            --gold-dark: #B08A2E;
+            --gold-glow: rgba(212, 168, 67, 0.25);
+
+            /* Purple spectrum */
+            --purple: #6B2D9B;
+            --purple-light: #8B4DB8;
+            --purple-soft: rgba(107, 45, 155, 0.15);
+
+            /* Accent */
+            --teal: #2DD4BF;
+            --teal-glow: rgba(45, 212, 191, 0.15);
+
+            /* Text */
+            --text-white: #FFFFFF;
+            --text-cream: #F0E6D3;
+            --text-muted: rgba(255, 255, 255, 0.65);
+            --text-dark: #2D2A3E;
+            --text-dark-muted: #6B6880;
+
+            /* Gradients */
+            --gradient-hero: linear-gradient(160deg, #0D0B2E 0%, #1A1450 30%, #2D1B5E 60%, #1A0E3A 100%);
+            --gradient-gold: linear-gradient(135deg, #D4A843 0%, #E8C97A 50%, #D4A843 100%);
+            --gradient-cta: linear-gradient(135deg, #D4A843 0%, #B08A2E 100%);
+            --gradient-dark-section: linear-gradient(180deg, #0D0B2E 0%, #1A1450 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-white);
+            line-height: 1.7;
+            background-color: var(--bg-deep);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Elegant serif headings */
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .display-font {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--gold-light);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ═══════════════════════════════════════════
+           UTILITY CLASSES
+           ═══════════════════════════════════════════ */
+        .text-center { text-align: center; }
+        .text-gold { color: var(--gold); }
+        .text-muted { color: var(--text-muted); }
+
+        .spacer-sm { height: 24px; }
+        .spacer-md { height: 48px; }
+        .spacer-lg { height: 80px; }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ═══════════════════════════════════════════
+           FLOATING PARTICLES (BACKGROUND)
+           ═══════════════════════════════════════════ */
+        .particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ═══════════════════════════════════════════
+           STICKY NAV
+           ═══════════════════════════════════════════ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .nav.scrolled {
+            background: rgba(13, 11, 46, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-white);
+            letter-spacing: 0.02em;
+        }
+
+        .nav-brand-sub {
+            font-size: 0.65rem;
+            color: var(--gold);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-top: -2px;
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gradient-cta);
+            color: var(--bg-deep) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            font-size: 0.8rem !important;
+            letter-spacing: 0.08em !important;
+            transition: transform 0.3s, box-shadow 0.3s !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--gold-glow);
+            color: var(--bg-deep) !important;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+        }
+
+        /* ═══════════════════════════════════════════
+           HERO — FULL SCREEN CINEMATIC
+           ═══════════════════════════════════════════ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-hero);
+            overflow: hidden;
+            padding: 120px 24px 80px;
+        }
+
+        /* Radial glow behind text */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(107, 45, 155, 0.2) 0%, rgba(212, 168, 67, 0.08) 40%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+        }
+
+        /* Subtle geometric sacred pattern */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgba(212, 168, 67, 0.06);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sacredCircle 20s linear infinite;
+        }
+
+        @keyframes sacredCircle {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .hero-sacred-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(212, 168, 67, 0.04);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sacredCircle 30s linear infinite reverse;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-overline {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .hero-overline::before,
+        .hero-overline::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.4;
+        }
+
+        .hero-overline::before { right: calc(100% + 16px); }
+        .hero-overline::after { left: calc(100% + 16px); }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 300;
+            color: var(--text-white);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            font-weight: 400;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.15rem, 3vw, 1.6rem);
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 24px auto 0;
+            font-weight: 300;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .hero-date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 40px;
+            padding: 14px 32px;
+            background: rgba(212, 168, 67, 0.1);
+            border: 1px solid rgba(212, 168, 67, 0.25);
+            border-radius: 50px;
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+        }
+
+        .hero-date-badge .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--gold-glow); }
+            50% { opacity: 0.7; box-shadow: 0 0 0 8px transparent; }
+        }
+
+        .hero-ctas {
+            margin-top: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        @media (min-width: 500px) {
+            .hero-ctas {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        /* ═══════════════════════════════════════════
+           BUTTONS
+           ═══════════════════════════════════════════ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gold {
+            background: var(--gradient-cta);
+            color: var(--bg-deep);
+            box-shadow: 0 4px 20px var(--gold-glow);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(212, 168, 67, 0.4);
+            color: var(--bg-deep);
+        }
+
+        .btn-gold::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+            transition: transform 0.6s;
+            transform: translateX(-100%);
+        }
+
+        .btn-gold:hover::after {
+            transform: translateX(100%);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-cream);
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(212, 168, 67, 0.15);
+        }
+
+        .btn-dark {
+            background: var(--bg-deep);
+            color: var(--gold);
+            border: 1px solid rgba(212, 168, 67, 0.3);
+        }
+
+        .btn-dark:hover {
+            background: var(--bg-mid);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(13, 11, 46, 0.5);
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION DIVIDERS — WAVE
+           ═══════════════════════════════════════════ */
+        .wave-divider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-divider svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ═══════════════════════════════════════════
+           SCROLL INDICATOR
+           ═══════════════════════════════════════════ */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        .scroll-indicator .line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+        }
+
+        /* ═══════════════════════════════════════════
+           VIDEO SECTION
+           ═══════════════════════════════════════════ */
+        .video-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0;
+            background: var(--gradient-dark-section);
+        }
+
+        .video-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212, 168, 67, 0.1);
+        }
+
+        .video-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, rgba(212, 168, 67, 0.2), transparent, rgba(107, 45, 155, 0.2));
+            border-radius: 18px;
+            z-index: -1;
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, #1A1450 0%, #2D1B5E 50%, #1A0E3A 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(212, 168, 67, 0.08) 0%, transparent 60%);
+        }
+
+        .video-play-btn {
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 168, 67, 0.15);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-play-btn::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 12px 0 12px 22px;
+            border-color: transparent transparent transparent var(--gold);
+            margin-left: 4px;
+        }
+
+        .video-placeholder:hover .video-play-btn {
+            background: var(--gold);
+            transform: scale(1.08);
+            box-shadow: 0 0 40px var(--gold-glow);
+        }
+
+        .video-placeholder:hover .video-play-btn::after {
+            border-color: transparent transparent transparent var(--bg-deep);
+        }
+
+        .video-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .video-section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--text-white);
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .video-section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ═══════════════════════════════════════════
+           "IS THIS FOR YOU" — PAIN POINTS
+           ═══════════════════════════════════════════ */
+        .pain-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0;
+            background: var(--bg-light-section);
+            color: var(--text-dark);
+        }
+
+        .pain-section h2 {
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .pain-section .section-subtitle {
+            text-align: center;
+            color: var(--text-dark-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 56px;
+        }
+
+        .pain-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .pain-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .pain-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .pain-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pain-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-gold);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(45, 27, 94, 0.1);
+        }
+
+        .pain-card:hover::before { opacity: 1; }
+
+        .pain-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .pain-card h4 {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        .pain-card p {
+            color: var(--text-dark-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════════
+           SOLUTION SECTION
+           ═══════════════════════════════════════════ */
+        .solution-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0 120px;
+            background: var(--gradient-dark-section);
+            overflow: hidden;
+        }
+
+        .solution-section::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(107, 45, 155, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .solution-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .solution-header .overline {
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .solution-header h2 {
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            color: var(--text-white);
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .solution-header h2 em {
+            font-weight: 400;
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .solution-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .solution-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .solution-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .solution-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 36px;
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .solution-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(212, 168, 67, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .solution-card-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .solution-card h4 {
+            font-size: 1.3rem;
+            color: var(--text-white);
+            margin-bottom: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        .solution-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════════════
+           SCIENCE / CREDIBILITY SECTION
+           ═══════════════════════════════════════════ */
+        .science-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0;
+            background: var(--bg-light-section);
+            color: var(--text-dark);
+        }
+
+        .science-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .science-header h2 {
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .science-header p {
+            color: var(--text-dark-muted);
+            max-width: 580px;
+            margin: 16px auto 0;
+            font-size: 1.05rem;
+        }
+
+        .science-stats {
+            display: grid;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .science-stats { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 36px 24px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(45, 27, 94, 0.08);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-dark-muted);
+            letter-spacing: 0.02em;
+        }
+
+        .science-quote {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+        }
+
+        .science-quote::before {
+            content: '"';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .science-quote p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .science-quote cite {
+            display: block;
+            margin-top: 16px;
+            font-style: normal;
+            font-size: 0.85rem;
+            color: var(--text-dark-muted);
+        }
+
+        /* ═══════════════════════════════════════════
+           EXPERIENCE / WHAT YOU GET
+           ═══════════════════════════════════════════ */
+        .experience-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0 120px;
+            background: var(--gradient-dark-section);
+        }
+
+        .experience-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .experience-header .overline {
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .experience-header h2 {
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            color: var(--text-white);
+            font-weight: 300;
+        }
+
+        .experience-timeline {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+            padding-left: 48px;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15px;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), var(--purple), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 48px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 3px solid var(--bg-deep);
+            box-shadow: 0 0 0 2px var(--gold);
+        }
+
+        .timeline-phase {
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.4rem;
+            color: var(--text-white);
+            margin-bottom: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════════════
+           FACILITATORS
+           ═══════════════════════════════════════════ */
+        .facilitators-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+        }
+
+        .facilitators-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .facilitators-header h2 {
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            color: var(--text-dark);
+        }
+
+        .facilitators-grid {
+            display: grid;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .facilitators-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .facilitator-card {
+            text-align: center;
+            padding: 40px 32px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            transition: transform 0.4s;
+        }
+
+        .facilitator-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .facilitator-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--purple), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .facilitator-avatar::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid rgba(212, 168, 67, 0.3);
+        }
+
+        .facilitator-card h3 {
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .facilitator-role {
+            font-size: 0.85rem;
+            color: var(--gold-dark);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .facilitator-card p {
+            color: var(--text-dark-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════════════
+           TESTIMONIALS
+           ═══════════════════════════════════════════ */
+        .testimonials-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0;
+            background: var(--gradient-dark-section);
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .testimonials-header .overline {
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .testimonials-header h2 {
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            color: var(--text-white);
+            font-weight: 300;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 36px;
+            border-radius: 16px;
+            position: relative;
+            transition: all 0.4s;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(212, 168, 67, 0.15);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-cream);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .testimonial-author-info strong {
+            color: var(--text-cream);
+            font-size: 0.9rem;
+            display: block;
+        }
+
+        .testimonial-author-info span {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Video testimonial card */
+        .testimonial-video {
+            grid-column: 1 / -1;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-video {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .testimonial-video-player {
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, #1A1450, #2D1B5E);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .testimonial-video-content {
+            padding: 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* ═══════════════════════════════════════════
+           COUNTDOWN
+           ═══════════════════════════════════════════ */
+        .countdown-section {
+            position: relative;
+            z-index: 1;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1A0E3A 0%, #2D1B5E 50%, #1A0E3A 100%);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .countdown-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .countdown-header h2 {
+            font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+            color: var(--text-white);
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+
+        .countdown-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 40px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .countdown-unit {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 20px 24px;
+            min-width: 90px;
+            backdrop-filter: blur(4px);
+        }
+
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .countdown-urgency {
+            color: var(--gold);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        /* ═══════════════════════════════════════════
+           PRICING
+           ═══════════════════════════════════════════ */
+        .pricing-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0 120px;
+            background: var(--bg-light-section);
+            color: var(--text-dark);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .pricing-header .overline {
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .pricing-header h2 {
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            color: var(--text-dark);
+        }
+
+        .pricing-header p {
+            color: var(--text-dark-muted);
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 16px auto 0;
+        }
+
+        .pricing-cards {
+            display: grid;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-cards { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 48px 36px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.4s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(45, 27, 94, 0.1);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--gold);
+            box-shadow: 0 12px 48px rgba(212, 168, 67, 0.15);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Recomendado';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-cta);
+            color: var(--bg-deep);
+            padding: 6px 24px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .pricing-tier {
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dark-muted);
+            margin-bottom: 16px;
+        }
+
+        .pricing-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1;
+        }
+
+        .pricing-amount .currency {
+            font-size: 1.8rem;
+            vertical-align: super;
+        }
+
+        .pricing-period {
+            font-size: 0.85rem;
+            color: var(--text-dark-muted);
+            margin-top: 4px;
+            margin-bottom: 24px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            font-size: 0.92rem;
+            color: var(--text-dark-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--gold-dark);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 32px;
+            color: var(--text-dark-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ═══════════════════════════════════════════
+           LEAD MAGNET / FREE GUIDE SECTION
+           ═══════════════════════════════════════════ */
+        .lead-magnet-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0;
+            background: var(--gradient-dark-section);
+        }
+
+        .lead-magnet-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 56px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lead-magnet-card::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .lead-magnet-card h3 {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            color: var(--text-white);
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .lead-magnet-card > p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 500px) {
+            .lead-form-row {
+                display: flex;
+                gap: 12px;
+            }
+        }
+
+        .lead-form input {
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .lead-form input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .lead-form input:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+
+        .lead-form .btn-gold {
+            width: 100%;
+            margin-top: 4px;
+        }
+
+        .lead-form-disclaimer {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        .lead-form .success-msg {
+            display: none;
+            background: rgba(45, 212, 191, 0.12);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            color: var(--teal);
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            animation: fadeSlideIn 0.4s ease;
+        }
+
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(-12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ═══════════════════════════════════════════
+           FAQ
+           ═══════════════════════════════════════════ */
+        .faq-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0;
+            background: var(--bg-light-section);
+            color: var(--text-dark);
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .faq-header h2 {
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            color: var(--text-dark);
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-align: left;
+        }
+
+        .faq-question .icon {
+            font-size: 1.5rem;
+            color: var(--gold-dark);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-item.open .faq-question .icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding-bottom: 24px;
+        }
+
+        .faq-answer p {
+            color: var(--text-dark-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════════════
+           FINAL CTA
+           ═══════════════════════════════════════════ */
+        .final-cta-section {
+            position: relative;
+            z-index: 1;
+            padding: 120px 0;
+            background: var(--gradient-dark-section);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(107, 45, 155, 0.12) 0%, rgba(212, 168, 67, 0.05) 40%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta-content h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--text-white);
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .final-cta-content h2 em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--gold-light);
+        }
+
+        .final-cta-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 560px;
+            margin: 0 auto 40px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+
+        .final-cta-trust {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+        }
+
+        .trust-icon {
+            font-size: 1.1rem;
+        }
+
+        /* ═══════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════ */
+        .footer {
+            padding: 48px 0;
+            background: #080620;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-cream);
+            margin-bottom: 4px;
+        }
+
+        .footer-sub {
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* ═══════════════════════════════════════════
+           MOBILE FIXES
+           ═══════════════════════════════════════════ */
+        @media (max-width: 767px) {
+            .hero { padding: 100px 20px 60px; min-height: auto; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.05rem; }
+            .countdown-unit { min-width: 70px; padding: 16px; }
+            .countdown-number { font-size: 2rem; }
+            .pricing-card { padding: 36px 24px; }
+            .experience-timeline { padding-left: 40px; }
+            .lead-magnet-card { padding: 40px 24px; }
+            .facilitators-grid { gap: 24px; }
+        }
+
+        /* Print styles */
+        @media print {
+            .particles-canvas, .nav, .scroll-indicator { display: none; }
+            body { background: white; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══ PARTICLES CANVAS ═══ -->
+    <canvas class="particles-canvas" id="particles"></canvas>
+
+    <!-- ═══ NAVIGATION ═══ -->
+    <nav class="nav" id="mainNav">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">
+                <span class="nav-brand-name">School of Love</span>
+                <span class="nav-brand-sub">Navkiran &amp; Satya</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#ciencia">Ciencia</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#precio">Inversión</a></li>
+                <li><a href="#precio" class="nav-cta">Reservar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════
+         HERO — FULL SCREEN CINEMATIC
+         ═══════════════════════════════════════════ -->
+    <section class="hero" id="inicio">
+        <div class="hero-sacred-ring"></div>
+        <div class="hero-content">
+            <span class="hero-overline">School of Love presenta</span>
+            <h1>Respiración<br><em>del Alma</em></h1>
+            <p class="hero-subtitle">
+                Una ceremonia de respiración consciente para reestablecer tu coherencia interna y reconectar con lo más profundo de ti.
+            </p>
+            <div class="hero-date-badge">
+                <span class="pulse-dot"></span>
+                <span>Ceremonia Online · Sábado 9 de Mayo 2026 · 19:00 hrs Chile</span>
+            </div>
+            <div class="hero-ctas">
+                <a href="#precio" class="btn btn-gold">Reservar mi lugar</a>
+                <a href="#video" class="btn btn-outline">Ver video de bienvenida</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Descubre más</span>
+            <div class="line"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         VIDEO DE BIENVENIDA
+         ═══════════════════════════════════════════ -->
+    <section class="video-section" id="video">
+        <div class="container">
+            <div class="video-section-header reveal">
+                <h2>Un mensaje de <em style="font-style: italic; color: var(--gold-light);">Navkiran y Satya</em></h2>
+                <p>Conoce la intención detrás de esta ceremonia y descubre si este viaje es para ti.</p>
+            </div>
+            <div class="video-wrapper reveal reveal-delay-1">
+                <div class="video-placeholder" id="welcomeVideo">
+                    <!-- Replace with: <iframe src="YOUTUBE_OR_VIMEO_URL" ...></iframe> -->
+                    <div class="video-play-btn" aria-label="Reproducir video"></div>
+                    <span class="video-label">Video de bienvenida · 3 min</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         ¿ES ESTO PARA TI? — PAIN POINTS
+         ═══════════════════════════════════════════ -->
+    <section class="pain-section" id="para-ti">
+        <div class="container">
+            <h2 class="reveal">¿Reconoces algo de esto?</h2>
+            <p class="section-subtitle reveal reveal-delay-1">
+                Si algo aquí resuena contigo, esta ceremonia fue diseñada para ti.
+            </p>
+            <div class="pain-grid">
+                <div class="pain-card reveal">
+                    <div class="pain-icon">🌊</div>
+                    <h4>Estrés acumulado</h4>
+                    <p>Sientes que tu sistema nervioso vive en modo de alerta, sin espacio para la calma real.</p>
+                </div>
+                <div class="pain-card reveal reveal-delay-1">
+                    <div class="pain-icon">💭</div>
+                    <h4>Mente que no para</h4>
+                    <p>Pensamientos en bucle, preocupaciones constantes, dificultad para estar presente en el ahora.</p>
+                </div>
+                <div class="pain-card reveal reveal-delay-2">
+                    <div class="pain-icon">🔇</div>
+                    <h4>Desconexión interna</h4>
+                    <p>Algo dentro tuyo sabe que hay más, pero la rutina te mantiene lejos de tu esencia.</p>
+                </div>
+                <div class="pain-card reveal reveal-delay-1">
+                    <div class="pain-icon">⚡</div>
+                    <h4>Energía estancada</h4>
+                    <p>Cansancio crónico, emociones atrapadas o bloqueos que no logras soltar.</p>
+                </div>
+                <div class="pain-card reveal reveal-delay-2">
+                    <div class="pain-icon">🌙</div>
+                    <h4>Sueño inquieto</h4>
+                    <p>Te cuesta descansar de verdad. Tu cuerpo duerme pero tu mente no desconecta.</p>
+                </div>
+                <div class="pain-card reveal reveal-delay-3">
+                    <div class="pain-icon">🔗</div>
+                    <h4>Buscas algo más profundo</h4>
+                    <p>Ya probaste terapias, meditaciones o cursos, pero sientes que falta algo visceral, corporal y verdadero.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         LA SOLUCIÓN — QUÉ ES RESPIRACIÓN DEL ALMA
+         ═══════════════════════════════════════════ -->
+    <section class="solution-section" id="solucion">
+        <div class="container">
+            <div class="solution-header reveal">
+                <span class="overline">La experiencia</span>
+                <h2>Respiración del Alma es un <em>reset sagrado</em></h2>
+                <p>Una ceremonia de respiración consciente que combina técnicas ancestrales de pranayama con respaldo neurocientífico moderno para recalibrar tu sistema nervioso en una sola sesión.</p>
+            </div>
+            <div class="solution-grid">
+                <div class="solution-card reveal">
+                    <div class="solution-card-icon">🌬️</div>
+                    <h4>Pranayama Profundo</h4>
+                    <p>Técnicas milenarias de respiración que activan tu capacidad natural de sanación. Tu respiración se convierte en medicina.</p>
+                </div>
+                <div class="solution-card reveal reveal-delay-1">
+                    <div class="solution-card-icon">🧠</div>
+                    <h4>Respaldo Neurocientífico</h4>
+                    <p>Cada técnica está validada por investigaciones de Stanford, HeartMath y la neurociencia del nervio vago.</p>
+                </div>
+                <div class="solution-card reveal reveal-delay-2">
+                    <div class="solution-card-icon">🔊</div>
+                    <h4>Baño de Sonido</h4>
+                    <p>Frecuencias de gong y cuencos que amplifican el estado alterado de conciencia y facilitan la liberación emocional profunda.</p>
+                </div>
+                <div class="solution-card reveal reveal-delay-3">
+                    <div class="solution-card-icon">🕊️</div>
+                    <h4>Espacio Sagrado</h4>
+                    <p>Una ceremonia guiada con intención, donde cada momento está diseñado para que puedas soltar, sentir y renacer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CIENCIA — CREDIBILIDAD
+         ═══════════════════════════════════════════ -->
+    <section class="science-section" id="ciencia">
+        <div class="container">
+            <div class="science-header reveal">
+                <h2>La ciencia detrás de la respiración</h2>
+                <p>Esto no es solo espiritualidad. Es biología. Es neurociencia. Y los resultados son medibles.</p>
+            </div>
+            <div class="science-stats">
+                <div class="stat-card reveal">
+                    <div class="stat-number">65%</div>
+                    <div class="stat-label">Reducción de cortisol con respiración consciente<br><small>(Stanford, 2023)</small></div>
+                </div>
+                <div class="stat-card reveal reveal-delay-1">
+                    <div class="stat-number">x15</div>
+                    <div class="stat-label">Aumento de óxido nítrico con Bhramari pranayama<br><small>(Weitzberg & Lundberg)</small></div>
+                </div>
+                <div class="stat-card reveal reveal-delay-2">
+                    <div class="stat-number">5 min</div>
+                    <div class="stat-label">Para activar el nervio vago y cambiar tu estado interno<br><small>(HeartMath Institute)</small></div>
+                </div>
+            </div>
+            <div class="science-quote reveal">
+                <p>La respiración es la única función del sistema nervioso autónomo que podemos controlar conscientemente. Es el puente entre el cuerpo y la mente.</p>
+                <cite>— Dr. Andrew Huberman, Neurocientífico · Stanford University</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         LA EXPERIENCIA — TIMELINE
+         ═══════════════════════════════════════════ -->
+    <section class="experience-section" id="experiencia">
+        <div class="container">
+            <div class="experience-header reveal">
+                <span class="overline">El viaje completo</span>
+                <h2>10 días de preparación + ceremonia en vivo</h2>
+            </div>
+            <div class="experience-timeline">
+                <div class="timeline-item reveal">
+                    <span class="timeline-phase">Días 1–3</span>
+                    <h4>Despertar el cuerpo</h4>
+                    <p>Respiración básica, nutrición consciente y movimiento suave para preparar tu templo. Recibís audios, videos y guías directamente en tu WhatsApp.</p>
+                </div>
+                <div class="timeline-item reveal reveal-delay-1">
+                    <span class="timeline-phase">Días 4–7</span>
+                    <h4>Profundizar la práctica</h4>
+                    <p>Meditaciones guiadas, respiración de fuego preparatoria y caminata consciente en naturaleza. Tu capacidad respiratoria se expande.</p>
+                </div>
+                <div class="timeline-item reveal reveal-delay-2">
+                    <span class="timeline-phase">Días 8–10</span>
+                    <h4>Preparación ceremonial</h4>
+                    <p>Práctica combinada, hidratación y alimentos ligeros, y la creación de tu intención para la ceremonia. Tu espacio sagrado se prepara.</p>
+                </div>
+                <div class="timeline-item reveal reveal-delay-3">
+                    <span class="timeline-phase">Sábado 9 de mayo · 19:00 hrs</span>
+                    <h4>La Ceremonia</h4>
+                    <p>2 horas de ceremonia en vivo por Zoom. Apertura → Pranayama preparatorio → Respiración del Alma → Baño de sonido → Integración → Cierre. Guiada por Navkiran y Satya.</p>
+                </div>
+            </div>
+            <div class="text-center reveal" style="margin-top: 48px;">
+                <a href="#precio" class="btn btn-gold">Quiero vivir esta experiencia</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FACILITADORES
+         ═══════════════════════════════════════════ -->
+    <section class="facilitators-section" id="facilitadores">
+        <div class="container">
+            <div class="facilitators-header reveal">
+                <h2>Tus guías en este viaje</h2>
+            </div>
+            <div class="facilitators-grid">
+                <div class="facilitator-card reveal">
+                    <div class="facilitator-avatar">🙏</div>
+                    <h3>Navkiran</h3>
+                    <p class="facilitator-role">Facilitadora de Kundalini Yoga &amp; Breathwork</p>
+                    <p>Maestra certificada de Kundalini Yoga con años de experiencia facilitando ceremonias de respiración y meditación profunda. Su presencia guía con suavidad y poder a la vez, creando espacios donde la transformación ocurre naturalmente.</p>
+                </div>
+                <div class="facilitator-card reveal reveal-delay-1">
+                    <div class="facilitator-avatar">🌟</div>
+                    <h3>Satya</h3>
+                    <p class="facilitator-role">Co-Facilitador &amp; Integrador</p>
+                    <p>Investigador de las tecnologías ancestrales de consciencia y su intersección con la ciencia moderna. Co-creador de School of Love, aporta la dimensión integradora que conecta la experiencia corporal con la comprensión profunda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TESTIMONIOS
+         ═══════════════════════════════════════════ -->
+    <section class="testimonials-section" id="testimonios">
+        <div class="container">
+            <div class="testimonials-header reveal">
+                <span class="overline">Voces de la experiencia</span>
+                <h2>Lo que dicen quienes ya lo vivieron</h2>
+            </div>
+
+            <!-- Video testimonial -->
+            <div class="testimonial-video reveal" style="margin-bottom: 24px;">
+                <div class="testimonial-video-player">
+                    <div class="video-play-btn" aria-label="Reproducir testimonio"></div>
+                </div>
+                <div class="testimonial-video-content">
+                    <div class="testimonial-text">
+                        Fue una de las experiencias más transformadoras que he vivido. Algo se liberó dentro de mí que llevaba años cargando. Navkiran crea un espacio donde te sientes completamente segura para soltar.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-avatar">S</div>
+                        <div class="testimonial-author-info">
+                            <strong>Sofía</strong>
+                            <span>Costa Rica · Participante ceremonia presencial</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-text">
+                        Nunca pensé que solo respirando pudiera sentir tanto. Terminé la ceremonia con una claridad que no había experimentado en meses. Mi cuerpo entero se sentía diferente.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-avatar">C</div>
+                        <div class="testimonial-author-info">
+                            <strong>Cecilia</strong>
+                            <span>Santiago, Chile</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="testimonial-text">
+                        Lo que me sorprendió fue la preparación previa. Cuando llegó el día de la ceremonia, mi cuerpo ya estaba listo. La experiencia fue mucho más profunda de lo que esperaba.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-avatar">M</div>
+                        <div class="testimonial-author-info">
+                            <strong>Participante</strong>
+                            <span>Evento Equinoccio · Marzo 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="testimonial-text">
+                        Vine buscando relajarme y encontré algo mucho más grande. La combinación de la respiración con el gong fue indescriptible. Es como si mi sistema nervioso se hubiera reseteado por completo.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-avatar">A</div>
+                        <div class="testimonial-author-info">
+                            <strong>Participante</strong>
+                            <span>Evento Equinoccio · Marzo 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         COUNTDOWN
+         ═══════════════════════════════════════════ -->
+    <section class="countdown-section" id="countdown">
+        <div class="container">
+            <div class="countdown-header reveal">
+                <h2>La ceremonia comienza en</h2>
+                <p>Sábado 9 de mayo 2026 · 19:00 hrs Chile</p>
+            </div>
+            <div class="countdown-timer reveal reveal-delay-1" id="countdownTimer">
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="cd-days">--</div>
+                    <div class="countdown-label">Días</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="cd-hours">--</div>
+                    <div class="countdown-label">Horas</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="cd-minutes">--</div>
+                    <div class="countdown-label">Minutos</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="cd-seconds">--</div>
+                    <div class="countdown-label">Segundos</div>
+                </div>
+            </div>
+            <p class="countdown-urgency reveal reveal-delay-2">Cupos limitados para mantener la intimidad de la experiencia</p>
+            <div class="reveal reveal-delay-3" style="margin-top: 24px;">
+                <a href="#precio" class="btn btn-gold">Reservar mi lugar ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PRICING
+         ═══════════════════════════════════════════ -->
+    <section class="pricing-section" id="precio">
+        <div class="container">
+            <div class="pricing-header reveal">
+                <span class="overline">Inversión consciente</span>
+                <h2>Un valor accesible para una transformación real</h2>
+                <p>10 días de preparación personalizada + 2 horas de ceremonia en vivo. Todo lo que necesitas para una experiencia profunda.</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card featured reveal">
+                    <div class="pricing-tier">Early Bird — Hasta 30 de abril</div>
+                    <div class="pricing-amount"><span class="currency">$</span>37</div>
+                    <div class="pricing-period">USD · Pago único</div>
+                    <ul class="pricing-features">
+                        <li>10 días de onboarding por WhatsApp</li>
+                        <li>Videos, audios y guías de preparación</li>
+                        <li>Ceremonia en vivo de 2 horas por Zoom</li>
+                        <li>Técnicas de pranayama + baño de sonido</li>
+                        <li>Guía PDF con 3 respiraciones científicas</li>
+                        <li>Acceso a la comunidad de participantes</li>
+                    </ul>
+                    <a href="#hotmart" class="btn btn-dark" style="width: 100%;">Inscribirme ahora</a>
+                </div>
+                <div class="pricing-card reveal reveal-delay-1">
+                    <div class="pricing-tier">Precio Regular — Desde 1 de mayo</div>
+                    <div class="pricing-amount"><span class="currency">$</span>47</div>
+                    <div class="pricing-period">USD · Pago único</div>
+                    <ul class="pricing-features">
+                        <li>10 días de onboarding por WhatsApp</li>
+                        <li>Videos, audios y guías de preparación</li>
+                        <li>Ceremonia en vivo de 2 horas por Zoom</li>
+                        <li>Técnicas de pranayama + baño de sonido</li>
+                        <li>Guía PDF con 3 respiraciones científicas</li>
+                        <li>Acceso a la comunidad de participantes</li>
+                    </ul>
+                    <a href="#hotmart" class="btn btn-dark" style="width: 100%;">Inscribirme</a>
+                </div>
+            </div>
+            <p class="pricing-note reveal" style="margin-top: 32px;">
+                ¿Participaste en la ceremonia presencial del equinoccio? Escríbenos para tu precio especial de USD $27.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         LEAD MAGNET
+         ═══════════════════════════════════════════ -->
+    <section class="lead-magnet-section" id="guia">
+        <div class="container">
+            <div class="lead-magnet-card reveal">
+                <h3>¿Aún no estás seguro/a?</h3>
+                <p>Descarga gratis nuestra guía con 3 técnicas de respiración con respaldo científico que podés practicar hoy mismo.</p>
+                <form class="lead-form" id="leadForm">
+                    <div class="lead-form-row">
+                        <input type="text" name="nombre" placeholder="Tu nombre" required>
+                        <input type="email" name="email" placeholder="Tu email" required>
+                    </div>
+                    <button type="submit" class="btn btn-gold">Descargar guía gratuita</button>
+                    <p class="lead-form-disclaimer">Tu información es privada. No spam, nunca.</p>
+                    <div class="success-msg" id="leadSuccess">
+                        ✨ ¡Listo! Revisa tu email — tu guía está en camino.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FAQ
+         ═══════════════════════════════════════════ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="faq-header reveal">
+                <h2>Preguntas frecuentes</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        ¿Necesito experiencia previa en respiración o meditación?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. La ceremonia está diseñada para todos los niveles. Los 10 días de preparación previa te van a llevar paso a paso desde lo más básico hasta estar listo/a para la experiencia completa. Si nunca meditaste, es un excelente punto de partida.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        ¿Cómo funciona una ceremonia de respiración online?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nos conectamos por Zoom en un espacio íntimo y guiado. Vos preparás tu espacio en casa (te damos instrucciones exactas), y Navkiran guía toda la ceremonia en vivo. La experiencia es profundamente personal — estás en tu propio espacio sagrado mientras somos sostenidos por la energía del grupo.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        ¿Qué necesito para participar?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Una conexión a internet estable, un espacio tranquilo donde no te interrumpan, una mat de yoga o manta cómoda, y la disposición de entregarte a la experiencia. Te enviaremos una checklist completa antes del evento.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        ¿Habrá grabación disponible?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>La ceremonia es una experiencia en vivo diseñada para ser vivida en tiempo real. Recomendamos fuertemente asistir en vivo para aprovechar la energía grupal. Si surge un imprevisto, te contactaremos personalmente para buscar una solución.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        ¿Es seguro? ¿Hay contraindicaciones?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>La respiración consciente es generalmente segura para la mayoría de las personas. Sin embargo, no recomendamos participar si estás embarazada, tienes epilepsia, problemas cardíacos graves, o trastornos psiquiátricos activos no tratados. En caso de duda, consultá con tu médico y escribinos para conversar.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        ¿Qué pasa con el onboarding de 10 días?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Cada día recibís un contenido breve (5-10 min) por WhatsApp: videos de técnicas, audios de meditación, guías de nutrición y movimiento. Es completamente asincrónico — lo hacés a tu ritmo. El objetivo es que tu cuerpo y mente lleguen preparados al día de la ceremonia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FINAL CTA
+         ═══════════════════════════════════════════ -->
+    <section class="final-cta-section">
+        <div class="container">
+            <div class="final-cta-content reveal">
+                <h2>Tu respiración es <em>tu medicina</em></h2>
+                <p>El 9 de mayo, desde cualquier lugar del mundo, podés vivir una experiencia que tiene el poder de resetearte por completo. ¿Estás listo/a?</p>
+                <a href="#precio" class="btn btn-gold" style="font-size: 1rem; padding: 18px 48px;">Reservar mi lugar</a>
+                <div class="final-cta-trust">
+                    <div class="trust-item">
+                        <span class="trust-icon">🔒</span>
+                        <span>Pago seguro via Hotmart</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">📱</span>
+                        <span>Soporte por WhatsApp</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">🌍</span>
+                        <span>Desde cualquier lugar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">School of Love</div>
+            <div class="footer-sub">Navkiran &amp; Satya</div>
+            <div class="footer-links">
+                <a href="https://www.schooloflove.cl" target="_blank" rel="noopener">schooloflove.cl</a>
+                <a href="https://www.instagram.com/schooloflove_sol" target="_blank" rel="noopener">@schooloflove_sol</a>
+                <a href="mailto:schooloflove.info@gmail.com">schooloflove.info@gmail.com</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 School of Love. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════
+         JAVASCRIPT
+         ═══════════════════════════════════════════ -->
+    <script>
+    (function() {
+        'use strict';
+
+        // ─── PARTICLES ───────────────────────────
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let animFrame;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createParticles() {
+            particles = [];
+            const count = Math.min(60, Math.floor(window.innerWidth / 25));
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 1.5 + 0.5,
+                    dx: (Math.random() - 0.5) * 0.3,
+                    dy: (Math.random() - 0.5) * 0.3,
+                    opacity: Math.random() * 0.4 + 0.1,
+                    color: Math.random() > 0.5 ? '212,168,67' : '107,45,155'
+                });
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.x += p.dx;
+                p.y += p.dy;
+                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${p.color},${p.opacity})`;
+                ctx.fill();
+            });
+            animFrame = requestAnimationFrame(animateParticles);
+        }
+
+        resizeCanvas();
+        createParticles();
+        animateParticles();
+        window.addEventListener('resize', () => { resizeCanvas(); createParticles(); });
+
+        // ─── SCROLL REVEAL ───────────────────────
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ─── STICKY NAV SCROLL ───────────────────
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // ─── COUNTDOWN TIMER ─────────────────────
+        const eventDate = new Date('2026-05-09T19:00:00-04:00'); // Chile time
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = eventDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('cd-days').textContent = '0';
+                document.getElementById('cd-hours').textContent = '0';
+                document.getElementById('cd-minutes').textContent = '0';
+                document.getElementById('cd-seconds').textContent = '0';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('cd-days').textContent = days;
+            document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ─── FAQ ACCORDION ───────────────────────
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const wasOpen = item.classList.contains('open');
+                // Close all
+                document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+                // Toggle clicked
+                if (!wasOpen) item.classList.add('open');
+            });
+        });
+
+        // ─── LEAD FORM ──────────────────────────
+        const form = document.getElementById('leadForm');
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwOTXbfFf9LTIzU0uSpHzpnCC5IeyTuZzRXh3cY_S8RU7BolDKMk5EXkiDYA99vr8G1/exec';
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const nombre = form.querySelector('[name="nombre"]').value.trim();
+            const email = form.querySelector('[name="email"]').value.trim();
+
+            if (!email) return;
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
+
+            try {
+                await fetch(WEB_APP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: email,
+                        nombre: nombre,
+                        origen: 'Landing RDA v3 — Lead Magnet'
+                    })
+                });
+
+                form.querySelector('.success-msg').style.display = 'block';
+                form.querySelector('.lead-form-row').style.display = 'none';
+                submitBtn.style.display = 'none';
+                form.querySelector('.lead-form-disclaimer').style.display = 'none';
+            } catch (err) {
+                submitBtn.textContent = 'Error — intentar de nuevo';
+                submitBtn.disabled = false;
+                console.error('Form error:', err);
+            }
+        });
+
+        // ─── SMOOTH SCROLL FOR ANCHOR LINKS ─────
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+    })();
+    </script>
+
+</body>
+</html>
