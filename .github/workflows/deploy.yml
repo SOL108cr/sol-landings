@@ -51,6 +51,17 @@ jobs:
           accountId: 217bc3420af5e0d4007dc2336df35db2
           workingDirectory: meditacion-luz-cristica
 
+  deploy-luna-llena-meditacion:
+    name: 🌕 Luna Llena Meditación
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 217bc3420af5e0d4007dc2336df35db2
+          command: pages deploy luna-llena-meditacion --project-name=luna-llena-meditacion --branch=main
+
 # ── AGREGAR NUEVOS PROYECTOS AQUÍ ──────────────────────────────────────────
 #
 # Para un nuevo Cloudflare PAGES:
