@@ -620,7 +620,7 @@
             <div class="moon"></div>
             <h1>Meditación de Luna Llena</h1>
             <p class="subtitle">Kundalini Yoga con Satya & Navkiran</p>
-            <p class="event-date">Miércoles 1 de Abril · 21:00 hrs Chile</p>
+            <p class="event-date">Miércoles 1 de Abril · 19:00 hrs Chile</p>
             <button class="btn btn-hero" onclick="scrollToRegistration()">Quiero participar</button>
         </div>
     </section>
@@ -691,10 +691,7 @@
             <h2 class="section-heading">Tu meditación está lista</h2>
 
             <div class="video-wrapper">
-                <div id="streamyard-embed">
-                    <!-- STREAMYARD_EMBED_PLACEHOLDER -->
-                    En breve la transmisión en vivo estará disponible aquí.
-                </div>
+                <iframe src="https://streamyard.com/watch/5bezQDiunZtW?embed=true" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
             </div>
 
             <div class="streaming-info">
@@ -738,8 +735,15 @@
         </div>
     </footer>
 
-    <!-- MailerLite Embedded Form Snippet Placeholder -->
-    <!-- MAILERLITE_EMBEDDED_FORM_SNIPPET -->
+    <!-- MailerLite Universal -->
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '2197783');
+    </script>
+    <!-- End MailerLite Universal -->
 
     <script>
         /* ============================================
@@ -794,7 +798,7 @@
            FORM HANDLING
            ============================================ */
 
-        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const nombre = document.getElementById('nombre').value.trim();
@@ -824,40 +828,34 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Procesando...';
 
+            // Subscribe via MailerLite Universal JS
             try {
-                // Attempt to submit via MailerLite API
-                // NOTE: This requires a server-side proxy or CORS configuration on MailerLite
-                const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer MAILERLITE_API_KEY_PLACEHOLDER'
-                    },
-                    body: JSON.stringify({
-                        email: email,
-                        name: nombre,
-                        groups: ['LUNA_LLENA_GROUP_ID_PLACEHOLDER']
-                    })
-                });
-
-                if (response.ok) {
-                    // Success
-                    document.getElementById('registrationForm').style.display = 'none';
-                    formSuccess.classList.add('show');
-                    showStreamingSection();
-                } else {
-                    throw new Error('API response not ok');
-                }
-            } catch (error) {
-                // If API fails, use fallback (success anyway, as the form itself will be submitted)
-                console.log('MailerLite API submission attempt:', error.message);
-
-                // Fallback: Treat as success and show streaming section
-                // In production, this would integrate with MailerLite's embedded form
-                document.getElementById('registrationForm').style.display = 'none';
-                formSuccess.classList.add('show');
-                showStreamingSection();
+                fetch('https://assets.mailerlite.com/jsonp/2197783/forms/183554204150794155/takel');
+            } catch(err) {
+                console.log('ML takel ping:', err);
             }
+
+            // Submit subscriber data via MailerLite jsonp endpoint
+            const mlData = new FormData();
+            mlData.append('fields[email]', email);
+            mlData.append('fields[name]', nombre);
+            mlData.append('ml-submit', '1');
+            mlData.append('anticsrf', 'true');
+
+            fetch('https://assets.mailerlite.com/jsonp/2197783/forms/183554204150794155/subscribe', {
+                method: 'POST',
+                body: mlData,
+                mode: 'no-cors'
+            }).then(function() {
+                console.log('MailerLite subscription sent');
+            }).catch(function(err) {
+                console.log('MailerLite fallback:', err);
+            });
+
+            // Show success immediately (no-cors means we can't read the response)
+            document.getElementById('registrationForm').style.display = 'none';
+            formSuccess.classList.add('show');
+            showStreamingSection();
         });
 
         /* ============================================
