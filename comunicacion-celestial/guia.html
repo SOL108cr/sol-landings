@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Comunicación Celestial - School of Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #1a0a2e;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1445 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .school-label {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #c9a84c;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(32px, 8vw, 64px);
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #ffffff;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #e8d4b0;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .separator {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+            margin: 30px auto;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background-color: #2d1445;
+            padding: 80px 20px;
+        }
+
+        .section-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .benefits h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(28px, 6vw, 48px);
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ffffff;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            font-size: 28px;
+            color: #c9a84c;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .benefit-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #e8d4b0;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1445 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .form-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(28px, 6vw, 48px);
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        .form-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #c9a84c;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder {
+            color: rgba(232, 212, 176, 0.5);
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: #e8d4b0;
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px 40px;
+            background-color: #c9a84c;
+            color: #1a0a2e;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .submit-btn:hover {
+            background-color: #e8d4b0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .privacy-text {
+            font-size: 13px;
+            color: rgba(232, 212, 176, 0.6);
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-message h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: #c9a84c;
+            margin-bottom: 20px;
+        }
+
+        .success-message p {
+            font-size: 16px;
+            color: #e8d4b0;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .download-link {
+            display: inline-block;
+            color: #c9a84c;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 24px;
+            border: 2px solid #c9a84c;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .download-link:hover {
+            background-color: #c9a84c;
+            color: #1a0a2e;
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            background-color: #2d1445;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .testimonial {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(201, 168, 76, 0.1);
+            border-left: 4px solid #c9a84c;
+            border-radius: 8px;
+        }
+
+        .testimonial-text {
+            font-size: 20px;
+            font-style: italic;
+            color: #e8d4b0;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-size: 16px;
+            color: #c9a84c;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d050a;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(201, 168, 76, 0.2);
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            color: #c9a84c;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        footer a {
+            color: #c9a84c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #e8d4b0;
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 60px 20px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .benefits,
+            .form-section,
+            .social-proof {
+                padding: 60px 20px;
+            }
+
+            .testimonial {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Loading State */
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Error Message */
+        .error-message {
+            display: none;
+            background-color: rgba(220, 53, 69, 0.2);
+            border: 1px solid #dc3545;
+            color: #ff6b6b;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            animation: slideUp 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="school-label">School of Love</div>
+            <h1>Descubre la Ciencia Detrás de la Meditación en Movimiento</h1>
+            <div class="separator"></div>
+            <p class="subtitle">Descarga gratis la Guía de Comunicación Celestial: el arte milenario que combina mantra, movimiento y respiración para sanar cuerpo, mente y espíritu.</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="section-container">
+            <h2>Lo que encontrarás en esta guía:</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">✦</div>
+                    <div class="benefit-text">Qué es la Comunicación Celestial y cómo funciona en tu cuerpo y mente</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✦</div>
+                    <div class="benefit-text">La ciencia del Naad: cómo el sonido transforma tu química cerebral</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✦</div>
+                    <div class="benefit-text">El mantra Ra Ma Da Sa: las 8 sílabas sagradas de sanación universal</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✦</div>
+                    <div class="benefit-text">Testimonios reales de mujeres que lo vivieron por primera vez</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="section-container">
+            <h2>Recibe tu guía gratuita</h2>
+            <div class="form-wrapper">
+                <div class="error-message" id="errorMessage"></div>
+                <form id="leadForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Tu email" required>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">Quiero mi Guía Gratis</button>
+                </form>
+                <div class="success-message" id="successMessage">
+                    <h3>¡Revisa tu correo!</h3>
+                    <p id="successText"></p>
+                    <a href="https://comunicacion-celestial.pages.dev/guia-comunicacion-celestial.pdf" class="download-link">Descargar directamente</a>
+                </div>
+                <p class="privacy-text">Tu información está segura. No compartimos tus datos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="section-container">
+            <div class="testimonial">
+                <p class="testimonial-text">"Nunca había hecho esto. Estoy maravillada de la conexión. Un abrazo así de grande de gratitud, de amor, de luz. Fascinada."</p>
+                <p class="testimonial-author">— Tere S.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">SCHOOL OF LOVE | COMUNICACIÓN CELESTIAL</div>
+            <p>
+                <a href="https://comunicacion-celestial.schooloflove.cl">comunicacion-celestial.schooloflove.cl</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('leadForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const successMessage = document.getElementById('successMessage');
+        const successText = document.getElementById('successText');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Email validation
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Show error message
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        // Send emails via Google Apps Script
+        async function sendEmails(name, email) {
+            const apiKey = 'hIJS4efS1VFJBtRf7i5mUpsLMeFfEq2IC2sHSktNZLc';
+            const gasUrl = 'https://script.google.com/macros/s/AKfycbxFQLm3HKyQX0laIxoHpw4UcVlqkJHVT9gz10Sf5lb0CYXlfjzpExo-gOd4C2QO83vSaQ/exec';
+
+            // Create the email template for the lead
+            const emailTemplate = `
+                <html>
+                    <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f5f5f5;">
+                        <div style="background: linear-gradient(135deg, #1a0a2e 0%, #2d1445 100%); padding: 40px; text-align: center;">
+                            <h1 style="color: #c9a84c; margin: 0; font-size: 24px; letter-spacing: 2px;">SCHOOL OF LOVE</h1>
+                        </div>
+                        <div style="background-color: #ffffff; padding: 40px;">
+                            <p style="color: #1a0a2e; font-size: 18px; margin-bottom: 20px;">Hola ${name},</p>
+                            <p style="color: #1a0a2e; font-size: 16px; line-height: 1.6; margin-bottom: 30px;">Gracias por tu interés en la Comunicación Celestial. Aquí tienes tu guía gratuita con la ciencia, la historia y las herramientas para comenzar tu viaje.</p>
+                            <div style="text-align: center; margin-bottom: 30px;">
+                                <a href="https://comunicacion-celestial.pages.dev/guia-comunicacion-celestial.pdf" style="display: inline-block; background-color: #c9a84c; color: #1a0a2e; padding: 16px 32px; text-decoration: none; font-weight: 600; border-radius: 6px; font-size: 16px; letter-spacing: 1px;">DESCARGAR MI GUÍA</a>
+                            </div>
+                            <p style="color: #1a0a2e; font-size: 16px; margin-bottom: 15px;">Y si quieres vivir esta experiencia en comunidad, con Navkiran como guía...</p>
+                            <div style="text-align: center; margin-bottom: 30px;">
+                                <a href="https://comunicacion-celestial.schooloflove.cl" style="display: inline-block; background-color: transparent; color: #c9a84c; padding: 14px 28px; text-decoration: none; font-weight: 600; border: 2px solid #c9a84c; border-radius: 6px; font-size: 16px;">CONOCE EL TALLER EN VIVO</a>
+                            </div>
+                            <p style="color: #666; font-size: 16px; margin-top: 40px; border-top: 1px solid #e0e0e0; padding-top: 20px;">Con amor,<br><strong style="color: #c9a84c;">Satya · School of Love</strong></p>
+                        </div>
+                    </body>
+                </html>
+            `;
+
+            const now = new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago' });
+
+            // Call 1: Send email to lead
+            const call1 = fetch(gasUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify({
+                    apiKey: apiKey,
+                    action: 'send_email',
+                    params: {
+                        to: email,
+                        subject: 'Tu Guía de Comunicación Celestial está aquí ✨',
+                        name: 'Satya · School of Love',
+                        replyTo: 'schooloflove.info@gmail.com',
+                        htmlBody: emailTemplate
+                    }
+                })
+            });
+
+            // Call 2: Notify Satya of new lead
+            const call2 = fetch(gasUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify({
+                    apiKey: apiKey,
+                    action: 'send_email',
+                    params: {
+                        to: 'schooloflove.info@gmail.com',
+                        subject: `🧲 Nuevo Lead Magnet CC: ${name}`,
+                        name: 'Lead Magnet Bot',
+                        htmlBody: `<p><b>Nuevo lead desde la guía de CC:</b></p><p>Nombre: ${name}</p><p>Email: ${email}</p><p>Fecha: ${now}</p>`
+                    }
+                })
+            });
+
+            return Promise.all([call1, call2]);
+        }
+
+        // Handle form submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+
+            // Validation
+            if (!name) {
+                showError('Por favor, ingresa tu nombre');
+                return;
+            }
+
+            if (!email) {
+                showError('Por favor, ingresa tu email');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showError('Por favor, ingresa un email válido');
+                return;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
+            submitBtn.textContent = 'Enviando...';
+
+            try {
+                // Send emails (with timeout)
+                const emailPromise = sendEmails(name, email);
+                const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 3000));
+
+                await Promise.race([emailPromise, timeoutPromise]);
+
+                // Show success message
+                form.style.display = 'none';
+                successText.innerHTML = `Te acabamos de enviar la guía a <strong>${email}</strong>. Si no la ves en tu bandeja principal, revisa tu carpeta de spam o promociones.`;
+                successMessage.style.display = 'block';
+
+            } catch (error) {
+                console.error('Error:', error);
+                // Show fallback message with download link
+                form.style.display = 'none';
+                successText.innerHTML = `Hubo un pequeño inconveniente al enviar el email, pero no te preocupes. Puedes descargar tu guía directamente haciendo clic en el botón de abajo.`;
+                successMessage.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
+                submitBtn.textContent = 'Quiero mi Guía Gratis';
+            }
+        });
+    </script>
+</body>
+</html>
