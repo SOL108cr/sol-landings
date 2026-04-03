@@ -94,7 +94,7 @@
         /* Benefits Section */
         .benefits {
             background-color: #2d1445;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
 
         .section-container {
@@ -106,7 +106,7 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(28px, 6vw, 48px);
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             color: #ffffff;
         }
 
@@ -138,14 +138,14 @@
         /* Form Section */
         .form-section {
             background: linear-gradient(135deg, #1a0a2e 0%, #2d1445 100%);
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
 
         .form-section h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(28px, 6vw, 48px);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             color: #ffffff;
         }
 
@@ -215,6 +215,101 @@
             cursor: not-allowed;
         }
 
+        /* Scroll Triggered Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .benefit-item.animate-on-scroll {
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        /* Stagger effect for benefit items */
+        .benefit-item.animate-on-scroll:nth-child(1).visible {
+            animation: staggerIn 0.6s ease 0ms forwards;
+        }
+
+        .benefit-item.animate-on-scroll:nth-child(2).visible {
+            animation: staggerIn 0.6s ease 100ms forwards;
+        }
+
+        .benefit-item.animate-on-scroll:nth-child(3).visible {
+            animation: staggerIn 0.6s ease 200ms forwards;
+        }
+
+        .benefit-item.animate-on-scroll:nth-child(4).visible {
+            animation: staggerIn 0.6s ease 300ms forwards;
+        }
+
+        @keyframes staggerIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CTA Button Scale Animation */
+        .submit-btn.animate-on-scroll.visible {
+            animation: scaleIn 0.6s ease forwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Pulsing glow on CTA button */
+        .submit-btn {
+            box-shadow: 0 0 20px rgba(201, 168, 76, 0);
+            animation: none;
+        }
+
+        .submit-btn:hover {
+            animation: ctaPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(201, 168, 76, 0.8);
+            }
+        }
+
+        /* Parallax effect on hero */
+        .hero::before {
+            animation: parallaxFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes parallaxFloat {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0.1;
+            }
+            50% {
+                transform: translateY(-40px) translateX(-20px);
+                opacity: 0.15;
+            }
+        }
+
         .privacy-text {
             font-size: 13px;
             color: rgba(232, 212, 176, 0.6);
@@ -274,7 +369,7 @@
         /* Social Proof Section */
         .social-proof {
             background-color: #2d1445;
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
 
@@ -352,7 +447,12 @@
             .benefits,
             .form-section,
             .social-proof {
-                padding: 60px 20px;
+                padding: 50px 20px;
+            }
+
+            .benefits h2,
+            .form-section h2 {
+                margin-bottom: 30px;
             }
 
             .testimonial {
@@ -386,7 +486,7 @@
 </head>
 <body>
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero animate-on-scroll">
         <div class="hero-content">
             <div class="school-label">School of Love</div>
             <h1>Descubre la Ciencia Detrás de la Meditación en Movimiento</h1>
@@ -396,23 +496,23 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="benefits">
+    <section class="benefits animate-on-scroll">
         <div class="section-container">
             <h2>Lo que encontrarás en esta guía:</h2>
             <div class="benefits-grid">
-                <div class="benefit-item">
+                <div class="benefit-item animate-on-scroll">
                     <div class="benefit-icon">✦</div>
                     <div class="benefit-text">Qué es la Comunicación Celestial y cómo funciona en tu cuerpo y mente</div>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item animate-on-scroll">
                     <div class="benefit-icon">✦</div>
                     <div class="benefit-text">La ciencia del Naad: cómo el sonido transforma tu química cerebral</div>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item animate-on-scroll">
                     <div class="benefit-icon">✦</div>
                     <div class="benefit-text">El mantra Ra Ma Da Sa: las 8 sílabas sagradas de sanación universal</div>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item animate-on-scroll">
                     <div class="benefit-icon">✦</div>
                     <div class="benefit-text">Testimonios reales de mujeres que lo vivieron por primera vez</div>
                 </div>
@@ -421,7 +521,7 @@
     </section>
 
     <!-- Form Section -->
-    <section class="form-section">
+    <section class="form-section animate-on-scroll">
         <div class="section-container">
             <h2>Recibe tu guía gratuita</h2>
             <div class="form-wrapper">
@@ -433,7 +533,7 @@
                     <div class="form-group">
                         <input type="email" id="email" name="email" placeholder="Tu email" required>
                     </div>
-                    <button type="submit" class="submit-btn" id="submitBtn">Quiero mi Guía Gratis</button>
+                    <button type="submit" class="submit-btn animate-on-scroll" id="submitBtn">Quiero mi Guía Gratis</button>
                 </form>
                 <div class="success-message" id="successMessage">
                     <h3>¡Revisa tu correo!</h3>
@@ -446,9 +546,9 @@
     </section>
 
     <!-- Social Proof Section -->
-    <section class="social-proof">
+    <section class="social-proof animate-on-scroll">
         <div class="section-container">
-            <div class="testimonial">
+            <div class="testimonial animate-on-scroll">
                 <p class="testimonial-text">"Nunca había hecho esto. Estoy maravillada de la conexión. Un abrazo así de grande de gratitud, de amor, de luz. Fascinada."</p>
                 <p class="testimonial-author">— Tere S.</p>
             </div>
@@ -456,7 +556,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="animate-on-scroll">
         <div class="footer-content">
             <div class="footer-brand">SCHOOL OF LOVE | COMUNICACIÓN CELESTIAL</div>
             <p>
@@ -466,6 +566,28 @@
     </footer>
 
     <script>
+        // Intersection Observer for scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optionally stop observing once visible
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+
         const form = document.getElementById('leadForm');
         const submitBtn = document.getElementById('submitBtn');
         const nameInput = document.getElementById('name');
