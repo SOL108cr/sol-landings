@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Código de Luz / Your Light Code</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 25%, #24243e 50%, #1a1a2e 75%, #16213e 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #f0f0f0;
+            padding: 20px;
+            animation: gradientShift 15s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .cosmic-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(200, 150, 255, 0.5);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+            background: rgba(48, 43, 99, 0.8);
+            padding: 10px 15px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(200, 150, 255, 0.3);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: #b8a4ff;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #c896ff, #d4a7ff);
+            color: #0f0c29;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #c896ff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #b8a4ff;
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .lang-hidden {
+            display: none;
+        }
+
+        .intro-section {
+            display: none;
+            background: rgba(48, 43, 99, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(200, 150, 255, 0.3);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.8s ease 0.2s both;
+            line-height: 1.8;
+        }
+
+        .intro-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .intro-section h2 {
+            color: #d4a7ff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .intro-section p {
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+
+        .bodies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .body-card-intro {
+            background: rgba(15, 12, 41, 0.6);
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid #c896ff;
+            font-size: 0.9rem;
+        }
+
+        .body-card-intro strong {
+            color: #d4a7ff;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .quiz-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .quiz-section.active {
+            display: block;
+        }
+
+        .progress-container {
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(100, 100, 100, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(200, 150, 255, 0.2);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #c896ff, #ffd700);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            color: #b8a4ff;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .question-card {
+            background: rgba(48, 43, 99, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(200, 150, 255, 0.3);
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+        }
+
+        .question-number {
+            color: #c896ff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            color: #f0f0f0;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background: rgba(15, 12, 41, 0.6);
+            border: 2px solid rgba(200, 150, 255, 0.3);
+            border-radius: 12px;
+            padding: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #e0e0e0;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option:hover {
+            border-color: #c896ff;
+            background: rgba(48, 43, 99, 0.8);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            background: linear-gradient(135deg, rgba(200, 150, 255, 0.3), rgba(212, 167, 255, 0.2));
+            border-color: #c896ff;
+            box-shadow: 0 0 20px rgba(200, 150, 255, 0.2);
+        }
+
+        .option::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #c896ff, #ffd700);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .option.selected::before {
+            opacity: 1;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #c896ff, #d4a7ff);
+            color: #0f0c29;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(200, 150, 255, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #b8a4ff;
+            border-color: #b8a4ff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(184, 164, 255, 0.1);
+        }
+
+        .results-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results-section.active {
+            display: block;
+        }
+
+        .results-container {
+            background: rgba(48, 43, 99, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(200, 150, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .results-title {
+            font-size: 2rem;
+            color: #d4a7ff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .results-subtitle {
+            text-align: center;
+            color: #b8a4ff;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .body-result-card {
+            background: linear-gradient(135deg, rgba(15, 12, 41, 0.8), rgba(48, 43, 99, 0.6));
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid rgba(200, 150, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .body-result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c896ff, #ffd700);
+        }
+
+        .body-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #c896ff;
+            margin-bottom: 10px;
+        }
+
+        .body-name {
+            font-size: 1.4rem;
+            color: #f0f0f0;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .body-score {
+            color: #b8a4ff;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .body-description {
+            color: #d0d0d0;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .practice-title {
+            color: #ffd700;
+            font-weight: 600;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .practice-text {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            background: rgba(15, 12, 41, 0.4);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #ffd700;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(200, 150, 255, 0.1), rgba(212, 167, 255, 0.05));
+            border-radius: 15px;
+            padding: 35px;
+            border: 2px solid rgba(200, 150, 255, 0.4);
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 1.6rem;
+            color: #d4a7ff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .cta-text {
+            color: #e0e0e0;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-cta {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-cta-primary {
+            background: linear-gradient(135deg, #c896ff, #d4a7ff);
+            color: #0f0c29;
+        }
+
+        .btn-cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(200, 150, 255, 0.4);
+        }
+
+        .btn-cta-secondary {
+            background: transparent;
+            color: #b8a4ff;
+            border: 2px solid #b8a4ff;
+        }
+
+        .btn-cta-secondary:hover {
+            background: rgba(184, 164, 255, 0.1);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(200, 150, 255, 0.2);
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .footer-text {
+            margin: 8px 0;
+        }
+
+        .footer-link {
+            color: #b8a4ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #d4a7ff;
+        }
+
+        .satnam {
+            font-size: 1.2rem;
+            color: #d4a7ff;
+            font-weight: 600;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .share-section {
+            margin-top: 40px;
+            padding: 25px;
+            background: rgba(15, 12, 41, 0.6);
+            border-radius: 15px;
+            border: 1px solid rgba(200, 150, 255, 0.2);
+            text-align: center;
+        }
+
+        .share-title {
+            color: #d4a7ff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 10px 20px;
+            border: 1px solid rgba(200, 150, 255, 0.3);
+            border-radius: 20px;
+            background: transparent;
+            color: #b8a4ff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .share-btn:hover {
+            background: rgba(200, 150, 255, 0.1);
+            border-color: #c896ff;
+            color: #d4a7ff;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .intro-section,
+            .question-card,
+            .results-container,
+            .cta-section {
+                padding: 25px;
+            }
+
+            .question-text {
+                font-size: 1.1rem;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .language-toggle {
+                position: static;
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+            }
+
+            .share-btn {
+                width: 100%;
+            }
+        }
+
+        .elevation-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(200, 150, 255, 0.1));
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .elevation-title {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .elevation-text {
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="cosmic-particles" id="particlesContainer"></div>
+
+    <div class="language-toggle">
+        <button class="lang-btn" id="langBtnEn" onclick="switchLanguage('en')">ENGLISH</button>
+        <button class="lang-btn active" id="langBtnEs" onclick="switchLanguage('es')">ESPAÑOL</button>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="mainTitle">Tu Código de Luz</h1>
+            <p class="subtitle" id="mainSubtitle">/ Your Light Code</p>
+            <p class="satnam">Sat Nam</p>
+        </div>
+
+        <!-- INTRO SECTION -->
+        <div class="intro-section active" id="introSection">
+            <h2 id="introTitle">What Are the 10 Bodies of Consciousness?</h2>
+            <p id="introText1">In the ancient Kundalini Yoga tradition, passed down through Yogi Bhajan and beautifully articulated in Nirvair Singh Khalsa's teachings, we understand that consciousness exists in 10 distinct dimensions within each of us. These are not separate entities, but interconnected facets of our being that work together to create our experience of life.</p>
+
+            <p id="introText2">Each body governs different aspects of how we perceive reality, make decisions, express ourselves, and experience the world. When these bodies are balanced and strong, we embody our highest potential. When they are weak or imbalanced, we experience struggle, confusion, and disconnection.</p>
+
+            <p id="introText3">This sacred quiz is designed to help you discover which of your light bodies are shining brightest, and which are calling for attention and nurturing. There are no "good" or "bad" results—only a mirror reflecting where you are in this moment, and a gentle invitation to evolve.</p>
+
+            <p id="introText4">For each body that shows an opportunity for growth, we offer a free practice that you can begin immediately. For deeper, guided work with kriyas, meditations, and expert mentorship, we invite you to join our community.</p>
+
+            <div class="bodies-grid" id="bodiesGridIntro">
+                <!-- Bodies will be populated by JS -->
+            </div>
+
+            <button class="btn btn-primary" onclick="startQuiz()" id="startBtn">Begin Your Journey</button>
+        </div>
+
+        <!-- QUIZ SECTION -->
+        <div class="quiz-section" id="quizSection">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">Question 1 of 15</div>
+            </div>
+
+            <div class="question-card" id="questionCard">
+                <div class="question-number" id="questionNumber">Question 1</div>
+                <div class="question-text" id="questionText"></div>
+                <div class="options" id="optionsContainer"></div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn">← Back</button>
+                <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn" disabled>Next →</button>
+            </div>
+        </div>
+
+        <!-- RESULTS SECTION -->
+        <div class="results-section" id="resultsSection">
+            <div class="results-container">
+                <h2 class="results-title" id="resultsTitle">Your Light Code Results</h2>
+                <p class="results-subtitle" id="resultsSubtitle">A reflection of your current state of consciousness</p>
+
+                <div id="elevationDisplay"></div>
+
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Results will be populated by JS -->
+                </div>
+
+                <div class="share-section">
+                    <div class="share-title" id="shareTitle">Share Your Light Code</div>
+                    <div class="share-buttons">
+                        <button class="share-btn" onclick="shareResults('whatsapp')" id="shareWhatsapp">WhatsApp</button>
+                        <button class="share-btn" onclick="shareResults('email')" id="shareEmail">Email</button>
+                        <button class="share-btn" onclick="shareResults('copy')" id="shareCopy">Copy Link</button>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h3 class="cta-title" id="ctaTitle">Deepen Your Practice</h3>
+                    <p class="cta-text" id="ctaText">En Portal Origen · Reset Sagrado, Satya Singh te guía con kriyas, meditaciones y prácticas diseñadas específicamente para fortalecer tus cuerpos de luz. Únete a nuestra comunidad.</p>
+
+                    <div class="cta-buttons">
+                        <a href="https://www.skool.com/portal-origen" target="_blank" class="btn-cta btn-cta-primary" id="ctaBtnPrimary">Join Portal Origen</a>
+                        <a href="https://www.skool.com/kundalini-yoga-navkiran-satya" target="_blank" class="btn-cta btn-cta-secondary" id="ctaBtnSecondary">Kundalini Yoga Community (EN)</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group" style="margin-top: 30px;">
+                <button class="btn btn-secondary" onclick="retakeQuiz()" id="retakeBtn">Retake Quiz</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-text" id="footerText1">Tu Código de Luz / Your Light Code</div>
+            <div class="footer-text" id="footerText2">Based on the teachings of Yogi Bhajan and Nirvair Singh Khalsa</div>
+            <div class="footer-text">
+                <span id="footerText3">Kundalini Yoga for the Aquarian Age</span>
+                <span style="color: #666;">•</span>
+                <span id="footerText4">Sat Nam</span>
+            </div>
+            <div class="footer-text" style="margin-top: 15px;">
+                <a href="https://www.skool.com/portal-origen" class="footer-link" id="footerLink">Portal Origen · Reset Sagrado</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currentLanguage = { lang: 'es' };
+        let currentQuestion = 0;
+        let selectedAnswers = {};
+        const scores = {};
+
+        // Initialize scores for all bodies
+        for (let i = 1; i <= 10; i++) {
+            scores[i] = 0;
+        }
+
+        // LANGUAGE DATA
+        const translations = {
+            en: {
+                mainTitle: "Your Light Code",
+                mainSubtitle: "/ Tu Código de Luz",
+                introTitle: "What Are the 10 Bodies of Consciousness?",
+                introText1: "In the ancient Kundalini Yoga tradition, passed down through Yogi Bhajan and beautifully articulated in Nirvair Singh Khalsa's teachings, we understand that consciousness exists in 10 distinct dimensions within each of us. These are not separate entities, but interconnected facets of our being that work together to create our experience of life.",
+                introText2: "Each body governs different aspects of how we perceive reality, make decisions, express ourselves, and experience the world. When these bodies are balanced and strong, we embody our highest potential. When they are weak or imbalanced, we experience struggle, confusion, and disconnection.",
+                introText3: "This sacred quiz is designed to help you discover which of your light bodies are shining brightest, and which are calling for attention and nurturing. There are no \"good\" or \"bad\" results—only a mirror reflecting where you are in this moment, and a gentle invitation to evolve.",
+                introText4: "For each body that shows an opportunity for growth, we offer a free practice that you can begin immediately. For deeper, guided work with kriyas, meditations, and expert mentorship, we invite you to join our community.",
+                startBtn: "Begin Your Journey",
+                prevBtn: "← Back",
+                nextBtn: "Next →",
+                resultsTitle: "Your Light Code Results",
+                resultsSubtitle: "A reflection of your current state of consciousness",
+                shareTitle: "Share Your Light Code",
+                shareWhatsapp: "WhatsApp",
+                shareEmail: "Email",
+                shareCopy: "Copy Link",
+                ctaTitle: "Deepen Your Practice",
+                ctaText: "In Portal Origen · Reset Sagrado, Satya Singh guides you with kriyas, meditations and practices specifically designed to strengthen your light bodies. Join our community.",
+                ctaBtnPrimary: "Join Portal Origen",
+                ctaBtnSecondary: "Kundalini Yoga Community (EN)",
+                retakeBtn: "Retake Quiz",
+                footerText1: "Your Light Code / Tu Código de Luz",
+                footerText2: "Based on the teachings of Yogi Bhajan and Nirvair Singh Khalsa",
+                footerText3: "Kundalini Yoga for the Aquarian Age",
+                footerText4: "Sat Nam",
+                footerLink: "Portal Origen · Reset Sagrado",
+                elevationMessage: "✨ All your Light Bodies are in beautiful harmony! You embody the Eleventh Body—the integration of all dimensions of consciousness. Continue to nurture this sacred state. ✨",
+                questionOf: "of"
+            },
+            es: {
+                mainTitle: "Tu Código de Luz",
+                mainSubtitle: "/ Your Light Code",
+                introTitle: "¿Qué son los 10 Cuerpos de Conciencia?",
+                introText1: "En la antigua tradición del Kundalini Yoga, transmitida a través de Yogi Bhajan y maravillosamente articulada en las enseñanzas de Nirvair Singh Khalsa, entendemos que la conciencia existe en 10 dimensiones distintas dentro de cada uno de nosotros. No son entidades separadas, sino facetas interconectadas de nuestro ser que trabajan juntas para crear nuestra experiencia de vida.",
+                introText2: "Cada cuerpo rige diferentes aspectos de cómo percibimos la realidad, tomamos decisiones, nos expresamos y experimentamos el mundo. Cuando estos cuerpos están equilibrados y fuertes, encarnamos nuestro máximo potencial. Cuando están débiles o desequilibrados, experimentamos lucha, confusión y desconexión.",
+                introText3: "Este cuestionario sagrado está diseñado para ayudarte a descubrir cuál de tus cuerpos de luz brilla más brillante, y cuál te está llamando para atención y cuidado. No hay resultados \"buenos\" o \"malos\"—solo un espejo que refleja dónde estás en este momento, y una gentil invitación a evolucionar.",
+                introText4: "Para cada cuerpo que muestre una oportunidad de crecimiento, ofrecemos una práctica gratuita que puedes comenzar inmediatamente. Para un trabajo más profundo y guiado con kriyas, meditaciones y mentoría experta, te invitamos a unirte a nuestra comunidad.",
+                startBtn: "Comienza Tu Viaje",
+                prevBtn: "← Atrás",
+                nextBtn: "Siguiente →",
+                resultsTitle: "Tus Resultados - Código de Luz",
+                resultsSubtitle: "Un reflejo de tu estado actual de conciencia",
+                shareTitle: "Comparte Tu Código de Luz",
+                shareWhatsapp: "WhatsApp",
+                shareEmail: "Correo",
+                shareCopy: "Copiar Enlace",
+                ctaTitle: "Profundiza Tu Práctica",
+                ctaText: "En Portal Origen · Reset Sagrado, Satya Singh te guía con kriyas, meditaciones y prácticas diseñadas específicamente para fortalecer tus cuerpos de luz. Únete a nuestra comunidad.",
+                ctaBtnPrimary: "Únete a Portal Origen",
+                ctaBtnSecondary: "Comunidad Kundalini Yoga (EN)",
+                retakeBtn: "Repetir Cuestionario",
+                footerText1: "Tu Código de Luz / Your Light Code",
+                footerText2: "Basado en las enseñanzas de Yogi Bhajan y Nirvair Singh Khalsa",
+                footerText3: "Kundalini Yoga para la Era de Acuario",
+                footerText4: "Sat Nam",
+                footerLink: "Portal Origen · Reset Sagrado",
+                elevationMessage: "✨ ¡Todos tus Cuerpos de Luz están en hermosa armonía! Encarnas el Cuerpo Once—la integración de todas las dimensiones de la conciencia. Continúa nutriendo este estado sagrado. ✨",
+                questionOf: "de"
+            }
+        };
+
+        // BODIES DATA
+        const bodies = [
+            {
+                id: 1,
+                name: { en: "Soul Body", es: "Cuerpo del Alma" },
+                emoji: "✨",
+                shortName: { en: "Head vs Heart", es: "Mente vs Corazón" },
+                keyChallenge: { en: "Over-intellectual, denying feelings", es: "Demasiado intelectual, negando sentimientos" },
+                description: { en: "Your connection to your authentic self, creativity, and compassion. Governs intuitive knowing and inner wisdom.", es: "Tu conexión con tu yo auténtico, creatividad y compasión. Rige el conocimiento intuitivo y la sabiduría interior." },
+                practice: { en: "Sat Nam mantra meditation. Sit quietly and chant 'Sat Nam' (Truth is my Name) for 11 minutes, focusing on the vibration in your heart center.", es: "Meditación del mantra Sat Nam. Siéntate tranquilamente y canta 'Sat Nam' (La Verdad es mi Nombre) durante 11 minutos, enfocándote en la vibración en tu centro cardíaco." }
+            },
+            {
+                id: 2,
+                name: { en: "Protective Mind", es: "Mente Protectora" },
+                emoji: "🛡️",
+                shortName: { en: "Longing to Belong", es: "Deseo de Pertenecer" },
+                keyChallenge: { en: "Over-protective, fearful, or reckless", es: "Demasiado protector, miedoso o imprudente" },
+                description: { en: "Your ability to sense danger, set boundaries, and protect yourself and others. The calculating mind.", es: "Tu capacidad para sentir peligro, establecer límites y protegerte a ti mismo y a otros. La mente calculadora." },
+                practice: { en: "So Hung pranayam. Breathe in through the nose saying 'So' (I am), exhale saying 'Hung' (That). Do this for 5-11 minutes to calm the protective mind.", es: "Pranayama So Hung. Inhala por la nariz diciendo 'So' (Yo soy), exhala diciendo 'Hung' (Eso). Hazlo durante 5-11 minutos para calmar la mente protectora." }
+            },
+            {
+                id: 3,
+                name: { en: "Projective Mind", es: "Mente Proyectiva" },
+                emoji: "🌟",
+                shortName: { en: "Devil or Divine", es: "Diablo o Divino" },
+                keyChallenge: { en: "Over-projective without considering risks, or inability to see positive", es: "Demasiado proyectivo sin considerar riesgos, o incapacidad de ver lo positivo" },
+                description: { en: "Your visionary capacity, optimism, and ability to see possibilities and potential. The creative dreamer.", es: "Tu capacidad visionaria, optimismo y capacidad de ver posibilidades y potencial. El soñador creativo." },
+                practice: { en: "Har meditation. Chant 'Har' (creative power) as you press your fingers systematically in sequence. Do this for 11 minutes to strengthen your projection.", es: "Meditación Har. Canta 'Har' (poder creativo) mientras presionas tus dedos sistemáticamente en secuencia. Hazlo durante 11 minutos para fortalecer tu proyección." }
+            },
+            {
+                id: 4,
+                name: { en: "Meditative Mind", es: "Mente Meditativa" },
+                emoji: "⚖️",
+                shortName: { en: "Cup of Prayer", es: "Copa de Oración" },
+                keyChallenge: { en: "Inability to make decisions, indecisiveness", es: "Incapacidad para tomar decisiones, indecisión" },
+                description: { en: "Your neutral, balanced perspective that integrates protection and projection. The witness consciousness.", es: "Tu perspectiva neutral y equilibrada que integra protección y proyección. La conciencia testigo." },
+                practice: { en: "Long deep breathing. Inhale deeply for 4 counts, hold for 4 counts, exhale for 4 counts. Do this for 11 minutes to develop neutrality and peace.", es: "Respiración profunda y larga. Inhala profundamente durante 4 cuentas, mantén durante 4 cuentas, exhala durante 4 cuentas. Hazlo durante 11 minutos para desarrollar neutralidad y paz." }
+            },
+            {
+                id: 5,
+                name: { en: "Physical Body", es: "Cuerpo Físico" },
+                emoji: "💪",
+                shortName: { en: "Teacher", es: "Maestro" },
+                keyChallenge: { en: "Anger, competitive, impatient, neglect", es: "Ira, competitividad, impaciencia, negligencia" },
+                description: { en: "Your physical vessel, balance, discipline, and capacity to teach through example. The ground of being.", es: "Tu vaso físico, equilibrio, disciplina y capacidad de enseñar a través del ejemplo. El fundamento del ser." },
+                practice: { en: "Daily yoga practice. Even 15-20 minutes of basic yoga asanas (poses) like Cat-Cow, Child's Pose, and Warrior poses strengthen your physical body and teach discipline.", es: "Práctica diaria de yoga. Incluso 15-20 minutos de asanas (posturas) de yoga básico como Cat-Cow, Pose del Niño y posturas de Guerrero fortalecen tu cuerpo físico." }
+            },
+            {
+                id: 6,
+                name: { en: "Arc Line", es: "Línea de Arco" },
+                emoji: "🎯",
+                shortName: { en: "Person at Prayer", es: "Persona en Oración" },
+                keyChallenge: { en: "Unfocused, gullible, image-conscious, easily influenced", es: "Desenfocado, crédulo, consciente de la imagen, fácilmente influenciable" },
+                description: { en: "Your intuition, justice sense, focus, and protective aura that shields your face and identity. Divine protection.", es: "Tu intuición, sentido de justicia, enfoque y aura protectora que escuda tu cara e identidad. Protección divina." },
+                practice: { en: "Archer pose. Hold Archer pose (standing lunge with arms extended in bow and arrow position) for 1-3 minutes on each side to strengthen your arc line and focus.", es: "Postura del Arquero. Mantén la postura del Arquero (estocada de pie con brazos extendidos en posición de arco y flecha) durante 1-3 minutos en cada lado para fortalecer tu línea de arco." }
+            },
+            {
+                id: 7,
+                name: { en: "Aura", es: "Aura" },
+                emoji: "🌈",
+                shortName: { en: "Platform of Elevation", es: "Plataforma de Elevación" },
+                keyChallenge: { en: "Feeling vulnerable, easily influenced by others' energy, weak boundaries", es: "Sentirse vulnerable, fácilmente influenciable por la energía de otros, límites débiles" },
+                description: { en: "Your electromagnetic field, radiance, mercy, and ability to uplift and protect others. Your subtle shield.", es: "Tu campo electromagnético, radiancia, misericordia y capacidad de elevar y proteger a otros. Tu escudo sutil." },
+                practice: { en: "Triangle pose. Stand with legs wide and lean to one side, extending your upper arm overhead. Hold for 1-3 minutes each side. Also wear white and practice cold showers to strengthen your aura.", es: "Postura del Triángulo. Párate con las piernas separadas e inclínate hacia un lado, extendiendo tu brazo superior sobre tu cabeza. Mantén durante 1-3 minutos en cada lado. También usa blanco y practica duchas frías." }
+            },
+            {
+                id: 8,
+                name: { en: "Pranic Body", es: "Cuerpo Pránico" },
+                emoji: "⚡",
+                shortName: { en: "Finite vs Infinite", es: "Finito vs Infinito" },
+                keyChallenge: { en: "Fear, anxiety, chronic fatigue, dependence on others", es: "Miedo, ansiedad, fatiga crónica, dependencia de otros" },
+                description: { en: "Your vital life force, energy, fearlessness, and self-initiation capacity. Your power to move and act.", es: "Tu fuerza vital, energía, valentía y capacidad de auto-iniciación. Tu poder para moverte y actuar." },
+                practice: { en: "Breath of Fire. Sit cross-legged and do rapid, rhythmic breathing through the nose for 1-3 minutes. This ignites your prana and dissolves fear. Or practice Sitali breath (sipping breath) for calm.", es: "Respiración de Fuego. Siéntate en posición de loto y haz respiración rápida y rítmica por la nariz durante 1-3 minutos. Esto enciende tu prana. O practica respiración Sitali para calma." }
+            },
+            {
+                id: 9,
+                name: { en: "Subtle Body", es: "Cuerpo Sutil" },
+                emoji: "🔮",
+                shortName: { en: "Mystery vs Mastery", es: "Misterio vs Maestría" },
+                keyChallenge: { en: "Naive, easily fooled, rough around edges, lack of subtlety", es: "Ingenuo, fácilmente engañado, sin sutileza, falta de refinamiento" },
+                description: { en: "Your refined perception, calmness, subtlety, and mastery over details. The intuitive knower.", es: "Tu percepción refinada, calma, sutileza y maestría sobre los detalles. El conocedor intuitivo." },
+                practice: { en: "Begin a 1000-day meditation practice, even if just 11 minutes daily. Any consistent meditation that cultivates awareness and attention to detail strengthens the subtle body.", es: "Comienza una práctica de meditación de 1000 días, incluso si es solo 11 minutos diarios. Cualquier meditación consistente que cultive conciencia y atención al detalle fortalece el cuerpo sutil." }
+            },
+            {
+                id: 10,
+                name: { en: "Radiant Body", es: "Cuerpo Radiante" },
+                emoji: "👑",
+                shortName: { en: "All or Nothing", es: "Todo o Nada" },
+                keyChallenge: { en: "Fear of conflict, inability to deal with confrontation, dull presence", es: "Miedo al conflicto, incapacidad de enfrentar confrontación, presencia opaca" },
+                description: { en: "Your radiance, command, royal courage, and ability to shine and be seen. Your presence and authenticity.", es: "Tu radiancia, mando, valor real y capacidad de brillar y ser visto. Tu presencia y autenticidad." },
+                practice: { en: "Archer pose daily, combined with power affirmations like 'I am radiant, I am powerful, I am here' spoken with conviction. Also practice courageous acts of authenticity.", es: "Postura del Arquero diariamente, combinada con afirmaciones poderosas como 'Soy radiante, soy poderosa, estoy aquí' dichas con convicción. También practica actos valientes de autenticidad." }
+            }
+        ];
+
+        // QUESTIONS DATA - 15 comprehensive questions
+        const questions = [
+            {
+                en: "When facing a difficult life decision, what is your typical response?",
+                es: "Cuando enfrentas una decisión de vida difícil, ¿cuál es tu respuesta típica?",
+                options: [
+                    {
+                        en: "I retreat into my thoughts and try to analyze every possibility logically",
+                        es: "Me retiro en mis pensamientos e intento analizar cada posibilidad lógicamente",
+                        bodies: [1, 4]
+                    },
+                    {
+                        en: "I consider all the potential dangers and risks before proceeding cautiously",
+                        es: "Considero todos los peligros y riesgos potenciales antes de proceder con cautela",
+                        bodies: [2]
+                    },
+                    {
+                        en: "I feel into what's possible and trust my intuition to guide me forward",
+                        es: "Siento qué es posible y confío en mi intuición para guiarme hacia adelante",
+                        bodies: [3, 6]
+                    },
+                    {
+                        en: "I'm often stuck between different perspectives and struggle to commit to one path",
+                        es: "A menudo estoy atrapado entre diferentes perspectivas y lucho por comprometerme con un camino",
+                        bodies: [4]
+                    }
+                ]
+            },
+            {
+                en: "How do you typically respond when someone criticizes you or challenges your ideas?",
+                es: "¿Cómo típicamente respondes cuando alguien te critica o desafía tus ideas?",
+                options: [
+                    {
+                        en: "I feel hurt emotionally but keep it inside, withdrawing to protect myself",
+                        es: "Me siento herido emocionalmente pero lo guardo adentro, retrayéndome para protegerme",
+                        bodies: [1, 2]
+                    },
+                    {
+                        en: "I become defensive and argumentative, needing to prove my point",
+                        es: "Me vuelvo defensivo y argumentativo, necesitando probar mi punto",
+                        bodies: [5, 10]
+                    },
+                    {
+                        en: "I see it as an opportunity to learn and understand their perspective",
+                        es: "Lo veo como una oportunidad de aprender y entender su perspectiva",
+                        bodies: [3, 9]
+                    },
+                    {
+                        en: "I feel embarrassed and worry about what others will think of me",
+                        es: "Me siento avergonzado y me preocupa qué otros piensen de mí",
+                        bodies: [6, 7]
+                    }
+                ]
+            },
+            {
+                en: "What is your relationship with physical exercise and movement?",
+                es: "¿Cuál es tu relación con el ejercicio físico y el movimiento?",
+                options: [
+                    {
+                        en: "I practice yoga, exercise, or movement regularly as a spiritual discipline",
+                        es: "Practico yoga, ejercicio o movimiento regularmente como disciplina espiritual",
+                        bodies: [5, 8]
+                    },
+                    {
+                        en: "I exercise sporadically when I remember or feel motivated",
+                        es: "Hago ejercicio esporádicamente cuando recuerdo o siento motivación",
+                        bodies: [4, 8]
+                    },
+                    {
+                        en: "I'm very competitive and push myself hard, sometimes too hard",
+                        es: "Soy muy competitivo y me presiono mucho, a veces demasiado",
+                        bodies: [5, 10]
+                    },
+                    {
+                        en: "I avoid intense physical activity, preferring rest and gentleness",
+                        es: "Evito actividad física intensa, prefiriendo descanso y gentileza",
+                        bodies: [2, 9]
+                    }
+                ]
+            },
+            {
+                en: "When you're in a group, how do you typically show up?",
+                es: "Cuando estás en un grupo, ¿cómo típicamente te presentas?",
+                options: [
+                    {
+                        en: "I'm quiet and observant, listening more than speaking",
+                        es: "Soy callado y observador, escuchando más de lo que hablo",
+                        bodies: [4, 9]
+                    },
+                    {
+                        en: "I'm energetic and enthusiastic, lifting others up with positivity",
+                        es: "Soy energético y entusiasta, elevando a otros con positividad",
+                        bodies: [3, 7, 10]
+                    },
+                    {
+                        en: "I'm cautious and careful not to upset anyone's energy or boundaries",
+                        es: "Soy cauteloso y cuidadoso de no perturbar la energía o límites de nadie",
+                        bodies: [2, 6, 7]
+                    },
+                    {
+                        en: "I take charge and lead, commanding the room with my presence",
+                        es: "Tomo control y lidero, comandando la sala con mi presencia",
+                        bodies: [5, 10]
+                    }
+                ]
+            },
+            {
+                en: "How do you experience your emotions throughout the day?",
+                es: "¿Cómo experimentas tus emociones durante el día?",
+                options: [
+                    {
+                        en: "I feel deeply and intensely, sometimes overwhelmed by my feelings",
+                        es: "Siento profundamente e intensamente, a veces abrumado por mis sentimientos",
+                        bodies: [1, 7]
+                    },
+                    {
+                        en: "I'm pretty even-keeled and don't experience dramatic emotional swings",
+                        es: "Soy bastante estable y no experimento cambios emocionales dramáticos",
+                        bodies: [4, 9]
+                    },
+                    {
+                        en: "I feel anxious or fearful more often than I'd like",
+                        es: "Me siento ansioso o asustado más a menudo de lo que me gustaría",
+                        bodies: [2, 8]
+                    },
+                    {
+                        en: "I tend to suppress my emotions and focus on logic instead",
+                        es: "Tiendo a suprimir mis emociones y enfocarme en la lógica",
+                        bodies: [1, 4]
+                    }
+                ]
+            },
+            {
+                en: "What draws you to spiritual or meditative practices?",
+                es: "¿Qué te atrae a prácticas espirituales o meditativas?",
+                options: [
+                    {
+                        en: "I seek connection to something greater and find peace in stillness",
+                        es: "Busco conexión con algo más grande y encuentro paz en la quietud",
+                        bodies: [1, 4, 9]
+                    },
+                    {
+                        en: "I'm interested in understanding and mastering the deeper truths of life",
+                        es: "Estoy interesado en comprender y dominar las verdades más profundas de la vida",
+                        bodies: [9]
+                    },
+                    {
+                        en: "I practice to reduce stress and manage anxiety and fear",
+                        es: "Practico para reducir el estrés y manejar la ansiedad y el miedo",
+                        bodies: [2, 8]
+                    },
+                    {
+                        en: "I'm drawn to developing my power, presence, and ability to shine",
+                        es: "Estoy atraído a desarrollar mi poder, presencia y capacidad de brillar",
+                        bodies: [3, 10]
+                    }
+                ]
+            },
+            {
+                en: "How do you handle conflict or disagreement with someone you care about?",
+                es: "¿Cómo manejas el conflicto o desacuerdo con alguien que te importa?",
+                options: [
+                    {
+                        en: "I avoid confrontation, hoping the issue will resolve itself",
+                        es: "Evito la confrontación, esperando que el problema se resuelva solo",
+                        bodies: [2, 4, 10]
+                    },
+                    {
+                        en: "I address it directly and calmly, trying to understand both sides",
+                        es: "Lo abordo directamente y con calma, intentando entender ambos lados",
+                        bodies: [4, 5, 9]
+                    },
+                    {
+                        en: "I become emotionally reactive and things escalate quickly",
+                        es: "Me vuelvo emocionalmente reactivo y las cosas se intensifican rápidamente",
+                        bodies: [1, 5]
+                    },
+                    {
+                        en: "I stay firm in my position but remain compassionate toward them",
+                        es: "Me mantengo firme en mi posición pero sigo siendo compasivo con ellos",
+                        bodies: [1, 3, 10]
+                    }
+                ]
+            },
+            {
+                en: "What is your relationship with your intuition or 'gut feelings'?",
+                es: "¿Cuál es tu relación con tu intuición o 'corazonadas'?",
+                options: [
+                    {
+                        en: "I trust my intuition completely and follow it without much analysis",
+                        es: "Confío completamente en mi intuición y la sigo sin mucho análisis",
+                        bodies: [1, 6]
+                    },
+                    {
+                        en: "I second-guess my intuition and often ignore it in favor of logic",
+                        es: "Dudo de mi intuición y a menudo la ignoro a favor de la lógica",
+                        bodies: [4]
+                    },
+                    {
+                        en: "I sometimes sense things that others don't, but I'm unsure if it's real",
+                        es: "A veces siento cosas que otros no sienten, pero no estoy seguro si es real",
+                        bodies: [6, 9]
+                    },
+                    {
+                        en: "I'm fairly intuitive but I stay balanced by considering practical factors too",
+                        es: "Soy bastante intuitivo pero me mantengo equilibrado considerando factores prácticos también",
+                        bodies: [3, 4]
+                    }
+                ]
+            },
+            {
+                en: "How much energy and vitality do you feel in your daily life?",
+                es: "¿Cuánta energía y vitalidad sientes en tu vida diaria?",
+                options: [
+                    {
+                        en: "I feel energized and ready to take on challenges with enthusiasm",
+                        es: "Me siento energizado y listo para enfrentar desafíos con entusiasmo",
+                        bodies: [3, 8, 10]
+                    },
+                    {
+                        en: "I struggle with fatigue and often feel drained or depleted",
+                        es: "Lucho contra la fatiga y a menudo me siento drenado o agotado",
+                        bodies: [2, 8]
+                    },
+                    {
+                        en: "My energy is steady and consistent, neither high nor low",
+                        es: "Mi energía es constante y consistente, ni alta ni baja",
+                        bodies: [4, 5, 9]
+                    },
+                    {
+                        en: "My energy fluctuates depending on my emotions and circumstances",
+                        es: "Mi energía fluctúa según mis emociones y circunstancias",
+                        bodies: [1, 7]
+                    }
+                ]
+            },
+            {
+                en: "When you look at your life circumstances, how do you tend to interpret them?",
+                es: "Cuando miras tus circunstancias de vida, ¿cómo tiendes a interpretarlas?",
+                options: [
+                    {
+                        en: "I see challenges as opportunities for growth and learning",
+                        es: "Veo los desafíos como oportunidades de crecimiento y aprendizaje",
+                        bodies: [3, 9]
+                    },
+                    {
+                        en: "I worry about potential negative outcomes and focus on what could go wrong",
+                        es: "Me preocupo por posibles resultados negativos y me enfoco en qué podría salir mal",
+                        bodies: [2]
+                    },
+                    {
+                        en: "I trust in a higher plan, even when I don't understand the 'why'",
+                        es: "Confío en un plan superior, incluso cuando no entiendo el 'por qué'",
+                        bodies: [1, 6]
+                    },
+                    {
+                        en: "I feel uncertain about the meaning or direction, often questioning",
+                        es: "Me siento inseguro sobre el significado o dirección, a menudo cuestionando",
+                        bodies: [4, 9]
+                    }
+                ]
+            },
+            {
+                en: "How important is it to you that others approve of you or like you?",
+                es: "¿Qué tan importante es para ti que otros te aprueben o te gusten?",
+                options: [
+                    {
+                        en: "Very important—I often adjust myself to fit what I think others want",
+                        es: "Muy importante—a menudo me ajusto para encajar con lo que creo que otros quieren",
+                        bodies: [2, 6, 7]
+                    },
+                    {
+                        en: "Somewhat important, but I don't let it control my choices",
+                        es: "Algo importante, pero no dejo que controle mis decisiones",
+                        bodies: [3, 4]
+                    },
+                    {
+                        en: "Not very important—I'm confident in who I am",
+                        es: "No muy importante—soy confiado en quién soy",
+                        bodies: [5, 10]
+                    },
+                    {
+                        en: "I genuinely care about others' wellbeing, not just their approval",
+                        es: "Realmente me importa el bienestar de otros, no solo su aprobación",
+                        bodies: [1, 7]
+                    }
+                ]
+            },
+            {
+                en: "In moments of uncertainty or fear, how do you typically respond?",
+                es: "En momentos de incertidumbre o miedo, ¿cómo típicamente respondes?",
+                options: [
+                    {
+                        en: "I freeze or withdraw, needing time alone to process",
+                        es: "Me congelo o me retiro, necesitando tiempo solo para procesar",
+                        bodies: [2, 4]
+                    },
+                    {
+                        en: "I take action and trust that things will work out",
+                        es: "Tomo acción y confío que las cosas funcionarán",
+                        bodies: [3, 8]
+                    },
+                    {
+                        en: "I seek comfort and reassurance from others",
+                        es: "Busco comodidad y tranquilidad de otros",
+                        bodies: [2, 7]
+                    },
+                    {
+                        en: "I face it head-on with courage and determination",
+                        es: "Lo enfrento directamente con coraje y determinación",
+                        bodies: [5, 10]
+                    }
+                ]
+            },
+            {
+                en: "What is your relationship with commitment and follow-through?",
+                es: "¿Cuál es tu relación con el compromiso y el seguimiento?",
+                options: [
+                    {
+                        en: "I commit fully and follow through with discipline and dedication",
+                        es: "Me comprometo totalmente y sigo adelante con disciplina y dedicación",
+                        bodies: [5, 9, 10]
+                    },
+                    {
+                        en: "I start with enthusiasm but sometimes lose momentum",
+                        es: "Comienzo con entusiasmo pero a veces pierdo impulso",
+                        bodies: [3, 8]
+                    },
+                    {
+                        en: "I'm cautious about commitments and need certainty before proceeding",
+                        es: "Soy cauteloso con los compromisos y necesito certeza antes de proceder",
+                        bodies: [2, 4]
+                    },
+                    {
+                        en: "I commit based on feeling and intuition more than planning",
+                        es: "Me comprometo basado en sentimiento e intuición más que en planificación",
+                        bodies: [1, 3, 6]
+                    }
+                ]
+            },
+            {
+                en: "How would you describe your presence or 'way of being' around others?",
+                es: "¿Cómo describirías tu presencia o 'forma de ser' alrededor de otros?",
+                options: [
+                    {
+                        en: "Warm, compassionate, and emotionally connected",
+                        es: "Cálido, compasivo y conectado emocionalmente",
+                        bodies: [1, 7]
+                    },
+                    {
+                        en: "Calm, observant, and centered",
+                        es: "Tranquilo, observador y centrado",
+                        bodies: [4, 9]
+                    },
+                    {
+                        en: "Energetic, inspiring, and full of potential",
+                        es: "Energético, inspirador y lleno de potencial",
+                        bodies: [3, 8]
+                    },
+                    {
+                        en: "Strong, commanding, and radiantly present",
+                        es: "Fuerte, dominante y radiante presente",
+                        bodies: [5, 10]
+                    }
+                ]
+            },
+            {
+                en: "What does spiritual growth or evolution mean to you personally?",
+                es: "¿Qué significa el crecimiento espiritual o la evolución para ti personalmente?",
+                options: [
+                    {
+                        en: "Becoming more compassionate, connected, and true to myself",
+                        es: "Ser más compasivo, conectado y fiel a mí mismo",
+                        bodies: [1, 7]
+                    },
+                    {
+                        en: "Developing mastery, refinement, and deeper understanding",
+                        es: "Desarrollar maestría, refinamiento y comprensión más profunda",
+                        bodies: [9]
+                    },
+                    {
+                        en: "Overcoming fear and building courage to live authentically",
+                        es: "Superar el miedo y construir coraje para vivir autenticamente",
+                        bodies: [8, 10]
+                    },
+                    {
+                        en: "Finding balance, peace, and wise decision-making capacity",
+                        es: "Encontrar equilibrio, paz y capacidad de toma de decisiones sabia",
+                        bodies: [4, 5]
+                    }
+                ]
+            }
+        ];
+
+        // Initialize particles
+        function createParticles() {
+            const container = document.getElementById('particlesContainer');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 15) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Language switching
+        function switchLanguage(lang) {
+            currentLanguage.lang = lang;
+            document.documentElement.lang = lang;
+            document.getElementById('langBtnEn').classList.toggle('active', lang === 'en');
+            document.getElementById('langBtnEs').classList.toggle('active', lang === 'es');
+            updateLanguage();
+        }
+
+        function t(key) {
+            return translations[currentLanguage.lang][key] || translations.en[key];
+        }
+
+        function updateLanguage() {
+            document.getElementById('mainTitle').textContent = t('mainTitle');
+            document.getElementById('mainSubtitle').textContent = t('mainSubtitle');
+            document.getElementById('introTitle').textContent = t('introTitle');
+            document.getElementById('introText1').textContent = t('introText1');
+            document.getElementById('introText2').textContent = t('introText2');
+            document.getElementById('introText3').textContent = t('introText3');
+            document.getElementById('introText4').textContent = t('introText4');
+            document.getElementById('startBtn').textContent = t('startBtn');
+            document.getElementById('resultsTitle').textContent = t('resultsTitle');
+            document.getElementById('resultsSubtitle').textContent = t('resultsSubtitle');
+            document.getElementById('shareTitle').textContent = t('shareTitle');
+            document.getElementById('shareWhatsapp').textContent = t('shareWhatsapp');
+            document.getElementById('shareEmail').textContent = t('shareEmail');
+            document.getElementById('shareCopy').textContent = t('shareCopy');
+            document.getElementById('ctaTitle').textContent = t('ctaTitle');
+            document.getElementById('ctaText').textContent = t('ctaText');
+            document.getElementById('ctaBtnPrimary').textContent = t('ctaBtnPrimary');
+            document.getElementById('ctaBtnSecondary').textContent = t('ctaBtnSecondary');
+            document.getElementById('retakeBtn').textContent = t('retakeBtn');
+            document.getElementById('footerText1').textContent = t('footerText1');
+            document.getElementById('footerText2').textContent = t('footerText2');
+            document.getElementById('footerText3').textContent = t('footerText3');
+            document.getElementById('footerText4').textContent = t('footerText4');
+            document.getElementById('footerLink').textContent = t('footerLink');
+            document.getElementById('prevBtn').textContent = t('prevBtn');
+            document.getElementById('nextBtn').textContent = t('nextBtn');
+
+            // Populate bodies grid in intro
+            populateBodiesGrid();
+
+            // Update question if quiz is active
+            if (currentQuestion > 0 || document.getElementById('quizSection').classList.contains('active')) {
+                displayQuestion();
+            }
+        }
+
+        function populateBodiesGrid() {
+            const grid = document.getElementById('bodiesGridIntro');
+            grid.innerHTML = '';
+            bodies.forEach(body => {
+                const card = document.createElement('div');
+                card.className = 'body-card-intro';
+                card.innerHTML = `
+                    <strong>${body.emoji} ${body.name[currentLanguage.lang]}</strong>
+                    <div>${body.shortName[currentLanguage.lang]}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function startQuiz() {
+            document.getElementById('introSection').classList.remove('active');
+            document.getElementById('quizSection').classList.add('active');
+            currentQuestion = 0;
+            selectedAnswers = {};
+            for (let i = 1; i <= 10; i++) {
+                scores[i] = 0;
+            }
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            const q = questions[currentQuestion];
+            const lang = currentLanguage.lang;
+
+            document.getElementById('questionNumber').textContent = `${lang === 'en' ? 'Question' : 'Pregunta'} ${currentQuestion + 1}`;
+            document.getElementById('questionText').textContent = q[lang];
+
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach((option, idx) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                if (selectedAnswers[currentQuestion] === idx) {
+                    optionDiv.classList.add('selected');
+                }
+                optionDiv.textContent = option[lang];
+                optionDiv.onclick = function(e) { e.preventDefault(); selectAnswer(idx); };
+                optionDiv.ontouchend = function(e) { e.preventDefault(); selectAnswer(idx); };
+                optionDiv.setAttribute('role', 'button');
+                optionDiv.setAttribute('tabindex', '0');
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            const progressPercent = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = progressPercent + '%';
+            document.getElementById('progressText').textContent = `${lang === 'en' ? 'Question' : 'Pregunta'} ${currentQuestion + 1} ${t('questionOf')} ${questions.length}`;
+
+            document.getElementById('prevBtn').disabled = currentQuestion === 0;
+            document.getElementById('nextBtn').disabled = selectedAnswers[currentQuestion] === undefined;
+        }
+
+        function selectAnswer(idx) {
+            selectedAnswers[currentQuestion] = idx;
+            const q = questions[currentQuestion];
+            const bodiesForAnswer = q.options[idx].bodies;
+            bodiesForAnswer.forEach(bodyId => {
+                scores[bodyId]++;
+            });
+
+            const options = document.querySelectorAll('.option');
+            options.forEach((opt, i) => {
+                opt.classList.toggle('selected', i === idx);
+            });
+
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                displayQuestion();
+                document.querySelector('.question-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                showResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+                document.querySelector('.question-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quizSection').classList.remove('active');
+            document.getElementById('resultsSection').classList.add('active');
+
+            // Sort bodies by score
+            const sortedBodies = bodies.map((body, idx) => ({
+                ...body,
+                score: scores[body.id]
+            })).sort((a, b) => b.score - a.score);
+
+            // Check if all bodies are balanced (within 1 point of each other)
+            const maxScore = Math.max(...sortedBodies.map(b => b.score));
+            const minScore = Math.min(...sortedBodies.map(b => b.score));
+            const isElevated = maxScore - minScore <= 1;
+
+            if (isElevated) {
+                const elevDiv = document.getElementById('elevationDisplay');
+                elevDiv.innerHTML = `
+                    <div class="elevation-section">
+                        <div class="elevation-title">${currentLanguage.lang === 'en' ? '✨ Eleventh Body Activated ✨' : '✨ Cuerpo Once Activado ✨'}</div>
+                        <div class="elevation-text">${t('elevationMessage')}</div>
+                    </div>
+                `;
+            } else {
+                document.getElementById('elevationDisplay').innerHTML = '';
+            }
+
+            const resultsGrid = document.getElementById('resultsGrid');
+            resultsGrid.innerHTML = '';
+
+            // Show bottom 3 bodies needing attention
+            const needingAttention = sortedBodies.slice(-3).reverse();
+
+            needingAttention.forEach(body => {
+                const card = document.createElement('div');
+                card.className = 'body-result-card';
+                const lang = currentLanguage.lang;
+
+                const practiceTitle = lang === 'en' ? 'Free Practice:' : 'Práctica Gratuita:';
+
+                card.innerHTML = `
+                    <div class="body-number">${body.emoji}</div>
+                    <div class="body-name">${body.id}. ${body.name[lang]}</div>
+                    <div class="body-score">${lang === 'en' ? 'Strength:' : 'Fortaleza:'} ${body.score}/${questions.length}</div>
+                    <div class="body-description">${body.description[lang]}</div>
+                    <div class="practice-title">${practiceTitle}</div>
+                    <div class="practice-text">${body.practice[lang]}</div>
+                `;
+                resultsGrid.appendChild(card);
+            });
+
+            document.querySelector('.results-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function retakeQuiz() {
+            document.getElementById('resultsSection').classList.remove('active');
+            document.getElementById('introSection').classList.add('active');
+            currentQuestion = 0;
+            selectedAnswers = {};
+            for (let i = 1; i <= 10; i++) {
+                scores[i] = 0;
+            }
+            document.querySelector('.header').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function shareResults(platform) {
+            const lang = currentLanguage.lang;
+            const url = window.location.href;
+            const text = lang === 'en'
+                ? `I just discovered my Light Code! Find out what your 10 Bodies of Consciousness reveal about you:`
+                : `¡Acabo de descubrir mi Código de Luz! Descubre qué revelan tus 10 Cuerpos de Conciencia sobre ti:`;
+
+            if (platform === 'whatsapp') {
+                window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`);
+            } else if (platform === 'email') {
+                const subject = lang === 'en' ? 'Check Out Your Light Code Quiz' : 'Descubre Tu Código de Luz';
+                window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text + '\n\n' + url)}`);
+            } else if (platform === 'copy') {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert(lang === 'en' ? 'Link copied to clipboard!' : '¡Enlace copiado al portapapeles!');
+                });
+            }
+        }
+
+        // Initialize immediately (script is at bottom of body, DOM is ready)
+        function initQuiz() {
+            try {
+                createParticles();
+                populateBodiesGrid();
+                updateLanguage(); // Apply default language (es) to all elements
+            } catch(e) {
+                console.error('Init error:', e);
+                // Even if particles or grid fail, make sure buttons work
+            }
+        }
+
+        // Run init now
+        initQuiz();
+
+        // Fallback: also try on load event
+        window.addEventListener('load', function() {
+            if (!document.getElementById('bodiesGridIntro').hasChildNodes()) {
+                initQuiz();
+            }
+        });
+    </script>
+</body>
+</html>
