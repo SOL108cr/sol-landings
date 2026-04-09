@@ -883,7 +883,7 @@
 
                     <div class="cta-buttons">
                         <a href="https://www.skool.com/portal-origen?utm_source=quiz&utm_medium=web&utm_campaign=codigo_de_luz" target="_blank" class="btn-cta btn-cta-primary" id="ctaBtnPrimary">Join Portal Origen</a>
-                        <a href="https://www.skool.com/kundalini-yoga-navkiran-satya?utm_source=quiz&utm_medium=web&utm_campaign=codigo_de_luz" target="_blank" class="btn-cta btn-cta-secondary" id="ctaBtnSecondary">Kundalini Yoga Community (EN)</a>
+                        <a href="https://www.skool.com/kundalini-yoga-navkiran-satya?utm_source=quiz&utm_medium=web&utm_campaign=codigo_de_luz" target="_blank" class="btn-cta btn-cta-secondary" id="ctaBtnSecondary" style="display:none;">Kundalini Yoga Community (EN)</a>
                     </div>
                 </div>
             </div>
@@ -946,9 +946,9 @@
                 shareEmail: "Email",
                 shareCopy: "Copy Link",
                 ctaTitle: "Deepen Your Practice",
-                ctaText: "Your personalized practices are powerful—and deeper guidance transforms results. Portal Origen · Reset Sagrado gives you guided kriyas, live meditations, and direct mentorship from Satya Singh. Acceso gratuito termina el 30 de abril / Free access ends April 30. Join now for guided evolution of your light bodies.",
-                ctaBtnPrimary: "Join Portal Origen",
-                ctaBtnSecondary: "Kundalini Yoga Community (EN)",
+                ctaText: "Your personalized practices are powerful—and deeper guidance transforms results. In our Kundalini Yoga community, Satya Singh guides you with kriyas, meditations and practices to strengthen your light bodies. Free access ends April 30. Join now!",
+                ctaBtnPrimary: "Join Kundalini Yoga Community",
+                ctaBtnSecondary: "",
                 retakeBtn: "Retake Quiz",
                 footerText1: "Your Light Code / Tu Código de Luz",
                 footerText2: "Based on the teachings of Yogi Bhajan and Nirvair Singh Khalsa",
@@ -982,9 +982,9 @@
                 shareEmail: "Correo",
                 shareCopy: "Copiar Enlace",
                 ctaTitle: "Profundiza Tu Práctica",
-                ctaText: "Tus prácticas personalizadas son poderosas—y la guía profunda transforma resultados. Portal Origen · Reset Sagrado te da kriyas guiadas, meditaciones en vivo, y mentoría directa de Satya Singh. Acceso gratuito termina el 30 de abril / Free access ends April 30. Únete ahora para evolución guiada de tus cuerpos de luz.",
+                ctaText: "Tus prácticas personalizadas son poderosas—y la guía profunda transforma resultados. Portal Origen · Reset Sagrado te da kriyas guiadas, meditaciones en vivo, y mentoría directa de Satya Singh. Acceso gratuito termina el 30 de abril. ¡Únete ahora!",
                 ctaBtnPrimary: "Únete a Portal Origen",
-                ctaBtnSecondary: "Comunidad Kundalini Yoga (EN)",
+                ctaBtnSecondary: "",
                 retakeBtn: "Repetir Cuestionario",
                 footerText1: "Tu Código de Luz / Your Light Code",
                 footerText2: "Basado en las enseñanzas de Yogi Bhajan y Nirvair Singh Khalsa",
@@ -1429,7 +1429,14 @@
             document.getElementById('ctaTitle').textContent = t('ctaTitle');
             document.getElementById('ctaText').textContent = t('ctaText');
             document.getElementById('ctaBtnPrimary').textContent = t('ctaBtnPrimary');
-            document.getElementById('ctaBtnSecondary').textContent = t('ctaBtnSecondary');
+            // Show only one CTA button based on language
+            if (currentLanguage.lang === 'en') {
+                document.getElementById('ctaBtnPrimary').href = 'https://www.skool.com/kundalini-yoga-navkiran-satya?utm_source=quiz&utm_medium=web&utm_campaign=codigo_de_luz';
+                document.getElementById('ctaBtnSecondary').style.display = 'none';
+            } else {
+                document.getElementById('ctaBtnPrimary').href = 'https://www.skool.com/portal-origen?utm_source=quiz&utm_medium=web&utm_campaign=codigo_de_luz';
+                document.getElementById('ctaBtnSecondary').style.display = 'none';
+            }
             document.getElementById('retakeBtn').textContent = t('retakeBtn');
             document.getElementById('footerText1').textContent = t('footerText1');
             document.getElementById('footerText2').textContent = t('footerText2');
