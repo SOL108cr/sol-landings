@@ -1566,11 +1566,8 @@
             sendResultsEmail();
             sendLeadNotificationEmail();
 
-            // Re-enable form after a moment
-            setTimeout(() => {
-                document.getElementById('emailGateForm').style.opacity = '1';
-                document.getElementById('emailGateSubmit').disabled = false;
-            }, 2000);
+            // Show results immediately (don't wait for email delivery)
+            showResults();
         }
 
         function sendResultsEmail() {
