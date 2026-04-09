@@ -359,6 +359,115 @@
             background: rgba(184, 164, 255, 0.1);
         }
 
+        .email-gate-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .email-gate-section.active {
+            display: block;
+        }
+
+        .email-gate-container {
+            background: rgba(48, 43, 99, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(200, 150, 255, 0.3);
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .email-gate-title {
+            font-size: 1.6rem;
+            color: #d4a7ff;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .email-gate-subtitle {
+            text-align: center;
+            color: #b8a4ff;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #d4a7ff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px;
+            min-height: 48px;
+            background: rgba(15, 12, 41, 0.6);
+            border: 2px solid rgba(200, 150, 255, 0.3);
+            border-radius: 12px;
+            color: #f0f0f0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input::placeholder {
+            color: #888;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #c896ff;
+            background: rgba(48, 43, 99, 0.8);
+            box-shadow: 0 0 20px rgba(200, 150, 255, 0.2);
+        }
+
+        .email-gate-submit {
+            width: 100%;
+            padding: 16px;
+            min-height: 48px;
+            background: linear-gradient(135deg, #c896ff, #d4a7ff);
+            color: #0f0c29;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .email-gate-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(200, 150, 255, 0.4);
+        }
+
+        .email-gate-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .email-gate-footer {
+            text-align: center;
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+
         .results-section {
             display: none;
             animation: fadeIn 0.5s ease;
@@ -604,6 +713,7 @@
 
             .intro-section,
             .question-card,
+            .email-gate-container,
             .results-container,
             .cta-section {
                 padding: 25px;
@@ -637,6 +747,10 @@
 
             .share-btn {
                 width: 100%;
+            }
+
+            .email-gate-container {
+                max-width: 100%;
             }
         }
 
@@ -716,6 +830,32 @@
             </div>
         </div>
 
+        <!-- EMAIL GATE SECTION -->
+        <div class="email-gate-section" id="emailGateSection">
+            <div class="email-gate-container">
+                <h2 class="email-gate-title" id="emailGateTitle">Tu Código de Luz está listo!</h2>
+                <p class="email-gate-subtitle" id="emailGateSubtitle">Ingresa tu nombre y correo para recibir tus resultados personalizados con prácticas recomendadas.</p>
+
+                <form id="emailGateForm" onsubmit="submitEmailGate(event)">
+                    <div class="form-group">
+                        <label for="nameInput" id="nameLabel">Tu nombre / Your name</label>
+                        <input type="text" id="nameInput" placeholder="Tu nombre / Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emailInput" id="emailLabel">Correo / Email</label>
+                        <input type="email" id="emailInput" placeholder="tu@correo.com" required>
+                    </div>
+
+                    <button type="submit" class="email-gate-submit" id="emailGateSubmit">Ver Mis Resultados / See My Results</button>
+                </form>
+
+                <div class="email-gate-footer" id="emailGateFooter">
+                    Recibirás tus resultados detallados + prácticas personalizadas por correo. / You'll receive detailed results + personalized practices by email.
+                </div>
+            </div>
+        </div>
+
         <!-- RESULTS SECTION -->
         <div class="results-section" id="resultsSection">
             <div class="results-container">
@@ -739,11 +879,11 @@
 
                 <div class="cta-section">
                     <h3 class="cta-title" id="ctaTitle">Deepen Your Practice</h3>
-                    <p class="cta-text" id="ctaText">En Portal Origen · Reset Sagrado, Satya Singh te guía con kriyas, meditaciones y prácticas diseñadas específicamente para fortalecer tus cuerpos de luz. Únete a nuestra comunidad.</p>
+                    <p class="cta-text" id="ctaText">Portal Origen · Reset Sagrado is FREE until end of April. Satya Singh guides you with kriyas, meditations and practices to strengthen your light bodies. Join before it changes!</p>
 
                     <div class="cta-buttons">
-                        <a href="https://www.skool.com/portal-origen-5852" target="_blank" class="btn-cta btn-cta-primary" id="ctaBtnPrimary">Join Portal Origen</a>
-                        <a href="https://www.skool.com/kundalini-yoga-navkiran-satya-3461" target="_blank" class="btn-cta btn-cta-secondary" id="ctaBtnSecondary">Kundalini Yoga Community (EN)</a>
+                        <a href="https://www.skool.com/portal-origen" target="_blank" class="btn-cta btn-cta-primary" id="ctaBtnPrimary">Join Portal Origen</a>
+                        <a href="https://www.skool.com/kundalini-yoga-navkiran-satya" target="_blank" class="btn-cta btn-cta-secondary" id="ctaBtnSecondary">Kundalini Yoga Community (EN)</a>
                     </div>
                 </div>
             </div>
@@ -762,7 +902,7 @@
                 <span id="footerText4">Sat Nam</span>
             </div>
             <div class="footer-text" style="margin-top: 15px;">
-                <a href="https://www.skool.com/portal-origen-5852" class="footer-link" id="footerLink">Portal Origen · Reset Sagrado</a>
+                <a href="https://www.skool.com/portal-origen" class="footer-link" id="footerLink">Portal Origen · Reset Sagrado</a>
             </div>
         </div>
     </div>
@@ -772,6 +912,8 @@
         let currentQuestion = 0;
         let selectedAnswers = {};
         const scores = {};
+        let userEmail = '';
+        let userName = '';
 
         // Initialize scores for all bodies
         for (let i = 1; i <= 10; i++) {
@@ -791,6 +933,12 @@
                 startBtn: "Begin Your Journey",
                 prevBtn: "← Back",
                 nextBtn: "Next →",
+                emailGateTitle: "Your Light Code is ready!",
+                emailGateSubtitle: "Enter your name and email to receive your personalized results with recommended practices.",
+                nameLabel: "Your name / Tu nombre",
+                emailLabel: "Email / Correo",
+                emailGateSubmit: "See My Results / Ver Mis Resultados",
+                emailGateFooter: "You'll receive detailed results + personalized practices by email. / Recibirás tus resultados detallados + prácticas personalizadas por correo.",
                 resultsTitle: "Your Light Code Results",
                 resultsSubtitle: "A reflection of your current state of consciousness",
                 shareTitle: "Share Your Light Code",
@@ -798,7 +946,7 @@
                 shareEmail: "Email",
                 shareCopy: "Copy Link",
                 ctaTitle: "Deepen Your Practice",
-                ctaText: "In Portal Origen · Reset Sagrado, Satya Singh guides you with kriyas, meditations and practices specifically designed to strengthen your light bodies. Join our community.",
+                ctaText: "Portal Origen · Reset Sagrado is FREE until end of April. Satya Singh guides you with kriyas, meditations and practices to strengthen your light bodies. Join before it changes!",
                 ctaBtnPrimary: "Join Portal Origen",
                 ctaBtnSecondary: "Kundalini Yoga Community (EN)",
                 retakeBtn: "Retake Quiz",
@@ -821,6 +969,12 @@
                 startBtn: "Comienza Tu Viaje",
                 prevBtn: "← Atrás",
                 nextBtn: "Siguiente →",
+                emailGateTitle: "¡Tu Código de Luz está listo!",
+                emailGateSubtitle: "Ingresa tu nombre y correo para recibir tus resultados personalizados con prácticas recomendadas.",
+                nameLabel: "Tu nombre / Your name",
+                emailLabel: "Correo / Email",
+                emailGateSubmit: "Ver Mis Resultados / See My Results",
+                emailGateFooter: "Recibirás tus resultados detallados + prácticas personalizadas por correo. / You'll receive detailed results + personalized practices by email.",
                 resultsTitle: "Tus Resultados - Código de Luz",
                 resultsSubtitle: "Un reflejo de tu estado actual de conciencia",
                 shareTitle: "Comparte Tu Código de Luz",
@@ -828,7 +982,7 @@
                 shareEmail: "Correo",
                 shareCopy: "Copiar Enlace",
                 ctaTitle: "Profundiza Tu Práctica",
-                ctaText: "En Portal Origen · Reset Sagrado, Satya Singh te guía con kriyas, meditaciones y prácticas diseñadas específicamente para fortalecer tus cuerpos de luz. Únete a nuestra comunidad.",
+                ctaText: "Portal Origen · Reset Sagrado es GRATIS hasta fines de abril. Satya Singh te guía con kriyas, meditaciones y prácticas para fortalecer tus cuerpos de luz. ¡Únete antes de que cambie!",
                 ctaBtnPrimary: "Únete a Portal Origen",
                 ctaBtnSecondary: "Comunidad Kundalini Yoga (EN)",
                 retakeBtn: "Repetir Cuestionario",
@@ -1366,6 +1520,12 @@
             document.getElementById('introText3').textContent = t('introText3');
             document.getElementById('introText4').textContent = t('introText4');
             document.getElementById('startBtn').textContent = t('startBtn');
+            document.getElementById('emailGateTitle').textContent = t('emailGateTitle');
+            document.getElementById('emailGateSubtitle').textContent = t('emailGateSubtitle');
+            document.getElementById('nameLabel').textContent = t('nameLabel');
+            document.getElementById('emailLabel').textContent = t('emailLabel');
+            document.getElementById('emailGateSubmit').textContent = t('emailGateSubmit');
+            document.getElementById('emailGateFooter').textContent = t('emailGateFooter');
             document.getElementById('resultsTitle').textContent = t('resultsTitle');
             document.getElementById('resultsSubtitle').textContent = t('resultsSubtitle');
             document.getElementById('shareTitle').textContent = t('shareTitle');
@@ -1471,9 +1631,9 @@
             if (currentQuestion < questions.length - 1) {
                 currentQuestion++;
                 displayQuestion();
-                document.querySelector('.question-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
             } else {
-                showResults();
+                // Show email gate after last question
+                showEmailGate();
             }
         }
 
@@ -1481,12 +1641,265 @@
             if (currentQuestion > 0) {
                 currentQuestion--;
                 displayQuestion();
-                document.querySelector('.question-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
-        function showResults() {
+        function showEmailGate() {
             document.getElementById('quizSection').classList.remove('active');
+            document.getElementById('emailGateSection').classList.add('active');
+            document.querySelector('.email-gate-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function submitEmailGate(event) {
+            event.preventDefault();
+
+            userEmail = document.getElementById('emailInput').value;
+            userName = document.getElementById('nameInput').value;
+
+            // Disable form during submission
+            document.getElementById('emailGateForm').style.opacity = '0.5';
+            document.getElementById('emailGateSubmit').disabled = true;
+
+            // Show results immediately (zero friction)
+            showResults();
+
+            // Send emails in background (don't wait for response)
+            sendResultsEmail();
+            sendLeadNotificationEmail();
+
+            // Re-enable form after a moment
+            setTimeout(() => {
+                document.getElementById('emailGateForm').style.opacity = '1';
+                document.getElementById('emailGateSubmit').disabled = false;
+            }, 2000);
+        }
+
+        function sendResultsEmail() {
+            // Get top 3 and bottom 3 bodies
+            const sortedBodies = bodies.map((body, idx) => ({
+                ...body,
+                score: scores[body.id]
+            })).sort((a, b) => b.score - a.score);
+
+            const top3 = sortedBodies.slice(0, 3);
+            const bottom3 = sortedBodies.slice(-3).reverse();
+
+            // Build beautiful HTML email
+            const htmlEmail = buildResultsEmailHTML(top3, bottom3);
+
+            const payload = {
+                apiKey: "hIJS4efS1VFJBtRf7i5mUpsLMeFfEq2IC2sHSktNZLc",
+                action: "send_email",
+                params: {
+                    to: userEmail,
+                    subject: "🌟 Tu Código de Luz - Resultados Personalizados",
+                    body: htmlEmail,
+                    isHtml: true
+                }
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbxFQLm3HKyQX0laIxoHpw4UcVlqkJHVT9gz10Sf5lb0CYXlfjzpExo-gOd4C2QO83vSaQ/exec", {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload),
+                redirect: 'follow',
+                mode: 'no-cors'
+            }).catch(e => console.log('Email sent to lead'));
+        }
+
+        function sendLeadNotificationEmail() {
+            // Get top 3 and bottom 3 bodies
+            const sortedBodies = bodies.map((body, idx) => ({
+                ...body,
+                score: scores[body.id]
+            })).sort((a, b) => b.score - a.score);
+
+            const top3 = sortedBodies.slice(0, 3);
+            const bottom3 = sortedBodies.slice(-3).reverse();
+
+            // Build notification email
+            const htmlEmail = buildLeadNotificationEmailHTML(top3, bottom3);
+
+            const payload = {
+                apiKey: "hIJS4efS1VFJBtRf7i5mUpsLMeFfEq2IC2sHSktNZLc",
+                action: "send_email",
+                params: {
+                    to: "schooloflove.info@gmail.com",
+                    subject: "🎯 Nuevo Lead Quiz Código de Luz: " + userName,
+                    body: htmlEmail,
+                    isHtml: true
+                }
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbxFQLm3HKyQX0laIxoHpw4UcVlqkJHVT9gz10Sf5lb0CYXlfjzpExo-gOd4C2QO83vSaQ/exec", {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload),
+                redirect: 'follow',
+                mode: 'no-cors'
+            }).catch(e => console.log('Notification sent to Satya'));
+        }
+
+        function buildResultsEmailHTML(top3, bottom3) {
+            const lang = currentLanguage.lang;
+            const title = lang === 'en' ? 'Your Light Code Results' : 'Tus Resultados - Código de Luz';
+            const greeting = lang === 'en' ? 'Your Light Code' : 'Tu Código de Luz';
+            const practiceTitle = lang === 'en' ? 'Free Practice:' : 'Práctica Gratuita:';
+            const ctaText = lang === 'en'
+                ? 'In Portal Origen · Reset Sagrado, Satya Singh guides you with kriyas, meditations and practices to strengthen your light bodies. Portal Origen is FREE until end of April!'
+                : 'En Portal Origen · Reset Sagrado, Satya Singh te guía con kriyas, meditaciones y prácticas para fortalecer tus cuerpos de luz. ¡Portal Origen es GRATIS hasta fines de abril!';
+
+            let html = `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f5f5f5; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background-color: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #c896ff; text-align: center; margin-bottom: 30px; }
+        .greeting { font-size: 18px; color: #333; margin-bottom: 20px; text-align: center; }
+        .section-title { color: #d4a7ff; font-size: 16px; font-weight: bold; margin-top: 25px; margin-bottom: 15px; border-bottom: 2px solid #c896ff; padding-bottom: 10px; }
+        .body-card { background-color: #f9f9f9; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #c896ff; }
+        .body-name { color: #0f0c29; font-weight: bold; font-size: 16px; margin-bottom: 5px; }
+        .body-score { color: #888; font-size: 12px; margin-bottom: 10px; }
+        .body-description { color: #555; font-size: 14px; line-height: 1.5; margin-bottom: 10px; }
+        .practice-label { color: #ffd700; font-weight: bold; font-size: 12px; margin-top: 10px; }
+        .practice-text { color: #666; font-size: 13px; line-height: 1.5; background-color: #f0f0f0; padding: 10px; border-radius: 5px; margin-top: 8px; }
+        .cta-section { background: linear-gradient(135deg, #c896ff22, #d4a7ff11); padding: 20px; border-radius: 8px; margin-top: 30px; text-align: center; }
+        .cta-title { color: #c896ff; font-size: 18px; font-weight: bold; margin-bottom: 15px; }
+        .cta-text { color: #333; font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+        .cta-button { background: linear-gradient(135deg, #c896ff, #d4a7ff); color: #fff; padding: 14px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; }
+        .cta-button:hover { opacity: 0.9; }
+        .footer { text-align: center; color: #888; font-size: 12px; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ ${greeting} ✨</h1>
+        <div class="greeting">Sat Nam ${userName},</div>
+
+        <p style="color: #555; font-size: 14px; line-height: 1.6;">Thank you for taking the Light Code quiz. Below are your results and personalized practices to strengthen your light bodies.</p>
+
+        <div class="section-title">${lang === 'en' ? 'Your Brightest Light Bodies' : 'Tus Cuerpos de Luz más Brillantes'}</div>
+`;
+
+            top3.forEach(body => {
+                html += `
+        <div class="body-card">
+            <div class="body-name">${body.emoji} ${body.id}. ${body.name[lang]}</div>
+            <div class="body-score">${lang === 'en' ? 'Strength' : 'Fortaleza'}: ${body.score}/${questions.length}</div>
+            <div class="body-description">${body.description[lang]}</div>
+        </div>
+`;
+            });
+
+            html += `
+        <div class="section-title">${lang === 'en' ? 'Bodies Calling for Attention' : 'Cuerpos que Piden Atención'}</div>
+`;
+
+            bottom3.forEach(body => {
+                html += `
+        <div class="body-card">
+            <div class="body-name">${body.emoji} ${body.id}. ${body.name[lang]}</div>
+            <div class="body-score">${lang === 'en' ? 'Strength' : 'Fortaleza'}: ${body.score}/${questions.length}</div>
+            <div class="body-description">${body.description[lang]}</div>
+            <div class="practice-label">${practiceTitle}</div>
+            <div class="practice-text">${body.practice[lang]}</div>
+        </div>
+`;
+            });
+
+            html += `
+        <div class="cta-section">
+            <div class="cta-title">${lang === 'en' ? 'Deepen Your Practice' : 'Profundiza Tu Práctica'}</div>
+            <div class="cta-text">${ctaText}</div>
+            <a href="https://www.skool.com/portal-origen" class="cta-button">${lang === 'en' ? 'Join Portal Origen' : 'Únete a Portal Origen'}</a>
+        </div>
+
+        <div class="footer">
+            <p>School of Love · Kundalini Yoga for the Aquarian Age</p>
+            <p>Sat Nam 🙏</p>
+        </div>
+    </div>
+</body>
+</html>
+`;
+            return html;
+        }
+
+        function buildLeadNotificationEmailHTML(top3, bottom3) {
+            const date = new Date().toLocaleDateString();
+            let html = `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f5f5f5; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background-color: #fff; border-radius: 10px; padding: 30px; }
+        h1 { color: #c896ff; margin-bottom: 20px; }
+        .info { background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .info-item { margin: 10px 0; }
+        .label { color: #888; font-size: 12px; text-transform: uppercase; }
+        .value { color: #333; font-weight: bold; }
+        .section { margin-top: 20px; }
+        .section-title { color: #c896ff; font-weight: bold; margin-bottom: 10px; }
+        .score { display: inline-block; background: #f0f0f0; padding: 5px 10px; border-radius: 5px; margin: 5px 5px 5px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 New Light Code Quiz Lead</h1>
+
+        <div class="info">
+            <div class="info-item">
+                <div class="label">Name</div>
+                <div class="value">${userName}</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Email</div>
+                <div class="value">${userEmail}</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Date</div>
+                <div class="value">${date}</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Top 3 Strongest Bodies</div>
+            <div>
+`;
+            top3.forEach(body => {
+                html += `<div class="score">${body.id}. ${body.name.en}: ${body.score}/${questions.length}</div>`;
+            });
+
+            html += `
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Bottom 3 Bodies Needing Attention</div>
+            <div>
+`;
+            bottom3.forEach(body => {
+                html += `<div class="score">${body.id}. ${body.name.en}: ${body.score}/${questions.length}</div>`;
+            });
+
+            html += `
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+`;
+            return html;
+        }
+
+        function showResults() {
+            document.getElementById('emailGateSection').classList.remove('active');
             document.getElementById('resultsSection').classList.add('active');
 
             // Sort bodies by score
@@ -1547,6 +1960,9 @@
             for (let i = 1; i <= 10; i++) {
                 scores[i] = 0;
             }
+            userEmail = '';
+            userName = '';
+            document.getElementById('emailGateForm').reset();
             document.querySelector('.header').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
@@ -1577,7 +1993,6 @@
                 updateLanguage(); // Apply default language (es) to all elements
             } catch(e) {
                 console.error('Init error:', e);
-                // Even if particles or grid fail, make sure buttons work
             }
         }
 
@@ -1586,9 +2001,9 @@
 
         // Fallback: also try on load event
         window.addEventListener('load', function() {
-            if (!document.getElementById('bodiesGridIntro').hasChildNodes()) {
-                initQuiz();
-            }
+            try {
+                createParticles();
+            } catch(e) {}
         });
     </script>
 </body>
