@@ -1708,7 +1708,7 @@
         <h1>✨ ${greeting} ✨</h1>
         <div class="greeting">Sat Nam ${userName},</div>
 
-        <p style="color: #555; font-size: 14px; line-height: 1.6;">Thank you for taking the Light Code quiz. Below are your results and personalized practices to strengthen your light bodies.</p>
+        <p style="color: #555; font-size: 14px; line-height: 1.6;">${lang === 'en' ? 'Thank you for taking the Light Code quiz. Below are your results and personalized practices to strengthen your light bodies.' : 'Gracias por completar el quiz Tu Código de Luz. A continuación encontrarás tus resultados y prácticas personalizadas para fortalecer tus cuerpos de luz.'}</p>
 
         <div class="section-title">${lang === 'en' ? 'Your Brightest Light Bodies' : 'Tus Cuerpos de Luz más Brillantes'}</div>
 `;
@@ -1747,7 +1747,7 @@
         </div>
 
         <div class="footer">
-            <p>School of Love · Kundalini Yoga for the Aquarian Age</p>
+            <p>School of Love · ${lang === 'en' ? 'Kundalini Yoga for the Aquarian Age' : 'Kundalini Yoga para la Era de Acuario'}</p>
             <p>Sat Nam 🙏</p>
         </div>
     </div>
