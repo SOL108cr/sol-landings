@@ -1618,7 +1618,7 @@
                 action: "send_email",
                 params: {
                     to: userEmail,
-                    subject: "🌟 Tu Código de Luz - Resultados Personalizados",
+                    subject: "Tu Codigo de Luz - Resultados Personalizados",
                     body: "Tu Código de Luz - Resultados",
                     htmlBody: htmlEmail,
                     name: "Satya Singh - School of Love"
@@ -1652,7 +1652,7 @@
                 action: "send_email",
                 params: {
                     to: "schooloflove.info@gmail.com",
-                    subject: "🎯 Nuevo Lead Quiz Código de Luz: " + userName,
+                    subject: "Nuevo Lead Quiz Codigo de Luz: " + userName,
                     body: "Nuevo lead del quiz",
                     htmlBody: htmlEmail,
                     name: "Quiz Código de Luz"
@@ -1705,7 +1705,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>✨ ${greeting} ✨</h1>
+        <h1>${greeting}</h1>
         <div class="greeting">Sat Nam ${userName},</div>
 
         <p style="color: #555; font-size: 14px; line-height: 1.6;">Thank you for taking the Light Code quiz. Below are your results and personalized practices to strengthen your light bodies.</p>
@@ -1716,7 +1716,7 @@
             top3.forEach(body => {
                 html += `
         <div class="body-card">
-            <div class="body-name">${body.emoji} ${body.id}. ${body.name[lang]}</div>
+            <div class="body-name">${body.id}. ${body.name[lang]}</div>
             <div class="body-score">${lang === 'en' ? 'Strength' : 'Fortaleza'}: ${body.score}/${questions.length}</div>
             <div class="body-description">${body.description[lang]}</div>
         </div>
@@ -1724,13 +1724,13 @@
             });
 
             html += `
-        <div class="section-title">${lang === 'en' ? 'Bodies Calling for Attention' : 'Cuerpos que Piden Atención'}</div>
+        <div class="section-title">${lang === 'en' ? 'Bodies Calling for Attention' : 'Cuerpos que Piden Atenci\u00f3n'}</div>
 `;
 
             bottom3.forEach(body => {
                 html += `
         <div class="body-card">
-            <div class="body-name">${body.emoji} ${body.id}. ${body.name[lang]}</div>
+            <div class="body-name">${body.id}. ${body.name[lang]}</div>
             <div class="body-score">${lang === 'en' ? 'Strength' : 'Fortaleza'}: ${body.score}/${questions.length}</div>
             <div class="body-description">${body.description[lang]}</div>
             <div class="practice-label">${practiceTitle}</div>
@@ -1741,14 +1741,14 @@
 
             html += `
         <div class="cta-section">
-            <div class="cta-title">${lang === 'en' ? '📖 Your Free Guide Awaits' : '📖 Tu Guía Gratuita Te Espera'}</div>
+            <div class="cta-title">${lang === 'en' ? 'Your Free Guide Awaits' : 'Tu Guia Gratuita Te Espera'}</div>
             <div class="cta-text">${ctaText}</div>
             <a href="https://www.skool.com/portal-origen-5852/classroom/f93bfeb5?md=417c141741574bdfa7b616089a2555b0&utm_source=quiz&utm_medium=email&utm_campaign=codigo_de_luz" class="cta-button">${lang === 'en' ? 'Download Free Guide' : 'Descargar Guía Gratis'}</a>
         </div>
 
         <div class="footer">
             <p>School of Love · Kundalini Yoga for the Aquarian Age</p>
-            <p>Sat Nam 🙏</p>
+            <p>Sat Nam</p>
         </div>
     </div>
 </body>
@@ -1779,7 +1779,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎯 New Light Code Quiz Lead</h1>
+        <h1>New Light Code Quiz Lead</h1>
 
         <div class="info">
             <div class="info-item">
