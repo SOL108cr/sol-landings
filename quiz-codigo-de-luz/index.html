@@ -945,9 +945,9 @@
                 shareWhatsapp: "WhatsApp",
                 shareEmail: "Email",
                 shareCopy: "Copy Link",
-                ctaTitle: "Deepen Your Practice",
-                ctaText: "Your personalized practices are powerful—and deeper guidance transforms results. In our Kundalini Yoga community, Satya Singh guides you with kriyas, meditations and practices to strengthen your light bodies. Free access ends April 30. Join now!",
-                ctaBtnPrimary: "Join Kundalini Yoga Community",
+                ctaTitle: "Your Birth Date Already Knew",
+                ctaText: "There is a guide waiting for you. It maps your 10 Bodies of Consciousness to your Tantric Numerology birth number — revealing exactly which bodies dominate your energetic design, why certain patterns keep repeating in your life, and the specific mantras and 3-minute practices to transform them. This is not a generic guide. It is your map. It is FREE inside our Kundalini Yoga community.",
+                ctaBtnPrimary: "Get My Personalized Map — Free",
                 ctaBtnSecondary: "",
                 retakeBtn: "Retake Quiz",
                 footerText1: "Your Light Code / Tu Código de Luz",
@@ -981,9 +981,9 @@
                 shareWhatsapp: "WhatsApp",
                 shareEmail: "Correo",
                 shareCopy: "Copiar Enlace",
-                ctaTitle: "Tu Guía Gratuita Te Espera",
-                ctaText: "Descarga tu guía completa de los 10 Cuerpos de Consciencia — con tu mapa personal de Numerología Tántrica, mantras específicos y prácticas de 3 minutos para cada cuerpo. Es GRATIS dentro de Portal Origen.",
-                ctaBtnPrimary: "Descargar Guía Gratis",
+                ctaTitle: "Tu Fecha de Nacimiento Ya Lo Sabía",
+                ctaText: "Hay una guía preparada para ti. Combina los 10 Cuerpos de Consciencia con la Numerología Tántrica de tu fecha de nacimiento — revelando exactamente qué cuerpos dominan tu diseño energético, por qué ciertos patrones se repiten en tu vida... y los mantras y prácticas específicos para transformarlos. No es una guía genérica. Es tu mapa. Es GRATIS dentro de Portal Origen.",
+                ctaBtnPrimary: "Quiero Mi Mapa Personalizado — Gratis",
                 ctaBtnSecondary: "",
                 retakeBtn: "Repetir Cuestionario",
                 footerText1: "Tu Código de Luz / Your Light Code",
@@ -1431,7 +1431,7 @@
             document.getElementById('ctaBtnPrimary').textContent = t('ctaBtnPrimary');
             // Show only one CTA button based on language
             if (currentLanguage.lang === 'en') {
-                document.getElementById('ctaBtnPrimary').href = 'https://www.skool.com/portal-origen-5852/classroom/f93bfeb5?md=417c141741574bdfa7b616089a2555b0&utm_source=quiz&utm_medium=web&utm_campaign=codigo_de_luz';
+                document.getElementById('ctaBtnPrimary').href = 'https://www.skool.com/kundalini-yoga-navkiran-satya?utm_source=quiz&utm_medium=web&utm_campaign=codigo_de_luz';
                 document.getElementById('ctaBtnSecondary').style.display = 'none';
             } else {
                 document.getElementById('ctaBtnPrimary').href = 'https://www.skool.com/portal-origen-5852/classroom/f93bfeb5?md=417c141741574bdfa7b616089a2555b0&utm_source=quiz&utm_medium=web&utm_campaign=codigo_de_luz';
@@ -1673,9 +1673,18 @@
             const title = lang === 'en' ? 'Your Light Code Results' : 'Tus Resultados - Código de Luz';
             const greeting = lang === 'en' ? 'Your Light Code' : 'Tu Código de Luz';
             const practiceTitle = lang === 'en' ? 'Free Practice:' : 'Práctica Gratuita:';
+            const ctaTitle = lang === 'en'
+                ? 'Your Birth Date Already Knew'
+                : 'Tu Fecha de Nacimiento Ya Lo Sabia';
             const ctaText = lang === 'en'
-                ? 'Your complete guide to the 10 Bodies of Consciousness is waiting for you — with your personal Tantric Numerology map, specific mantras, and 3-minute practices for each body. Download it FREE inside Portal Origen.'
-                : 'Tu guía completa de los 10 Cuerpos de Consciencia te espera — con tu mapa personal de Numerología Tántrica, mantras específicos y prácticas de 3 minutos para cada cuerpo. Descárgala GRATIS dentro de Portal Origen.';
+                ? 'There is a guide waiting for you. It maps your 10 Bodies of Consciousness to your Tantric Numerology birth number — revealing exactly which bodies dominate your energetic design, why certain patterns keep repeating... and the specific mantras and practices to transform them. This is not a generic guide. It is your map. FREE inside our community.'
+                : 'Hay una guia preparada para ti. Combina los 10 Cuerpos de Consciencia con la Numerologia Tantrica de tu fecha de nacimiento — revelando que cuerpos dominan tu diseno energetico, por que ciertos patrones se repiten en tu vida... y los mantras y practicas especificos para transformarlos. No es una guia generica. Es tu mapa. GRATIS dentro de Portal Origen.';
+            const ctaButtonText = lang === 'en'
+                ? 'Get My Personalized Map — Free'
+                : 'Quiero Mi Mapa Personalizado — Gratis';
+            const ctaButtonUrl = lang === 'en'
+                ? 'https://www.skool.com/kundalini-yoga-navkiran-satya?utm_source=quiz&utm_medium=email&utm_campaign=codigo_de_luz'
+                : 'https://www.skool.com/portal-origen-5852/classroom/f93bfeb5?md=417c141741574bdfa7b616089a2555b0&utm_source=quiz&utm_medium=email&utm_campaign=codigo_de_luz';
 
             let html = `
 <!DOCTYPE html>
@@ -1741,9 +1750,9 @@
 
             html += `
         <div class="cta-section">
-            <div class="cta-title">${lang === 'en' ? 'Your Free Guide Awaits' : 'Tu Guia Gratuita Te Espera'}</div>
+            <div class="cta-title">${ctaTitle}</div>
             <div class="cta-text">${ctaText}</div>
-            <a href="https://www.skool.com/portal-origen-5852/classroom/f93bfeb5?md=417c141741574bdfa7b616089a2555b0&utm_source=quiz&utm_medium=email&utm_campaign=codigo_de_luz" class="cta-button">${lang === 'en' ? 'Download Free Guide' : 'Descargar Guía Gratis'}</a>
+            <a href="${ctaButtonUrl}" class="cta-button">${ctaButtonText}</a>
         </div>
 
         <div class="footer">
