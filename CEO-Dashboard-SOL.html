@@ -1,1421 +1,823 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School of Love ૐ — CEO Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg: #0D0517;
-            --bg2: #1A0A2E;
-            --bg3: #2E1054;
-            --gold: #B9914B;
-            --gold-light: #D4AF6E;
-            --text: #E8E0F0;
-            --text-dim: #9B8FB0;
-            --red: #E74C3C;
-            --amber: #F39C12;
-            --green: #27AE60;
-            --blue: #3498DB;
-        }
-
-        body {
-            background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            padding: 20px;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* ===== HEADER ===== */
-        .header {
-            text-align: center;
-            padding: 40px 20px;
-            border-bottom: 2px solid var(--bg3);
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--gold-light);
-            margin-bottom: 8px;
-            letter-spacing: 2px;
-        }
-
-        .header .subtitle {
-            color: var(--gold);
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .header .date {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            font-style: italic;
-        }
-
-        /* ===== NORTH STAR ===== */
-        .north-star {
-            background: linear-gradient(135deg, rgba(185, 145, 75, 0.1) 0%, rgba(46, 16, 84, 0.3) 100%);
-            border: 2px solid var(--gold);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .north-star-label {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        .north-star-value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            color: var(--gold-light);
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .arrow-up {
-            color: var(--green);
-            font-size: 2.5rem;
-            animation: bounce 1.5s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .north-star-meta {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-        }
-
-        /* ===== DATA FRESHNESS PANEL ===== */
-        .data-freshness {
-            background: var(--bg2);
-            border: 1px solid var(--bg3);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-            font-size: 0.95rem;
-        }
-
-        .freshness-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 10px;
-            align-items: center;
-        }
-
-        .freshness-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .status-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .status-dot.red { background: var(--red); }
-        .status-dot.amber { background: var(--amber); }
-        .status-dot.green { background: var(--green); }
-        .status-dot.blue { background: var(--blue); }
-
-        .freshness-note {
-            color: var(--text-dim);
-            font-size: 0.85rem;
-            font-style: italic;
-            margin-top: 10px;
-        }
-
-        /* ===== ALERTS ===== */
-        .alerts-section {
-            margin-bottom: 30px;
-        }
-
-        .alerts-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--gold-light);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .alerts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 15px;
-        }
-
-        .alert-card {
-            background: var(--bg2);
-            border-left: 4px solid var(--gold);
-            border-radius: 8px;
-            padding: 20px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .alert-card.red {
-            border-left-color: var(--red);
-        }
-
-        .alert-card.amber {
-            border-left-color: var(--amber);
-        }
-
-        .alert-card.blue {
-            border-left-color: var(--blue);
-        }
-
-        .alert-icon {
-            font-size: 1.8rem;
-            flex-shrink: 0;
-        }
-
-        .alert-content {
-            flex: 1;
-        }
-
-        .alert-text {
-            color: var(--text);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* ===== TABS ===== */
-        .tabs-container {
-            margin-bottom: 30px;
-        }
-
-        .tab-buttons {
-            display: flex;
-            gap: 10px;
-            border-bottom: 2px solid var(--bg3);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .tab-button {
-            background: none;
-            border: none;
-            color: var(--text-dim);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            padding: 12px 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-            font-weight: 600;
-        }
-
-        .tab-button:hover {
-            color: var(--gold-light);
-        }
-
-        .tab-button.active {
-            color: var(--gold-light);
-            border-bottom-color: var(--gold);
-        }
-
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* ===== CARDS ===== */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .card {
-            background: linear-gradient(135deg, rgba(185, 145, 75, 0.05) 0%, rgba(46, 16, 84, 0.2) 100%);
-            border: 1px solid var(--bg3);
-            border-top: 2px solid var(--gold);
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            border-top-color: var(--gold-light);
-            box-shadow: 0 8px 24px rgba(185, 145, 75, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .card-label {
-            color: var(--text-dim);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .card-value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            color: var(--gold-light);
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .card-subtitle {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-        }
-
-        .progress-bar {
-            background: var(--bg3);
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 15px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
-            border-radius: 4px;
-            transition: width 0.3s ease;
-        }
-
-        /* ===== PIPELINE VISUAL ===== */
-        .pipeline {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .pipeline-step {
-            background: var(--bg3);
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .pipeline-arrow {
-            color: var(--gold);
-            font-weight: bold;
-        }
-
-        /* ===== TABLES ===== */
-        .table-container {
-            overflow-x: auto;
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th {
-            background: var(--bg3);
-            color: var(--gold-light);
-            padding: 12px;
-            text-align: left;
-            font-weight: 600;
-            border-bottom: 2px solid var(--gold);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid var(--bg3);
-            color: var(--text);
-            font-size: 0.95rem;
-        }
-
-        tr:hover {
-            background: rgba(185, 145, 75, 0.05);
-        }
-
-        /* ===== EVENTS & LAUNCHES ===== */
-        .events-section {
-            margin-bottom: 30px;
-        }
-
-        .events-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--gold-light);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .event-item {
-            background: var(--bg2);
-            border-left: 4px solid var(--gold);
-            border-radius: 8px;
-            padding: 18px;
-            margin-bottom: 12px;
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-        }
-
-        .event-date {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--gold-light);
-            font-weight: 700;
-            font-size: 1.1rem;
-            min-width: 100px;
-        }
-
-        .event-content {
-            flex: 1;
-        }
-
-        .event-title {
-            color: var(--text);
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .event-status {
-            color: var(--text-dim);
-            font-size: 0.85rem;
-        }
-
-        /* ===== BADGES ===== */
-        .badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .badge.green {
-            background: rgba(39, 174, 96, 0.2);
-            color: var(--green);
-        }
-
-        .badge.amber {
-            background: rgba(243, 156, 18, 0.2);
-            color: var(--amber);
-        }
-
-        .badge.red {
-            background: rgba(231, 76, 60, 0.2);
-            color: var(--red);
-        }
-
-        .badge.blue {
-            background: rgba(52, 152, 219, 0.2);
-            color: var(--blue);
-        }
-
-        /* ===== RECOMMENDATIONS ===== */
-        .recommendations-section {
-            margin-bottom: 30px;
-        }
-
-        .recommendations-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--gold-light);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .recommendation-item {
-            background: linear-gradient(135deg, rgba(185, 145, 75, 0.05) 0%, rgba(46, 16, 84, 0.2) 100%);
-            border: 1px solid var(--bg3);
-            border-left: 4px solid var(--gold);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-        }
-
-        .rec-number {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--gold-light);
-            font-weight: 700;
-            font-size: 1.5rem;
-            min-width: 40px;
-            text-align: center;
-        }
-
-        .rec-content {
-            flex: 1;
-        }
-
-        .rec-text {
-            color: var(--text);
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        .rec-impact {
-            color: var(--gold);
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        /* ===== AUTOMATION ENGINE ===== */
-        .automation-section {
-            margin-bottom: 30px;
-        }
-
-        .automation-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--gold-light);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .automation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-        }
-
-        .automation-item {
-            background: var(--bg2);
-            border: 1px solid var(--bg3);
-            border-left: 3px solid var(--green);
-            border-radius: 8px;
-            padding: 15px;
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .automation-status {
-            color: var(--green);
-            font-size: 1.2rem;
-        }
-
-        .automation-info {
-            flex: 1;
-        }
-
-        .automation-name {
-            color: var(--text);
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-        }
-
-        .automation-schedule {
-            color: var(--text-dim);
-            font-size: 0.85rem;
-        }
-
-        /* ===== COLLAPSIBLE ===== */
-        .collapsible {
-            cursor: pointer;
-            background: var(--bg2);
-            border: 1px solid var(--bg3);
-            border-radius: 8px;
-            padding: 18px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .collapsible:hover {
-            background: rgba(185, 145, 75, 0.05);
-            border-color: var(--gold);
-        }
-
-        .collapsible-title {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--gold-light);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .collapsible-icon {
-            color: var(--gold);
-            font-size: 1.3rem;
-            transition: transform 0.3s ease;
-        }
-
-        .collapsible-icon.open {
-            transform: rotate(180deg);
-        }
-
-        .collapsible-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .collapsible-content.open {
-            max-height: 2000px;
-        }
-
-        .collapsible-body {
-            padding: 20px;
-            background: rgba(26, 10, 46, 0.5);
-            border-top: 1px solid var(--bg3);
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 2px solid var(--bg3);
-            margin-top: 50px;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.2rem;
-            }
-
-            .north-star-value {
-                font-size: 2.5rem;
-            }
-
-            .alerts-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .tab-buttons {
-                gap: 5px;
-            }
-
-            .tab-button {
-                font-size: 1rem;
-                padding: 10px 15px;
-            }
-
-            .freshness-row {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOL CEO Dashboard — 13 Abril 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap');
+
+  :root {
+    --bg: #0D0517;
+    --bg2: #1A0A2E;
+    --bg3: #2E1054;
+    --gold: #B9914B;
+    --gold-light: #D4AF6E;
+    --gold-dim: #8B6B3A;
+    --text: #E8E0F0;
+    --text-dim: #9B8FB0;
+    --green: #4ADE80;
+    --red: #F87171;
+    --amber: #FBBF24;
+    --blue: #60A5FA;
+    --purple: #A78BFA;
+    --card-bg: rgba(46, 16, 84, 0.4);
+    --border: rgba(185, 145, 75, 0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  .dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header .om { font-size: 2rem; margin-bottom: 4px; }
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+  .header .subtitle { color: var(--text-dim); font-size: 0.85rem; margin-top: 6px; font-weight: 300; }
+  .header .date { color: var(--gold-dim); font-size: 0.75rem; margin-top: 4px; text-transform: uppercase; letter-spacing: 2px; }
+  .header .briefing-num {
+    display: inline-block;
+    background: var(--bg3);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 0.7rem;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-top: 8px;
+    letter-spacing: 2px;
+  }
+
+  .north-star {
+    background: linear-gradient(135deg, var(--bg3), var(--bg2));
+    border: 1px solid var(--gold);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+  .north-star::before {
+    content: '★';
+    position: absolute;
+    top: -20px; right: -20px;
+    font-size: 120px;
+    color: rgba(185, 145, 75, 0.05);
+    pointer-events: none;
+  }
+  .ns-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold-dim); margin-bottom: 6px; }
+  .ns-metric { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold-light); }
+  .ns-context { color: var(--text-dim); font-size: 0.75rem; margin-top: 4px; }
+  .ns-delta { font-size: 0.8rem; margin-top: 4px; }
+  .up { color: var(--green); } .down { color: var(--red); } .neutral { color: var(--text-dim); }
+
+  .freshness-bar {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.78rem;
+  }
+  .freshness-bar .label { color: var(--gold-dim); font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+  .freshness-item { color: var(--text-dim); }
+
+  .alerts-section { margin-bottom: 20px; }
+  .alerts-section h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-dim); margin-bottom: 12px; }
+  .alert { border-radius: 10px; padding: 12px 16px; margin-bottom: 8px; border-left: 3px solid; background: rgba(26, 10, 46, 0.6); font-size: 0.85rem; }
+  .alert-red { border-color: var(--red); }
+  .alert-amber { border-color: var(--amber); }
+  .alert-blue { border-color: var(--blue); }
+  .alert-red .alert-title { color: var(--red); font-weight: 600; }
+  .alert-amber .alert-title { color: var(--amber); font-weight: 600; }
+  .alert-blue .alert-title { color: var(--blue); font-weight: 600; }
+  .alert-body { color: var(--text-dim); margin-top: 3px; font-size: 0.82rem; }
+
+  .tabs-container { margin-bottom: 20px; }
+  .tab-buttons { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 16px; flex-wrap: wrap; }
+  .tab-btn { background: transparent; border: none; color: var(--text-dim); padding: 10px 16px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.82rem; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .tab-btn:hover { color: var(--gold-light); }
+  .tab-btn.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px; transition: border-color 0.2s; }
+  .card:hover { border-color: var(--gold-dim); }
+  .card-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-dim); margin-bottom: 8px; }
+  .card-value { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-light); font-weight: 700; }
+  .card-delta { font-size: 0.75rem; margin-top: 4px; }
+  .card-sub { font-size: 0.75rem; color: var(--text-dim); margin-top: 4px; }
+
+  .mini-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 12px; }
+  .mini-table th { text-align: left; padding: 8px 10px; background: rgba(46, 16, 84, 0.6); color: var(--gold-dim); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+  .mini-table td { padding: 8px 10px; border-bottom: 1px solid rgba(185, 145, 75, 0.08); color: var(--text); }
+  .mini-table tr:hover td { background: rgba(185, 145, 75, 0.04); }
+  .mini-table .dimmed { color: var(--text-dim); }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; }
+  .badge-green { background: rgba(74, 222, 128, 0.15); color: var(--green); }
+  .badge-red { background: rgba(248, 113, 113, 0.15); color: var(--red); }
+  .badge-amber { background: rgba(251, 191, 36, 0.15); color: var(--amber); }
+  .badge-blue { background: rgba(96, 165, 250, 0.15); color: var(--blue); }
+  .badge-dim { background: rgba(155, 143, 176, 0.15); color: var(--text-dim); }
+
+  .section-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-dim); margin-bottom: 10px; margin-top: 16px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+
+  .progress-container { margin: 8px 0; }
+  .progress-label { font-size: 0.75rem; color: var(--text-dim); display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .progress-bar-bg { background: rgba(46, 16, 84, 0.8); border-radius: 4px; height: 8px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+
+  .funnel-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+  .funnel-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px; }
+  .funnel-name { font-weight: 600; font-size: 0.9rem; }
+  .funnel-date { font-size: 0.75rem; color: var(--text-dim); }
+  .funnel-steps { display: flex; gap: 4px; margin-bottom: 10px; }
+  .step { flex: 1; height: 6px; border-radius: 3px; }
+  .step-done { background: var(--gold); }
+  .step-pending { background: rgba(185, 145, 75, 0.15); }
+
+  .rec-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 8px; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: start; }
+  .rec-num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold-dim); font-weight: 700; line-height: 1; padding-top: 2px; }
+  .rec-title { font-weight: 600; font-size: 0.88rem; color: var(--text); margin-bottom: 4px; }
+  .rec-body { font-size: 0.8rem; color: var(--text-dim); }
+  .rec-impact { font-size: 0.75rem; font-weight: 600; }
+
+  .collapsible { margin-bottom: 8px; }
+  .collapsible-header { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: var(--text-dim); transition: all 0.2s; user-select: none; }
+  .collapsible-header:hover { border-color: var(--gold-dim); color: var(--text); }
+  .collapsible-body { background: rgba(26, 10, 46, 0.4); border: 1px solid var(--border); border-top: none; border-radius: 0 0 10px 10px; padding: 14px 16px; display: none; font-size: 0.82rem; }
+  .collapsible-body.open { display: block; }
+  .toggle-icon { font-size: 0.7rem; transition: transform 0.2s; }
+  .toggle-icon.open { transform: rotate(180deg); }
+
+  .auto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .auto-list { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+  .auto-list h3 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-dim); margin-bottom: 10px; }
+  .auto-item { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-size: 0.78rem; color: var(--text-dim); border-bottom: 1px solid rgba(185,145,75,0.05); }
+  .auto-item:last-child { border-bottom: none; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot-green { background: var(--green); }
+  .dot-red { background: var(--red); }
+  .dot-amber { background: var(--amber); }
+
+  @media (max-width: 768px) {
+    .north-star { grid-template-columns: 1fr; }
+    .auto-grid { grid-template-columns: 1fr; }
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+    .rec-card { grid-template-columns: auto 1fr; }
+    .rec-impact { display: none; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- HEADER -->
-        <div class="header">
-            <h1>School of Love ૐ — CEO Dashboard</h1>
-            <div class="subtitle">Strategic Operating System · Satya Singh</div>
-            <div class="date">9 abril 2026 · Briefing #002</div>
-        </div>
+<div class="dashboard">
 
-        <!-- NORTH STAR -->
-        <div class="north-star">
-            <div class="north-star-label">MRR Total (Portal Origen)</div>
-            <div class="north-star-value">
-                <span class="arrow-up">↑</span>
-                $297 USD
-            </div>
-            <div class="north-star-meta">9 miembros Premium × $33/mes | Meta 90 días: $1,000 MRR</div>
-        </div>
+  <div class="header">
+    <div class="om">ૐ</div>
+    <h1>School of Love — CEO Dashboard</h1>
+    <p class="subtitle">Strategic Operating System · Satya Singh</p>
+    <p class="date">Lunes 13 de Abril, 2026</p>
+    <span class="briefing-num">BRIEFING #004</span>
+  </div>
 
-        <!-- DATA FRESHNESS PANEL -->
-        <div class="data-freshness">
-            <div class="freshness-row">
-                <div class="freshness-item">
-                    <span class="status-dot red"></span>
-                    <span>IG ⚫ Sin datos</span>
-                </div>
-                <div class="freshness-item">
-                    <span class="status-dot amber"></span>
-                    <span>Skool 🟡 ~5d</span>
-                </div>
-                <div class="freshness-item">
-                    <span class="status-dot amber"></span>
-                    <span>Email 🟡 ~5d</span>
-                </div>
-                <div class="freshness-item">
-                    <span class="status-dot red"></span>
-                    <span>Banco 🔴 Sin datos</span>
-                </div>
-            </div>
-            <div class="freshness-note">
-                ℹ️ Datos estimados — extracción automática pendiente
-            </div>
-        </div>
+  <div class="north-star">
+    <div class="ns-item">
+      <div class="ns-label">MRR Total Estimado</div>
+      <div class="ns-metric">$1,234</div>
+      <div class="ns-delta neutral">Skool $1,022 + Hotmart ~$212</div>
+      <div class="ns-context">Payouts abril recibidos: $1,598</div>
+    </div>
+    <div class="ns-item">
+      <div class="ns-label">Meta 90 Días</div>
+      <div class="ns-metric">$6,000</div>
+      <div class="ns-delta down">20.6% cubierto</div>
+      <div class="ns-context">Brecha: -$4,766/mes</div>
+    </div>
+    <div class="ns-item">
+      <div class="ns-label">Pipeline Proyectado</div>
+      <div class="ns-metric">$8,565</div>
+      <div class="ns-delta up">↑ Potencial conservador</div>
+      <div class="ns-context">Optimista: $15,441 · Si ejecuta</div>
+    </div>
+  </div>
 
-        <!-- ALERTS SECTION -->
-        <div class="alerts-section">
-            <div class="alerts-title">⚠️ Atención Urgente</div>
-            <div class="alerts-grid">
-                <div class="alert-card red">
-                    <div class="alert-icon">🔴</div>
-                    <div class="alert-content">
-                        <div class="alert-text"><strong>KY Formación 2026:</strong> Campaña email activa — HOT-2 enviado hoy, WARM-2 pendiente 11 abril</div>
-                    </div>
-                </div>
-                <div class="alert-card amber">
-                    <div class="alert-icon">🟡</div>
-                    <div class="alert-content">
-                        <div class="alert-text"><strong>Comunicación Celestial:</strong> Sesión 2 mañana 10 abril — seguimiento activo a participantes</div>
-                    </div>
-                </div>
-                <div class="alert-card amber">
-                    <div class="alert-icon">🟡</div>
-                    <div class="alert-content">
-                        <div class="alert-text"><strong>Email Gateway:</strong> Operativo — configurar envío automático del dashboard por email</div>
-                    </div>
-                </div>
-                <div class="alert-card blue">
-                    <div class="alert-icon">🔵</div>
-                    <div class="alert-content">
-                        <div class="alert-text"><strong>Briefing #005 TAL:</strong> Programado para 13 abril 6 AM</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="freshness-bar">
+    <span class="label">Datos</span>
+    <span class="freshness-item">Instagram 🟢 1d</span>
+    <span class="freshness-item">Skool PO 🟢 1d</span>
+    <span class="freshness-item">Skool KY 🟢 1d</span>
+    <span class="freshness-item">Email 🟢 1d</span>
+    <span class="freshness-item">Banco 🟡 5d (8 Abr)</span>
+    <span class="freshness-item" style="color:var(--amber); margin-left:auto; font-size:0.72rem">⚠️ Faltan cartolas bancarias de abril</span>
+  </div>
 
-        <!-- TABS SECTION -->
-        <div class="tabs-container">
-            <div class="tab-buttons">
-                <button class="tab-button active" data-tab="revenue">Revenue</button>
-                <button class="tab-button" data-tab="instagram">Instagram</button>
-                <button class="tab-button" data-tab="portal">Portal Origen</button>
-                <button class="tab-button" data-tab="embudos">Embudos</button>
-            </div>
+  <div class="alerts-section">
+    <h2>🚨 Alertas de Atención Inmediata</h2>
 
-            <!-- TAB: REVENUE -->
-            <div id="revenue" class="tab-content active">
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-label">Recurrente</div>
-                        <div class="card-value">$297</div>
-                        <div class="card-subtitle">MRR · Portal Origen Premium</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 30%;"></div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-label">Low-Ticket</div>
-                        <div class="card-value">Quiz</div>
-                        <div class="card-subtitle">Leads vía Quiz Tu Código de Luz</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 45%;"></div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-label">Mid-Ticket</div>
-                        <div class="card-value">$99</div>
-                        <div class="card-subtitle">Talleres en Portal Origen</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 35%;"></div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-label">High-Ticket</div>
-                        <div class="card-value">KY 2026</div>
-                        <div class="card-subtitle">Formación Navkiran Satya</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 25%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 style="color: var(--gold-light); margin-bottom: 15px; font-family: 'Cormorant Garamond', serif;">Pipeline</h3>
-                <div class="pipeline">
-                    <span class="pipeline-step">IG 🎯</span>
-                    <span class="pipeline-arrow">→</span>
-                    <span class="pipeline-step">Email 📧</span>
-                    <span class="pipeline-arrow">→</span>
-                    <span class="pipeline-step">Skool 📚</span>
-                    <span class="pipeline-arrow">→</span>
-                    <span class="pipeline-step">Premium ⭐</span>
-                </div>
-            </div>
-
-            <!-- TAB: INSTAGRAM -->
-            <div id="instagram" class="tab-content">
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-label">Followers</div>
-                        <div class="card-value">~1,022</div>
-                        <div class="card-subtitle">Estimado · Datos no actualizados</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-label">Posts/mes Meta</div>
-                        <div class="card-value">12</div>
-                        <div class="card-subtitle">Frecuencia objetivo · Content calendar</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-label">Estado Datos</div>
-                        <div class="card-value">⏳</div>
-                        <div class="card-subtitle">Extracción pendiente · API integration</div>
-                    </div>
-                </div>
-                <div style="background: var(--bg2); border: 1px solid var(--bg3); border-radius: 8px; padding: 20px; margin-top: 20px;">
-                    <p style="color: var(--text-dim);">
-                        <strong>Nota:</strong> Los datos de Instagram no están disponibles. Se requiere activar la integración de API para obtener métricas en tiempo real: followers, engagement rate, reach, impressions, etc.
-                    </p>
-                </div>
-            </div>
-
-            <!-- TAB: PORTAL ORIGEN -->
-            <div id="portal" class="tab-content">
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-label">Total Members</div>
-                        <div class="card-value">~303</div>
-                        <div class="card-subtitle">Comunidad activa en Skool</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-label">Premium</div>
-                        <div class="card-value">9</div>
-                        <div class="card-subtitle">Miembros pagados activos</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-label">MRR</div>
-                        <div class="card-value">$297</div>
-                        <div class="card-subtitle">Ingresos recurrentes mensuales</div>
-                    </div>
-                </div>
-
-                <h3 style="color: var(--gold-light); margin-bottom: 15px; font-family: 'Cormorant Garamond', serif;">Tiers</h3>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Tier</th>
-                                <th>Precio</th>
-                                <th>Miembros</th>
-                                <th>Características</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Free</td>
-                                <td>Gratis</td>
-                                <td>~294</td>
-                                <td>Acceso comunidad, posts públicos</td>
-                            </tr>
-                            <tr>
-                                <td>Premium</td>
-                                <td>$33/mes</td>
-                                <td>~9</td>
-                                <td>Contenido exclusivo, soporte directo</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div style="background: var(--bg2); border: 1px dashed var(--gold); border-radius: 8px; padding: 20px; margin-top: 20px;">
-                    <h4 style="color: var(--gold-light); margin-bottom: 10px;">Comunidad Hermana</h4>
-                    <p style="color: var(--text-dim); margin-bottom: 8px;">
-                        <strong>KY Navkiran Satya</strong> — Comunidad en inglés para estudiantes internacionales de la Formación 2026
-                    </p>
-                </div>
-            </div>
-
-            <!-- TAB: EMBUDOS -->
-            <div id="embudos" class="tab-content">
-                <h3 style="color: var(--gold-light); margin-bottom: 15px; font-family: 'Cormorant Garamond', serif;">Embudos Activos</h3>
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-label">Quiz Tu Código de Luz</div>
-                        <div class="card-value">✓</div>
-                        <div class="card-subtitle">
-                            <span class="badge green">Activo</span>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-label">Masterclass KY Landing</div>
-                        <div class="card-value">✓</div>
-                        <div class="card-subtitle">
-                            <span class="badge green">Activo</span>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-label">Comunicación Celestial</div>
-                        <div class="card-value">En Curso</div>
-                        <div class="card-subtitle">
-                            <span class="badge amber">Sesiones 1-4</span>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 style="color: var(--gold-light); margin-bottom: 15px; font-family: 'Cormorant Garamond', serif; margin-top: 25px;">Email Campaigns</h3>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Campaña</th>
-                                <th>Estado</th>
-                                <th>Audiencia</th>
-                                <th>Próximo Envío</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>KY Formación — HOT-1</td>
-                                <td><span class="badge green">Enviado</span></td>
-                                <td>130 leads calientes</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>KY Formación — HOT-2</td>
-                                <td><span class="badge green">Enviado hoy</span></td>
-                                <td>130 leads calientes</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>KY Formación — WARM-2</td>
-                                <td><span class="badge amber">Pendiente</span></td>
-                                <td>27 leads tibios</td>
-                                <td>11 abril</td>
-                            </tr>
-                            <tr>
-                                <td>KY Formación — HOT-3</td>
-                                <td><span class="badge amber">Programado</span></td>
-                                <td>130 leads calientes</td>
-                                <td>13 abril</td>
-                            </tr>
-                            <tr>
-                                <td>KY Formación — WARM-3</td>
-                                <td><span class="badge amber">Programado</span></td>
-                                <td>27 leads tibios</td>
-                                <td>16 abril</td>
-                            </tr>
-                            <tr>
-                                <td>KY Formación — COOL-2</td>
-                                <td><span class="badge amber">Programado</span></td>
-                                <td>37 leads fríos</td>
-                                <td>18 abril</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- EVENTS & LAUNCHES SECTION -->
-        <div class="events-section">
-            <div class="events-title">📅 Próximos 14 Días</div>
-
-            <div class="event-item">
-                <div class="event-date">9 abr</div>
-                <div class="event-content">
-                    <div class="event-title">Auditoría Embudos & GHL (Sell Your Knowledge)</div>
-                    <div class="event-status"><span class="badge green">Hoy</span></div>
-                </div>
-            </div>
-
-            <div class="event-item">
-                <div class="event-date">9 abr</div>
-                <div class="event-content">
-                    <div class="event-title">Auditoría de Anuncios</div>
-                    <div class="event-status"><span class="badge green">Hoy</span></div>
-                </div>
-            </div>
-
-            <div class="event-item">
-                <div class="event-date">10 abr</div>
-                <div class="event-content">
-                    <div class="event-title">CC Post-Sesión 2: WhatsApp grupo</div>
-                    <div class="event-status"><span class="badge amber">Mañana</span></div>
-                </div>
-            </div>
-
-            <div class="event-item">
-                <div class="event-date">10 abr</div>
-                <div class="event-content">
-                    <div class="event-title">Auditorías: Fulfillment, Contenido, Ventas</div>
-                    <div class="event-status"><span class="badge amber">Mañana</span></div>
-                </div>
-            </div>
-
-            <div class="event-item">
-                <div class="event-date">11 abr</div>
-                <div class="event-content">
-                    <div class="event-title">Email WARM-2 a 27 leads tibios KY</div>
-                    <div class="event-status"><span class="badge blue">Programado</span></div>
-                </div>
-            </div>
-
-            <div class="event-item">
-                <div class="event-date">12 abr</div>
-                <div class="event-content">
-                    <div class="event-title">Evento Puente UNH</div>
-                    <div class="event-status"><span class="badge blue">Domingo</span></div>
-                </div>
-            </div>
-
-            <div class="event-item">
-                <div class="event-date">13 abr</div>
-                <div class="event-content">
-                    <div class="event-title">Briefing #005 TAL envío 6 AM</div>
-                    <div class="event-status"><span class="badge blue">Programado</span></div>
-                </div>
-            </div>
-
-            <div class="event-item">
-                <div class="event-date">13 abr</div>
-                <div class="event-content">
-                    <div class="event-title">Email HOT-3 última llamada 130 leads</div>
-                    <div class="event-status"><span class="badge red">Crítico</span></div>
-                </div>
-            </div>
-
-            <div class="event-item">
-                <div class="event-date">14 abr</div>
-                <div class="event-content">
-                    <div class="event-title">Reu Equipo Nueva Humanidad</div>
-                    <div class="event-status"><span class="badge blue">Lunes</span></div>
-                </div>
-            </div>
-
-            <div class="event-item">
-                <div class="event-date">16 abr</div>
-                <div class="event-content">
-                    <div class="event-title">Email WARM-3 invitación personal 27 leads</div>
-                    <div class="event-status"><span class="badge blue">Programado</span></div>
-                </div>
-            </div>
-
-            <div class="event-item">
-                <div class="event-date">18 abr</div>
-                <div class="event-content">
-                    <div class="event-title">Email COOL-2 emocional suave 37 leads</div>
-                    <div class="event-status"><span class="badge blue">Programado</span></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- RECOMMENDATIONS SECTION -->
-        <div class="recommendations-section">
-            <div class="recommendations-title">💡 Recomendaciones TOP 5</div>
-
-            <div class="recommendation-item">
-                <div class="rec-number">1</div>
-                <div class="rec-content">
-                    <div class="rec-text">
-                        <strong>🔴 Completar extracción de datos:</strong> Activar <code style="background: var(--bg3); padding: 2px 6px; border-radius: 3px;">ceo-data-extraction-weekly</code> para tener IG y Skool frescos
-                    </div>
-                    <div class="rec-impact">Impacto: Visibilidad total de métricas críticas</div>
-                </div>
-            </div>
-
-            <div class="recommendation-item">
-                <div class="rec-number">2</div>
-                <div class="rec-content">
-                    <div class="rec-text">
-                        <strong>🟡 Seguimiento CC participantes:</strong> Asegurar engagement post-sesión 2 para conversión Premium
-                    </div>
-                    <div class="rec-impact">Impacto: +3-5 upgrades potenciales a Premium</div>
-                </div>
-            </div>
-
-            <div class="recommendation-item">
-                <div class="rec-number">3</div>
-                <div class="rec-content">
-                    <div class="rec-text">
-                        <strong>🟡 Monitorear campaña KY Formación:</strong> HOT-3 el 13 abril es la última llamada — optimizar copy para máxima conversión
-                    </div>
-                    <div class="rec-impact">Impacto: Conversiones directas + urgencia</div>
-                </div>
-            </div>
-
-            <div class="recommendation-item">
-                <div class="rec-number">4</div>
-                <div class="rec-content">
-                    <div class="rec-text">
-                        <strong>🔵 Crear contenido nutrición 80%:</strong> Balance los emails de venta con posts de valor en Portal Origen — mantener comunidad engagement
-                    </div>
-                    <div class="rec-impact">Impacto: Retención Premium, reducir churn</div>
-                </div>
-            </div>
-
-            <div class="recommendation-item">
-                <div class="rec-number">5</div>
-                <div class="rec-content">
-                    <div class="rec-text">
-                        <strong>🔵 Preparar cartolas bancarias:</strong> Recopilar extractos para próximo dashboard con datos financieros reales
-                    </div>
-                    <div class="rec-impact">Impacto: Decisiones informadas basadas en datos reales</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- AUTOMATION ENGINE SECTION -->
-        <div class="automation-section">
-            <div class="automation-title">⚙️ Automation Engine</div>
-            <p style="color: var(--text-dim); margin-bottom: 20px; font-size: 0.95rem;">
-                Tareas recurrentes activas (17/48 habilitadas)
-            </p>
-
-            <div class="automation-grid">
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">portal-origen-mensajes-privados</div>
-                        <div class="automation-schedule">Diario 9:09 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">portal-origen-notificaciones</div>
-                        <div class="automation-schedule">Diario 9:16 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">portal-origen-posts-comunidad</div>
-                        <div class="automation-schedule">Diario 9:30 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">portal-origen-nuevos-miembros</div>
-                        <div class="automation-schedule">Diario 10:05 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">portal-origen-posteo-diario</div>
-                        <div class="automation-schedule">Diario 9:10 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">upgrade-engine</div>
-                        <div class="automation-schedule">Mar/Vie 9:03 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">ky-contenido-semanal</div>
-                        <div class="automation-schedule">Dom 8:07 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">ky-engagement-semanal</div>
-                        <div class="automation-schedule">Vie 13:10</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">ky-post-lun-mie-vie</div>
-                        <div class="automation-schedule">L/M/V 6:37 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">email-audit-morning</div>
-                        <div class="automation-schedule">Diario 8:50 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">email-audit-evening</div>
-                        <div class="automation-schedule">Diario 18:40</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">ceo-briefing-semanal</div>
-                        <div class="automation-schedule">Lun/Jue 9:10 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">ceo-scorecard-diario</div>
-                        <div class="automation-schedule">Diario 8:09 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">ceo-data-extraction</div>
-                        <div class="automation-schedule">Dom 7:07 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">reporte-ig-semanal</div>
-                        <div class="automation-schedule">Dom 18:03</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">cc-acompanamiento-celestial</div>
-                        <div class="automation-schedule">L-V 10:03 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">cc-reporte-semanal-satya</div>
-                        <div class="automation-schedule">Lun 9:01 AM</div>
-                    </div>
-                </div>
-
-                <div class="automation-item">
-                    <div class="automation-status">✅</div>
-                    <div class="automation-info">
-                        <div class="automation-name">briefing-produccion-semanal</div>
-                        <div class="automation-schedule">Mar 10:03 AM</div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="background: var(--bg2); border: 1px dashed var(--text-dim); border-radius: 8px; padding: 15px; margin-top: 20px; font-size: 0.85rem; color: var(--text-dim);">
-                ℹ️ Tareas deshabilitadas: ~30+ (tareas de una sola vez completadas)
-            </div>
-        </div>
-
-        <!-- COLLAPSIBLE SECTIONS -->
-        <div class="collapsible" onclick="toggleCollapsible(this)">
-            <span class="collapsible-title">📊 Data Sources & Integration Status</span>
-            <span class="collapsible-icon">▼</span>
-        </div>
-        <div class="collapsible-content">
-            <div class="collapsible-body">
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Fuente</th>
-                                <th>Estado</th>
-                                <th>Última Actualización</th>
-                                <th>Próximo Sync</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Instagram API</td>
-                                <td><span class="badge red">No Conectado</span></td>
-                                <td>-</td>
-                                <td>Pendiente</td>
-                            </tr>
-                            <tr>
-                                <td>Skool Community</td>
-                                <td><span class="badge amber">~5 días</span></td>
-                                <td>4 abril 2026</td>
-                                <td>Mañana</td>
-                            </tr>
-                            <tr>
-                                <td>Email Campaigns</td>
-                                <td><span class="badge amber">~5 días</span></td>
-                                <td>4 abril 2026</td>
-                                <td>Mañana</td>
-                            </tr>
-                            <tr>
-                                <td>Bank Statements</td>
-                                <td><span class="badge red">Manual</span></td>
-                                <td>-</td>
-                                <td>Próximo cycle</td>
-                            </tr>
-                            <tr>
-                                <td>Google Sheets API</td>
-                                <td><span class="badge green">Conectado</span></td>
-                                <td>9 abril 2026</td>
-                                <td>Real-time</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="collapsible" onclick="toggleCollapsible(this)">
-            <span class="collapsible-title">🚀 Operational Efficiency Metrics</span>
-            <span class="collapsible-icon">▼</span>
-        </div>
-        <div class="collapsible-content">
-            <div class="collapsible-body">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                    <div>
-                        <h4 style="color: var(--gold-light); margin-bottom: 10px;">Email Campaign Health</h4>
-                        <div style="background: var(--bg); border-radius: 6px; padding: 15px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
-                                <span>KY Formación Open Rate</span>
-                                <strong style="color: var(--gold-light);">~35%</strong>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 35%;"></div>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-top: 15px; margin-bottom: 8px; font-size: 0.9rem;">
-                                <span>Click-through Rate</span>
-                                <strong style="color: var(--gold-light);">~12%</strong>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 12%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 style="color: var(--gold-light); margin-bottom: 10px;">Portal Origen Engagement</h4>
-                        <div style="background: var(--bg); border-radius: 6px; padding: 15px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
-                                <span>Mensajes Diarios</span>
-                                <strong style="color: var(--gold-light);">~25/día</strong>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; margin-top: 15px; font-size: 0.9rem;">
-                                <span>Posts Semanales</span>
-                                <strong style="color: var(--gold-light);">~8/semana</strong>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; margin-top: 15px; font-size: 0.9rem;">
-                                <span>Premium Churn</span>
-                                <strong style="color: var(--red);">~5%/mes</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- FOOTER -->
-        <div class="footer">
-            <p>School of Love CEO Dashboard | Actualizado 9 abril 2026 · Briefing #002</p>
-            <p style="margin-top: 10px; font-size: 0.85rem;">
-                Este dashboard es una herramienta estratégica en tiempo real. Los datos se sincronizan automáticamente según el cronograma de automation engine.
-            </p>
-        </div>
+    <div class="alert alert-red">
+      <div class="alert-title">🔴 DT ESPECIALIZACIONES: 4 alumnas pagaron $10,376 y nadie las ha contactado</div>
+      <div class="alert-body">Angélica Marmolejo $2,892 · Tatiana Valerín $2,568 · María Isabel Fulgueira $2,465 · Patricia Montenegro $2,451. Tarea programada mañana 14 Abr 9 AM para redactar WhatsApp. Cada semana sin comunicar erosiona la confianza.</div>
     </div>
 
-    <script>
-        // TAB FUNCTIONALITY
-        document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const tabName = button.getAttribute('data-tab');
+    <div class="alert alert-red">
+      <div class="alert-title">🔴 RDA ONLINE: Hotmart en borrador — $0 de venta posible hasta que se publique</div>
+      <div class="alert-body">HOY hay recordatorio a las 4 PM Chile. 15 min de Satya desbloquean toda la secuencia de emails del 14 y 21 de abril. Sin Hotmart público, los $420-$1,050 proyectados quedan bloqueados.</div>
+    </div>
 
-                // Deactivate all tabs and buttons
-                document.querySelectorAll('.tab-content').forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                document.querySelectorAll('.tab-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
+    <div class="alert alert-red">
+      <div class="alert-title">🔴 LIQUIDEZ: Sin datos bancarios de abril — último registro $10 USD al 8 Abr</div>
+      <div class="alert-body">Los payouts de Skool habrán llegado pero no hay visibilidad real. Necesitamos cartolas este domingo para el dashboard del jueves. El CFO no puede operar sin datos frescos.</div>
+    </div>
 
-                // Activate selected tab and button
-                document.getElementById(tabName).classList.add('active');
-                button.classList.add('active');
-            });
-        });
+    <div class="alert alert-amber">
+      <div class="alert-title">🟡 FORMACIÓN KY: 0 inscritos confirmados — lanzamiento 25 Abr (12 días)</div>
+      <div class="alert-body">Mínimo necesario: 6 personas. Email HOT-3 va HOY 5:30 PM. Emails WARM-3 (16 Abr) y COOL-2 (18 Abr) programados. Si esta semana no hay conversiones, la formación está en riesgo real.</div>
+    </div>
 
-        // COLLAPSIBLE FUNCTIONALITY
-        function toggleCollapsible(element) {
-            const content = element.nextElementSibling;
-            const icon = element.querySelector('.collapsible-icon');
+    <div class="alert alert-amber">
+      <div class="alert-title">🟡 QUIZ LEADS: 67 personas sin nurture — secuencia desactivada</div>
+      <div class="alert-body">El quiz Código de Luz generó 67 leads en 48h (8x el ritmo normal) pero quiz-nurture-sequence está DESACTIVADA. Estos leads no reciben D2, D5, D7 de seguimiento. Revenue potencial perdido cada día.</div>
+    </div>
 
-            content.classList.toggle('open');
-            icon.classList.toggle('open');
-        }
+    <div class="alert alert-amber">
+      <div class="alert-title">🟡 EVENTO 5/5: Concepto sin definir — sesión HOY 4:30 PM es crítica</div>
+      <div class="alert-body">Landing debe estar lista el 14 Abr. Difusión empieza 17 Abr. Si hoy no se cierra el nombre y la propuesta, el calendario se atrasa en cascada. El evento alimenta RDA y KY Terapeutas — es el motor de mayo.</div>
+    </div>
 
-        // SMOOTH ANIMATIONS ON LOAD
-        window.addEventListener('load', () => {
-            document.querySelectorAll('.card').forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.transition = 'all 0.5s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 50);
-            });
-        });
-    </script>
+    <div class="alert alert-blue">
+      <div class="alert-title">🔵 Portal Origen: +23 miembros en 6 días — Quiz funnel generando tracción real</div>
+      <div class="alert-body">303 → 326 miembros (+7.6% en 6 días). Engagement 36%→42%. Payouts abril $1,598 ya superan marzo $1,428. El embudo quiz→PO está funcionando como motor de adquisición.</div>
+    </div>
+
+    <div class="alert alert-blue">
+      <div class="alert-title">🔵 Quiz Código de Luz: 67 leads en 48h = modelo validado. Replicar en otras líneas.</div>
+      <div class="alert-body">Post obtuvo 118 comentarios — récord histórico. CTA "LUZ" activó ManyChat masivamente. El modelo quiz funciona: diseñar uno para KY Terapeutas y RDA en mayo sería la estrategia de lanzamiento más eficiente.</div>
+    </div>
+  </div>
+
+  <div class="tabs-container">
+    <div class="tab-buttons">
+      <button class="tab-btn active" onclick="showTab('revenue', this)">💰 Revenue</button>
+      <button class="tab-btn" onclick="showTab('instagram', this)">📸 Instagram</button>
+      <button class="tab-btn" onclick="showTab('portal', this)">🏛️ Portal Origen</button>
+      <button class="tab-btn" onclick="showTab('funnels', this)">📧 Embudos</button>
+      <button class="tab-btn" onclick="showTab('pipeline', this)">🚀 Pipeline</button>
+    </div>
+
+    <!-- TAB REVENUE -->
+    <div id="tab-revenue" class="tab-content active">
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">Recurrente Skool</div>
+          <div class="card-value">$1,022</div>
+          <div class="card-sub">PO $802 + KY $220 · MRR estable</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Hotmart Recurrente</div>
+          <div class="card-value">~$212</div>
+          <div class="card-sub">5 suscripciones activas (dato marzo)</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Payouts Abril Recibidos</div>
+          <div class="card-value">$1,598</div>
+          <div class="card-delta up">↑ +$170 vs marzo completo</div>
+          <div class="card-sub">PO $1,481 + KY $117</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Gasto Digital Fijo</div>
+          <div class="card-value">$1,199</div>
+          <div class="card-sub">23% solo en herramientas IA</div>
+        </div>
+      </div>
+
+      <div class="section-title">Pipeline de Revenue Activo</div>
+      <table class="mini-table">
+        <tr><th>Fuente</th><th>Conservador</th><th>Optimista</th><th>Estado</th><th>Días</th></tr>
+        <tr><td>PO MRR</td><td>$802</td><td>$802</td><td><span class="badge badge-green">Activo</span></td><td class="dimmed">—</td></tr>
+        <tr><td>Upgrades PO</td><td>$141</td><td>$376</td><td><span class="badge badge-amber">En proceso</span></td><td class="dimmed">—</td></tr>
+        <tr><td>RDA Online (9 mayo)</td><td>$420</td><td>$1,050</td><td><span class="badge badge-red">Sin publicar</span></td><td class="dimmed">26</td></tr>
+        <tr><td>Esp. DT (mayo-jun)</td><td>$4,217</td><td>$7,243</td><td><span class="badge badge-red">No comunicado</span></td><td class="dimmed">~40</td></tr>
+        <tr><td>KY Terapeutas (jul)</td><td>$2,985</td><td>$5,970</td><td><span class="badge badge-dim">No iniciado</span></td><td class="dimmed">~90</td></tr>
+        <tr style="font-weight:600"><td>TOTAL PROYECTADO</td><td style="color:var(--gold-light)">$8,565</td><td style="color:var(--gold-light)">$15,441</td><td>—</td><td>—</td></tr>
+      </table>
+
+      <div class="section-title">P&amp;L Marzo 2026 (Referencia)</div>
+      <table class="mini-table">
+        <tr><th>Línea</th><th>USD</th><th>Nota</th></tr>
+        <tr><td>Ingresos verificados</td><td style="color:var(--green)">+$4,509</td><td class="dimmed">Skool, Hotmart, alumnos directos</td></tr>
+        <tr><td>Gastos negocio</td><td style="color:var(--amber)">-$929</td><td class="dimmed">IA, plataformas, colaboradores</td></tr>
+        <tr><td>Gastos personales</td><td style="color:var(--red)">-$2,701</td><td class="dimmed">Familia $1,884 + Apple + otros</td></tr>
+        <tr><td>Gastos no detallados CC</td><td style="color:var(--red)">-$879</td><td class="dimmed">Supermercados, gasolina, educación</td></tr>
+        <tr style="font-weight:600"><td>Resultado real marzo</td><td style="color:var(--amber)">-$177</td><td class="dimmed">Cuadra con saldos reales</td></tr>
+      </table>
+    </div>
+
+    <!-- TAB INSTAGRAM -->
+    <div id="tab-instagram" class="tab-content">
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">Seguidores</div>
+          <div class="card-value">269,760</div>
+          <div class="card-delta down">↓ -105 vs sem ant</div>
+          <div class="card-sub">Primera pérdida neta registrada</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Reach Semanal</div>
+          <div class="card-value">9,731</div>
+          <div class="card-delta down">↓ -21% vs sem ant</div>
+          <div class="card-sub">Sem ant: 12,302 (boost lanzamiento CC)</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Cuentas Interactuaron</div>
+          <div class="card-value">322</div>
+          <div class="card-delta neutral">→ -0.6% estable</div>
+          <div class="card-sub">A pesar del menor reach</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Top Post Interacciones</div>
+          <div class="card-value">185</div>
+          <div class="card-delta up">↑ Récord histórico</div>
+          <div class="card-sub">Quiz Código de Luz (67L + 118C)</div>
+        </div>
+      </div>
+
+      <div class="section-title">⭐ Posts Semana (5-11 Abr)</div>
+      <table class="mini-table">
+        <tr><th>Fecha</th><th>Tipo</th><th>Post</th><th>Likes</th><th>Comments</th><th>CTA</th></tr>
+        <tr><td>10 Abr</td><td>VIDEO</td><td style="color:var(--gold-light)">Quiz Código de Luz ⭐</td><td><span class="up">67</span></td><td><span class="up" style="font-weight:700">118</span></td><td><span class="badge badge-green">LUZ</span></td></tr>
+        <tr><td>6 Abr</td><td>VIDEO</td><td>Desafío 7 Días Meditación</td><td>33</td><td>47</td><td><span class="badge badge-blue">MEDITAR</span></td></tr>
+        <tr><td>10 Abr</td><td>CAROUSEL</td><td>10 Cuerpos de Luz</td><td>15</td><td>24</td><td><span class="badge badge-green">LUZ</span></td></tr>
+        <tr><td>5 Abr</td><td>VIDEO</td><td>Cambiar curso del día (orgánico)</td><td>79</td><td>8</td><td><span class="badge badge-dim">Sin CTA</span></td></tr>
+      </table>
+
+      <div class="section-title">CTAs ManyChat Activos</div>
+      <table class="mini-table">
+        <tr><th>Keyword</th><th>Funnel</th><th>Comentarios (proxy leads)</th><th>Estado</th></tr>
+        <tr><td><strong>LUZ</strong></td><td>Quiz Código de Luz</td><td style="color:var(--green)">142 totales</td><td><span class="badge badge-green">🔥 HOT</span></td></tr>
+        <tr><td><strong>MEDITAR</strong></td><td>Desafío 7 Días</td><td style="color:var(--green)">50 totales</td><td><span class="badge badge-green">Activo</span></td></tr>
+        <tr><td><strong>CELESTIAL</strong></td><td>CC Lead Magnet</td><td>~2 esta semana</td><td><span class="badge badge-dim">Bajo</span></td></tr>
+      </table>
+
+      <div class="section-title">Verificación Ratio 80/20 Contenido</div>
+      <div class="progress-container">
+        <div class="progress-label"><span>Nutrición (valor, educativo, conexión)</span><span style="color:var(--amber)">~50% — META: 80%</span></div>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:50%; background:linear-gradient(90deg,var(--green),#22c55e)"></div></div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-label"><span>Venta / Conversión</span><span style="color:var(--amber)">~50% — MÁXIMO: 20%</span></div>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:50%; background:linear-gradient(90deg,var(--amber),var(--red))"></div></div>
+      </div>
+      <div class="alert alert-amber" style="margin-top:10px">
+        <div class="alert-title">⚠️ Ratio 50/50 detectado — Agregar 2-3 posts de nutrición pura esta semana</div>
+        <div class="alert-body">Con 3 CTAs activos (LUZ, MEDITAR, CELESTIAL) el feed sesga hacia conversión. Balancear con posts de reflexión espiritual, enseñanzas KY o contenido educativo sin CTA de compra.</div>
+      </div>
+    </div>
+
+    <!-- TAB PORTAL ORIGEN -->
+    <div id="tab-portal" class="tab-content">
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">Miembros Portal Origen</div>
+          <div class="card-value">326</div>
+          <div class="card-delta up">↑ +23 en 6 días (+7.6%)</div>
+          <div class="card-sub">Quiz funnel como motor de entrada</div>
+        </div>
+        <div class="card">
+          <div class="card-label">MRR PO</div>
+          <div class="card-value">$802</div>
+          <div class="card-delta neutral">→ Estable (dato 8 Abr)</div>
+          <div class="card-sub">Free→Premium: reto pendiente</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Engagement PO</div>
+          <div class="card-value">42%</div>
+          <div class="card-delta up">↑ +6pp (36%→42%)</div>
+          <div class="card-sub">Retención 100%</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Kundalini Yoga</div>
+          <div class="card-value">12 mb</div>
+          <div class="card-delta neutral">→ Sin cambio · $220 MRR</div>
+          <div class="card-sub">Engagement 92% · Retención 100%</div>
+        </div>
+      </div>
+
+      <div class="section-title">Tiers PO &amp; KY</div>
+      <table class="mini-table">
+        <tr><th>Comunidad</th><th>Tier</th><th>Precio</th><th>MRR</th></tr>
+        <tr><td>Portal Origen</td><td>Standard (Free)</td><td>$0</td><td class="dimmed">Mayoría nuevos</td></tr>
+        <tr><td>Portal Origen</td><td>Premium</td><td>$47/m · $470/año</td><td style="color:var(--gold-light)">$802</td></tr>
+        <tr><td>Portal Origen</td><td>VIP (legado)</td><td>$33/m · $330/año</td><td class="dimmed">Incluido en $802</td></tr>
+        <tr><td>Kundalini Yoga</td><td>Suscripción</td><td>$27/m · $270/año</td><td style="color:var(--gold-light)">$220</td></tr>
+      </table>
+
+      <div class="section-title">Fuentes de Tráfico PO (30 días)</div>
+      <table class="mini-table">
+        <tr><th>Fuente</th><th>%</th><th>Nota</th></tr>
+        <tr><td>Direct</td><td>39.4%</td><td class="dimmed">Principal — boca a boca + email</td></tr>
+        <tr><td>Skool network</td><td>21.2%</td><td class="dimmed">Orgánico plataforma</td></tr>
+        <tr><td>schooloflove.cl</td><td>12.1%</td><td class="dimmed">Web</td></tr>
+        <tr><td>Instagram</td><td style="color:var(--green)">9.1%</td><td style="color:var(--green)">↑ Embudo IG funcionando</td></tr>
+        <tr><td>Affiliate</td><td>6.1%</td><td class="dimmed">—</td></tr>
+        <tr><td>Gmail</td><td>6.1%</td><td class="dimmed">Campañas email</td></tr>
+      </table>
+
+      <div class="section-title">Payouts Historial</div>
+      <table class="mini-table">
+        <tr><th>Período</th><th>PO</th><th>KY</th><th>Total</th></tr>
+        <tr><td>Marzo 2026</td><td>$1,253</td><td>$175</td><td>$1,428</td></tr>
+        <tr><td>Abril 2026 (parcial)</td><td>$1,481</td><td>$117</td><td style="color:var(--green); font-weight:700">$1,598 ↑</td></tr>
+        <tr><td>Balance pendiente</td><td>$71.26</td><td>$19.50</td><td class="dimmed">$90.76</td></tr>
+      </table>
+    </div>
+
+    <!-- TAB EMBUDOS -->
+    <div id="tab-funnels" class="tab-content">
+      <div class="section-title">Estado Embudos</div>
+      <table class="mini-table">
+        <tr><th>Embudo</th><th>Leads</th><th>Open Rate</th><th>Estado</th></tr>
+        <tr><td style="color:var(--gold-light)">Quiz Código de Luz 🔥</td><td style="color:var(--green)">~67 (48h)</td><td>—</td><td><span class="badge badge-green">GAME CHANGER</span></td></tr>
+        <tr><td>Formación KY HOT</td><td>130 leads</td><td>~45%</td><td><span class="badge badge-amber">HOT-3 hoy</span></td></tr>
+        <tr><td>Formación KY WARM</td><td>27 leads</td><td>45.5%</td><td><span class="badge badge-amber">WARM-3 el 16 Abr</span></td></tr>
+        <tr><td>Formación KY COOL</td><td>37 leads</td><td>—</td><td><span class="badge badge-blue">COOL-2 el 18 Abr</span></td></tr>
+        <tr><td>Desafío 7 Días Meditación</td><td>41 subs</td><td>46.2%</td><td><span class="badge badge-green">Activo</span></td></tr>
+        <tr><td>Quiz Nurture (D2/D5/D7)</td><td>67 leads</td><td>—</td><td><span class="badge badge-red">❌ DESACTIVADO</span></td></tr>
+        <tr><td>CC Acompañamiento</td><td>Grupo CC</td><td>—</td><td><span class="badge badge-green">Auto Mié/Vie/Dom</span></td></tr>
+      </table>
+
+      <div class="section-title">MailerLite — Estado Lista</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">Total Suscriptores</div>
+          <div class="card-value">4,488</div>
+          <div class="card-delta up">↑ +27 esta semana</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Mejor Open Rate</div>
+          <div class="card-value">77.8%</div>
+          <div class="card-sub">Recordatorio 5min Luna Llena</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Campaña Masiva</div>
+          <div class="card-value">16.6%</div>
+          <div class="card-sub">KY Testimonios (1,208 env) — 11 unsubs</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Audiencias Calientes</div>
+          <div class="card-value">45%+</div>
+          <div class="card-sub">Open rate segmentado · Modelo validado</div>
+        </div>
+      </div>
+
+      <div class="section-title">Campañas Email Próximos 14 Días</div>
+      <table class="mini-table">
+        <tr><th>Fecha</th><th>Campaña</th><th>Audiencia</th><th>Estado</th></tr>
+        <tr><td style="color:var(--amber)">HOY 5:30 PM</td><td>KY HOT-3 Última llamada</td><td>130 hot leads</td><td><span class="badge badge-amber">Hoy auto</span></td></tr>
+        <tr><td>14 Abr</td><td>RDA Fase 1 Pre-lanzamiento</td><td>Lista ML completa</td><td><span class="badge badge-red">Depende Hotmart</span></td></tr>
+        <tr><td>16 Abr</td><td>KY WARM-3 Invitación personal</td><td>27 warm leads</td><td><span class="badge badge-green">Programado</span></td></tr>
+        <tr><td>18 Abr</td><td>KY COOL-2 Emocional</td><td>37 cool leads</td><td><span class="badge badge-green">Programado</span></td></tr>
+        <tr><td>21 Abr</td><td>RDA Fase 2 Lanzamiento activo</td><td>Lista ML completa</td><td><span class="badge badge-red">Depende Hotmart</span></td></tr>
+      </table>
+    </div>
+
+    <!-- TAB PIPELINE -->
+    <div id="tab-pipeline" class="tab-content">
+
+      <div class="funnel-card">
+        <div class="funnel-header">
+          <div>
+            <div class="funnel-name">🎯 F1: Evento Gratuito 5/5</div>
+            <div class="funnel-date">5 Mayo 2026 · 22 días · Lead gen → RDA + KY Terapeutas</div>
+          </div>
+          <span class="badge badge-amber">🟡 En riesgo</span>
+        </div>
+        <div class="funnel-steps">
+          <div class="step step-pending"></div><div class="step step-pending"></div>
+          <div class="step step-pending"></div><div class="step step-pending"></div>
+          <div class="step step-pending"></div><div class="step step-pending"></div>
+        </div>
+        <div style="font-size:0.78rem;color:var(--text-dim);margin-bottom:10px">0 / 6 etapas — Concepto pendiente HOY</div>
+        <table class="mini-table">
+          <tr><th>Etapa</th><th>Fecha</th><th>Estado</th></tr>
+          <tr><td>Definir concepto + nombre</td><td style="color:var(--amber)">HOY 4:30 PM</td><td><span class="badge badge-amber">Sesión hoy</span></td></tr>
+          <tr><td>Landing page</td><td style="color:var(--amber)">HOY 5 PM</td><td><span class="badge badge-amber">Post-sesión hoy</span></td></tr>
+          <tr><td>Difusión IG + email + PO</td><td>17 Abr</td><td><span class="badge badge-dim">Pendiente</span></td></tr>
+          <tr><td>150+ inscritos confirmados</td><td>1 Mayo</td><td><span class="badge badge-dim">Pendiente</span></td></tr>
+          <tr><td>Evento en vivo (60 min Zoom)</td><td>5 Mayo</td><td><span class="badge badge-dim">Pendiente</span></td></tr>
+          <tr><td>Conversión medida</td><td>6 Mayo</td><td><span class="badge badge-dim">Pendiente</span></td></tr>
+        </table>
+      </div>
+
+      <div class="funnel-card">
+        <div class="funnel-header">
+          <div>
+            <div class="funnel-name">🎯 F2: RDA Online — Ceremonia</div>
+            <div class="funnel-date">9 Mayo 2026 · 26 días · $420-$1,050 proyectado</div>
+          </div>
+          <span class="badge badge-amber">🟡 En riesgo</span>
+        </div>
+        <div class="funnel-steps">
+          <div class="step step-done"></div><div class="step step-pending"></div>
+          <div class="step step-pending"></div><div class="step step-pending"></div>
+          <div class="step step-pending"></div><div class="step step-pending"></div>
+          <div class="step step-pending"></div>
+        </div>
+        <div style="font-size:0.78rem;color:var(--text-dim);margin-bottom:10px">1 / 7 etapas — Bloqueado por Hotmart</div>
+        <table class="mini-table">
+          <tr><th>Etapa</th><th>Fecha</th><th>Estado</th></tr>
+          <tr><td>✅ Infraestructura técnica</td><td>Mar 2026</td><td><span class="badge badge-green">Completa</span></td></tr>
+          <tr><td>Publicar Hotmart (URGENTE)</td><td style="color:var(--red)">HOY 4 PM</td><td><span class="badge badge-red">BLOQUEADO</span></td></tr>
+          <tr><td>Emails fase 1</td><td>14-20 Abr</td><td><span class="badge badge-amber">Mañana</span></td></tr>
+          <tr><td>Emails fase 2</td><td>21-30 Abr</td><td><span class="badge badge-dim">Pendiente</span></td></tr>
+          <tr><td>Onboarding WhatsApp</td><td>29 Abr</td><td><span class="badge badge-dim">Pendiente</span></td></tr>
+          <tr><td>Ceremonia RDA</td><td>9 Mayo</td><td><span class="badge badge-dim">Pendiente</span></td></tr>
+          <tr><td>Upsell PO post-ceremonia</td><td>10 Mayo</td><td><span class="badge badge-dim">Pendiente</span></td></tr>
+        </table>
+        <div style="margin-top:8px;font-size:0.78rem">Revenue real: <span style="color:var(--red)">$0</span> · Proyectado: <span style="color:var(--amber)">$420</span> — <span style="color:var(--gold-light)">$1,050</span></div>
+      </div>
+
+      <div class="funnel-card" style="border-color:rgba(248,113,113,0.4)">
+        <div class="funnel-header">
+          <div>
+            <div class="funnel-name">🎯 F3: Reactivación DT + Especializaciones</div>
+            <div class="funnel-date">~20 Mayo 2026 · ~40 días · $4,217-$7,243 proyectado</div>
+          </div>
+          <span class="badge badge-red">🔴 Atrasado</span>
+        </div>
+        <div class="funnel-steps">
+          <div class="step step-done"></div><div class="step step-pending"></div>
+          <div class="step step-pending"></div><div class="step step-pending"></div>
+          <div class="step step-pending"></div><div class="step step-pending"></div>
+          <div class="step step-pending"></div><div class="step step-pending"></div>
+        </div>
+        <div style="font-size:0.78rem;color:var(--red);margin-bottom:10px">1 / 8 etapas — 4 alumnas esperando comunicación</div>
+        <table class="mini-table">
+          <tr><th>Compromiso (deuda)</th><th>Monto pagado</th><th>Estado</th></tr>
+          <tr><td>Angélica Marmolejo</td><td style="color:var(--red)">$2,892</td><td><span class="badge badge-red">No comunicada</span></td></tr>
+          <tr><td>Tatiana Valerín</td><td style="color:var(--red)">$2,568</td><td><span class="badge badge-red">No comunicada</span></td></tr>
+          <tr><td>María Isabel Fulgueira</td><td style="color:var(--red)">$2,465</td><td><span class="badge badge-red">No comunicada</span></td></tr>
+          <tr><td>Patricia Montenegro</td><td style="color:var(--red)">$2,451</td><td><span class="badge badge-red">No comunicada</span></td></tr>
+          <tr style="font-weight:700"><td>TOTAL DEUDA</td><td style="color:var(--red)">$10,376</td><td><span class="badge badge-red">URGENTE</span></td></tr>
+        </table>
+        <div style="margin-top:8px;font-size:0.78rem;color:var(--text-dim)">Tarea mañana 14 Abr 9 AM: Claude redacta WhatsApp → Satya aprueba y envía</div>
+      </div>
+
+      <div class="funnel-card">
+        <div class="funnel-header">
+          <div>
+            <div class="funnel-name">🎯 F4: KY para Terapeutas</div>
+            <div class="funnel-date">Julio 2026 · ~90 días · $2,985-$5,970 proyectado</div>
+          </div>
+          <span class="badge badge-dim">⚫ No iniciado</span>
+        </div>
+        <div class="funnel-steps">
+          <div class="step step-pending"></div><div class="step step-pending"></div>
+          <div class="step step-pending"></div><div class="step step-pending"></div>
+          <div class="step step-pending"></div><div class="step step-pending"></div>
+        </div>
+        <div style="font-size:0.78rem;color:var(--text-dim)">0 / 6 etapas — Planificación activa desde mayo</div>
+      </div>
+
+      <div class="section-title">Resumen Financiero Pipeline vs Meta</div>
+      <div class="progress-container">
+        <div class="progress-label"><span>MRR Actual vs Meta $6,000/mes</span><span style="color:var(--red)">$1,234 (20.6%)</span></div>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:20.6%;background:linear-gradient(90deg,var(--red),var(--amber))"></div></div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-label"><span>Pipeline Conservador vs Meta</span><span style="color:var(--gold-light)">$8,565 potencial</span></div>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div style="font-size:0.8rem;color:var(--text-dim);margin-top:8px;padding:10px;background:rgba(185,145,75,0.05);border-radius:8px;border:1px solid var(--border)">
+        💡 <strong style="color:var(--gold-light)">La brecha es de ejecución, no de oportunidad.</strong> El pipeline cubre 1.4x la meta conservadora y 2.6x la optimista. La única restricción es que Satya ejecute las 3 acciones del día de hoy.
+      </div>
+    </div>
+
+  </div><!-- /tabs -->
+
+  <!-- EVENTOS -->
+  <div style="margin-bottom:20px">
+    <div class="section-title" style="margin-top:0">📅 Hitos Próximos 14 Días</div>
+    <table class="mini-table">
+      <tr><th>Fecha</th><th>Evento / Tarea</th><th>Estado</th><th>Acción Satya</th></tr>
+      <tr><td style="color:var(--red)">HOY 4 PM</td><td>Publicar Hotmart RDA Online</td><td><span class="badge badge-red">URGENTE</span></td><td>15 min</td></tr>
+      <tr><td style="color:var(--amber)">HOY 4:30 PM</td><td>Sesión: Concepto Evento 5/5</td><td><span class="badge badge-amber">Sesión hoy</span></td><td>Aprobar concepto</td></tr>
+      <tr><td style="color:var(--amber)">HOY 5 PM</td><td>Crear landing Evento 5/5</td><td><span class="badge badge-amber">Pending</span></td><td>Revisar landing</td></tr>
+      <tr><td style="color:var(--amber)">HOY 5:30 PM</td><td>Email KY HOT-3 (Última llamada)</td><td><span class="badge badge-green">Auto</span></td><td>—</td></tr>
+      <tr><td>14 Abr</td><td>WhatsApp a 4 alumnas DT (Claude redacta)</td><td><span class="badge badge-amber">Auto mañana</span></td><td>Aprobar + enviar</td></tr>
+      <tr><td>14 Abr</td><td>RDA Emails Fase 1</td><td><span class="badge badge-red">Depende Hotmart</span></td><td>Publicar hoy primero</td></tr>
+      <tr><td>16 Abr</td><td>Email KY WARM-3 + Revisión correo 7 formación</td><td><span class="badge badge-green">Programado</span></td><td>—</td></tr>
+      <tr><td>17 Abr</td><td>Difusión Evento 5/5 (IG + email + PO)</td><td><span class="badge badge-dim">Pendiente</span></td><td>Landing lista primero</td></tr>
+      <tr><td>18 Abr</td><td>Email KY COOL-2</td><td><span class="badge badge-green">Programado</span></td><td>—</td></tr>
+      <tr><td>21 Abr</td><td>RDA Emails Fase 2 (lanzamiento activo)</td><td><span class="badge badge-dim">Pendiente</span></td><td>—</td></tr>
+      <tr><td style="color:var(--red)">25 Abr</td><td>Formación KY Lanzamiento (min 6 inscritos)</td><td><span class="badge badge-red">0 inscritos</span></td><td>—</td></tr>
+      <tr><td>5 Mayo</td><td>Evento Gratuito 5/5 (60 min Zoom)</td><td><span class="badge badge-amber">En construcción</span></td><td>—</td></tr>
+      <tr><td>9 Mayo</td><td>RDA Online Ceremonia</td><td><span class="badge badge-amber">En construcción</span></td><td>—</td></tr>
+    </table>
+  </div>
+
+  <!-- RECOMENDACIONES CEO -->
+  <div style="margin-bottom:20px">
+    <div class="section-title" style="margin-top:0">🧠 Recomendaciones CEO — Top 5</div>
+
+    <div class="rec-card">
+      <div class="rec-num" style="color:var(--red)">1</div>
+      <div>
+        <div class="rec-title" style="color:var(--red)">🔴 Publicar Hotmart RDA ahora (antes 4 PM) — 15 min, $1,050 desbloqueados</div>
+        <div class="rec-body">El producto está listo. La secuencia de emails del 14 y 21 de abril depende de que el link de Hotmart exista. Sin este paso, dos fases de emails automatizados son inútiles. ROI más alto de toda la semana por tiempo invertido.</div>
+      </div>
+      <div class="rec-impact" style="color:var(--red)">$420-$1,050</div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-num" style="color:var(--red)">2</div>
+      <div>
+        <div class="rec-title" style="color:var(--red)">🔴 Reactivar quiz-nurture-sequence hoy mismo</div>
+        <div class="rec-body">67 personas tomaron el quiz y no reciben seguimiento. La secuencia (D2, D5, D7) ya está diseñada pero desactivada. Cada día sin nurture es revenue perdido de los leads más calientes del sistema. 2 clics para activar.</div>
+      </div>
+      <div class="rec-impact" style="color:var(--amber)">Urgente</div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-num" style="color:var(--amber)">3</div>
+      <div>
+        <div class="rec-title">🟡 Cerrar concepto Evento 5/5 hoy — el 17 Abr no se puede mover</div>
+        <div class="rec-body">El evento es el motor de leads para RDA y KY Terapeutas. La difusión empieza en 4 días. Sin concepto aprobado hoy, la landing no se puede construir, y la difusión se atrasa. Esto afecta directamente mayo y junio.</div>
+      </div>
+      <div class="rec-impact" style="color:var(--amber)">Multiplicador</div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-num" style="color:var(--amber)">4</div>
+      <div>
+        <div class="rec-title">🟡 Diseñar quiz para KY Terapeutas — replicar modelo que ya funciona</div>
+        <div class="rec-body">El quiz Código de Luz generó 8x más leads que cualquier lead magnet anterior. Diseñar un quiz específico para KY Terapeutas en mayo (ej: "¿Cuál es tu estilo de enseñanza?") sería la estrategia de captación más eficiente para el lanzamiento de julio.</div>
+      </div>
+      <div class="rec-impact" style="color:var(--blue)">Escala</div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-num" style="color:var(--blue)">5</div>
+      <div>
+        <div class="rec-title">🔵 Compartir cartolas bancarias este domingo — CFO ciego sin datos</div>
+        <div class="rec-body">El último dato financiero real es del 8 de abril con $10 USD de saldo. Los payouts de Skool habrán llegado. Para el dashboard del jueves 17 necesitamos la foto real de liquidez y poder reconciliar el P&L de abril.</div>
+      </div>
+      <div class="rec-impact" style="color:var(--blue)">Control</div>
+    </div>
+
+    <div style="margin-top:10px;background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.2);border-radius:8px;padding:10px 14px;font-size:0.78rem;color:var(--text-dim)">
+      ✅ <strong style="color:var(--green)">Ratio 80/20 verificado:</strong> Recs 2, 4, 5 = nutrición/operación/control. Recs 1, 3 = conversión/activación. Ratio 40/60 operación-venta. OK para semana de lanzamientos activos.
+    </div>
+  </div>
+
+  <!-- MOTOR DE AUTOMATIZACIONES -->
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="toggleCollapsible(this)">
+      <span>⚙️ Motor de Automatizaciones — Estado completo</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div class="collapsible-body">
+      <div class="auto-grid">
+        <div class="auto-list">
+          <h3>✅ Activas (20 tareas recurrentes)</h3>
+          <div class="auto-item"><div class="dot dot-green"></div>CEO Dashboard Semanal (Lun/Jue 9 AM)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>CEO Scorecard Diario (8 AM)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>Extracción Datos Semanal (Dom 7 AM)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>Briefing TAL Producción (Martes)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>Email Briefing Mañana (8:50 AM diario)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>Email Briefing Tarde (6:40 PM diario)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>PO Mensajes Privados (9:09 AM diario)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>PO Notificaciones (9:16 AM diario)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>PO Posts Comunidad (9:30 AM diario)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>PO Post Diario (9:10 AM diario)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>Upgrade Engine PO (Martes/Viernes)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>CC Acompañamiento Celestial (Mié/Vie/Dom)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>CC Reporte Semanal (Lunes)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>KY Post Lun/Mié/Vie</div>
+          <div class="auto-item"><div class="dot dot-green"></div>KY Contenido Semanal (Dom)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>KY Engagement Semanal (Viernes)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>KY Planificación Mensual (día 25)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>IG Reporte Semanal (Dom 6 PM)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>Recordatorio Cartolas Banco (Dom)</div>
+          <div class="auto-item"><div class="dot dot-green"></div>Monitoreo IA Mensual (día 1)</div>
+        </div>
+        <div class="auto-list">
+          <h3>❌ Desactivadas (requieren revisión)</h3>
+          <div class="auto-item"><div class="dot dot-red"></div><strong style="color:var(--red)">Quiz Nurture D2/D5/D7 — REACTIVAR URGENTE</strong></div>
+          <div class="auto-item"><div class="dot dot-red"></div>PO Onboarding Seguimiento D1-D10</div>
+          <div class="auto-item"><div class="dot dot-red"></div>PO Upgrade Pipeline (diario)</div>
+          <div class="auto-item"><div class="dot dot-red"></div>Masterclass KY Lead Followup</div>
+          <div class="auto-item"><div class="dot dot-red"></div>Masterclass Draft Reminder</div>
+          <div class="auto-item"><div class="dot dot-dim"></div>PO Nuevos Miembros (redundante — ok)</div>
+          <div class="auto-item"><div class="dot dot-dim"></div>Monitoreo Equinoccio (campaña terminada — ok)</div>
+
+          <h3 style="margin-top:16px">📬 One-time Activas (próximas)</h3>
+          <div class="auto-item"><div class="dot dot-amber"></div>KY HOT-3 — HOY 5:30 PM</div>
+          <div class="auto-item"><div class="dot dot-amber"></div>Hotmart RDA Recordatorio — HOY 4 PM</div>
+          <div class="auto-item"><div class="dot dot-amber"></div>Evento 5/5 Sesión Concepto — HOY 4:30 PM</div>
+          <div class="auto-item"><div class="dot dot-amber"></div>Evento 5/5 Landing — HOY 5 PM</div>
+          <div class="auto-item"><div class="dot dot-amber"></div>LinkedIn Estrategia Evaluación — HOY 6 PM</div>
+          <div class="auto-item"><div class="dot dot-green"></div>DT Maestría WhatsApp — 14 Abr 9 AM</div>
+          <div class="auto-item"><div class="dot dot-green"></div>RDA Emails Fase 1 — 14 Abr 10 AM</div>
+          <div class="auto-item"><div class="dot dot-green"></div>KY WARM-3 — 16 Abr</div>
+          <div class="auto-item"><div class="dot dot-green"></div>Evento 5/5 Difusión — 17 Abr</div>
+          <div class="auto-item"><div class="dot dot-green"></div>KY COOL-2 — 18 Abr</div>
+          <div class="auto-item"><div class="dot dot-green"></div>RDA Emails Fase 2 — 21 Abr</div>
+          <div class="auto-item"><div class="dot dot-green"></div>Luna Llena Mayo Alerta — 28 Abr</div>
+          <div class="auto-item"><div class="dot dot-green"></div>RDA Calentamiento — 4 Mayo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="collapsible" style="margin-top:8px">
+    <div class="collapsible-header" onclick="toggleCollapsible(this)">
+      <span>📊 Fuentes de Datos — Detalle</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div class="collapsible-body">
+      <table class="mini-table">
+        <tr><th>Fuente</th><th>Archivo</th><th>Frescura</th><th>Cobertura</th></tr>
+        <tr><td>Instagram</td><td>DATA_IG_2026-04-12</td><td><span class="badge badge-green">🟢 1 día</span></td><td>Completa (Graph API)</td></tr>
+        <tr><td>Skool PO</td><td>DATA_SKOOL_PO_2026-04-12</td><td><span class="badge badge-green">🟢 1 día</span></td><td>Público OK · Admin req Chrome</td></tr>
+        <tr><td>Skool KY</td><td>DATA_SKOOL_KY_2026-04-12</td><td><span class="badge badge-green">🟢 1 día</span></td><td>Público OK · Admin req Chrome</td></tr>
+        <tr><td>Email/MailerLite</td><td>DATA_EMAIL_2026-04-12</td><td><span class="badge badge-green">🟢 1 día</span></td><td>Completa (API)</td></tr>
+        <tr><td>Banco (4 cuentas)</td><td>DATA_BANCO_2026-04-08</td><td><span class="badge badge-amber">🟡 5 días</span></td><td>Datos de marzo — faltan abril</td></tr>
+        <tr><td>Hotmart</td><td>Memoria (marzo)</td><td><span class="badge badge-red">🔴 Sin acceso</span></td><td>Manual · Pendiente MCP</td></tr>
+        <tr><td>Google Calendar</td><td>gcal MCP</td><td><span class="badge badge-green">🟢 Tiempo real</span></td><td>Completa</td></tr>
+        <tr><td>Tareas Programadas</td><td>MCP API</td><td><span class="badge badge-green">🟢 Tiempo real</span></td><td>100+ tareas auditadas</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="collapsible" style="margin-top:8px">
+    <div class="collapsible-header" onclick="toggleCollapsible(this)">
+      <span>🗓️ Cadencia CEO System — 65 min/semana Satya</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div class="collapsible-body">
+      <table class="mini-table">
+        <tr><th>Reporte</th><th>Frecuencia</th><th>Tiempo Satya</th><th>Propósito</th></tr>
+        <tr><td>CEO Dashboard HTML</td><td>Lun + Jue 9 AM</td><td>~15 min</td><td>Decisiones estratégicas</td></tr>
+        <tr><td>Scorecard Ejecutivo</td><td>Diario 8 AM</td><td>~5 min</td><td>Pulso diario KPIs</td></tr>
+        <tr><td>Extracción Datos</td><td>Dom 7 AM (auto)</td><td>0 min</td><td>Alimenta dashboard</td></tr>
+        <tr><td>Email Briefing x2</td><td>Diario (auto)</td><td>~10 min</td><td>Inbox cero + oportunidades</td></tr>
+        <tr><td>CC Reporte Semanal</td><td>Lunes (auto)</td><td>~5 min</td><td>Estado participantes CC</td></tr>
+        <tr><td>Cartolas Banco</td><td>Dom (Satya)</td><td>~5 min</td><td>Insumo CFO</td></tr>
+        <tr style="font-weight:600"><td>TOTAL</td><td>—</td><td style="color:var(--gold-light)">~65 min/sem</td><td>CEO Operating System completo</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);color:var(--gold-dim);font-size:0.7rem;letter-spacing:1px">
+    ૐ SCHOOL OF LOVE CEO SYSTEM · BRIEFING #004 · 13 ABRIL 2026 · Generado automáticamente
+  </div>
+
+</div>
+
+<script>
+function showTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleCollapsible(header) {
+  const body = header.nextElementSibling;
+  const icon = header.querySelector('.toggle-icon');
+  body.classList.toggle('open');
+  icon.classList.toggle('open');
+}
+</script>
 </body>
 </html>
