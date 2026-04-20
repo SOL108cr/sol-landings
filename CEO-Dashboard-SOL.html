@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOL CEO Dashboard — 16 Abril 2026</title>
+<title>SOL CEO Dashboard — 20 Abril 2026 · #006</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap');
 
@@ -35,79 +35,24 @@
     line-height: 1.5;
   }
 
-  .dashboard {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 24px;
-  }
+  .dashboard { max-width: 1200px; margin: 0 auto; padding: 24px; }
 
-  .header {
-    text-align: center;
-    padding: 32px 0 24px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 24px;
-  }
+  .header { text-align: center; padding: 32px 0 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
   .header .om { font-size: 2rem; margin-bottom: 4px; }
-  .header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 1px;
-  }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold); letter-spacing: 1px; }
   .header .subtitle { color: var(--text-dim); font-size: 0.85rem; margin-top: 6px; font-weight: 300; }
   .header .date { color: var(--gold-dim); font-size: 0.75rem; margin-top: 4px; text-transform: uppercase; letter-spacing: 2px; }
-  .header .briefing-num {
-    display: inline-block;
-    background: var(--bg3);
-    border: 1px solid var(--gold);
-    color: var(--gold-light);
-    font-size: 0.7rem;
-    padding: 3px 12px;
-    border-radius: 20px;
-    margin-top: 8px;
-    letter-spacing: 2px;
-  }
+  .header .briefing-num { display: inline-block; background: var(--bg3); border: 1px solid var(--gold); color: var(--gold-light); font-size: 0.7rem; padding: 3px 12px; border-radius: 20px; margin-top: 8px; letter-spacing: 2px; }
 
-  .north-star {
-    background: linear-gradient(135deg, var(--bg3), var(--bg2));
-    border: 1px solid var(--gold);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    text-align: center;
-  }
-  .north-star::before {
-    content: '\2605';
-    position: absolute;
-    top: -20px; right: -20px;
-    font-size: 120px;
-    color: rgba(185, 145, 75, 0.05);
-    pointer-events: none;
-  }
+  .north-star { background: linear-gradient(135deg, var(--bg3), var(--bg2)); border: 1px solid var(--gold); border-radius: 16px; padding: 24px; margin-bottom: 20px; position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; text-align: center; }
+  .north-star::before { content: '\2605'; position: absolute; top: -20px; right: -20px; font-size: 120px; color: rgba(185, 145, 75, 0.05); pointer-events: none; }
   .ns-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold-dim); margin-bottom: 6px; }
   .ns-metric { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold-light); }
   .ns-context { color: var(--text-dim); font-size: 0.75rem; margin-top: 4px; }
   .ns-delta { font-size: 0.8rem; margin-top: 4px; }
   .up { color: var(--green); } .down { color: var(--red); } .neutral { color: var(--text-dim); }
 
-  .freshness-bar {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px 20px;
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 0.78rem;
-  }
+  .freshness-bar { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 10px 20px; display: flex; gap: 24px; flex-wrap: wrap; align-items: center; margin-bottom: 20px; font-size: 0.78rem; }
   .freshness-bar .label { color: var(--gold-dim); font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
   .freshness-item { color: var(--text-dim); }
 
@@ -117,9 +62,11 @@
   .alert-red { border-color: var(--red); }
   .alert-amber { border-color: var(--amber); }
   .alert-blue { border-color: var(--blue); }
+  .alert-green { border-color: var(--green); }
   .alert-red .alert-title { color: var(--red); font-weight: 600; }
   .alert-amber .alert-title { color: var(--amber); font-weight: 600; }
   .alert-blue .alert-title { color: var(--blue); font-weight: 600; }
+  .alert-green .alert-title { color: var(--green); font-weight: 600; }
   .alert-body { color: var(--text-dim); margin-top: 3px; font-size: 0.82rem; }
 
   .tabs-container { margin-bottom: 20px; }
@@ -198,158 +145,153 @@
     <div class="om">&#x0AD0;</div>
     <h1>School of Love &mdash; CEO Dashboard</h1>
     <p class="subtitle">Strategic Operating System &middot; Satya Singh</p>
-    <p class="date">Jueves 16 de Abril, 2026</p>
-    <span class="briefing-num">BRIEFING #005</span>
+    <p class="date">Lunes 20 Abril 2026</p>
+    <div class="briefing-num">BRIEFING #006</div>
   </div>
 
   <!-- NORTH STAR -->
   <div class="north-star">
-    <div class="ns-item">
+    <div>
+      <div class="ns-label">Revenue Mes (Proy.)</div>
+      <div class="ns-metric">$2,160</div>
+      <div class="ns-context">Abril 2026 proyectado</div>
+      <div class="ns-delta up">↑ Tasa diaria +125% WoW</div>
+    </div>
+    <div>
       <div class="ns-label">MRR Total Skool</div>
-      <div class="ns-metric">$975</div>
-      <div class="ns-delta neutral">&rarr; Sin cambio vs #004</div>
-      <div class="ns-context">PO $755 + KY $220</div>
+      <div class="ns-metric">$953</div>
+      <div class="ns-context">PO $755 + KY $198</div>
+      <div class="ns-delta down">↓ -$22 vs sem ant. (KY churn)</div>
     </div>
-    <div class="ns-item">
-      <div class="ns-label">Revenue Real Abril</div>
-      <div class="ns-metric">$577</div>
-      <div class="ns-delta down">&darr; Solo 10% de meta mensual</div>
-      <div class="ns-context">Payouts recibidos: $1,481 (incluye pasivo)</div>
-    </div>
-    <div class="ns-item">
-      <div class="ns-label">Meta 90 D&iacute;as</div>
-      <div class="ns-metric">$6,000</div>
-      <div class="ns-delta down">9.6% cubierto</div>
-      <div class="ns-context">Brecha: -$5,423/mes &middot; Requiere ventas puntuales</div>
+    <div>
+      <div class="ns-label">Meta 90 días</div>
+      <div class="ns-metric">$6K-$10K</div>
+      <div class="ns-context">Motor 1 CASH plan abril-mayo</div>
+      <div class="ns-delta neutral">Gap: ~$4K-$8K / mes</div>
     </div>
   </div>
 
   <!-- FRESHNESS BAR -->
   <div class="freshness-bar">
-    <span class="label">Datos</span>
-    <span class="freshness-item">Instagram &#x1F7E1; 4d (12 Abr)</span>
-    <span class="freshness-item">Skool PO &#x1F7E2; 3d</span>
-    <span class="freshness-item">Skool KY &#x1F7E2; 3d</span>
-    <span class="freshness-item">Email &#x1F7E1; 4d (12 Abr)</span>
-    <span class="freshness-item">Banco &#x1F7E2; 3d (13 Abr)</span>
-    <span class="freshness-item" style="color:var(--amber); margin-left:auto; font-size:0.72rem">Pr&oacute;xima extracci&oacute;n: Dom 19 Abr</span>
+    <div class="label">Frescura datos:</div>
+    <div class="freshness-item">🟢 IG (1d)</div>
+    <div class="freshness-item">🟢 Skool PO (1d)</div>
+    <div class="freshness-item">🟢 Skool KY (1d)</div>
+    <div class="freshness-item">🟢 Email (1d)</div>
+    <div class="freshness-item">🟡 Banco (2d · BCR ❌ 16d)</div>
+    <div class="freshness-item">🟢 Calendar (LIVE)</div>
+    <div class="freshness-item">🟢 Tasks (LIVE)</div>
   </div>
 
-  <!-- ALERTS -->
+  <!-- ALERTAS -->
   <div class="alerts-section">
-    <h2>&#x1F6A8; Alertas de Atenci&oacute;n Inmediata</h2>
+    <h2>Alertas de atención inmediata</h2>
 
     <div class="alert alert-red">
-      <div class="alert-title">&#x1F534; TERRY NEWTON: 9 d&iacute;as para churn &mdash; tarjeta rechazada, vence 25 Abr</div>
-      <div class="alert-body">Premium $47/mes, miembro 5.5 meses. NO es cancelaci&oacute;n voluntaria. $47/mes de MRR recuperable. ACCI&Oacute;N: DM personal en Skool + email a terrynewtoncr@gmail.com pidiendo que actualice m&eacute;todo de pago. Cada d&iacute;a sin contacto reduce la probabilidad de recuperaci&oacute;n.</div>
-    </div>
-
-    <div class="alert alert-red">
-      <div class="alert-title">&#x1F534; CUENTAS OPERATIVAS VAC&Iacute;AS: Falabella $2 + Global66 $3 = $5 USD total</div>
-      <div class="alert-body">Las cuentas de Satya est&aacute;n pr&aacute;cticamente en cero. Las pr&oacute;ximas suscripciones (Skool $10, Anthropic $6, Apple $44, Zoom $14) no tienen cobertura. El saldo de Claudia ($441 USD) es el &uacute;nico colch&oacute;n. Pr&oacute;ximo payout Skool: $369 pendiente (7-14 d&iacute;as).</div>
+      <div class="alert-title">🔴 Terry Newton — Churn en 5 días (25 Abr)</div>
+      <div class="alert-body">Tarjeta rechazada. Contactar esta semana antes del churn. Posible rescate: cambio de tarjeta + upsell a mensual. Impacto MRR: -$27.</div>
     </div>
 
     <div class="alert alert-red">
-      <div class="alert-title">&#x1F534; PASIVO URGENTE: ~$1,500 USD de estudiante KY ingl&eacute;s &mdash; hay que devolver</div>
-      <div class="alert-body">Dinero mezclado en Global66 USD. NO es ingreso &mdash; es una devoluci&oacute;n pendiente. No usar para gastos operativos. Coordinar devoluci&oacute;n a la brevedad para limpiar contabilidad.</div>
+      <div class="alert-title">🔴 Reach IG -63% · Engagement -67% · Seguidores -223 en 2 sem</div>
+      <div class="alert-body">Reach semanal cayó de 9,731 → 3,619. Cuentas que interactuaron: 322 → 107. Segunda semana consecutiva con pérdida neta de seguidores (~175 unfollows vs 57 nuevos esta semana). Fase post-viral sin gran lanzamiento. Rebotar con Luna Llena 1 mayo + carrusel 7 Chakras (22-27 abr).</div>
+    </div>
+
+    <div class="alert alert-red">
+      <div class="alert-title">🔴 Revenue sin clasificar: $553 USD (DLOCAL $334 / ALVARO $146 / FITZROY $73)</div>
+      <div class="alert-body">3 ingresos no categorizados en semana 13-20 abr. Impacto: tasa diaria real +125% pero integridad P&amp;L requiere confirmación. Bloquear 10min hoy para Satya validar origen (¿Hotmart? ¿alumno KY? ¿DT?).</div>
     </div>
 
     <div class="alert alert-amber">
-      <div class="alert-title">&#x1F7E1; AURA RADIANTE: Clase muestra 23 Abr (7 d&iacute;as) &mdash; gui&oacute;n video HOY</div>
-      <div class="alert-body">Campa&ntilde;a WhatsApp activa (D&iacute;a 2 hoy). Landing LIVE. Quiz activo. Tareas WA programadas d&iacute;as 3-9. Falta: gui&oacute;n video 60-90 seg (tarea HOY) + fotos facilitadores (tarea MA&Ntilde;ANA). Clase muestra en 7 d&iacute;as es el evento m&aacute;s pr&oacute;ximo con revenue directo.</div>
+      <div class="alert-title">🟡 Clase Aura Radiante — 3 días (23 Abr)</div>
+      <div class="alert-body">Fase Intensiva WA en curso (2 toques/día). EB vence 24 Abr 8am → precio sube a $90K. Día 7 (hoy) y Día 9 (día clase) requieren ejecución. Skill operativo ✅.</div>
     </div>
 
     <div class="alert alert-amber">
-      <div class="alert-title">&#x1F7E1; FORMACI&Oacute;N KY: 0 inscritos confirmados &mdash; WARM-3 se env&iacute;a HOY, COOL-2 el 18 Abr</div>
-      <div class="alert-body">194 leads segmentados (130 HOT + 27 WARM + 37 COOL). HOT-3 se envi&oacute; el 13 Abr. WARM-3 programado HOY. Si no hay conversiones para el viernes, evaluar si lanzamiento 25 Abr es viable o hay que posponer.</div>
+      <div class="alert-title">🟡 BCR Costa Rica bloqueada hace 16 días</div>
+      <div class="alert-body">Clave incorrecta. Sin datos desde 04/04. Bloquea visibilidad P&amp;L Costa Rica. Acción: desbloqueo presencial.</div>
     </div>
 
     <div class="alert alert-amber">
-      <div class="alert-title">&#x1F7E1; EVENTO 5/5: Difusi&oacute;n arranca MA&Ntilde;ANA 17 Abr &mdash; landing debe estar 100%</div>
-      <div class="alert-body">Tarea programada para iniciar difusi&oacute;n completa (IG + email + PO + WhatsApp). El evento es motor clave para RDA 9 mayo y lista espera AR Online. Verificar que la landing est&eacute; finalizada antes de activar la difusi&oacute;n.</div>
+      <div class="alert-title">🟡 Conversión PO cayó 12.7% → 11.6% pese a +49 visitantes</div>
+      <div class="alert-body">Más tráfico (quiz funcionando) pero menor % convierte. Señal: tráfico más frío o fatiga del about page. Acción: auditar about page + primer post de bienvenida.</div>
     </div>
 
-    <div class="alert alert-amber">
-      <div class="alert-title">&#x1F7E1; QUIZ LEADS: 67+ personas sin nurture &mdash; secuencia sigue DESACTIVADA</div>
-      <div class="alert-body">quiz-nurture-sequence est&aacute; OFF desde el 9 Abr. 67 leads del quiz C&oacute;digo de Luz no reciben seguimiento D2/D5/D7. Con 33 leads/d&iacute;a de ritmo, ya podr&iacute;an ser 100+. Revenue potencial perdido cada d&iacute;a sin nurture.</div>
+    <div class="alert alert-green">
+      <div class="alert-title">🟢 Embudo doble captura IG→Newsletter funcionando</div>
+      <div class="alert-body">Fuente "ig-manychat-campo" generó ~8 subs en 48h desde campaña del 17 abr. Quiz Chakras (nuevo) + Newsletter SOL + Email Gateway CF Worker: los 3 activos. 48 leads nuevos semana.</div>
     </div>
 
     <div class="alert alert-blue">
-      <div class="alert-title">&#x1F535; BANCO: Datos frescos muestran d&eacute;ficit estructural real</div>
-      <div class="alert-body">Revenue real abril (1-12): $577 USD. Gastos fijos mensuales: ~$3,083 USD (suscripciones $1,199 + familia ~$1,884). D&eacute;ficit estimado abril: -$1,000 a -$1,500 USD sin ventas puntuales. MRR cubre &lt;35% de gastos. El negocio depende de DT + RDA + evento 5/5.</div>
-    </div>
-
-    <div class="alert alert-blue">
-      <div class="alert-title">&#x1F535; SECUENCIA ESTRAT&Eacute;GICA EN MARCHA: AR &rarr; 5/5 &rarr; RDA &rarr; AR Online</div>
-      <div class="alert-body">El plan aprobado el 14 Abr est&aacute; en ejecuci&oacute;n. AR presencial 23 Abr &rarr; Evento 5/5 &rarr; RDA 9 mayo &rarr; AR Online junio. Revenue combinado proyectado: $1,100-$2,825 USD. Todo depende de ejecutar la secuencia sin saltar pasos.</div>
+      <div class="alert-title">🔵 Revenue diario +125% WoW ($48 → $108)</div>
+      <div class="alert-body">De $577 (12 días) a $863 (8 días). Señal positiva: productos digitales (DLOCAL) y pagos directos (ALVARO, FITZROY) compensan MRR plano. Validar si es sostenible o puntual.</div>
     </div>
   </div>
 
   <!-- TABS -->
   <div class="tabs-container">
     <div class="tab-buttons">
-      <button class="tab-btn active" onclick="showTab('revenue', this)">&#x1F4B0; Revenue</button>
-      <button class="tab-btn" onclick="showTab('instagram', this)">&#x1F4F8; Instagram</button>
-      <button class="tab-btn" onclick="showTab('portal', this)">&#x1F3DB; Portal Origen</button>
-      <button class="tab-btn" onclick="showTab('funnels', this)">&#x1F4E7; Embudos</button>
-      <button class="tab-btn" onclick="showTab('pipeline', this)">&#x1F680; Pipeline</button>
+      <button class="tab-btn active" onclick="showTab('revenue', this)">Revenue</button>
+      <button class="tab-btn" onclick="showTab('instagram', this)">Instagram</button>
+      <button class="tab-btn" onclick="showTab('portal', this)">Portal Origen & KY</button>
+      <button class="tab-btn" onclick="showTab('embudos', this)">Embudos</button>
     </div>
 
     <!-- TAB REVENUE -->
     <div id="tab-revenue" class="tab-content active">
       <div class="cards-grid">
         <div class="card">
-          <div class="card-label">Recurrente Skool</div>
-          <div class="card-value">$975</div>
-          <div class="card-delta neutral">&rarr; Sin cambio vs #004</div>
-          <div class="card-sub">PO $755 + KY $220</div>
+          <div class="card-label">Recurrente (MRR)</div>
+          <div class="card-value">$953</div>
+          <div class="card-delta down">↓ $22 (KY churn)</div>
+          <div class="card-sub">PO $755 + KY $198</div>
         </div>
         <div class="card">
-          <div class="card-label">Revenue Real Abril (1-12)</div>
-          <div class="card-value">$577</div>
-          <div class="card-delta down">&darr; Solo payouts Skool confirmados</div>
-          <div class="card-sub">Excluye $1,527 pasivo estudiante</div>
+          <div class="card-label">Pagos externos semana</div>
+          <div class="card-value">$553</div>
+          <div class="card-delta amber">⚠ 3 ítems sin clasificar</div>
+          <div class="card-sub">DLOCAL $334 · ALVARO $146 · FITZROY $73</div>
         </div>
         <div class="card">
-          <div class="card-label">Payouts Abril Recibidos</div>
-          <div class="card-value">$1,481</div>
-          <div class="card-sub">PO $1,364 + KY $117</div>
+          <div class="card-label">Payouts Skool semana</div>
+          <div class="card-value">$310</div>
+          <div class="card-delta up">↑ + $68 en 3 días</div>
+          <div class="card-sub">Global66 CLP conversiones</div>
         </div>
         <div class="card">
-          <div class="card-label">Gasto Digital Fijo</div>
-          <div class="card-value">$1,199</div>
-          <div class="card-sub">Suscripciones mensuales totales</div>
+          <div class="card-label">Acum. Abril (20d)</div>
+          <div class="card-value">$1,440</div>
+          <div class="card-delta up">↑ Proy. $2,160 fin mes</div>
+          <div class="card-sub">Déficit proyectado -$923</div>
         </div>
       </div>
 
-      <div class="section-title">Saldos Bancarios al 12 Abril</div>
+      <h3 class="section-title">Pipeline — Motor 1 Cash (Abril-Mayo)</h3>
       <table class="mini-table">
-        <tr><th>Cuenta</th><th>Saldo CLP</th><th>~USD</th><th>Estado</th></tr>
-        <tr><td>Falabella CC (Claudia)</td><td>$392,049</td><td>$441</td><td><span class="badge badge-amber">Colch&oacute;n familia</span></td></tr>
-        <tr><td>Falabella RW (Satya)</td><td>$2,071</td><td>$2</td><td><span class="badge badge-red">CR&Iacute;TICO</span></td></tr>
-        <tr><td>Global66 CLP</td><td>$2,466</td><td>$3</td><td><span class="badge badge-red">CR&Iacute;TICO</span></td></tr>
-        <tr><td>BCR Costa Rica</td><td>~$0</td><td>$0</td><td><span class="badge badge-dim">Bloqueada</span></td></tr>
-        <tr style="font-weight:600"><td>TOTAL</td><td>$396,586</td><td style="color:var(--amber)">~$446</td><td class="dimmed">+$436 vs cierre marzo</td></tr>
+        <thead><tr><th>Producto</th><th>Precio</th><th>Leads/Listos</th><th>Potencial</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Aura Radiante Presencial (23 Abr)</td><td>$70K EB / $90K</td><td>Campaña WA activa</td><td class="dimmed">~$150-300K CLP</td><td><span class="badge badge-green">LIVE</span></td></tr>
+          <tr><td>DT Especializaciones MD2 + N3</td><td>$397 / $497</td><td>35 + 5 candidatos</td><td class="dimmed">~$1,588 (si cierran 4)</td><td><span class="badge badge-amber">PROSPECT</span></td></tr>
+          <tr><td>RDA Online (9 may)</td><td>TBD</td><td>Campaña inicia 4 may</td><td class="dimmed">~$500-1,500</td><td><span class="badge badge-blue">PREP</span></td></tr>
+          <tr><td>KY Terapeutas (julio)</td><td>$497 EB / $697</td><td>28 leads outreach</td><td class="dimmed">~$1,500-3,000</td><td><span class="badge badge-amber">WIP</span></td></tr>
+          <tr><td>PO Upgrade Free→Premium</td><td>$22/mes</td><td>~20-30 candidatos</td><td class="dimmed">+$440-660 MRR</td><td><span class="badge badge-blue">ENGINE</span></td></tr>
+          <tr><td>Evento Luna Llena 1 mayo (propuesta B)</td><td>Gratis → nurture</td><td>—</td><td class="dimmed">~100-200 leads</td><td><span class="badge badge-amber">DECISIÓN</span></td></tr>
+        </tbody>
       </table>
 
-      <div class="section-title">Gastos Abril 1-12 (Identificados)</div>
-      <table class="mini-table">
-        <tr><th>Categor&iacute;a</th><th>~USD</th><th>Nota</th></tr>
-        <tr><td>Suscripciones negocio (Apple, Skool, Zoom, Anthropic)</td><td style="color:var(--amber)">$74</td><td class="dimmed">Parcial &mdash; faltan suscripciones fin de mes</td></tr>
-        <tr><td>Flujo familia (Satya &rarr; Claudia)</td><td style="color:var(--red)">$2,043</td><td class="dimmed">Incluye arriendo $1,348</td></tr>
-        <tr><td>Personal (gasolina, pesebrera)</td><td style="color:var(--amber)">$123</td><td class="dimmed">&mdash;</td></tr>
-        <tr style="font-weight:600"><td>Total gastos identificados</td><td style="color:var(--red)">$2,240</td><td class="dimmed">Solo 12 d&iacute;as</td></tr>
-      </table>
-
-      <div class="section-title">P&amp;L Marzo 2026 (Referencia)</div>
-      <table class="mini-table">
-        <tr><th>L&iacute;nea</th><th>USD</th><th>Nota</th></tr>
-        <tr><td>Ingresos verificados</td><td style="color:var(--green)">+$4,509</td><td class="dimmed">Skool, Hotmart, alumnos directos</td></tr>
-        <tr><td>Gastos negocio</td><td style="color:var(--amber)">-$929</td><td class="dimmed">IA, plataformas, colaboradores</td></tr>
-        <tr><td>Gastos personales</td><td style="color:var(--red)">-$2,701</td><td class="dimmed">Familia $1,884 + Apple + otros</td></tr>
-        <tr><td>Gastos no detallados CC</td><td style="color:var(--red)">-$879</td><td class="dimmed">Supermercados, gasolina, educaci&oacute;n</td></tr>
-        <tr style="font-weight:600"><td>Resultado real marzo</td><td style="color:var(--amber)">-$177</td><td class="dimmed">D&eacute;ficit controlado</td></tr>
-      </table>
+      <div class="collapsible">
+        <div class="collapsible-header" onclick="toggleCollapse(this)">
+          <span>Flujo de efectivo semana 13-20 abril (detalle)</span>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="collapsible-body">
+          <strong>Ingresos:</strong> $863 USD (payouts Skool $310 + DLOCAL $334 + ALVARO $146 + FITZROY $73).<br>
+          <strong>Flujo a Claudia:</strong> $506 USD (4 transferencias). Mes abril: $2,549 USD (sobre promedio $1,884 por arriendo $1.2M 02/04).<br>
+          <strong>Gastos negocio:</strong> $40 USD (Apple subs).<br>
+          <strong>Saldos 4 cuentas:</strong> $336 USD total (-$110 vs 12 abr).<br>
+          <strong>Egresos no clasificados:</strong> Pacifica inst $308, Andres ochaga $309 (≈ DLOCAL mismo día).
+        </div>
+      </div>
     </div>
 
     <!-- TAB INSTAGRAM -->
@@ -357,380 +299,347 @@
       <div class="cards-grid">
         <div class="card">
           <div class="card-label">Seguidores</div>
-          <div class="card-value">269,760</div>
-          <div class="card-delta down">&darr; -105 vs sem anterior</div>
-          <div class="card-sub">Primera p&eacute;rdida neta registrada</div>
+          <div class="card-value">269,642</div>
+          <div class="card-delta down">↓ -118 (7d)</div>
+          <div class="card-sub">-223 netos en 2 sem</div>
         </div>
         <div class="card">
-          <div class="card-label">Reach Semanal</div>
-          <div class="card-value">9,731</div>
-          <div class="card-delta down">&darr; -21% (post-lanzamiento CC)</div>
-          <div class="card-sub">Esperado: sem ant ten&iacute;a boost</div>
+          <div class="card-label">Reach 7d</div>
+          <div class="card-value">3,619</div>
+          <div class="card-delta down">↓ -63% WoW</div>
+          <div class="card-sub">9,731 → 3,619</div>
         </div>
         <div class="card">
-          <div class="card-label">Cuentas Interactuaron</div>
-          <div class="card-value">322</div>
-          <div class="card-delta neutral">&rarr; -0.6% estable</div>
-          <div class="card-sub">A pesar del menor reach</div>
+          <div class="card-label">Interacciones 7d</div>
+          <div class="card-value">107</div>
+          <div class="card-delta down">↓ -67% WoW</div>
+          <div class="card-sub">322 → 107</div>
         </div>
         <div class="card">
-          <div class="card-label">Top Post Interacciones</div>
-          <div class="card-value">185</div>
-          <div class="card-delta up">&uarr; R&eacute;cord hist&oacute;rico</div>
-          <div class="card-sub">Quiz C&oacute;digo de Luz (67L + 118C)</div>
+          <div class="card-label">Posts semana</div>
+          <div class="card-value">5</div>
+          <div class="card-delta neutral">→ + 1 vs ant.</div>
+          <div class="card-sub">3 CAROUSEL · 1 VIDEO · 1 IMG</div>
         </div>
       </div>
 
-      <div class="section-title">Posts Semana (5-11 Abr)</div>
+      <h3 class="section-title">Top performers semana</h3>
       <table class="mini-table">
-        <tr><th>Fecha</th><th>Tipo</th><th>Post</th><th>Likes</th><th>Comments</th><th>CTA</th></tr>
-        <tr><td>10 Abr</td><td>VIDEO</td><td style="color:var(--gold-light)">Quiz C&oacute;digo de Luz &#x2B50;</td><td><span class="up">67</span></td><td><span class="up" style="font-weight:700">118</span></td><td><span class="badge badge-green">LUZ</span></td></tr>
-        <tr><td>6 Abr</td><td>VIDEO</td><td>Desaf&iacute;o 7 D&iacute;as Meditaci&oacute;n</td><td>33</td><td>47</td><td><span class="badge badge-blue">MEDITAR</span></td></tr>
-        <tr><td>10 Abr</td><td>CAROUSEL</td><td>10 Cuerpos de Luz</td><td>15</td><td>24</td><td><span class="badge badge-green">LUZ</span></td></tr>
-        <tr><td>5 Abr</td><td>VIDEO</td><td>Cambiar curso del d&iacute;a (org&aacute;nico)</td><td>79</td><td>8</td><td><span class="badge badge-dim">Sin CTA</span></td></tr>
+        <thead><tr><th>Post</th><th>Fecha</th><th>Likes</th><th>Comments</th><th>CTA</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Guerrero Espiritual (Kavach)</td><td>17 Abr</td><td>20</td><td>15</td><td>GUERRERO</td><td><span class="badge badge-green">TOP</span></td></tr>
+          <tr><td>Divine Touch orgánico (Navkiran)</td><td>15 Abr</td><td>13</td><td>0</td><td>—</td><td><span class="badge badge-amber">MID</span></td></tr>
+          <tr><td>Sello del Campo</td><td>17 Abr</td><td>7</td><td>1</td><td>CAMPO</td><td><span class="badge badge-red">FLOP</span></td></tr>
+          <tr><td>Desafío 7d (re-lanzam.)</td><td>19 Abr</td><td>6</td><td>0</td><td>MEDITAR</td><td><span class="badge badge-dim">NEW</span></td></tr>
+          <tr><td>Teaser próximo evento</td><td>13 Abr</td><td>2</td><td>0</td><td>—</td><td><span class="badge badge-red">FLOP</span></td></tr>
+        </tbody>
       </table>
 
-      <div class="section-title">CTAs ManyChat Activos</div>
+      <h3 class="section-title">Posts virales — cola larga</h3>
       <table class="mini-table">
-        <tr><th>Keyword</th><th>Funnel</th><th>Comentarios (proxy leads)</th><th>Estado</th></tr>
-        <tr><td><strong>LUZ</strong></td><td>Quiz C&oacute;digo de Luz</td><td style="color:var(--green)">142+ totales</td><td><span class="badge badge-green">&#x1F525; HOT</span></td></tr>
-        <tr><td><strong>MEDITAR</strong></td><td>Desaf&iacute;o 7 D&iacute;as</td><td style="color:var(--green)">50 totales</td><td><span class="badge badge-green">Activo</span></td></tr>
-        <tr><td><strong>CELESTIAL</strong></td><td>CC Lead Magnet</td><td>~2 esta semana</td><td><span class="badge badge-dim">Bajo</span></td></tr>
+        <thead><tr><th>Post</th><th>Likes (acum.)</th><th>Comments (acum.)</th><th>Δ 7d</th></tr></thead>
+        <tbody>
+          <tr><td>Quiz Código de Luz (10 Abr)</td><td>83</td><td>135</td><td class="dimmed">+16 / +17 esta semana</td></tr>
+          <tr><td>10 Cuerpos de Luz (10 Abr)</td><td>20</td><td>26</td><td class="dimmed">+5 / +2</td></tr>
+        </tbody>
       </table>
 
-      <div class="section-title">Verificaci&oacute;n Ratio 80/20 Contenido</div>
-      <div class="progress-container">
-        <div class="progress-label"><span>Nutrici&oacute;n (valor, educativo, conexi&oacute;n)</span><span style="color:var(--amber)">~50% &mdash; META: 80%</span></div>
-        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:50%; background:linear-gradient(90deg,var(--green),#22c55e)"></div></div>
-      </div>
-      <div class="progress-container">
-        <div class="progress-label"><span>Venta / Conversi&oacute;n</span><span style="color:var(--amber)">~50% &mdash; M&Aacute;XIMO: 20%</span></div>
-        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:50%; background:linear-gradient(90deg,var(--amber),var(--red))"></div></div>
-      </div>
-      <div class="alert alert-amber" style="margin-top:10px">
-        <div class="alert-title">&#x26A0;&#xFE0F; Ratio 50/50 persiste &mdash; publicar 3-4 posts de nutrici&oacute;n pura esta semana</div>
-        <div class="alert-body">Con CTAs LUZ, MEDITAR y Aura Radiante activos, el feed sigue sesgado a conversi&oacute;n. Publicar ense&ntilde;anzas KY, reflexiones espirituales, videos cortos de pr&aacute;ctica sin CTA de compra.</div>
+      <div class="collapsible">
+        <div class="collapsible-header" onclick="toggleCollapse(this)">
+          <span>Plan carrusel 7 Chakras (22-27 abr) — programado</span>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="collapsible-body">
+          6 carruseles programados vía tareas one-time:<br>
+          • 22 abr: Chakra Raíz · 23 abr: Plexo Solar · 24 abr: Corazón · 25 abr: Garganta · 26 abr: Tercer Ojo · 27 abr: Corona.<br>
+          Imágenes ya generadas + verify tasks configuradas. Este bloque debería recuperar reach y engagement.
+        </div>
       </div>
     </div>
 
-    <!-- TAB PORTAL ORIGEN -->
+    <!-- TAB PORTAL ORIGEN & KY -->
     <div id="tab-portal" class="tab-content">
       <div class="cards-grid">
         <div class="card">
-          <div class="card-label">Miembros Portal Origen</div>
-          <div class="card-value">325</div>
-          <div class="card-delta neutral">&rarr; Sin cambio vs #004</div>
-          <div class="card-sub">Visitantes 30d: 323 &middot; Signups 41</div>
+          <div class="card-label">PO Miembros</div>
+          <div class="card-value">328</div>
+          <div class="card-delta up">↑ +3 WoW</div>
+          <div class="card-sub">Engagement 44% (+1pp)</div>
         </div>
         <div class="card">
-          <div class="card-label">MRR PO</div>
+          <div class="card-label">PO MRR</div>
           <div class="card-value">$755</div>
-          <div class="card-delta down">&darr; -$47 (tarjeta fallida Terry)</div>
-          <div class="card-sub">Recuperable &mdash; 9 d&iacute;as restantes</div>
+          <div class="card-delta neutral">→ estable</div>
+          <div class="card-sub">Terry Newton pending churn ~25 Abr</div>
         </div>
         <div class="card">
-          <div class="card-label">Engagement PO</div>
-          <div class="card-value">43%</div>
-          <div class="card-delta up">&uarr; +1pp (42%&rarr;43%)</div>
-          <div class="card-sub">Retenci&oacute;n 100% &middot; Conversi&oacute;n 12.7%</div>
+          <div class="card-label">PO Signups 30d</div>
+          <div class="card-value">43</div>
+          <div class="card-delta up">↑ +2 WoW</div>
+          <div class="card-sub">Visitantes 372 (+49)</div>
         </div>
         <div class="card">
-          <div class="card-label">Kundalini Yoga</div>
-          <div class="card-value">12 mb</div>
-          <div class="card-delta up">&uarr; Engagement 100%</div>
-          <div class="card-sub">$220 MRR &middot; Retenci&oacute;n 100%</div>
+          <div class="card-label">PO Conversión</div>
+          <div class="card-value">11.6%</div>
+          <div class="card-delta down">↓ -1.1pp</div>
+          <div class="card-sub">Más visitantes, menor %</div>
         </div>
       </div>
 
-      <div class="section-title">Tiers PO &amp; KY</div>
+      <h3 class="section-title">Kundalini Yoga Navkiran Satya</h3>
       <table class="mini-table">
-        <tr><th>Comunidad</th><th>Tier</th><th>Precio</th><th>MRR</th></tr>
-        <tr><td>Portal Origen</td><td>Standard (Free)</td><td>$0</td><td class="dimmed">Mayor&iacute;a nuevos</td></tr>
-        <tr><td>Portal Origen</td><td>Premium</td><td>$47/m &middot; $470/a&ntilde;o</td><td style="color:var(--amber)">$755 &#x26A0;&#xFE0F;</td></tr>
-        <tr><td>Portal Origen</td><td>VIP (legado)</td><td>$33/m &middot; $330/a&ntilde;o</td><td class="dimmed">Incluido en MRR</td></tr>
-        <tr><td>Kundalini Yoga</td><td>Suscripci&oacute;n</td><td>$22/m</td><td style="color:var(--gold-light)">$220</td></tr>
+        <thead><tr><th>Métrica</th><th>Valor</th><th>Δ WoW</th><th>Nota</th></tr></thead>
+        <tbody>
+          <tr><td>Miembros</td><td>12</td><td class="neutral">=</td><td class="dimmed">Comunidad pequeña y caliente</td></tr>
+          <tr><td>MRR</td><td>$198</td><td class="down">↓ -$22</td><td class="dimmed">1 churn Premium</td></tr>
+          <tr><td>Engagement</td><td>100%</td><td class="neutral">=</td><td class="dimmed">Retención 100%</td></tr>
+          <tr><td>Visitantes 30d</td><td>24</td><td class="up">↑ +41%</td><td class="dimmed">17 → 24</td></tr>
+          <tr><td>Conversión</td><td>8.3%</td><td class="down">↓ -3.5pp</td><td class="dimmed">Precio subió $22 → $27</td></tr>
+        </tbody>
       </table>
 
-      <div class="section-title">Payouts Historial</div>
+      <h3 class="section-title">Skills automatizados — Portal Origen</h3>
       <table class="mini-table">
-        <tr><th>Per&iacute;odo</th><th>PO</th><th>KY</th><th>Total</th></tr>
-        <tr><td>Marzo 2026</td><td>$1,253</td><td>$175</td><td>$1,428</td></tr>
-        <tr><td>Abril 2026 (recibido)</td><td>$1,364</td><td>$117</td><td style="color:var(--green); font-weight:700">$1,481 &uarr;</td></tr>
-        <tr><td>Abril pendiente cobrar</td><td>$369</td><td>$19.50</td><td class="dimmed">$389 (7-14d)</td></tr>
-        <tr style="font-weight:600"><td>Abril proyectado total</td><td>$1,733</td><td>$137</td><td style="color:var(--gold-light)">$1,870</td></tr>
-      </table>
-
-      <div class="section-title">Skills Automatizados Portal Origen</div>
-      <table class="mini-table">
-        <tr><th>Skill</th><th>Frecuencia</th><th>Estado</th></tr>
-        <tr><td>Post diario PO</td><td>Diario 9:10 AM</td><td><span class="badge badge-green">Activo</span></td></tr>
-        <tr><td>Mensajes privados PO</td><td>Diario 9:09 AM</td><td><span class="badge badge-green">Activo</span></td></tr>
-        <tr><td>Notificaciones PO</td><td>Diario 9:16 AM</td><td><span class="badge badge-green">Activo</span></td></tr>
-        <tr><td>Posts comunidad PO</td><td>Diario 9:30 AM</td><td><span class="badge badge-green">Activo</span></td></tr>
-        <tr><td>Onboarding PO</td><td>Cada 2 d&iacute;as</td><td><span class="badge badge-amber">Pausado sprint retiro</span></td></tr>
-        <tr><td>Upgrade Engine PO</td><td>Mar/Vie</td><td><span class="badge badge-amber">Pausado sprint retiro</span></td></tr>
-        <tr><td>CC Acompa&ntilde;amiento</td><td>Mi&eacute;/Vie/Dom</td><td><span class="badge badge-green">Activo</span></td></tr>
+        <thead><tr><th>Skill</th><th>Función</th><th>Frecuencia</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>portal-origen-post-diario</td><td>Post diario engagement</td><td>Diario 7:10am</td><td><span class="badge badge-green">LIVE</span></td></tr>
+          <tr><td>portal-origen-onboarding</td><td>Bienvenida + reactivación</td><td>Manual + tareas</td><td><span class="badge badge-green">LIVE</span></td></tr>
+          <tr><td>portal-origen-upgrade-engine</td><td>Pipeline Free→Premium</td><td>Bajo demanda</td><td><span class="badge badge-green">LIVE</span></td></tr>
+          <tr><td>[Community] DMs + feed + comments</td><td>Monitoreo PO 3 tasks diarias</td><td>Diario 7am</td><td><span class="badge badge-green">LIVE</span></td></tr>
+          <tr><td>KY engagement + planif. + alerta</td><td>3 tasks KY</td><td>Vie + mensual + diario</td><td><span class="badge badge-green">LIVE</span></td></tr>
+        </tbody>
       </table>
     </div>
 
     <!-- TAB EMBUDOS -->
-    <div id="tab-funnels" class="tab-content">
-      <div class="section-title">Estado Embudos</div>
-      <table class="mini-table">
-        <tr><th>Embudo</th><th>Leads</th><th>Open Rate</th><th>Estado</th></tr>
-        <tr><td style="color:var(--gold-light)">Quiz C&oacute;digo de Luz &#x1F525;</td><td style="color:var(--green)">67+ (48h)</td><td>&mdash;</td><td><span class="badge badge-green">ACTIVO sin nurture</span></td></tr>
-        <tr><td>Formaci&oacute;n KY HOT</td><td>130</td><td>~45%</td><td><span class="badge badge-green">HOT-3 enviado</span></td></tr>
-        <tr><td>Formaci&oacute;n KY WARM</td><td>27</td><td>45.5%</td><td><span class="badge badge-amber">WARM-3 HOY</span></td></tr>
-        <tr><td>Formaci&oacute;n KY COOL</td><td>37</td><td>&mdash;</td><td><span class="badge badge-blue">COOL-2 el 18 Abr</span></td></tr>
-        <tr><td>Desaf&iacute;o 7 D&iacute;as Meditaci&oacute;n</td><td>41 subs</td><td>46.2%</td><td><span class="badge badge-green">Activo</span></td></tr>
-        <tr><td>Quiz Nurture (D2/D5/D7)</td><td>67+</td><td>&mdash;</td><td><span class="badge badge-red">&#x274C; DESACTIVADO</span></td></tr>
-        <tr><td>CC Acompa&ntilde;amiento</td><td>Grupo CC</td><td>&mdash;</td><td><span class="badge badge-green">Auto Mi&eacute;/Vie/Dom</span></td></tr>
-        <tr><td>Aura Radiante WA</td><td>Local</td><td>&mdash;</td><td><span class="badge badge-green">Campa&ntilde;a D&iacute;a 2-9</span></td></tr>
-      </table>
-
-      <div class="section-title">MailerLite &mdash; Estado Lista</div>
+    <div id="tab-embudos" class="tab-content">
       <div class="cards-grid">
         <div class="card">
-          <div class="card-label">Total Suscriptores</div>
-          <div class="card-value">4,488</div>
-          <div class="card-delta up">&uarr; +27 esta semana</div>
+          <div class="card-label">Leads nuevos 7d</div>
+          <div class="card-value">48</div>
+          <div class="card-delta down">↓ -28% post-pico</div>
+          <div class="card-sub">Quiz Luz 21 + Chakras 13 + Newsl 19</div>
         </div>
         <div class="card">
-          <div class="card-label">Mejor Open Rate</div>
-          <div class="card-value">77.8%</div>
-          <div class="card-sub">Recordatorio Luna Llena</div>
+          <div class="card-label">Newsletter SOL (nuevos)</div>
+          <div class="card-value">19</div>
+          <div class="card-delta up">🆕 Primera sem activa</div>
+          <div class="card-sub">11 directo + 8 IG ManyChat</div>
         </div>
         <div class="card">
-          <div class="card-label">Open Rate Masivo</div>
-          <div class="card-value">16.6%</div>
-          <div class="card-sub">KY Testimonios (1,208 env) &mdash; 11 unsubs</div>
+          <div class="card-label">Quiz Chakras (nuevo)</div>
+          <div class="card-value">13</div>
+          <div class="card-delta up">🆕 En 3 días</div>
+          <div class="card-sub">Muladhara top alerta</div>
         </div>
         <div class="card">
-          <div class="card-label">Automations ML Activas</div>
-          <div class="card-value">3</div>
-          <div class="card-sub">Onboarding + Quiz resultados + Luna Llena</div>
+          <div class="card-label">Email Gateway CF</div>
+          <div class="card-value">100%</div>
+          <div class="card-delta up">✅ Sin fallos</div>
+          <div class="card-sub">CF Worker + Resend · 15 Abr</div>
         </div>
       </div>
 
-      <div class="section-title">Campa&ntilde;as Pr&oacute;ximas (14 d&iacute;as)</div>
+      <h3 class="section-title">Embudos activos</h3>
       <table class="mini-table">
-        <tr><th>Fecha</th><th>Campa&ntilde;a</th><th>Audiencia</th><th>Estado</th></tr>
-        <tr><td style="color:var(--amber)">16 Abr (HOY)</td><td>KY WARM-3 (Invitaci&oacute;n personal)</td><td>27 leads tibios</td><td><span class="badge badge-amber">Programado</span></td></tr>
-        <tr><td>18 Abr</td><td>KY COOL-2 (Emocional suave)</td><td>37 leads fr&iacute;os</td><td><span class="badge badge-blue">Programado</span></td></tr>
-        <tr><td>21 Abr</td><td>RDA Fase 2 (Lanzamiento activo)</td><td>Lista ML</td><td><span class="badge badge-blue">Programado</span></td></tr>
-      </table>
-    </div>
-
-    <!-- TAB PIPELINE -->
-    <div id="tab-pipeline" class="tab-content">
-      <div class="section-title">Pipeline de Revenue &mdash; Mayo a Julio 2026</div>
-      <table class="mini-table">
-        <tr><th>Producto</th><th>Fecha</th><th>Conservador</th><th>Optimista</th><th>Estado</th></tr>
-        <tr><td>Aura Radiante Presencial</td><td>23 Abr &rarr; 17 Jun</td><td>$170</td><td>$510</td><td><span class="badge badge-green">Campa&ntilde;a activa</span></td></tr>
-        <tr><td>Upgrades PO (Free &rarr; Premium)</td><td>Ongoing</td><td>$141</td><td>$376</td><td><span class="badge badge-amber">Pausado</span></td></tr>
-        <tr><td>Evento Gratuito 5/5</td><td>5 Mayo</td><td>$0</td><td>$0</td><td><span class="badge badge-amber">Difusi&oacute;n ma&ntilde;ana</span></td></tr>
-        <tr><td>RDA Online</td><td>9 Mayo</td><td>$420</td><td>$1,050</td><td><span class="badge badge-green">Fase 2 emails 21 Abr</span></td></tr>
-        <tr><td>Esp. DT (MD2 + N3)</td><td>Mayo 2da quincena</td><td>$4,217</td><td>$7,243</td><td><span class="badge badge-amber">Pendiente Navkiran</span></td></tr>
-        <tr><td>AR Online</td><td>Junio</td><td>$700</td><td>$1,425</td><td><span class="badge badge-dim">Post-presencial</span></td></tr>
-        <tr><td>KY Terapeutas</td><td>Julio</td><td>$2,985</td><td>$5,970</td><td><span class="badge badge-dim">No iniciado</span></td></tr>
-        <tr style="font-weight:600; border-top:2px solid var(--gold)"><td>TOTAL PIPELINE</td><td>&mdash;</td><td style="color:var(--gold-light)">$8,633</td><td style="color:var(--gold-light)">$16,574</td><td>&mdash;</td></tr>
+        <thead><tr><th>Embudo</th><th>Fuente</th><th>Leads 7d</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Quiz Código de Luz</td><td>LUZ lead magnet</td><td>21 (long-tail)</td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>Quiz Chakras</td><td>GUERRERO ManyChat</td><td>13 🆕</td><td><span class="badge badge-green">NEW</span></td></tr>
+          <tr><td>Newsletter directo</td><td>newsletter.schooloflove.cl</td><td>11</td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>IG ManyChat CAMPO</td><td>Sello del Campo post</td><td>8</td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>IG ManyChat MEDITAR</td><td>Desafío 7d (19 Abr)</td><td>0 (muy reciente)</td><td><span class="badge badge-blue">EARLY</span></td></tr>
+          <tr><td>WA Aura Radiante (Fase Intensiva)</td><td>Outreach directo</td><td>En curso</td><td><span class="badge badge-amber">LIVE</span></td></tr>
+          <tr><td>KYTT Outreach (28 leads)</td><td>CRM manual</td><td>Pablo + Anita etapa 2</td><td><span class="badge badge-amber">WIP</span></td></tr>
+        </tbody>
       </table>
 
-      <div class="section-title">Proyecci&oacute;n Cierre Abril (Estimado)</div>
+      <h3 class="section-title">Campañas email próximos 14 días</h3>
       <table class="mini-table">
-        <tr><th>Concepto</th><th>USD</th><th>Nota</th></tr>
-        <tr><td>MRR Skool confirmado</td><td style="color:var(--green)">~$1,022</td><td class="dimmed">PO $755 + KY $220 + Hotmart ~$47</td></tr>
-        <tr><td>Ventas puntuales (estimado)</td><td style="color:var(--amber)">$0-$500</td><td class="dimmed">Depende de KY formaci&oacute;n + AR</td></tr>
-        <tr><td>Gastos fijos mensuales</td><td style="color:var(--red)">-$3,083</td><td class="dimmed">Suscripciones + familia</td></tr>
-        <tr style="font-weight:600"><td>D&eacute;ficit estimado abril</td><td style="color:var(--red)">-$1,000 a -$1,500</td><td class="dimmed">Sin ventas puntuales adicionales</td></tr>
+        <thead><tr><th>Campaña</th><th>Fecha</th><th>Objetivo</th></tr></thead>
+        <tbody>
+          <tr><td>WA Aura Radiante Día 7-8-9</td><td>21-23 Abr</td><td>Cierre clase 23 Abr</td></tr>
+          <tr><td>AR: oferta EB vence + 2-juntos</td><td>24 Abr 8am</td><td>Upsell pre-subida precio</td></tr>
+          <tr><td>Luna Llena 1 mayo (decisión pendiente)</td><td>28 Abr - 1 May</td><td>Evento gratis → nurture</td></tr>
+          <tr><td>RDA Online warmup</td><td>4 May</td><td>Recordatorio inicio</td></tr>
+        </tbody>
       </table>
     </div>
   </div>
 
   <!-- EVENTOS -->
-  <div class="section-title" style="margin-top:24px">&#x1F4C5; Eventos &amp; Lanzamientos &mdash; Pr&oacute;ximos 14 D&iacute;as</div>
+  <h3 class="section-title">Eventos &amp; Lanzamientos próximos 14 días</h3>
   <table class="mini-table">
-    <tr><th>Fecha</th><th>Evento</th><th>Estado</th><th>Acci&oacute;n</th></tr>
-    <tr><td style="color:var(--amber)">16 Abr (HOY)</td><td>Yoga Colegio Pac&iacute;fica + Clases online AM/PM</td><td><span class="badge badge-green">Rutina</span></td><td class="dimmed">&mdash;</td></tr>
-    <tr><td style="color:var(--amber)">16 Abr (HOY)</td><td>Preparar Briefing TAL semanal</td><td><span class="badge badge-blue">Bloque 14-16h</span></td><td class="dimmed">Briefing producci&oacute;n martes</td></tr>
-    <tr><td>17 Abr</td><td>Grabar clases (Bloques 1+2)</td><td><span class="badge badge-blue">Programado</span></td><td class="dimmed">Fotos facilitadores AR</td></tr>
-    <tr><td>17 Abr</td><td>Evento 5/5: Inicia difusi&oacute;n</td><td><span class="badge badge-amber">CR&Iacute;TICO</span></td><td>Verificar landing lista</td></tr>
-    <tr><td>18 Abr</td><td>C&iacute;rculo Puente UNH (7-8:30 AM)</td><td><span class="badge badge-green">Confirmado</span></td><td class="dimmed">&mdash;</td></tr>
-    <tr><td>19 Abr</td><td>Evento Puente UNH (9-10 AM)</td><td><span class="badge badge-green">Confirmado</span></td><td class="dimmed">&mdash;</td></tr>
-    <tr><td>21 Abr</td><td>Venus Retr&oacute;grado comienza (hasta 4 Jun)</td><td><span class="badge badge-dim">Energ&eacute;tico</span></td><td class="dimmed">Contenido: revisar valores</td></tr>
-    <tr><td style="color:var(--gold-light)">23 Abr</td><td>AURA RADIANTE: Clase muestra presencial</td><td><span class="badge badge-amber">7 d&iacute;as</span></td><td style="color:var(--gold-light)">Gui&oacute;n video HOY</td></tr>
-    <tr><td>24 Abr</td><td>Aura Radiante: vence EB $75K &rarr; sube a $90K</td><td><span class="badge badge-blue">Programado</span></td><td class="dimmed">Activar oferta 2 juntos</td></tr>
-    <tr><td>25 Abr</td><td>KY Planificaci&oacute;n mensual</td><td><span class="badge badge-blue">Programado</span></td><td class="dimmed">&mdash;</td></tr>
-    <tr><td style="color:var(--red)">25 Abr</td><td>Terry Newton: CHURN si no actualiza pago</td><td><span class="badge badge-red">9 d&iacute;as</span></td><td style="color:var(--red)">Contactar HOY</td></tr>
-    <tr><td>28 Abr</td><td>Alerta Luna Llena mayo (Flower Moon Escorpio)</td><td><span class="badge badge-blue">3 d&iacute;as antes</span></td><td class="dimmed">Preparar contenido especial</td></tr>
+    <thead><tr><th>Fecha</th><th>Evento</th><th>Tipo</th><th>Estado</th><th>Acción CEO</th></tr></thead>
+    <tbody>
+      <tr><td>21 Abr (mar)</td><td>Aura Radiante WA Día 7 + pre-evento</td><td>Outreach</td><td><span class="badge badge-amber">Ejecutar</span></td><td class="dimmed">Aprobar mensajes WA</td></tr>
+      <tr><td>22 Abr (mié)</td><td>Reunión Comunidad Portal Origen</td><td>Evento vivo</td><td><span class="badge badge-green">Agendado</span></td><td class="dimmed">Preparar tema</td></tr>
+      <tr><td>23 Abr (jue)</td><td>🌟 Clase Aura Radiante PRESENCIAL</td><td>Evento pago</td><td><span class="badge badge-green">LIVE DAY</span></td><td class="dimmed">Día del evento</td></tr>
+      <tr><td>24 Abr (vie)</td><td>AR: sube precio $70K → $90K</td><td>Pricing</td><td><span class="badge badge-amber">Auto</span></td><td class="dimmed">Activar oferta 2-juntos</td></tr>
+      <tr><td>~25 Abr</td><td>🔴 Terry Newton churn fecha</td><td>Riesgo</td><td><span class="badge badge-red">Actuar</span></td><td class="dimmed">Contactar HOY o mañana</td></tr>
+      <tr><td>28 Abr (mar)</td><td>Alerta Luna Llena 1 May</td><td>Decisión</td><td><span class="badge badge-amber">Pending</span></td><td class="dimmed">Decidir A/B/C (rec: B)</td></tr>
+      <tr><td>29 Abr (mié)</td><td>Reunión Comunidad Portal Origen</td><td>Evento vivo</td><td><span class="badge badge-green">Agendado</span></td><td class="dimmed">—</td></tr>
+      <tr><td>1 May (vie)</td><td>🌕 Luna Llena Flower Moon Escorpio</td><td>Evento gratis</td><td><span class="badge badge-amber">Diseño</span></td><td class="dimmed">Confirma propuesta</td></tr>
+      <tr><td>4 May (lun)</td><td>RDA Online warmup inicia</td><td>Campaña</td><td><span class="badge badge-blue">Prep</span></td><td class="dimmed">Listar videos cortos</td></tr>
+    </tbody>
   </table>
 
-  <!-- RECOMENDACIONES -->
-  <div class="section-title" style="margin-top:24px">&#x1F451; Recomendaciones CEO &mdash; Top 5</div>
+  <!-- RECOMENDACIONES CEO -->
+  <h3 class="section-title">Recomendaciones CEO — Top 5 (priorizadas por impacto revenue)</h3>
 
   <div class="rec-card">
     <div class="rec-num">1</div>
     <div>
-      <div class="rec-title">Recuperar Terry Newton HOY &mdash; $47/mes en juego</div>
-      <div class="rec-body">DM personal en Skool + email a terrynewtoncr@gmail.com. Tono: &ldquo;hola Terry, noto que hubo un tema con tu pago&rdquo;. No esperar m&aacute;s &mdash; quedan 9 d&iacute;as. Revenue directo.</div>
+      <div class="rec-title">🔴 Contactar a Terry Newton HOY antes del churn (25 Abr)</div>
+      <div class="rec-body">Tarjeta rechazada → churn en 5 días. Mensaje directo ofreciendo ajuste/upsell. Impacto: -$27 MRR si se pierde; +posible pago único de rescate.</div>
     </div>
-    <div class="rec-impact" style="color:var(--red)">&#x1F534; $564/a&ntilde;o</div>
+    <div class="rec-impact up">+$27 MRR</div>
   </div>
 
   <div class="rec-card">
     <div class="rec-num">2</div>
     <div>
-      <div class="rec-title">Grabar gui&oacute;n video Aura Radiante (60-90 seg)</div>
-      <div class="rec-body">Tarea programada HOY. El video es la pieza que falta para la landing. La clase muestra es en 7 d&iacute;as &mdash; cada d&iacute;a sin video es un d&iacute;a menos de exposici&oacute;n en la landing.</div>
+      <div class="rec-title">🔴 Cerrar ventana Aura Radiante: WA Día 7-9 + subida precio 24 Abr</div>
+      <div class="rec-body">Fase Intensiva 2 toques/día activa. Ejecutar oferta 2-juntos el 24 Abr cuando EB vence. Es la única venta cash inmediata esta semana. Meta: llenar clase 23 Abr + 5-8 inscritas adicionales pre-24 Abr.</div>
     </div>
-    <div class="rec-impact" style="color:var(--red)">&#x1F534; Ejecuci&oacute;n</div>
+    <div class="rec-impact up">+$200-500K CLP</div>
   </div>
 
   <div class="rec-card">
     <div class="rec-num">3</div>
     <div>
-      <div class="rec-title">Activar quiz-nurture-sequence &mdash; 67+ leads sin seguimiento</div>
-      <div class="rec-body">Reactivar la secuencia D2/D5/D7 para los leads del quiz C&oacute;digo de Luz. Son leads calientes que eligieron un quiz espiritual por IG &mdash; el nurture los conecta con PO y eventos. [NUTRICI&Oacute;N]</div>
+      <div class="rec-title">🟡 Decidir HOY propuesta Luna Llena 1 May (A/B/C)</div>
+      <div class="rec-body">Memoria "Luna Llena 1 may propuesta" recomienda Opción B: integrar Luna Llena + RDA + cancelar 5/5 redundante. Decisión desbloquea planificación embudo 1-9 May. Reactiva reach IG.</div>
     </div>
-    <div class="rec-impact" style="color:var(--amber)">&#x1F7E1; Leads &rarr; PO</div>
+    <div class="rec-impact up">+100-200 leads</div>
   </div>
 
   <div class="rec-card">
     <div class="rec-num">4</div>
     <div>
-      <div class="rec-title">Publicar 3-4 posts de nutrici&oacute;n pura en IG esta semana</div>
-      <div class="rec-body">Ratio actual 50/50, meta 80/20. Ideas: ense&ntilde;anza KY corta sin CTA, reflexi&oacute;n espiritual, video de pr&aacute;ctica de 1 minuto, mantra del d&iacute;a. Contrarresta el sesgo de venta actual. [NUTRICI&Oacute;N]</div>
+      <div class="rec-title">🔴 Clasificar 3 ingresos bancarios sin identificar ($553 USD)</div>
+      <div class="rec-body">DLOCAL $334, ALVARO $146, FITZROY $73. Sin clasificación el P&amp;L no refleja realidad. 10 min contigo hoy: ¿Son Hotmart? ¿alumnos DT/KY/RDA? Afecta proyección mes y roadmap comercial.</div>
     </div>
-    <div class="rec-impact" style="color:var(--blue)">&#x1F535; Balance</div>
+    <div class="rec-impact up">Claridad P&amp;L</div>
   </div>
 
   <div class="rec-card">
     <div class="rec-num">5</div>
     <div>
-      <div class="rec-title">Verificar landing Evento 5/5 antes de difusi&oacute;n ma&ntilde;ana</div>
-      <div class="rec-body">La tarea de difusi&oacute;n completa (IG + email + PO + WhatsApp) arranca el 17 Abr. Si la landing no est&aacute; 100%, la difusi&oacute;n se pierde. El evento alimenta RDA 9 mayo y AR Online junio. [EJECUCI&Oacute;N]</div>
+      <div class="rec-title">🔵 Auditar caída reach IG -63% + plan recuperación</div>
+      <div class="rec-body">Post-viral retracting. Carrusel 7 Chakras 22-27 abr ya agendado (6 posts) debería rebotar. Validar primer post (Raíz 22 abr) como A/B test. Si no recupera, revisar frecuencia + mix 80/20.</div>
     </div>
-    <div class="rec-impact" style="color:var(--amber)">&#x1F7E1; Pipeline</div>
+    <div class="rec-impact up">Algoritmo</div>
   </div>
 
-  <div class="alert alert-blue" style="margin-top:12px">
-    <div class="alert-title">&#x2705; Verificaci&oacute;n 80/20: 3 recomendaciones de nutrici&oacute;n/ejecuci&oacute;n + 2 de revenue directo = ratio correcto</div>
-    <div class="alert-body">Las recomendaciones balancean nutrici&oacute;n del ecosistema (quiz nurture, posts IG, verificar landing) con revenue directo (Terry Newton, video AR). El sesgo natural hacia venta est&aacute; controlado.</div>
+  <!-- NOTA 80/20 -->
+  <div class="alert alert-blue" style="margin-top: 12px;">
+    <div class="alert-title">✓ Ratio 80/20 verificado</div>
+    <div class="alert-body">Mix esta semana: Guerrero (nutrición+CTA), DT orgánico (nutrición), Campo (nutrición+CTA), Desafío (nutrición), Teaser (venta). Ratio actual ~80/20 OK. Carrusel Chakras (22-27 abr) refuerza nutrición pura.</div>
   </div>
 
-  <!-- MOTOR AUTOMATIZACIONES -->
-  <div class="section-title" style="margin-top:24px">&#x2699;&#xFE0F; Motor de Automatizaciones</div>
+  <!-- MOTOR DE AUTOMATIZACIONES -->
+  <h3 class="section-title">Motor de Automatizaciones (tareas programadas)</h3>
   <div class="auto-grid">
     <div class="auto-list">
-      <h3>&#x1F7E2; Recurrentes Activas (20)</h3>
-      <div class="auto-item"><span class="dot dot-green"></span>CEO Dashboard (Lun+Jue)</div>
-      <div class="auto-item"><span class="dot dot-green"></span>CEO Scorecard diario</div>
-      <div class="auto-item"><span class="dot dot-green"></span>Email audit AM + PM</div>
-      <div class="auto-item"><span class="dot dot-green"></span>PO: post diario + DMs + notif + posts</div>
-      <div class="auto-item"><span class="dot dot-green"></span>KY: posts Lun/Mi&eacute;/Vie + contenido semanal</div>
-      <div class="auto-item"><span class="dot dot-green"></span>KY: engagement Vie + planificaci&oacute;n mensual</div>
-      <div class="auto-item"><span class="dot dot-green"></span>CC Acompa&ntilde;amiento Mi&eacute;/Vie/Dom</div>
-      <div class="auto-item"><span class="dot dot-green"></span>CC Reporte semanal (Lun)</div>
-      <div class="auto-item"><span class="dot dot-green"></span>IG Reporte semanal (Dom)</div>
-      <div class="auto-item"><span class="dot dot-green"></span>Data extraction (Dom) + cartolas banco</div>
-      <div class="auto-item"><span class="dot dot-green"></span>Briefing TAL producci&oacute;n (Mar)</div>
-      <div class="auto-item"><span class="dot dot-green"></span>Inventario proyectos (Mar)</div>
-      <div class="auto-item"><span class="dot dot-green"></span>Monitoreo herramientas IA (1er mes)</div>
+      <h3>Activas recurrentes (44 total)</h3>
+      <div class="auto-item"><span class="dot dot-green"></span>PO · post diario + DMs + feed + comments (4 tasks diarias)</div>
+      <div class="auto-item"><span class="dot dot-green"></span>KY · ritual lunes + engagement vie + alerta diaria</div>
+      <div class="auto-item"><span class="dot dot-green"></span>CEO · briefing lun/jue + scorecard diario + data domingo</div>
+      <div class="auto-item"><span class="dot dot-green"></span>Email · briefing matutino + vespertino (Mon-Fri)</div>
+      <div class="auto-item"><span class="dot dot-green"></span>IG · reporte analytics domingo + orphan scan diario</div>
+      <div class="auto-item"><span class="dot dot-green"></span>CC · acompañamiento mié/vie/dom + reporte lunes</div>
+      <div class="auto-item"><span class="dot dot-green"></span>CFO · recordatorio cartolas dom 10am</div>
+      <div class="auto-item"><span class="dot dot-green"></span>KYTT seguimiento leads (hasta 24 abr)</div>
+      <div class="auto-item"><span class="dot dot-green"></span>Inventario proyectos semanal (mar 7am)</div>
+      <div class="auto-item"><span class="dot dot-green"></span>Auditoría mensual AI (día 1)</div>
     </div>
     <div class="auto-list">
-      <h3>&#x1F7E0; One-Time Pr&oacute;ximas (14d)</h3>
-      <div class="auto-item"><span class="dot dot-amber"></span>HOY: KY WARM-3 email</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>HOY: Gui&oacute;n video AR</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>HOY: Verificar carrusel IG Guerrero</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>HOY: Retiro monitoreo jueves</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>17 Abr: Difusi&oacute;n Evento 5/5</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>17 Abr: AR WA D&iacute;a 3 + fotos facilitadores</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>17 Abr: Retiro monitoreo viernes</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>18 Abr: KY COOL-2 + AR WA D&iacute;a 4 + retiro s&aacute;b</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>19-20 Abr: AR WA D&iacute;as 5-6</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>20 Abr: Direcci&oacute;n WA a inscritas AR</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>21 Abr: AR D&iacute;a evento + confirmar inscritas</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>21 Abr: RDA Fase 2 emails</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>22-23 Abr: AR WA D&iacute;as 8-9 (clase)</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>24 Abr: AR EB vence</div>
-      <div class="auto-item"><span class="dot dot-amber"></span>28 Abr: Alerta Luna Llena</div>
-      <div class="auto-item"><span class="dot dot-green"></span><strong>3 pausadas:</strong> Onboarding PO + Upgrade PO + Quiz nurture</div>
+      <h3>One-time próximas (7 días)</h3>
+      <div class="auto-item"><span class="dot dot-amber"></span>21 abr · AR Día 7 + pre-evento + KY post lun 8:30pm</div>
+      <div class="auto-item"><span class="dot dot-amber"></span>22 abr · AR Día 8 + verify Raíz + revisar Zernio/Skool</div>
+      <div class="auto-item"><span class="dot dot-amber"></span>23 abr · AR DÍA CLASE + verify Plexo Solar</div>
+      <div class="auto-item"><span class="dot dot-amber"></span>24 abr · AR sube precio $90K + publish Corazón</div>
+      <div class="auto-item"><span class="dot dot-amber"></span>25 abr · publish Chakra Garganta + KY planif. mensual</div>
+      <div class="auto-item"><span class="dot dot-amber"></span>26 abr · publish Tercer Ojo</div>
+      <div class="auto-item"><span class="dot dot-amber"></span>27 abr · publish Chakra Corona</div>
+      <div class="auto-item"><span class="dot dot-red"></span>28 abr · Alerta Luna Llena 1 May (decisión)</div>
+      <div class="auto-item"><span class="dot dot-amber"></span>4 may · RDA Online warmup</div>
+      <div class="auto-item"><span class="dot dot-amber"></span>12 may · Reactivar Motor 2 (Cuerpo Diamantino)</div>
     </div>
   </div>
 
-  <!-- COLAPSABLES -->
-  <div style="margin-top:24px">
-    <div class="collapsible">
-      <div class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span>&#x1F4CA; Fuentes de Datos Completas</span>
-        <span class="toggle-icon">&#x25BC;</span>
-      </div>
-      <div class="collapsible-body">
-        <table class="mini-table">
-          <tr><th>Fuente</th><th>&Uacute;ltima extracci&oacute;n</th><th>Antig&uuml;edad</th><th>Sem&aacute;foro</th></tr>
-          <tr><td>Instagram Graph API</td><td>12 Abr 2026</td><td>4 d&iacute;as</td><td>&#x1F7E1; Aceptable</td></tr>
-          <tr><td>Skool PO Admin</td><td>13 Abr 2026</td><td>3 d&iacute;as</td><td>&#x1F7E2; Fresco</td></tr>
-          <tr><td>Skool KY Admin</td><td>13 Abr 2026</td><td>3 d&iacute;as</td><td>&#x1F7E2; Fresco</td></tr>
-          <tr><td>Gmail + MailerLite</td><td>12 Abr 2026</td><td>4 d&iacute;as</td><td>&#x1F7E1; Aceptable</td></tr>
-          <tr><td>Banco (Falabella + Global66)</td><td>13 Abr 2026</td><td>3 d&iacute;as</td><td>&#x1F7E2; Fresco</td></tr>
-          <tr><td>BCR Costa Rica</td><td>4 Abr 2026</td><td>12 d&iacute;as</td><td>&#x1F534; Bloqueada</td></tr>
-          <tr><td>Hotmart</td><td>Marzo 2026</td><td>>30 d&iacute;as</td><td>&#x26AB; Sin datos abril</td></tr>
-        </table>
-      </div>
-    </div>
+  <!-- SECCIONES COLAPSABLES -->
+  <h3 class="section-title">Detalles operativos</h3>
 
-    <div class="collapsible">
-      <div class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span>&#x1F4B0; Pasivo Pendiente &mdash; Estudiante KY Ingl&eacute;s</span>
-        <span class="toggle-icon">&#x25BC;</span>
-      </div>
-      <div class="collapsible-body">
-        <p style="color:var(--red); font-weight:600; margin-bottom:8px">&#x26A0; ~$1,500 USD en Global66 que NO son ingreso &mdash; hay que devolver</p>
-        <p>Una estudiante de la formaci&oacute;n KY en ingl&eacute;s pag&oacute; y el dinero qued&oacute; mezclado con los payouts de Skool en Global66 USD. Este monto debe separarse y devolverse. NO computar como revenue.</p>
-        <p style="margin-top:8px"><strong>Acciones:</strong></p>
-        <p>1. Separar ~$1,500 USD en Global66 (no tocar)</p>
-        <p>2. Coordinar devoluci&oacute;n con la estudiante</p>
-        <p>3. Generar revenue suficiente para operaci&oacute;n sin tocar este monto</p>
-      </div>
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="toggleCollapse(this)">
+      <span>Fuentes de datos utilizadas (este briefing)</span>
+      <span class="toggle-icon">▼</span>
     </div>
-
-    <div class="collapsible">
-      <div class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span>&#x1F4C8; Cadencia de Reportes CEO</span>
-        <span class="toggle-icon">&#x25BC;</span>
-      </div>
-      <div class="collapsible-body">
-        <table class="mini-table">
-          <tr><th>Reporte</th><th>Frecuencia</th><th>&Uacute;ltimo</th></tr>
-          <tr><td>CEO Dashboard (este)</td><td>Lunes + Jueves 9 AM</td><td>16 Abr (#005)</td></tr>
-          <tr><td>CEO Scorecard diario</td><td>Diario 8 AM</td><td>16 Abr</td></tr>
-          <tr><td>Email Audit</td><td>AM + PM diario</td><td>16 Abr</td></tr>
-          <tr><td>IG Reporte semanal</td><td>Domingos 18h</td><td>13 Abr</td></tr>
-          <tr><td>KY Engagement</td><td>Viernes</td><td>10 Abr</td></tr>
-          <tr><td>CC Reporte semanal</td><td>Lunes</td><td>13 Abr</td></tr>
-          <tr><td>Inventario Proyectos</td><td>Martes 7 AM</td><td>Pr&oacute;x: 21 Abr</td></tr>
-          <tr><td>Extracci&oacute;n datos</td><td>Domingos 7 AM</td><td>12 Abr &rarr; pr&oacute;x 19 Abr</td></tr>
-        </table>
-      </div>
+    <div class="collapsible-body">
+      <table class="mini-table">
+        <thead><tr><th>Fuente</th><th>Archivo</th><th>Fecha</th><th>Frescura</th></tr></thead>
+        <tbody>
+          <tr><td>Instagram Graph API</td><td>DATA_IG_2026-04-19.md</td><td>19 Abr</td><td><span class="badge badge-green">🟢 1d</span></td></tr>
+          <tr><td>Skool PO (Chrome admin)</td><td>DATA_SKOOL_PO_2026-04-19.md</td><td>19 Abr</td><td><span class="badge badge-green">🟢 1d</span></td></tr>
+          <tr><td>Skool KY (Chrome admin)</td><td>DATA_SKOOL_KY_2026-04-19.md</td><td>19 Abr</td><td><span class="badge badge-green">🟢 1d</span></td></tr>
+          <tr><td>Email Gateway + Gmail</td><td>DATA_EMAIL_2026-04-19.md</td><td>19 Abr</td><td><span class="badge badge-green">🟢 1d</span></td></tr>
+          <tr><td>Banco (Falabella CC/RW + Global66)</td><td>DATA_BANCO_2026-04-19.md</td><td>18-20 Abr</td><td><span class="badge badge-amber">🟡 2d</span></td></tr>
+          <tr><td>BCR Costa Rica</td><td>—</td><td>04/04</td><td><span class="badge badge-red">🔴 16d</span></td></tr>
+          <tr><td>Google Calendar</td><td>primary</td><td>LIVE</td><td><span class="badge badge-green">🟢</span></td></tr>
+          <tr><td>Scheduled Tasks</td><td>API</td><td>LIVE</td><td><span class="badge badge-green">🟢 44 act/113 inact</span></td></tr>
+          <tr><td>MailerLite (suscriptores totales)</td><td>—</td><td>12 Abr (est.)</td><td><span class="badge badge-amber">🟡 8d</span></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <div style="text-align:center; margin-top:32px; padding-top:16px; border-top:1px solid var(--border); color:var(--text-dim); font-size:0.7rem;">
-    School of Love CEO System &middot; Generado autom&aacute;ticamente 16 Abril 2026 &middot; Briefing #005
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="toggleCollapse(this)">
+      <span>Directivas CEO vigentes (referencia rápida)</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div class="collapsible-body">
+      • <strong>Motor 1 CASH prioridad</strong> — Abril-Mayo. Motor 2 (Cuerpo Diamantino) en pausa hasta 12 May.<br>
+      • <strong>Ratio 80/20 nutrición/venta</strong> — verificar antes de toda campaña.<br>
+      • <strong>Doble captura IG→Email→PO</strong> — NUNCA IG directo a Skool.<br>
+      • <strong>WhatsApp directo CC</strong> — Claude redacta → Satya aprueba → Claude envía WA Web.<br>
+      • <strong>Meta 90 días</strong> — $6K-$10K/mes revenue.<br>
+      • <strong>Brand DNA Ralston v2</strong> — 4 C's, 75/20/5, Hook-Story-Offer.<br>
+      • <strong>Chrome MCP &gt; Computer Use</strong> para tareas web.
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="toggleCollapse(this)">
+      <span>Cadencia del CEO Operating System</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div class="collapsible-body">
+      • <strong>Dashboard completo (este):</strong> lun + jue 9am (HTML + email).<br>
+      • <strong>Scorecard ejecutivo diario:</strong> todos los días 8am (ultra-conciso).<br>
+      • <strong>Extracción datos semanal:</strong> domingo 7am (IG + Skool + Email + Banco).<br>
+      • <strong>Inventario proyectos:</strong> martes 7am (HTML + email).<br>
+      • <strong>Briefings TAL:</strong> martes 10am pre-producción.<br>
+      • <strong>Cartolas:</strong> recordatorio domingo 10am para compartir semana.
+    </div>
+  </div>
+
+  <div style="text-align: center; margin: 32px 0 16px; color: var(--gold-dim); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;">
+    ॐ School of Love · CEO System · Briefing #006
   </div>
 
 </div>
 
 <script>
-function showTab(id, btn) {
+function showTab(name, btn) {
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
   btn.classList.add('active');
 }
-
-function toggleCollapsible(header) {
+function toggleCollapse(header) {
   const body = header.nextElementSibling;
   const icon = header.querySelector('.toggle-icon');
   body.classList.toggle('open');
