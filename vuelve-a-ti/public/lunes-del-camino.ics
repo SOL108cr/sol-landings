@@ -1,0 +1,42 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//School of Love//Vuelve a ti//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:satsang-20261019@vuelveati.schooloflove.cl
+DTSTAMP:20261010T190000Z
+DTSTART:20261019T160000Z
+DTEND:20261019T173000Z
+SUMMARY:Satsang · Capítulo 2 · Escuchar lo esencial
+DESCRIPTION:El enlace llega por correo ese mismo día. Inscripción: https://vuelveati.schooloflove.cl
+URL:https://vuelveati.schooloflove.cl
+END:VEVENT
+BEGIN:VEVENT
+UID:satsang-20261026@vuelveati.schooloflove.cl
+DTSTAMP:20261010T190000Z
+DTSTART:20261026T160000Z
+DTEND:20261026T173000Z
+SUMMARY:Satsang · Capítulo 3 · La presencia entra en tu vida
+DESCRIPTION:El enlace llega por correo ese mismo día. Inscripción: https://vuelveati.schooloflove.cl
+URL:https://vuelveati.schooloflove.cl
+END:VEVENT
+BEGIN:VEVENT
+UID:satsang-20261102@vuelveati.schooloflove.cl
+DTSTAMP:20261010T190000Z
+DTSTART:20261102T160000Z
+DTEND:20261102T173000Z
+SUMMARY:Satsang · Capítulo 4 · Volver al otro sin perderte
+DESCRIPTION:El enlace llega por correo ese mismo día. Inscripción: https://vuelveati.schooloflove.cl
+URL:https://vuelveati.schooloflove.cl
+END:VEVENT
+BEGIN:VEVENT
+UID:satsang-20261109@vuelveati.schooloflove.cl
+DTSTAMP:20261010T190000Z
+DTSTART:20261109T160000Z
+DTEND:20261109T173000Z
+SUMMARY:Satsang · Capítulo 5 · Una práctica que cabe en tu vida
+DESCRIPTION:El enlace llega por correo ese mismo día. Inscripción: https://vuelveati.schooloflove.cl
+URL:https://vuelveati.schooloflove.cl
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//School of Love//Vuelve a ti//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:portal-1111-2026@vuelveati.schooloflove.cl
+DTSTAMP:20261010T190000Z
+DTSTART:20261111T160000Z
+DTEND:20261111T171000Z
+SUMMARY:Portal 11:11 · Encuentro en vivo con Satya
+DESCRIPTION:El enlace llega por correo ese mismo día. Inscripción: https://vuelveati.schooloflove.cl
+URL:https://vuelveati.schooloflove.cl
+END:VEVENT
+END:VCALENDAR

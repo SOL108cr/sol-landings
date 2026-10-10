@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ya estás en el camino | Vuelve a ti · Camino al 11:11</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1A0A2E">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="contenedor marca">
+    <a href="/"><strong>School of Love</strong> · Portal Origen</a>
+  </header>
+  <main class="contenedor gracias">
+    <h1 id="saludo">Ya estás en el camino.</h1>
+    <p class="bajada">Te enviamos un correo con el calendario y lo que viene. Si en unos minutos no aparece, búscalo en Promociones o en Spam y muévelo a tu bandeja principal, así no te pierdes los siguientes.</p>
+
+    <div class="pasos">
+      <section class="paso principal" aria-labelledby="t-circulo">
+        <h2 id="t-circulo">Entra al círculo de WhatsApp</h2>
+        <p>«Vuelve a ti · Camino al 11:11». Ahí escribimos solo Satya y Navkiran: una práctica corta por semana y los avisos del camino. Es un grupo de WhatsApp, así que los demás integrantes pueden ver tu número.</p>
+        <div class="acciones">
+          <a class="boton" href="https://chat.whatsapp.com/KXnWn2tNNPdKiQvT0Jj8Vn" rel="noopener">Entrar al círculo</a>
+        </div>
+      </section>
+
+      <section class="paso" aria-labelledby="t-fecha">
+        <h2 id="t-fecha">Guarda el 11/11</h2>
+        <p>Miércoles 11 de noviembre, 13:00 de Chile y 17:00 de España. El enlace te llega por correo.</p>
+        <div class="acciones">
+          <a class="boton secundario" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Portal%2011%3A11%20%C2%B7%20Encuentro%20en%20vivo%20con%20Satya&amp;dates=20261111T160000Z/20261111T171000Z&amp;details=El%20enlace%20llega%20por%20correo.%20https%3A%2F%2Fvuelveati.schooloflove.cl" target="_blank" rel="noopener">Google Calendar</a>
+          <a class="boton secundario" href="/calendario-11-11.ics">Apple u Outlook</a>
+        </div>
+      </section>
+
+      <section class="paso" aria-labelledby="t-lunes">
+        <h2 id="t-lunes">El próximo lunes</h2>
+        <p id="proximo">Satsang en vivo a las 13:00 de Chile. El enlace te llega por correo ese mismo día.</p>
+        <div class="acciones">
+          <a class="boton secundario" href="/lunes-del-camino.ics">Agregar los lunes</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="pie">
+    <div class="contenedor">
+      <span>School of Love · Portal Origen</span>
+      <a href="/privacidad">Privacidad</a>
+      <a href="mailto:satya@schooloflove.cl">satya@schooloflove.cl</a>
+    </div>
+  </footer>
+  <script>
+  (function () {
+    try {
+      var n = sessionStorage.getItem('vat_nombre');
+      if (n) document.getElementById('saludo').textContent = 'Ya estás en el camino, ' + n + '.';
+    } catch (e) {}
+    var lunes = [
+      ['2026-10-19T16:00:00Z', 'Lunes 19 de octubre', 'Capítulo 2 · Escuchar lo esencial', '18:00'],
+      ['2026-10-26T16:00:00Z', 'Lunes 26 de octubre', 'Capítulo 3 · La presencia entra en tu vida', '17:00'],
+      ['2026-11-02T16:00:00Z', 'Lunes 2 de noviembre', 'Capítulo 4 · Volver al otro sin perderte', '17:00'],
+      ['2026-11-09T16:00:00Z', 'Lunes 9 de noviembre', 'Capítulo 5 · Una práctica que cabe en tu vida', '17:00']
+    ];
+    var ahora = Date.now() - 90 * 60 * 1000;
+    for (var i = 0; i < lunes.length; i++) {
+      if (new Date(lunes[i][0]).getTime() > ahora) {
+        document.getElementById('proximo').textContent = lunes[i][1] + ', ' + lunes[i][2] + '. Satsang en vivo a las 13:00 de Chile y ' + lunes[i][3] + ' de España. El enlace te llega por correo ese mismo día.';
+        return;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
