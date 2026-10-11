@@ -13,58 +13,67 @@
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <style>
-    .guia { max-width: 760px; padding-top: 34px; padding-bottom: 80px; }
-    .guia h1 { font-family: var(--display); font-weight: 400; font-size: clamp(38px, 7vw, 58px); line-height: 1.1; margin: 8px 0 18px; }
+    body { font-size: 18px; line-height: 1.65; }
+    .guia { max-width: 680px; padding-top: 30px; padding-bottom: 80px; }
+    .guia h1 { font-family: var(--display); font-weight: 400; font-size: clamp(38px, 8vw, 56px); line-height: 1.1; margin: 8px 0 18px; }
     .guia .sobre { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--oro); margin: 0; }
-    .guia .bajada { font-size: 19px; color: var(--texto-suave); margin: 0 0 8px; }
-    .guia section { border-top: 1px solid var(--linea); padding-top: 34px; margin-top: 40px; }
-    .guia h2 { font-family: var(--display); font-weight: 400; font-size: clamp(28px, 4.6vw, 36px); line-height: 1.2; margin: 0 0 14px; }
-    .guia h3 { font-size: 15px; font-weight: 600; letter-spacing: 0.02em; color: var(--oro-claro); margin: 22px 0 6px; }
+    .guia section { border-top: 1px solid var(--linea); padding-top: 32px; margin-top: 38px; }
+    .guia h2 { font-family: var(--display); font-weight: 400; font-size: clamp(28px, 6vw, 36px); line-height: 1.2; margin: 0 0 14px; }
+    .guia h3 { font-size: 16px; font-weight: 600; letter-spacing: 0.02em; color: var(--oro-claro); margin: 24px 0 6px; }
     .guia p { margin: 0 0 14px; }
     .guia ol, .guia ul { margin: 0 0 16px; padding-left: 22px; }
-    .guia li { margin: 0 0 8px; }
-    .audio { background: rgba(245, 230, 200, 0.06); border: 1px solid var(--linea); border-radius: 18px; padding: 22px; margin: 18px 0 22px; }
-    .audio p { margin: 0 0 12px; color: var(--texto-suave); font-size: 15px; }
+    .guia li { margin: 0 0 9px; }
+    .suave { color: #D9CFE6; }
+    .carta { background: rgba(245, 230, 200, 0.06); border: 1px solid var(--linea); border-radius: 18px; padding: 22px 22px 8px; margin: 6px 0 0; }
+    .firma { font-family: var(--display); font-size: 24px; color: var(--oro-claro); }
+    .audio { background: rgba(245, 230, 200, 0.07); border: 1px solid var(--linea); border-radius: 18px; padding: 20px 22px; margin: 16px 0 22px; }
+    .audio p { margin: 0 0 12px; font-size: 16px; color: #D9CFE6; }
     .audio audio { width: 100%; }
     .audio .pronto { margin: 0; color: var(--oro-claro); font-weight: 500; }
-    .cal { list-style: none; padding: 0; margin: 0; }
-    .cal li { display: grid; grid-template-columns: 150px 1fr; gap: 6px 18px; padding: 14px 0; border-bottom: 1px solid rgba(212, 168, 94, 0.16); margin: 0; }
-    .cal .fecha { color: var(--oro-claro); font-weight: 500; font-size: 15px; }
-    .cal strong { font-weight: 600; }
-    .cal span.det { display: block; color: var(--texto-suave); font-size: 15px; }
-    .semana { padding: 2px 0 6px; }
-    .semana .cuando { display: block; font-size: 13px; color: var(--oro); letter-spacing: 0.04em; }
-    .horas { list-style: none; padding: 0; columns: 2; column-gap: 28px; font-size: 15px; }
-    .horas li { break-inside: avoid; }
+    .cuidado { border-left: 3px solid var(--oro); padding: 4px 0 4px 16px; margin: 18px 0; font-size: 16px; color: #D9CFE6; }
+    .cuidado p { margin: 0 0 8px; }
+    .cal { list-style: none; padding: 0 !important; margin: 0 0 8px; }
+    .cal li { padding: 14px 0; border-bottom: 1px solid rgba(212, 168, 94, 0.18); margin: 0; }
+    .cal .fecha { display: block; color: var(--oro-claro); font-weight: 600; font-size: 15px; letter-spacing: 0.02em; }
+    .cal strong { display: block; font-weight: 600; }
+    .cal .det { display: block; color: #D9CFE6; font-size: 16px; }
+    .nota { font-size: 15px; color: #D9CFE6; }
+    .semana { margin: 0 0 18px; }
+    .semana .cuando { display: block; font-size: 14px; color: var(--oro); font-weight: 500; letter-spacing: 0.03em; }
+    .horas { list-style: none; padding: 0 !important; font-size: 16px; }
+    .horas li { margin: 0 0 6px; }
     .frase { font-family: var(--display); font-size: 26px; line-height: 1.35; color: var(--crema); margin: 6px 0 16px; }
-    .acciones { display: flex; flex-wrap: wrap; gap: 12px; margin: 10px 0 6px; }
-    .boton { display: inline-block; background: var(--oro); color: var(--noche); text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 999px; }
+    .acciones { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0 8px; }
+    .boton { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; background: var(--oro); color: var(--noche); text-decoration: none; font-weight: 600; padding: 12px 24px; border-radius: 999px; }
     .boton.secundario { background: transparent; color: var(--crema); border: 1px solid var(--linea); }
-    .pie-guia { margin-top: 56px; font-size: 14px; color: var(--texto-suave); }
+    .pie-guia { margin-top: 50px; font-size: 15px; color: #D9CFE6; }
     @media (max-width: 560px) {
-      .cal li { grid-template-columns: 1fr; gap: 2px; }
-      .horas { columns: 1; }
+      .acciones .boton { width: 100%; }
     }
-    @page { size: A4; margin: 14mm 17mm 14mm; }
+
+    /* PDF para leer en el celular: página 9:16 */
+    @page { size: 108mm 192mm; margin: 12mm 10mm 12mm; }
     @media print {
-      body { background: #FFFFFF !important; background-image: none !important; color: #2A1347; font-size: 11.5pt; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: #FFFFFF !important; background-image: none !important; color: #2A1347; font-size: 13pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .contenedor { padding: 0; }
-      .guia section { margin-top: 26px; padding-top: 22px; }
-      .pie-guia { margin-top: 26px; }
+      .marca { padding-top: 0; font-size: 10pt; }
       .marca, .marca strong { color: #6B5A80; }
-      .guia { padding-top: 0; padding-bottom: 0; max-width: none; }
-      .guia h1, .guia h2, .frase { color: #2A1347; }
-      .guia .sobre, .semana .cuando { color: #9A7330; }
-      .guia h3, .cal .fecha { color: #7A4FB0; }
-      .guia .bajada, .cal span.det, .audio p, .pie-guia { color: #4E3F63; }
-      .guia section { border-top-color: #E4D3B0; break-inside: auto; }
+      .guia { padding: 0; max-width: none; }
+      .guia h1 { font-size: 28pt; color: #2A1347; margin-top: 10mm; }
+      .guia h2 { font-size: 20pt; color: #2A1347; }
+      .guia h3 { font-size: 13pt; color: #6B3FA0; }
+      .frase, .firma { color: #2A1347; }
+      .guia .sobre, .semana .cuando { color: #8E6A2C; font-size: 11pt; }
+      .suave, .cal .det, .audio p, .cuidado, .nota, .horas, .pie-guia { color: #4A3D5E; font-size: 12pt; }
+      .cal .fecha { color: #6B3FA0; font-size: 12pt; }
+      .guia section { border-top-color: #E4D3B0; margin-top: 8mm; padding-top: 7mm; }
       .guia h2, .guia h3 { break-after: avoid; }
-      .cal li, .semana, .audio { break-inside: avoid; border-color: #EADCC0; }
-      .audio { background: #F7EFDF; }
+      .cal li, .semana, .audio, .cuidado, .carta { break-inside: avoid; border-color: #E4D3B0; }
+      .audio, .carta { background: #F8F1E3; }
       .audio audio, .acciones { display: none; }
-      .audio .pronto { color: #7A4FB0; }
+      .audio .pronto { color: #6B3FA0; }
       a { color: #5B2E91; }
-      .imprimir-enlace::after { content: " (" attr(href) ")"; font-size: 9.5pt; color: #6B5A80; }
+      .imprimir-enlace::after { content: " (" attr(href) ")"; font-size: 10pt; color: #6B5A80; }
     }
   </style>
 </head>
@@ -76,63 +85,68 @@
   <main class="contenedor guia">
     <p class="sobre">Vuelve a ti · Camino al <span class="num">11:11</span></p>
     <h1>Guía del camino al <span class="num">11:11</span></h1>
-    <p class="bajada">Para tenerla a mano hasta el 11 de noviembre. No hace falta leerla entera hoy: empieza por la Semilla del Uno y vuelve al resto cuando lo necesites.</p>
 
-    <section aria-labelledby="t-antes">
-      <h2 id="t-antes">Antes de empezar</h2>
-      <p>Este camino ocurre dentro de tu día de siempre. Unos minutos de práctica, un Satsang en vivo cada lunes y un encuentro el 11 de noviembre para cruzar juntos la puerta del 11 al Uno.</p>
-      <p>Vivimos repartidos en once lugares a la vez: el trabajo, los pendientes, la pantalla, lo de ayer, lo que viene. La práctica es sencilla. Cada vez que te des cuenta de que andas repartido, vuelves a un solo lugar, el de adentro.</p>
-      <p>En la tradición que practicamos, ese lugar tiene nombre: Ek Onkar, el Uno que está presente en todo, también en ti. Para empezar no hace falta creer nada. Basta con respirar y practicar un poco cada día, en compañía.</p>
-    </section>
+    <div class="carta">
+      <p>Hola. Qué alegría que estés aquí.</p>
+      <p>Muchas veces vivimos en once lugares a la vez: el trabajo, los pendientes, la pantalla, lo de ayer, lo que viene. Y en ninguno del todo. Hasta el 11 de noviembre te propongo algo simple: unos minutos al día para volver a un solo lugar, el de adentro. Sin salir de tu vida.</p>
+      <p>Empieza por la Semilla del Uno. El resto de la guía es para tenerlo a mano cuando lo necesites.</p>
+      <p class="firma">Satya</p>
+    </div>
 
     <section aria-labelledby="t-semilla">
       <h2 id="t-semilla">La Semilla del Uno</h2>
-      <p>Una respiración de <span class="num">3</span> minutos, guiada por Satya, para volver a ti en medio del día. Es la práctica que sostiene todo el camino.</p>
+      <p>Una respiración de <span class="num">3</span> minutos para volver a ti en medio del día. Es la práctica que vamos a repetir durante todo el camino.</p>
       <div class="audio">
-        <p>Escucha y respira con la voz de Satya.</p>
-        <!-- AUDIO: reemplazar este párrafo por <audio controls preload="none" src="/assets/semilla-del-uno.mp3"></audio> cuando Satya grabe. -->
-        <p class="pronto">El audio llega a tu correo el miércoles 14 de octubre.</p>
+        <p>Escucha y respira conmigo.</p>
+        <!-- AUDIO: poner aquí <audio controls preload="none" src="/assets/semilla-del-uno.mp3"></audio> y borrar el párrafo siguiente cuando esté el audio. -->
+        <p class="pronto">Si el audio todavía no carga, la práctica escrita sirve igual.</p>
       </div>
       <h3>Cómo practicarla</h3>
-      <!-- BORRADOR: técnica propuesta (respiración en 8 tiempos). Satya confirma o cambia antes de publicar. -->
+      <!-- BORRADOR: técnica propuesta, Satya la confirma o la cambia. -->
       <ol>
-        <li>Siéntate con la espalda recta, en una silla o en el suelo. Apoya bien los pies o las piernas.</li>
+        <li>Siéntate con la espalda recta, en una silla o en el suelo.</li>
         <li>Cierra los ojos y lleva la atención suavemente al entrecejo.</li>
-        <li>Inhala por la nariz en <span class="num">8</span> tiempos cortos, como si subieras una escalera, hasta llenarte.</li>
-        <li>Exhala por la nariz en <span class="num">8</span> tiempos cortos, hasta vaciarte.</li>
-        <li>Sigue así durante <span class="num">3</span> minutos. Al terminar, inhala profundo, retén unos segundos y suelta despacio.</li>
+        <li>Inhala por la nariz en <span class="num">8</span> sorbos cortos y seguidos, hasta llenarte.</li>
+        <li>Exhala por la nariz en <span class="num">8</span> sorbos cortos y seguidos, hasta vaciarte.</li>
+        <li>Sigue así <span class="num">3</span> minutos. Al terminar, inhala profundo, retén el aire de <span class="num">5</span> a <span class="num">8</span> segundos sin tensarte y suelta despacio.</li>
       </ol>
+      <p class="suave">Si <span class="num">8</span> sorbos te cuesta, empieza con <span class="num">4</span> y sube cuando te sientas cómodo.</p>
+      <div class="cuidado">
+        <p><strong>Cuídate.</strong> Hazla suave, sin forzar. Si sientes mareo u hormigueo, vuelve a respirar normal y abre los ojos.</p>
+        <p>Si estás embarazada, o tienes presión alta, problemas del corazón, epilepsia o asma, hazla sin retener el aire o consulta antes con tu médico. Nunca la practiques mientras conduces.</p>
+      </div>
       <h3>Cuándo</h3>
-      <p>Una vez al día, mejor siempre a la misma hora. Y cada vez que veas <span class="num">11:11</span> en el reloj, haz tres respiraciones lentas antes de seguir con lo que estabas haciendo.</p>
+      <p>Una vez al día, en un momento que ya existe en tu rutina: después del café, antes de abrir el correo. Y cada vez que veas <span class="num">11:11</span> en el reloj, haz tres respiraciones largas, soltando el aire más lento de lo que entra.</p>
     </section>
 
-    <section aria-labelledby="t-calendario">
-      <h2 id="t-calendario">El calendario</h2>
-      <p>Cada lunes, un capítulo en vivo por Zoom. El enlace te llega por correo esa misma mañana. Si te pierdes uno, te enviamos la grabación.</p>
+    <section aria-labelledby="t-lunes">
+      <h2 id="t-lunes">Los lunes de Satsang</h2>
+      <p>Satsang significa «estar en compañía de la verdad». Es nuestro encuentro en vivo por Zoom, de cerca de una hora: meditamos, practicamos y conversamos. No necesitas experiencia y puedes estar con la cámara apagada.</p>
+      <p>El enlace te llega por correo el mismo lunes en la mañana. Puedes sumarte cualquier lunes, aunque no hayas venido a los anteriores. Si un lunes no puedes, te mando la grabación.</p>
       <ul class="cal">
-        <li><span class="fecha">Lunes 12 oct</span><span><strong>Capítulo 1 · Lo invisible que te sostiene</strong><span class="det">Aquí empezó el camino.</span></span></li>
-        <li><span class="fecha">Lunes 19 oct</span><span><strong>Capítulo 2 · Escuchar lo esencial</strong><span class="det">13:00 Chile, 18:00 España. El 19, el mes 10 y el año 2026 dan diez cada uno, y el diez vuelve a uno.</span></span></li>
-        <li><span class="fecha">Lunes 26 oct</span><span><strong>Capítulo 3 · La presencia entra en tu vida</strong><span class="det">13:00 Chile, 17:00 España (en Europa cambia la hora el 25). Luna llena.</span></span></li>
-        <li><span class="fecha">Lunes 2 nov</span><span><strong>Capítulo 4 · Volver al otro sin perderte</strong><span class="det">13:00 Chile, 17:00 España.</span></span></li>
-        <li><span class="fecha">Lunes 9 nov</span><span><strong>Capítulo 5 · Una práctica que cabe en tu vida</strong><span class="det">13:00 Chile, 17:00 España. Luna nueva, dos días antes del <span class="num">11:11</span>.</span></span></li>
-        <li><span class="fecha">Miércoles 11 nov</span><span><strong>Portal <span class="num">11:11</span></strong><span class="det">Encuentro en vivo por Zoom y YouTube. 13:00 Chile, 17:00 España, 16:00 Canarias.</span></span></li>
+        <li><span class="fecha">Lunes 12 de octubre</span><strong>Capítulo 1 · Lo invisible que te sostiene</strong><span class="det">Ya fue. Si no alcanzaste a estar, empiezas igual desde aquí.</span></li>
+        <li><span class="fecha">Lunes 19 de octubre</span><strong>Capítulo 2 · Escuchar lo esencial</strong><span class="det">13:00 Chile, 18:00 España.</span></li>
+        <li><span class="fecha">Lunes 26 de octubre</span><strong>Capítulo 3 · La presencia entra en tu vida</strong><span class="det">13:00 Chile, 17:00 España. Noche de luna llena.</span></li>
+        <li><span class="fecha">Lunes 2 de noviembre</span><strong>Capítulo 4 · Volver al otro sin perderte</strong><span class="det">13:00 Chile, 17:00 España.</span></li>
+        <li><span class="fecha">Lunes 9 de noviembre</span><strong>Capítulo 5 · Una práctica que cabe en tu vida</strong><span class="det">13:00 Chile, 17:00 España.</span></li>
       </ul>
+      <p class="nota">En Chile la hora es siempre la misma. En España cambia porque Europa atrasa el reloj el 25 de octubre. Si te gustan los números: el 19, el mes 10 y el año 2026 dan diez cada uno, y el diez vuelve a uno.</p>
       <div class="acciones">
         <a class="boton secundario" href="/lunes-del-camino.ics">Guardar los lunes en tu calendario</a>
-        <a class="boton secundario" href="/calendario-11-11.ics">Guardar el 11/11</a>
       </div>
     </section>
 
     <section aria-labelledby="t-semanas">
       <h2 id="t-semanas">Entre lunes</h2>
       <p>Un gesto pequeño para cada semana, además de la Semilla. Hazlo cuando te acuerdes, sin llevar la cuenta.</p>
+      <!-- BORRADOR: gestos propuestos, Satya los confirma o los cambia. -->
       <div class="semana">
         <span class="cuando">Del 12 al 18 de octubre</span>
-        <p>Antes de dormir, nombra una cosa que hoy te sostuvo sin que la vieras: una persona, un gesto, tu propia respiración.</p>
+        <p>Antes de dormir, piensa en algo que hoy te sostuvo sin que lo notaras, como la silla donde te sentaste o quien hizo el pan que comiste. Agradécelo en silencio.</p>
       </div>
       <div class="semana">
         <span class="cuando">Del 19 al 25 de octubre</span>
-        <p>Una vez al día, escucha a alguien hasta el final sin preparar tu respuesta mientras habla.</p>
+        <p>Una vez al día, escucha a alguien hasta el final sin ensayar tu respuesta. Fíjate en lo que de verdad quiere que entiendas.</p>
       </div>
       <div class="semana">
         <span class="cuando">Del 26 de octubre al 1 de noviembre</span>
@@ -140,17 +154,17 @@
       </div>
       <div class="semana">
         <span class="cuando">Del 2 al 8 de noviembre</span>
-        <p>Antes de responder un mensaje que te mueve, haz una respiración larga. Después contesta.</p>
+        <p>Antes de responder un mensaje que te mueve, respira largo y nota qué sientes. Después pregúntate qué necesita la otra persona, y recién ahí contesta.</p>
       </div>
       <div class="semana">
         <span class="cuando">Del 9 al 11 de noviembre</span>
-        <p>Decide a qué hora vas a hacer la Semilla del Uno después del <span class="num">11:11</span>, y anótala en tu calendario.</p>
+        <p>Decide a qué hora vas a seguir con la Semilla del Uno después del <span class="num">11:11</span> y anótalo en tu calendario.</p>
       </div>
     </section>
 
     <section aria-labelledby="t-portal">
       <h2 id="t-portal">El encuentro del <span class="num">11:11</span></h2>
-      <p>El miércoles 11 de noviembre nos encontramos en vivo durante unos 70 minutos, por Zoom y YouTube. Vamos a meditar juntos y a cerrar el camino. El enlace te llega por correo. Si no puedes conectarte, te enviamos la grabación.</p>
+      <p>El miércoles 11 de noviembre nos encontramos en vivo durante unos 70 minutos para meditar juntos y cerrar el camino. Puedes entrar por Zoom, si quieres participar, o mirarlo por YouTube. Los dos enlaces te llegan por correo, y si no puedes conectarte, te mando la grabación.</p>
       <h3>La hora en tu país</h3>
       <ul class="horas">
         <li>13:00 Chile, Argentina, Uruguay, Paraguay y Brasil (Brasilia)</li>
@@ -160,25 +174,28 @@
         <li>17:00 España peninsular</li>
         <li>16:00 Canarias</li>
       </ul>
+      <div class="acciones">
+        <a class="boton secundario" href="/calendario-11-11.ics">Guardar el 11/11 en tu calendario</a>
+      </div>
     </section>
 
     <section aria-labelledby="t-despues">
       <h2 id="t-despues">Lo que viene después</h2>
       <p class="frase">Por fuera, tu día de siempre. Por dentro, un retiro.</p>
-      <p>Desde el 14 de noviembre abrimos Del 11 al Uno, un retiro dentro de tu propia vida, para quien quiera seguir después del <span class="num">11:11</span>. Lo abrimos primero a quienes vienen haciendo este camino. Te contamos los detalles en el encuentro.</p>
+      <p>Para quien quiera seguir después del <span class="num">11:11</span>, desde el 14 de noviembre abrimos Del 11 al Uno, un retiro dentro de tu propia vida. Es de pago, y el precio y la forma te los cuento el 11 de noviembre. Quienes hacen este camino reciben el aviso antes que nadie, hayan venido a todos los lunes o no. No tienes que decidir nada hoy.</p>
     </section>
 
     <section aria-labelledby="t-circulo">
       <h2 id="t-circulo">El círculo y quién te acompaña</h2>
-      <p>Si quieres vivir el camino de cerca, entra al círculo de WhatsApp «Vuelve a ti · Camino al 11:11». Ahí escribimos solo Satya y Navkiran: una práctica corta por semana y los avisos del camino. Es un grupo, así que los demás pueden ver tu número. Es opcional: lo esencial siempre te llega por correo.</p>
+      <p>Si quieres vivir el camino de cerca, entra al círculo de WhatsApp «Vuelve a ti · Camino al 11:11». Ahí escribimos solo Navkiran y yo: una práctica corta por semana y los avisos de cada lunes. Es un grupo, así que los demás pueden ver tu número. Es opcional, porque todo lo esencial te llega por correo.</p>
       <div class="acciones">
         <a class="boton" href="https://chat.whatsapp.com/KXnWn2tNNPdKiQvT0Jj8Vn" rel="noopener">Entrar al círculo</a>
       </div>
-      <p>Satya Singh enseña Kundalini Yoga, meditación y respiración, y forma profesores. Navkiran es maestra de Kundalini Yoga y creó junto a Satya Divine Touch. Juntos guían School of Love y Portal Origen, una comunidad que practica en vivo cada semana.</p>
-      <p>Si quieres escribirnos, responde cualquier correo del camino. Lo leemos.</p>
+      <p>Enseño Kundalini Yoga, meditación y respiración, y formo profesores. Navkiran es maestra de Kundalini Yoga, y juntos guiamos School of Love, una comunidad que practica en vivo cada semana.</p>
+      <p>Si se te complica un enlace o una hora, responde cualquier correo del camino y te ayuda Rosario, de nuestro equipo.</p>
     </section>
 
-    <p class="pie-guia">School of Love · Portal Origen · <a class="imprimir-enlace" href="https://vuelveati.schooloflove.cl">vuelveati.schooloflove.cl</a></p>
+    <p class="pie-guia">School of Love · <a class="imprimir-enlace" href="https://vuelveati.schooloflove.cl/guia">vuelveati.schooloflove.cl/guia</a></p>
   </main>
 </body>
 </html>
