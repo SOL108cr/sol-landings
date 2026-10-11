@@ -73,6 +73,22 @@ jobs:
           accountId: 217bc3420af5e0d4007dc2336df35db2
           command: pages deploy quiz-codigo-de-luz --project-name=quiz-codigo-de-luz --branch=main
 
+  deploy-vuelve-a-ti:
+    name: 🌕 Vuelve a ti · Camino al 11:11 (Worker)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 217bc3420af5e0d4007dc2336df35db2
+          workingDirectory: vuelve-a-ti
+          wranglerVersion: "4.138.0"
+          command: deploy
+
 # ── AGREGAR NUEVOS PROYECTOS AQUÍ ──────────────────────────────────────────
 #
 # Para un nuevo Cloudflare PAGES:
