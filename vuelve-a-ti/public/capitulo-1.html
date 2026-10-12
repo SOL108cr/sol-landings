@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capítulo 1 · Lo invisible que te sostiene | Vuelve a ti</title>
+  <meta name="description" content="La grabación del primer Satsang del camino al 11:11, con Satya. Disponible hasta el jueves 15 de octubre.">
+  <meta name="theme-color" content="#1A0A2E">
+  <meta property="og:title" content="Capítulo 1 · Lo invisible que te sostiene">
+  <meta property="og:description" content="La grabación del primer Satsang del camino al 11:11. Disponible hasta el jueves 15 de octubre.">
+  <meta property="og:image" content="https://vuelveati.schooloflove.cl/assets/og.png">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .cap { max-width: 760px; padding-top: 30px; padding-bottom: 70px; }
+    .cap .sobre { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--oro); margin: 0 0 8px; }
+    .cap h1 { font-family: var(--display); font-weight: 400; font-size: clamp(36px, 7vw, 54px); line-height: 1.12; margin: 0 0 16px; }
+    .cap .bajada { font-size: 18px; color: var(--texto-suave); margin: 0 0 22px; }
+    .plazo { display: inline-block; font-size: 15px; color: var(--oro-claro); border: 1px solid var(--linea); border-radius: 999px; padding: 6px 14px; margin: 0 0 24px; }
+    .tarjeta { background: rgba(245, 230, 200, 0.05); border: 1px solid var(--linea); border-radius: 18px; padding: 22px; }
+    .video { position: relative; width: 100%; padding-top: 56.25%; border-radius: 14px; overflow: hidden; background: #0d0518; }
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .despues { margin-top: 30px; }
+    .despues h2 { font-family: var(--display); font-weight: 400; font-size: 28px; margin: 0 0 10px; }
+    .despues p { color: var(--texto-suave); }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <header class="contenedor marca">
+    <a href="/"><strong>School of Love</strong> · Portal Origen</a>
+  </header>
+  <main class="contenedor cap">
+    <p class="sobre">Vuelve a ti · Camino al <span class="num">11:11</span></p>
+    <h1>Capítulo 1 · Lo invisible que te sostiene</h1>
+    <p class="bajada">El primer Satsang del camino, grabado el lunes 12 de octubre. Una conversación y una meditación para mirar qué sigue en ti cuando todo cambia.</p>
+    <p class="plazo" id="plazo">Disponible hasta el jueves 15 de octubre, 23:59 de Chile</p>
+
+    <section class="tarjeta" id="bloque-form">
+      <form id="form-cap" novalidate>
+        <div class="campo"><label for="nombre">Tu nombre</label>
+          <input id="nombre" name="nombre" type="text" autocomplete="given-name" required maxlength="80" placeholder="Cómo quieres que te llamemos"></div>
+        <div class="campo"><label for="email">Tu correo</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="120" placeholder="nombre@correo.com"></div>
+        <button class="boton" type="submit" id="enviar">Ver la grabación</button>
+        <p class="estado" id="estado" role="status" aria-live="polite"></p>
+        <p class="nota">Al dejar tus datos quedas en el camino al <span class="num">11:11</span>: te llega la Guía del camino, el enlace de cada lunes y el del encuentro del 11 de noviembre. Te das de baja con un clic cuando quieras. <a href="/privacidad">Privacidad</a>.</p>
+      </form>
+    </section>
+
+    <section id="bloque-video" hidden>
+      <div class="video"><iframe id="player" title="Capítulo 1 · Lo invisible que te sostiene" allow="accelerometer; gyroscope; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+      <div class="despues">
+        <h2>Y el lunes 19, el capítulo 2</h2>
+        <p>«Escuchar lo esencial», en vivo a las 13:00 de Chile y 18:00 de España. El enlace te llega por correo. Si quieres vivir el camino de cerca, entra al círculo de WhatsApp, donde escribimos solo Navkiran y yo.</p>
+        <div class="acciones"><a class="boton" href="https://chat.whatsapp.com/KXnWn2tNNPdKiQvT0Jj8Vn" rel="noopener">Entrar al círculo</a></div>
+      </div>
+    </section>
+
+    <section class="tarjeta" id="bloque-cerrado" hidden>
+      <p>La grabación del capítulo 1 ya no está disponible. El camino sigue: el lunes 19 de octubre es el capítulo 2, «Escuchar lo esencial».</p>
+      <div class="acciones"><a class="boton" href="/">Sumarme al camino</a></div>
+    </section>
+  </main>
+  <footer class="contenedor pie"><p>School of Love · Portal Origen · <a href="/privacidad">Privacidad</a></p></footer>
+  <script>
+  (function () {
+    var ENDPOINT = 'https://assets.mailerlite.com/jsonp/2197783/forms/200852478258841299/subscribe';
+    var VIDEO = ''; // https://iframe.mediadelivery.net/embed/LIBRARY/GUID?autoplay=false
+    var CIERRE = Date.parse('2026-10-16T02:59:00Z'); // jueves 15-oct 23:59 Chile
+    var KEY = 'vat_cap1';
+    var form = document.getElementById('form-cap'), boton = document.getElementById('enviar'), estado = document.getElementById('estado');
+    function mostrar(id) { ['bloque-form','bloque-video','bloque-cerrado'].forEach(function (b) { document.getElementById(b).hidden = (b !== id); }); }
+    function abrir() {
+      mostrar('bloque-video');
+      var p = document.getElementById('player'); if (VIDEO && !p.src) p.src = VIDEO;
+      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    }
+    if (Date.now() > CIERRE) { mostrar('bloque-cerrado'); document.getElementById('plazo').hidden = true; return; }
+    var q = new URLSearchParams(location.search);
+    if (q.get('email')) form.email.value = q.get('email');
+    if (q.get('name')) form.nombre.value = q.get('name');
+    try { if (localStorage.getItem(KEY) === '1') { abrir(); return; } } catch (e) {}
+    function datos(n, e) { var fd = new FormData(); fd.append('fields[name]', n); fd.append('fields[email]', e); fd.append('ml-submit', '1'); fd.append('anticsrf', 'true'); return fd; }
+    function aviso(t) { estado.textContent = t; estado.className = 'estado error'; }
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var n = form.nombre.value.trim(), e = form.email.value.trim();
+      if (!n) { aviso('Escribe tu nombre para saber cómo llamarte.'); form.nombre.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)) { aviso('Revisa tu correo: falta algo, por ejemplo nombre@correo.com.'); form.email.focus(); return; }
+      boton.disabled = true; boton.textContent = 'Abriendo…';
+      fetch(ENDPOINT, { method: 'POST', body: datos(n, e) })
+        .then(function () { abrir(); })
+        .catch(function () { fetch(ENDPOINT, { method: 'POST', body: datos(n, e), mode: 'no-cors' }).then(abrir).catch(abrir); });
+    });
+  })();
+  </script>
+</body>
+</html>
