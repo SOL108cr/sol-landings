@@ -38,7 +38,7 @@
   try { if (localStorage.getItem(KEY) === '1') { abrir(false, false); return; } } catch (e) {}
   form.addEventListener('submit', async function (ev) {
     ev.preventDefault(); if (button.disabled) return;
-    var n = nombre.value.trim(), e = email.value.trim();
+    var n = nombre.value.trim(), e = email.value.replace(/^\s*mailto:/i, '').replace(/\s+/g, ''); email.value = e;
     if (!n || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)) {
       status.textContent = !n ? 'Escribe tu nombre.' : 'Revisa tu correo, por ejemplo nombre@correo.com.';
       (!n ? nombre : email).focus(); return;

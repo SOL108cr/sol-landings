@@ -253,7 +253,8 @@
       e.preventDefault();
       if (boton.disabled) return;
       var nombre = form.nombre.value.trim();
-      var email = form.email.value.trim();
+      var email = form.email.value.replace(/^\s*mailto:/i, '').replace(/\s+/g, '');
+      form.email.value = email;
       if (!nombre) { aviso('Escribe tu nombre para saber cómo llamarte.'); form.nombre.focus(); return; }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { aviso('Revisa tu correo: falta algo, por ejemplo nombre@correo.com.'); form.email.focus(); return; }
       boton.disabled = true; boton.textContent = 'Abriendo el camino…'; estado.textContent = ''; estado.className = 'estado';
