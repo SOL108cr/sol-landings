@@ -3,11 +3,14 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://assets.mailerlite.com; form-action 'self' https://assets.mailerlite.com; frame-src https://www.youtube-nocookie.com https://iframe.mediadelivery.net https://player.mediadelivery.net; frame-ancestors 'none'; base-uri 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://assets.mailerlite.com; form-action 'self' https://assets.mailerlite.com; frame-src https://www.youtube-nocookie.com https://iframe.mediadelivery.net https://player.mediadelivery.net; frame-ancestors 'none'; base-uri 'self'
 
 /*.ics
   Content-Type: text/calendar; charset=utf-8
 
 /practica*
   Referrer-Policy: no-referrer
+  X-Robots-Tag: noindex, nofollow
+
+/retiro*
   X-Robots-Tag: noindex, nofollow

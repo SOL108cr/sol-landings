@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Continúa tu inscripción · Del 11 al Uno</title>
+  <style>
+    body{max-width:760px;margin:42px auto;padding:0 24px;font:17px/1.65 system-ui,sans-serif;color:#18372c;background:#f6f3e9}
+    h1{line-height:1.2;margin-bottom:12px}h2{font-size:1.15rem;line-height:1.3;margin:0 0 8px}a{color:inherit}
+    .note{padding:16px;border-left:3px solid #c7964d;background:#fffaf0;margin:22px 0}
+    .routes{display:grid;gap:16px;margin:28px 0}.route{padding:20px;background:#fffaf0;border:1px solid #dfd4bd;border-radius:4px}
+    .route[hidden]{display:none}.route p{margin:8px 0}.route a{display:inline-block;margin-top:10px;font-weight:700}.change{margin:4px 0 18px;font-size:.95rem}
+  </style>
+</head>
+<body>
+  <p><a href="./">← Volver a Vuelve a ti</a></p>
+  <h1 id="page-title">Continúa tu inscripción</h1>
+  <p id="page-intro">Ya puedes seguir con la modalidad que elegiste. Si te llegó un correo para confirmar tu dirección, abre ese mensaje y pulsa el botón de confirmación.</p>
+  <p class="note">Enviar el formulario no realiza ningún cobro. El acceso se habilita al confirmar tu pago o tu membresía.</p>
+
+  <p class="change" id="change-choice" hidden><a href="confirmacion-inscripcion.html">Cambiar modalidad</a></p>
+  <section class="routes" aria-label="Modalidades">
+    <article class="route" id="route-pass">
+      <h2>Pase · US$47 · un pago</h2>
+      <p>Paga una vez en Hotmart. Después te acompañamos a entrar en Portal Origen.</p>
+      <a id="pass-link" href="https://pay.hotmart.com/O107941218B?off=qnyxi8fw" target="_blank" rel="noopener">Pagar el pase en Hotmart</a>
+    </article>
+    <article class="route" id="route-premium">
+      <h2>Premium · US$37 al mes</h2>
+      <p>Elige Premium US$37/mes en Skool. Incluye este programa y los beneficios de la membresía; se renueva mensualmente.</p>
+      <a id="premium-link" href="https://www.skool.com/portal-origen-5852/about" target="_blank" rel="noopener">Elegir Premium en Skool</a>
+    </article>
+    <article class="route" id="route-standard">
+      <h2>Pase Estándar · US$37</h2>
+      <p>Primero verificamos tu elegibilidad. Escríbenos para recibir los pasos que corresponden; no hay un checkout público de descuento.</p>
+      <a id="standard-link" href="https://wa.me/56983108065" target="_blank" rel="noopener">Pedir verificación</a>
+    </article>
+    <article class="route" id="route-member">
+      <h2>Premium o VIP activo</h2>
+      <p>Entra al programa con tu cuenta de Portal Origen. Si aparece bloqueado, pide ayuda; no vuelvas a comprar.</p>
+      <a id="member-link" href="https://www.skool.com/portal-origen-5852/classroom/a4167109" target="_blank" rel="noopener">Entrar a Portal Origen</a>
+    </article>
+  </section>
+
+  <section class="route" aria-label="Acompañamiento por WhatsApp"><h2>Te acompañamos a entrar y seguir el recorrido</h2><p>Si necesitas ayuda con tu inscripción o con Skool, <a href="https://wa.me/56983108065?text=Hola%2C%20necesito%20ayuda%20con%20Vuelve%20a%20ti." target="_blank" rel="noopener">escríbenos por WhatsApp</a> al <strong>+56 9 8310 8065</strong>.</p><p>¿Estás en un computador o tablet? Escanea el QR con tu teléfono.</p><img src="assets/soporte-whatsapp.png" width="160" height="160" alt="QR para abrir el WhatsApp de ayuda de School of Love"><p>Después de verificar tu pago o membresía, te indicaremos el grupo que corresponde para recibir enlaces y avisos de las once jornadas. También tendrás las instrucciones por correo.</p><p><a href="ayuda-whatsapp.html">Ver todas las opciones de ayuda</a></p></section>
+
+  <script src="registration-config.js"></script>
+  <script>
+    (() => {
+      const params = new URLSearchParams(location.search);
+      const key = params.get('modalidad');
+      const emailConfirmed = params.get('correo') === 'confirmado';
+      const allowed = new Set(['pass', 'premium', 'standard', 'member']);
+      const cfg = window.vuelveRegistration || {};
+      const d = cfg.destinations || {};
+      const support = (cfg.support || {}).whatsappUrl || 'https://wa.me/56983108065';
+      if (emailConfirmed) {
+        document.title = 'Tu correo está confirmado · Vuelve a ti';
+        document.querySelector('#page-title').textContent = 'Tu correo está confirmado';
+        document.querySelector('#page-intro').textContent = 'Tu dirección de correo ya está confirmada. Ahora puedes seguir con la modalidad que elegiste.';
+      }
+      if (!allowed.has(key)) return;
+      document.querySelectorAll('.route').forEach(route => { route.hidden = route.id !== `route-${key}`; });
+      document.querySelector('#change-choice').hidden = false;
+      if (key === 'premium' && d.premiumAbout) document.querySelector('#premium-link').href = d.premiumAbout;
+      if (key === 'pass' && d.pass) document.querySelector('#pass-link').href = d.pass;
+      if (key === 'member' && cfg.courseUrl) document.querySelector('#member-link').href = cfg.courseUrl;
+      if (key === 'standard') document.querySelector('#standard-link').href = support;
+    })();
+  </script>
+</body>
+</html>
