@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cuál de tus cuerpos está apagado | School of Love</title>
+  <meta name="description" content="Diez preguntas sobre tu día. En la tradición del Kundalini Yoga eres diez cuerpos, no dos. Descubre cuál se apagó de tanto vivir en once lugares a la vez.">
+  <meta name="theme-color" content="#1A0A2E">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_LA">
+  <meta property="og:title" content="Cuál de tus cuerpos está apagado">
+  <meta property="og:description" content="Diez preguntas sobre tu día y un espejo de la tradición del Kundalini Yoga. Dos minutos.">
+  <meta property="og:url" content="https://vuelveati.schooloflove.cl/cuerpos">
+  <meta property="og:image" content="https://vuelveati.schooloflove.cl/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .quiz { max-width: 640px; margin: 0 auto; padding: 28px 20px 72px; }
+    .quiz h1 { font-size: clamp(2rem, 7vw, 3rem); line-height: 1.12; margin: 18px 0 14px; }
+    .quiz .bajada { color: var(--texto-suave); font-size: 1.05rem; line-height: 1.6; }
+    .quiz .bajada + .bajada { margin-top: 12px; }
+    .progreso { height: 4px; background: var(--linea); border-radius: 99px; overflow: hidden; margin: 8px 0 26px; }
+    .progreso i { display: block; height: 100%; width: 0; background: var(--oro); transition: width .35s ease; }
+    .contador { font-size: .85rem; color: var(--oro-claro); font-weight: 600; letter-spacing: .02em; }
+    .pregunta { font-family: var(--display); font-size: clamp(1.45rem, 5vw, 1.9rem); line-height: 1.3; margin: 6px 0 20px; }
+    .opciones { display: grid; gap: 12px; }
+    .opcion { text-align: left; font: inherit; font-size: 1rem; line-height: 1.45; color: var(--crema); background: rgba(61, 27, 110, .32); border: 1px solid var(--linea); border-radius: 14px; padding: 16px 18px; cursor: pointer; transition: border-color .2s, background .2s; }
+    .opcion:hover, .opcion:focus-visible { border-color: var(--oro); background: rgba(61, 27, 110, .55); outline: none; }
+    .atras { margin-top: 18px; background: none; border: 0; color: var(--texto-suave); font: inherit; font-size: .9rem; cursor: pointer; padding: 6px 0; }
+    .resultado .etiqueta { font-size: .85rem; color: var(--oro-claro); font-weight: 600; letter-spacing: .03em; }
+    .resultado h2 { font-size: clamp(2rem, 7vw, 2.8rem); line-height: 1.15; margin: 6px 0 16px; max-width: none; }
+    .resultado p { color: var(--texto-suave); line-height: 1.65; margin: 0 0 14px; }
+    .resultado strong { color: var(--crema); }
+    .bloque { border: 1px solid var(--linea); border-radius: 16px; padding: 18px 18px 6px; margin: 18px 0; background: rgba(61, 27, 110, .25); }
+    .bloque h3 { font-family: var(--display); font-size: 1.25rem; margin: 0 0 8px; font-weight: normal; }
+    .segundo { font-size: .95rem; }
+    .compartir { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .compartir .boton { flex: 1 1 auto; text-align: center; }
+    .aviso { font-size: .82rem; color: var(--texto-suave); margin-top: 26px; line-height: 1.5; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <header class="contenedor marca">
+    <a href="/"><strong>School of Love</strong> · Vuelve a ti</a>
+  </header>
+
+  <main class="quiz">
+    <section id="inicio">
+      <p class="contador">Dos minutos · diez preguntas</p>
+      <h1>Cuál de tus cuerpos está apagado</h1>
+      <p class="bajada">Ese cansancio que no se va con vacaciones casi nunca es falta de tiempo. Es vivir en once lugares a la vez.</p>
+      <p class="bajada">En la tradición del Kundalini Yoga no eres solo cuerpo y mente: eres diez cuerpos. Cuando vives repartido, alguno se apaga, y lo notas en tu día. Responde pensando en las últimas semanas, sin buscar la respuesta correcta.</p>
+      <p style="margin-top:26px"><button class="boton" id="empezar" type="button">Empezar</button></p>
+    </section>
+
+    <section id="preguntas" hidden>
+      <p class="contador" id="contador"></p>
+      <div class="progreso" aria-hidden="true"><i id="barra"></i></div>
+      <h2 class="pregunta" id="pregunta"></h2>
+      <div class="opciones" id="opciones" role="group"></div>
+      <button class="atras" id="atras" type="button">← Volver a la anterior</button>
+    </section>
+
+    <section id="resultado" class="resultado" hidden>
+      <p class="etiqueta" id="r-etiqueta"></p>
+      <h2 id="r-nombre"></h2>
+      <p id="r-dia"></p>
+      <div class="bloque">
+        <h3>Cómo se nota en tu día</h3>
+        <p id="r-senal"></p>
+      </div>
+      <div class="bloque">
+        <h3>Lo que lo despierta</h3>
+        <p id="r-despierta"></p>
+      </div>
+      <p class="segundo" id="r-segundo"></p>
+      <p>Y cuando los diez vuelven a trabajar juntos aparece lo que la tradición llama el once: tú, en un solo lugar.</p>
+
+      <div class="tarjeta-form" id="inscripcion" style="margin-top:26px">
+        <h2>Empieza hoy a encenderlo</h2>
+        <p class="sub">Te mando gratis la práctica de esta semana del camino Vuelve a ti, guiada por Satya: quince minutos al día hasta el 11 de noviembre.</p>
+        <form id="form-inscripcion" novalidate>
+          <div class="campo">
+            <label for="nombre">Tu nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="given-name" required maxlength="80" placeholder="Cómo quieres que te llamemos">
+          </div>
+          <div class="campo">
+            <label for="email">Tu correo</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="120" placeholder="nombre@correo.com">
+          </div>
+          <button class="boton" type="submit" id="enviar">Recibir la práctica gratis</button>
+          <p class="estado" id="estado" role="status" aria-live="polite"></p>
+          <p class="nota">Recibes los correos del camino y del Portal 11:11, y novedades de School of Love. Te das de baja con un clic. <a href="/privacidad">Privacidad</a>.</p>
+        </form>
+      </div>
+
+      <div class="compartir">
+        <a class="boton secundario" id="wa" href="#" rel="noopener">Compartir por WhatsApp</a>
+        <button class="boton secundario" id="otra" type="button">Hacerlo de nuevo</button>
+      </div>
+      <p class="aviso">Es un espejo para mirarte, no un diagnóstico. El mapa de los diez cuerpos lo enseñó Yogi Bhajan dentro del Kundalini Yoga; aquí lo usamos como una forma de mirar tu día con más cariño.</p>
+    </section>
+  </main>
+
+  <footer class="contenedor pie">
+    <div>
+      <span>School of Love · Portal Origen</span>
+      <a href="/privacidad">Privacidad</a>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var CUERPOS = {
+      1: { nombre: 'El cuerpo del alma', senal: 'Cumples, haces lo correcto, pero algo no se enciende. Decides con la cabeza aunque el corazón diga otra cosa, y los días se parecen demasiado entre sí.', despierta: 'Volver a sentir antes de pensar. Prácticas que abren el pecho y te devuelven al corazón, y pequeños gestos que haces solo porque los amas.' },
+      2: { nombre: 'La mente protectora', senal: 'Te cuesta poner un límite o decir que no. Dices que sí y después te arrepientes, o te defiendes antes de escuchar. Esta mente existe para cuidarte, y cuando se apaga quedas expuesto.', despierta: 'Una pausa antes de responder. Escuchar la primera señal del cuerpo, esa que sabe antes que tú si algo te hace bien.' },
+      3: { nombre: 'La mente que ve lo posible', senal: 'Ves primero lo que puede salir mal. Postergas, te desanimas fácil y te cuesta imaginar qué es posible para ti.', despierta: 'Un paso pequeño cada día, aunque no estés seguro del resultado. Esta mente se enciende con acción, no con planes.' },
+      4: { nombre: 'La mente neutral', senal: 'Das vueltas a las decisiones durante días y repasas lo que pasó una y otra vez. Hay tantas voces opinando que no escuchas la tuya.', despierta: 'Meditación: un espacio entre lo que pasa y lo que respondes. Desde ahí se decide sin miedo y sin culpa.' },
+      5: { nombre: 'El cuerpo físico', senal: 'Tu cuerpo va al final de la lista. Lo usas para cumplir con todos y le das lo que sobra, si sobra.', despierta: 'Movimiento sostenido y un equilibrio honesto entre lo que das y lo que recibes. El cuerpo es el templo donde ocurre todo lo demás.' },
+      6: { nombre: 'La línea de arco', senal: 'Te dispersas. Empiezas mil cosas, te cuesta mantener la atención en una y te prometes cosas que no cumples.', despierta: 'Foco y palabra: una sola promesa pequeña que sí cumples. Cada vez que la cumples, tu atención vuelve a juntarse.' },
+      7: { nombre: 'El aura', senal: 'Absorbes el ambiente. Sales agotado de lugares con mucha gente y lo que sienten otros se te queda pegado.', despierta: 'Elegir qué entra y qué no. Prácticas que te devuelven a tu propio espacio y te dejan sentir que estás protegido.' },
+      8: { nombre: 'El cuerpo pránico', senal: 'Cansancio que no se va. La energía se te acaba temprano, respiras corto y el miedo aparece más de lo que quisieras.', despierta: 'La respiración. En la tradición, la fuerza de vida viaja con el aliento: cuando aprendes a respirar, la energía y la valentía vuelven.' },
+      9: { nombre: 'El cuerpo sutil', senal: 'Impaciencia. Quieres que todo vaya más rápido, reaccionas antes de entender y te pierdes lo que no se dice.', despierta: 'Sostener una práctica en el tiempo. La calma y la finura llegan con la constancia, no con la intensidad.' },
+      10: { nombre: 'El cuerpo radiante', senal: 'Te achicas para no incomodar. Hay algo que sabes que tienes que hacer y no te atreves, y a veces dejas las cosas a medias.', despierta: 'Coraje y compromiso: terminar lo que empiezas. Cuando este cuerpo se enciende, potencia a los otros nueve.' }
+    };
+    var P = [
+      { q: 'Cuando termina tu día, lo que más sientes es…', o: [
+        ['Cansancio en el cuerpo, como si la energía se hubiera ido temprano', [8, 5]],
+        ['Que hice muchas cosas, pero ninguna era realmente mía', [1, 6]],
+        ['La cabeza todavía dando vueltas a lo que pasó', [4, 9]],
+        ['Que otra vez quedó algo importante sin terminar', [10, 3]] ] },
+      { q: 'Frente a una decisión importante, tú…', o: [
+        ['Le doy vueltas durante días y no me decido', [4]],
+        ['Veo todo lo que podría salir mal y me freno', [3]],
+        ['Digo que sí rápido y después me arrepiento', [2, 6]],
+        ['Decido con la cabeza aunque el corazón diga otra cosa', [1]] ] },
+      { q: 'En un lugar con mucha gente o con un ambiente tenso…', o: [
+        ['Absorbo todo y salgo agotado', [7]],
+        ['Me cuesta decir que no o poner un límite', [2]],
+        ['Me achico y prefiero pasar desapercibido', [10]],
+        ['Me impaciento y quiero que todo vaya más rápido', [9]] ] },
+      { q: 'Tu relación con el cuerpo hoy es…', o: [
+        ['Lo dejo para después: primero está todo lo demás', [5]],
+        ['Me muevo, pero me falta aire y energía', [8]],
+        ['Empiezo hábitos con ganas y los abandono', [10, 6]],
+        ['Lo cuido, pero lo siento tenso, en alerta', [7, 2]] ] },
+      { q: 'Cuando alguien te critica…', o: [
+        ['Me lo llevo a casa y lo repaso una y otra vez', [4, 9]],
+        ['Me defiendo antes de escuchar', [2]],
+        ['Siento que me apago y dudo de mí', [10, 7]],
+        ['Lo acepto, pero algo en mí se cierra', [1]] ] },
+      { q: 'Lo que más te cuesta sostener es…', o: [
+        ['La atención en una sola cosa', [6]],
+        ['El ánimo cuando algo no resulta', [3]],
+        ['La calma cuando las cosas van lento', [9]],
+        ['La energía hasta el final del día', [8]] ] },
+      { q: 'Cuando miras tu vida desde afuera, sientes que…', o: [
+        ['Estoy cumpliendo, pero no estoy viviendo', [1]],
+        ['Hay algo que sé que tengo que hacer y no me atrevo', [10]],
+        ['Hay demasiadas voces de otros en mis decisiones', [4, 7]],
+        ['Me cuesta ver qué es posible para mí', [3]] ] },
+      { q: 'Tu palabra contigo…', o: [
+        ['Me prometo cosas y no las cumplo', [6]],
+        ['La cumplo con los demás; conmigo, no', [5, 1]],
+        ['La cumplo, pero a costa de mi descanso', [8, 5]],
+        ['Prefiero no prometerme nada', [3, 10]] ] },
+      { q: 'En una conversación difícil…', o: [
+        ['Reacciono y después me arrepiento', [9, 4]],
+        ['Me callo para no generar conflicto', [2, 10]],
+        ['Digo lo que pienso, pero sin cuidado', [7]],
+        ['Me desconecto y dejo de sentir', [1, 8]] ] },
+      { q: 'Si este año pudieras recuperar una sola cosa, sería…', o: [
+        ['Energía para vivir lo que ya tengo', [8]],
+        ['Claridad para decidir sin miedo', [4, 2]],
+        ['Valentía para mostrarme como soy', [10]],
+        ['Sentir que mi vida tiene sentido', [1]] ] }
+    ];
+    var veces = {}; P.forEach(function (p) { p.o.forEach(function (o) { o[1].forEach(function (b) { veces[b] = (veces[b] || 0) + 1; }); }); });
+    var resp = [], i = 0;
+    var $ = function (id) { return document.getElementById(id); };
+
+    function mostrar() {
+      var p = P[i];
+      $('contador').textContent = 'Pregunta ' + (i + 1) + ' de ' + P.length;
+      $('barra').style.width = (i / P.length * 100) + '%';
+      $('pregunta').textContent = p.q;
+      var cont = $('opciones'); cont.innerHTML = '';
+      p.o.forEach(function (o, k) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'opcion'; b.textContent = o[0];
+        b.addEventListener('click', function () { resp[i] = k; i++; if (i < P.length) mostrar(); else resultado(); });
+        cont.appendChild(b);
+      });
+      $('atras').hidden = i === 0;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function calcular() {
+      var s = {}; for (var b = 1; b <= 10; b++) s[b] = 0;
+      resp.forEach(function (k, n) { P[n].o[k][1].forEach(function (b) { s[b] += 1; }); });
+      var orden = Object.keys(s).map(Number).sort(function (a, b) { return (s[b] / veces[b]) - (s[a] / veces[a]) || s[b] - s[a] || a - b; });
+      return orden;
+    }
+    function fecha(b) { var dia = 12 - b; return { dia: dia, fecha: (13 + dia) + ' de noviembre' }; }
+    function resultado() {
+      var orden = calcular(), b = orden[0], c = CUERPOS[b], f = fecha(b), b2 = orden[1];
+      $('preguntas').hidden = true; $('resultado').hidden = false;
+      $('r-etiqueta').textContent = 'El que más te pide volver';
+      $('r-nombre').textContent = c.nombre;
+      $('r-dia').innerHTML = 'Es tu cuerpo número ' + b + '. En el retiro <strong>Del 11 al Uno</strong>, que va del 11 al 1, un cuerpo por día, se trabaja el <strong>día ' + f.dia + ', el ' + f.fecha + '</strong>.';
+      $('r-senal').textContent = c.senal;
+      $('r-despierta').textContent = c.despierta;
+      $('r-segundo').innerHTML = 'Le sigue <strong>' + CUERPOS[b2].nombre.toLowerCase() + '</strong>. Suelen apagarse juntos: cuando uno vuelve, el otro también.';
+      var txt = 'Hice este test de dos minutos y me salió que mi cuerpo más apagado es ' + c.nombre.toLowerCase() + '. Mira cuál es el tuyo: https://vuelveati.schooloflove.cl/cuerpos';
+      $('wa').href = 'https://wa.me/?text=' + encodeURIComponent(txt);
+      try { sessionStorage.setItem('vat_cuerpo', String(b)); } catch (e) {}
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    $('empezar').addEventListener('click', function () { $('inicio').hidden = true; $('preguntas').hidden = false; i = 0; resp = []; mostrar(); });
+    $('atras').addEventListener('click', function () { if (i > 0) { i--; mostrar(); } });
+    $('otra').addEventListener('click', function () { $('resultado').hidden = true; $('inicio').hidden = false; window.scrollTo({ top: 0 }); });
+
+    // Formulario: el mismo del camino (MailerLite 200852478258841299)
+    var ENDPOINT = 'https://assets.mailerlite.com/jsonp/2197783/forms/200852478258841299/subscribe';
+    var form = $('form-inscripcion'), boton = $('enviar'), estado = $('estado');
+    function aviso(t) { estado.textContent = t; estado.className = 'estado error'; }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (boton.disabled) return;
+      var nombre = form.nombre.value.trim();
+      var email = form.email.value.replace(/^\s*mailto:/i, '').replace(/\s+/g, '');
+      form.email.value = email;
+      if (!nombre) { aviso('Escribe tu nombre para saber cómo llamarte.'); form.nombre.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { aviso('Revisa tu correo: falta algo, por ejemplo nombre@correo.com.'); form.email.focus(); return; }
+      boton.disabled = true; boton.textContent = 'Abriendo el camino…'; estado.textContent = ''; estado.className = 'estado';
+      var fd = new FormData();
+      fd.append('fields[name]', nombre); fd.append('fields[email]', email); fd.append('ml-submit', '1'); fd.append('anticsrf', 'true');
+      var controller = new AbortController(), timer = setTimeout(function () { controller.abort(); }, 15000);
+      fetch(ENDPOINT, { method: 'POST', body: fd, signal: controller.signal, referrerPolicy: 'no-referrer' })
+        .then(function (r) { return r.json().then(function (j) { if (r.ok && j.success === true) { try { sessionStorage.setItem('vat_nombre', nombre.split(' ')[0]); localStorage.setItem('vat_practica_v2', '1'); } catch (err) {} window.location.assign('/gracias?desde=cuerpos'); } else throw new Error(); }); })
+        .catch(function () { boton.disabled = false; boton.textContent = 'Recibir la práctica gratis'; aviso('No pudimos confirmar tu inscripción. Revisa tu correo antes de volver a enviar o escríbenos a satya@schooloflove.cl.'); })
+        .finally(function () { clearTimeout(timer); });
+    });
+  })();
+  </script>
+</body>
+</html>
