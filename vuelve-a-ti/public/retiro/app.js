@@ -136,6 +136,21 @@ enrollmentForm.addEventListener('submit', event => {
   submit.disabled = true;
   document.querySelector('.loading').hidden = false;
   document.querySelector('#offer-status').textContent = 'Estamos enviando tus datos. Revisa la confirmación del formulario para seguir con tu modalidad. Todavía no has realizado ningún pago.';
+  // CSP-safe submit: the page CSP only allows scripts from 'self', so MailerLite's webforms.min.js
+  // cannot load. Post the same fields with fetch (connect-src allows assets.mailerlite.com), as the landing does.
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 15000);
+  fetch(enrollmentForm.action, { method: 'POST', body: new FormData(enrollmentForm), signal: controller.signal, referrerPolicy: 'no-referrer' })
+    .then(r => r.json().then(j => { if (r.ok && j.success === true) window.ml_webform_success_46869291(); else throw new Error('no-ack'); }))
+    .catch(() => {
+      captureState.pending = false;
+      document.querySelector('.loading').hidden = true;
+      submit.disabled = false;
+      document.querySelector('#offer-status').textContent = 'No pudimos confirmar el registro. Revisa los datos o escríbenos por WhatsApp.';
+    })
+    .finally(() => clearTimeout(timer));
 }, true);
 document.querySelector('#enroll-whatsapp').addEventListener('input', event => event.target.setCustomValidity(''));
 window.ml_webform_success_46869291 = function() {
@@ -154,11 +169,6 @@ window.ml_webform_success_46869291 = function() {
   destination.textContent = dialog.dataset.offer === 'member' ? 'Ver mi acceso incluido' : 'Continuar con mi modalidad';
   next.focus();
 };
-if (registrationConfig.captureEnabled) {
-  const script = document.createElement('script');
-  script.src = 'https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519';
-  script.async = true; document.head.append(script);
-}
 
 const enrollmentError = enrollmentForm.querySelector('.ml-server-error');
 new MutationObserver(() => {
