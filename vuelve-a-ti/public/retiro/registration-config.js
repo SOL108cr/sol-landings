@@ -1,8 +1,8 @@
-/* Candidate wiring only. Production remains disabled until purchase/access E2E and consent review pass. */
+/* Apertura 26-oct-2026: captura encendida (Satya decidió abrir sin compra de prueba). Cierre: lun 16-nov 23:59 Chile. */
 window.vuelveRegistration = {
-  "captureEnabled": false,
-  "verificationEnabled": false,
-  "candidateMode": true,
+  "captureEnabled": true,
+  "verificationEnabled": true,
+  "candidateMode": false,
   "captureTransport": "native-mailerlite-form-post-json",
   "acknowledgement": "native-provider-success-callback; CRM-readback-verified-20261008",
   "dedupe": {
