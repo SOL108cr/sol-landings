@@ -24,7 +24,7 @@
       <section class="paso principal" aria-labelledby="t-practica"><h2 id="t-practica">Empieza con la práctica de esta semana</h2><p>La práctica en sí dura unos quince minutos al día. El primer día, abre el video completo, con la explicación. Desde el segundo, la diaria. En la página encontrarás el aviso, la versión suave y el escalón de 3, 7 u 11 minutos.</p><div class="acciones"><a class="boton" href="/practica?ya=1">Abrir la práctica</a><a class="boton secundario" href="/guia">Leer la Guía</a></div></section>
       <section class="paso" aria-labelledby="t-circulo">
         <h2 id="t-circulo">Entra al círculo de WhatsApp</h2>
-        <p>«Vuelve a ti · Camino al 11:11». Ahí escribimos solo Satya y Navkiran: la práctica del lunes, un mensaje breve de martes a viernes y el adelanto del domingo. Es un grupo de WhatsApp, así que los demás integrantes pueden ver tu número.</p>
+        <p>«Vuelve a ti · Camino al 11:11». Ahí te llegan el enlace del encuentro de cada lunes, la práctica nueva de la semana, una pregunta para acompañarte y el adelanto del domingo. Pocos mensajes, con sentido. Es un grupo de WhatsApp, así que los demás integrantes pueden ver tu número.</p>
         <div class="acciones">
           <a class="boton" href="https://chat.whatsapp.com/KXnWn2tNNPdKiQvT0Jj8Vn" rel="noopener">Entrar al círculo</a>
         </div>
@@ -41,7 +41,7 @@
 
       <section class="paso" aria-labelledby="t-lunes">
         <h2 id="t-lunes">El próximo lunes</h2>
-        <p id="proximo">Satsang en vivo a las 13:00 de Chile. El enlace te llega por correo ese mismo día.</p>
+        <p id="proximo">Encuentro en vivo a las 13:00 de Chile. El enlace te llega por correo ese mismo día.</p>
         <div class="acciones">
           <a class="boton secundario" href="/lunes-del-camino.ics">Agregar los lunes</a>
         </div>
@@ -70,7 +70,7 @@
     var ahora = Date.now() - 90 * 60 * 1000;
     for (var i = 0; i < lunes.length; i++) {
       if (new Date(lunes[i][0]).getTime() > ahora) {
-        document.getElementById('proximo').textContent = lunes[i][1] + ', ' + lunes[i][2] + '. Satsang en vivo a las 13:00 de Chile y ' + lunes[i][3] + ' de España. El enlace te llega por correo ese mismo día.';
+        document.getElementById('proximo').textContent = lunes[i][1] + ', ' + lunes[i][2] + '. Encuentro en vivo a las 13:00 de Chile y ' + lunes[i][3] + ' de España. El enlace te llega por correo ese mismo día.';
         return;
       }
     }
