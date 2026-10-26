@@ -18,18 +18,19 @@
       host.className = 'video';
       var iframe = document.createElement('iframe');
       iframe.src = 'https://www.youtube-nocookie.com/embed/' + config.id;
-      iframe.title = (/completa$/.test(tipo) ? 'Práctica completa' : 'Práctica diaria') + (/^s2/.test(tipo) ? ' de la semana 2' : ' de la semana 1') + ' con Satya';
+      var sem = /^s3/.test(tipo) ? '3' : (/^s2/.test(tipo) ? '2' : '1');
+      iframe.title = (/completa$/.test(tipo) ? 'Práctica completa' : 'Práctica diaria') + ' de la semana ' + sem + ' con Satya';
       iframe.loading = 'lazy'; iframe.allow = 'encrypted-media; picture-in-picture; fullscreen'; iframe.allowFullscreen = true;
       iframe.referrerPolicy = 'strict-origin-when-cross-origin'; host.replaceChildren(iframe);
       if (config.duracion) document.getElementById('duracion-' + tipo).textContent = 'Video: ' + config.duracion + '.';
     } else {
-      host.className = 'video-pendiente'; host.textContent = /^s2/.test(tipo) ? (tipo === 's2completa' ? 'La práctica de esta semana llega el martes 20. Mientras tanto, puedes hacer la de la semana pasada, más abajo.' : 'La versión diaria llega el martes 20 en la noche. Mientras tanto, haz la completa o elige la versión suave.') : (tipo === 'completa' ? 'Estamos preparando la práctica completa. Vuelve a esta misma página para verla.' : 'La versión diaria estará aquí cuando esté lista. Mientras tanto puedes volver a la completa y elegir la versión suave.');
+      host.className = 'video-pendiente'; host.textContent = /^s3/.test(tipo) ? 'La práctica de esta semana llega el martes 27. Mientras tanto, puedes hacer la de la semana pasada, más abajo.' : /^s2/.test(tipo) ? (tipo === 's2completa' ? 'La práctica de esta semana llega el martes 20. Mientras tanto, puedes hacer la de la semana pasada, más abajo.' : 'La versión diaria llega el martes 20 en la noche. Mientras tanto, haz la completa o elige la versión suave.') : (tipo === 'completa' ? 'Estamos preparando la práctica completa. Vuelve a esta misma página para verla.' : 'La versión diaria estará aquí cuando esté lista. Mientras tanto puedes volver a la completa y elegir la versión suave.');
     }
   }
   function abrir(guardar, enfocar) {
     document.getElementById('bloque-form').hidden = true;
     document.getElementById('bloque-practica').hidden = false;
-    ['s2completa','s2diaria','completa','diaria'].forEach(video);
+    ['s3completa','s3diaria','s2completa','s2diaria','completa','diaria'].forEach(video);
     if (guardar) { try { localStorage.setItem(KEY, '1'); } catch (e) {} }
     if (enfocar) document.getElementById('antes').focus();
   }
