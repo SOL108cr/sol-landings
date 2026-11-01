@@ -179,3 +179,15 @@ new MutationObserver(() => {
     document.querySelector('#offer-status').textContent = 'No pudimos confirmar el registro. Revisa los datos o escríbenos por WhatsApp.';
   }
 }).observe(enrollmentError, {childList:true,subtree:true,characterData:true});
+
+// Video del retiro: fachada con póster local; al tocar se carga el iframe youtube-nocookie (no listado).
+const filmButton = document.querySelector('#film-btn');
+if (filmButton) filmButton.addEventListener('click', () => {
+  const frame = document.createElement('iframe');
+  frame.src = 'https://www.youtube-nocookie.com/embed/H0Nt_mNUfIc?rel=0&autoplay=1';
+  frame.title = 'Del 11 al Uno · el retiro · School of Love';
+  frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+  filmButton.replaceWith(frame);
+  try { frame.focus(); } catch (e) {}
+});
