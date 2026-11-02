@@ -1,0 +1,22 @@
+/* /mente · regalo «Mente protectora». Usa styles.css + camino.css (Templo Nocturno). */
+.mente h1 { max-width: 18ch; }
+.visualmente-oculto { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.mente .duracion { margin-top: 10px; }
+.tres { list-style: none; margin: 8px 0 22px; padding: 0; display: grid; gap: 12px; }
+.tres li { border: 1px solid var(--linea); border-radius: 16px; padding: 16px 18px; background: rgba(61, 27, 110, 0.28); }
+.tres strong { display: block; font-family: var(--display); font-weight: 400; font-size: 1.35rem; line-height: 1.3; color: var(--oro-claro); }
+.tres span { display: block; margin-top: 4px; color: var(--texto-suave); font-size: 0.98rem; }
+.mente .tarjeta h2 { margin-top: 0; }
+.mente .tarjeta .sub { color: var(--texto-suave); margin: 0 0 18px; }
+.casilla { display: flex; gap: 12px; align-items: flex-start; min-height: 44px; padding: 10px 0 14px; font-size: 0.95rem; line-height: 1.5; cursor: pointer; }
+.casilla input { flex: 0 0 auto; width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--oro); cursor: pointer; }
+.casilla input:focus-visible { outline: 3px solid var(--oro-claro); outline-offset: 3px; }
+.trampa { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.frases ol { margin: 0 0 18px; padding-left: 1.4em; }
+.frases li { margin: 0 0 10px; padding-left: 4px; }
+.frases li::marker { color: var(--oro-claro); font-weight: 600; }
+.quien p { color: var(--texto-suave); font-size: 0.98rem; }
+.pie a { min-height: 44px; display: inline-flex; align-items: center; }
+@media (min-width: 760px) { .tres { grid-template-columns: repeat(3, 1fr); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+.pie span { min-height: 44px; display: inline-flex; align-items: center; }
