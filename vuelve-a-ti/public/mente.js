@@ -50,15 +50,28 @@
   if (acceso) { abrir(false, true, false); return; }
   try { if (localStorage.getItem(KEY) === '1') { abrir(false, true, false); return; } } catch (e) {}
 
-  function enviar(formId, n, e) {
+  // Canal de llegada (campo origen_mp): utm_source; si no hay, el dominio del referrer (sin ruta
+  // ni parámetros, para no guardar datos de la otra página); si tampoco hay, «directo».
+  function canal() {
+    var u = (q.get('utm_source') || '').trim().toLowerCase().replace(/[^a-z0-9._-]/g, '').slice(0, 60);
+    if (u) return u;
+    try { if (document.referrer) { var h = new URL(document.referrer).hostname.toLowerCase().slice(0, 60); if (h) return h; } } catch (err) {}
+    return 'directo';
+  }
+  var ORIGEN = canal();
+
+  function enviar(formId, n, e, sinOrigen) {
     var fd = new FormData();
     fd.append('fields[name]', n); fd.append('fields[email]', e);
+    if (!sinOrigen) fd.append('fields[origen_mp]', ORIGEN);
     fd.append('ml-submit', '1'); fd.append('anticsrf', 'true');
     var controller = new AbortController(), timer = setTimeout(function () { controller.abort(); }, 15000);
     return fetch(BASE + formId + '/subscribe', {method: 'POST', body: fd, signal: controller.signal, referrerPolicy: 'no-referrer'})
       .then(function (r) { return r.json().then(function (j) { return r.ok && j.success === true; }); })
       .catch(function () { return false; })
-      .finally(function () { clearTimeout(timer); });
+      .finally(function () { clearTimeout(timer); })
+      // Si MailerLite rechaza el envío, un reintento sin origen_mp: el regalo no depende de la medición.
+      .then(function (ok) { return ok || sinOrigen ? ok : enviar(formId, n, e, true); });
   }
   function aviso(texto, campo) {
     status.textContent = texto; status.className = 'estado error';
