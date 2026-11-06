@@ -173,6 +173,8 @@ html[data-fase="p4"] .solo-retiro{display:none!important}
 .horas th,.horas td{padding:8px 0;border-top:1px solid rgba(212,175,110,.25);text-align:left;vertical-align:top;font-weight:400}
 .horas th{width:68px;font-weight:600;color:var(--hueso)}
 .portal .tu-hora{color:var(--crema-noche)}
+.retrans{font-size:14px;line-height:1.55;margin-top:14px;max-width:46ch}
+.portal .retrans{color:var(--crema-noche)}
 .guardar{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;font:600 14px var(--sans);text-decoration-color:var(--oro-claro)}
 .ya-fue{margin-top:16px;padding:12px 14px;border-left:2px solid var(--oro-claro);background:rgba(244,236,221,.06)}
 
