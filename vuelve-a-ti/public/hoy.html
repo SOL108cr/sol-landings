@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hoy en vivo: un día del retiro | School of Love</title>
+  <title>Mañana lunes, en vivo: los diez cuerpos y el once | School of Love</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#1A0A2E">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/styles.css">
   <style>
     .hoy { padding-top: 36px; padding-bottom: 48px; max-width: 560px; margin-left: auto; margin-right: auto; }
-    .hoy h1 { max-width: 16ch; }
+    .hoy h1 { max-width: 20ch; }
     .hoy .horas { margin: 22px 0 26px; padding-left: 14px; border-left: 2px solid var(--oro); color: var(--crema); font-size: 0.98rem; line-height: 1.6; }
     .hoy .listo h2 { font-size: 1.7rem; max-width: none; }
     .hoy .boton-zoom { display: block; width: 100%; box-sizing: border-box; text-align: center; text-decoration: none; margin-top: 20px; padding: 18px 20px; font-size: 1.1rem; }
@@ -29,9 +29,10 @@
     <a href="/"><strong>School of Love</strong> · Vuelve a ti</a>
   </header>
   <main class="contenedor hoy">
-    <h1>Hoy en vivo: un día del retiro</h1>
-    <p class="bajada">Una hora de práctica juntos para volver a ti: dónde se te va la energía y cómo recuperarla. Gratis.</p>
-    <p class="horas">Domingo 8 de noviembre · México 08:00 · Colombia y Perú 09:00 · Chile y Argentina 11:00 · España 15:00</p>
+    <p class="linea chica" id="nota-dom" hidden>El encuentro del domingo se pasó a este lunes.</p>
+    <h1>Mañana lunes, en vivo: los diez cuerpos y el once</h1>
+    <p class="bajada">En el Satsang de luna nueva recorremos el mapa de los diez cuerpos más el once, con foco en el cuerpo 9, el cuerpo sutil, y hacemos una práctica juntos. Gratis.</p>
+    <p class="horas">Lunes 9 de noviembre · México 10:00 · Colombia y Perú 11:00 · Chile y Argentina 13:00 · España 17:00</p>
 
     <div id="vista-form">
       <div class="tarjeta-form">
@@ -44,7 +45,7 @@
             <label for="email">Tu correo</label>
             <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="120" placeholder="nombre@correo.com" aria-describedby="estado">
           </div>
-          <button class="boton" type="submit" id="enviar">Quiero entrar</button>
+          <button class="boton" type="submit" id="enviar">Quiero estar</button>
           <p class="estado" id="estado" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -52,13 +53,14 @@
 
     <section id="vista-listo" class="listo" hidden aria-live="polite">
       <div id="bloque-zoom">
-        <h2>Listo, ya estás dentro 🙏</h2>
-        <a class="boton boton-zoom" id="zoom" href="https://vuelveati.schooloflove.cl/domingo" rel="noopener">Entrar al Zoom</a>
-        <p class="linea">No necesitas cámara ni haber venido antes. La sala abre a las 10:55 de Chile.</p>
+        <h2>Listo, ya estás en el camino 🙏</h2>
+        <a class="boton boton-zoom" id="zoom" href="https://vuelveati.schooloflove.cl/lunes" rel="noopener">Entrar al Satsang</a>
+        <p class="linea">No necesitas cámara ni haber venido antes. La sala abre a las 12:55 de Chile.</p>
+        <p class="linea">Y el miércoles 11 es el Portal 11:11, en vivo y gratis: ahí elegimos la semilla que el retiro Del 11 al Uno, del 14 al 24 de noviembre, ayuda a regar. <a href="https://vuelveati.schooloflove.cl/retiro">Conocer el retiro</a></p>
         <p class="linea chica" id="correo-nota">También te llega por correo el camino Vuelve a ti, con la práctica de esta semana.</p>
       </div>
       <div id="bloque-fin" hidden>
-        <h2>El encuentro de hoy ya terminó.</h2>
+        <h2>El Satsang de hoy ya terminó.</h2>
         <p class="linea">El miércoles 11 es el Portal 11:11, en vivo y gratis.</p>
         <a class="boton boton-zoom" href="https://vuelveati.schooloflove.cl/">Ver el Portal 11:11</a>
       </div>
@@ -69,8 +71,10 @@
   (function () {
     var ENDPOINT = 'https://assets.mailerlite.com/jsonp/2197783/forms/200852478258841299/subscribe';
     var VISTA = 'https://assets.mailerlite.com/jsonp/2197783/forms/200852478258841299/takel';
-    var FIN = Date.UTC(2026, 10, 8, 15, 30, 0); // dom 8-nov 12:30 Chile
-    var CLAVE = 'vat_hoy_dom8';
+    var FIN = Date.UTC(2026, 10, 9, 17, 30, 0); // lun 9-nov 14:30 Chile
+    var ANTES = Date.UTC(2026, 10, 9, 3, 0, 0); // hasta lun 9-nov 00:00 Chile
+    if (Date.now() < ANTES) document.getElementById('nota-dom').hidden = false;
+    var CLAVE = 'vat_hoy_lun9';
     var form = document.getElementById('form-hoy');
     var boton = document.getElementById('enviar');
     var estado = document.getElementById('estado');
