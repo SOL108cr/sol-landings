@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hoy en vivo: un día del retiro | School of Love</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1A0A2E">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .hoy { padding-top: 36px; padding-bottom: 48px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .hoy h1 { max-width: 16ch; }
+    .hoy .horas { margin: 22px 0 26px; padding-left: 14px; border-left: 2px solid var(--oro); color: var(--crema); font-size: 0.98rem; line-height: 1.6; }
+    .hoy .listo h2 { font-size: 1.7rem; max-width: none; }
+    .hoy .boton-zoom { display: block; width: 100%; box-sizing: border-box; text-align: center; text-decoration: none; margin-top: 20px; padding: 18px 20px; font-size: 1.1rem; }
+    .hoy .linea { margin: 16px 0 0; color: var(--texto-suave); }
+    .hoy .linea.chica { font-size: 0.92rem; }
+    .hoy .linea a { color: var(--oro-claro); }
+    .hoy [hidden] { display: none !important; }
+    .hoy { overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <header class="contenedor marca">
+    <a href="/"><strong>School of Love</strong> · Vuelve a ti</a>
+  </header>
+  <main class="contenedor hoy">
+    <h1>Hoy en vivo: un día del retiro</h1>
+    <p class="bajada">Una hora de práctica juntos para volver a ti: dónde se te va la energía y cómo recuperarla. Gratis.</p>
+    <p class="horas">Domingo 8 de noviembre · México 08:00 · Colombia y Perú 09:00 · Chile y Argentina 11:00 · España 15:00</p>
+
+    <div id="vista-form">
+      <div class="tarjeta-form">
+        <form id="form-hoy" novalidate>
+          <div class="campo">
+            <label for="nombre">Tu nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="given-name" required maxlength="80" placeholder="Cómo te llamo" aria-describedby="estado">
+          </div>
+          <div class="campo">
+            <label for="email">Tu correo</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="120" placeholder="nombre@correo.com" aria-describedby="estado">
+          </div>
+          <button class="boton" type="submit" id="enviar">Quiero entrar</button>
+          <p class="estado" id="estado" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <section id="vista-listo" class="listo" hidden aria-live="polite">
+      <div id="bloque-zoom">
+        <h2>Listo, ya estás dentro 🙏</h2>
+        <a class="boton boton-zoom" id="zoom" href="https://vuelveati.schooloflove.cl/domingo" rel="noopener">Entrar al Zoom</a>
+        <p class="linea">No necesitas cámara ni haber venido antes. La sala abre a las 10:55 de Chile.</p>
+        <p class="linea chica" id="correo-nota">También te llega por correo el camino Vuelve a ti, con la práctica de esta semana.</p>
+      </div>
+      <div id="bloque-fin" hidden>
+        <h2>El encuentro de hoy ya terminó.</h2>
+        <p class="linea">El miércoles 11 es el Portal 11:11, en vivo y gratis.</p>
+        <a class="boton boton-zoom" href="https://vuelveati.schooloflove.cl/">Ver el Portal 11:11</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    var ENDPOINT = 'https://assets.mailerlite.com/jsonp/2197783/forms/200852478258841299/subscribe';
+    var VISTA = 'https://assets.mailerlite.com/jsonp/2197783/forms/200852478258841299/takel';
+    var FIN = Date.UTC(2026, 10, 8, 15, 30, 0); // dom 8-nov 12:30 Chile
+    var CLAVE = 'vat_hoy_dom8';
+    var form = document.getElementById('form-hoy');
+    var boton = document.getElementById('enviar');
+    var estado = document.getElementById('estado');
+    var vForm = document.getElementById('vista-form');
+    var vListo = document.getElementById('vista-listo');
+    var ETIQUETA = boton.textContent;
+
+    function mostrarListo(conCorreo) {
+      var terminado = Date.now() >= FIN;
+      document.getElementById('bloque-zoom').hidden = terminado;
+      document.getElementById('bloque-fin').hidden = !terminado;
+      document.getElementById('correo-nota').hidden = !conCorreo;
+      vForm.hidden = true; vListo.hidden = false;
+      try { (terminado ? vListo.querySelector('h2:not([hidden])') : document.getElementById('zoom')).focus({ preventScroll: true }); } catch (e) {}
+    }
+
+    var yaInscrito = false;
+    try { yaInscrito = localStorage.getItem(CLAVE) === '1'; } catch (e) {}
+    if (yaInscrito) mostrarListo(false);
+    else { try { fetch(VISTA, { mode: 'no-cors', referrerPolicy: 'no-referrer' }).catch(function () {}); } catch (e) {} }
+
+    function datos(nombre, email) {
+      var fd = new FormData();
+      fd.append('fields[name]', nombre);
+      fd.append('fields[email]', email);
+      fd.append('ml-submit', '1');
+      fd.append('anticsrf', 'true');
+      return fd;
+    }
+    function aviso(texto, campo) { estado.textContent = texto; estado.className = 'estado error'; if (campo) campo.setAttribute('aria-invalid', 'true'); }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (boton.disabled) return;
+      form.nombre.removeAttribute('aria-invalid'); form.email.removeAttribute('aria-invalid');
+      var nombre = form.nombre.value.trim();
+      var email = form.email.value.replace(/^\s*mailto:/i, '').replace(/\s+/g, '');
+      form.email.value = email;
+      if (!nombre) { aviso('Escribe tu nombre para saber cómo llamarte.', form.nombre); form.nombre.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { aviso('Revisa tu correo: falta algo, por ejemplo nombre@correo.com.', form.email); form.email.focus(); return; }
+      boton.disabled = true; boton.textContent = 'Un momento…'; form.setAttribute('aria-busy', 'true'); estado.textContent = ''; estado.className = 'estado';
+
+      function exito() {
+        try { localStorage.setItem(CLAVE, '1'); } catch (err) {}
+        mostrarListo(true);
+      }
+      function fallo(texto) {
+        boton.disabled = false; boton.textContent = ETIQUETA; form.removeAttribute('aria-busy'); aviso(texto);
+      }
+
+      var controller = new AbortController();
+      var timer = setTimeout(function () { controller.abort(); }, 15000);
+      fetch(ENDPOINT, { method: 'POST', body: datos(nombre, email), signal: controller.signal, referrerPolicy: 'no-referrer' })
+        .then(function (r) { return r.json().then(function (j) { if (r.ok && j.success === true) exito(); else throw new Error('Sin confirmación'); }); })
+        .catch(function () { fallo('No pudimos confirmar tu inscripción. Revisa tu correo antes de volver a enviar o escríbenos a satya@schooloflove.cl.'); })
+        .finally(function () { clearTimeout(timer); });
+    });
+  })();
+  </script>
+</body>
+</html>
