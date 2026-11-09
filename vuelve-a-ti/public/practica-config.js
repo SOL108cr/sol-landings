@@ -1,6 +1,9 @@
-// Videos de /practica. Semana 4 arriba, luego semana 3, 2 y 1.
+// Videos de /practica. Semana 5 arriba (con la grabación completa del Satsang), luego semana 4, 3, 2 y 1.
 // Un video solo se muestra con publicable: true y un id de YouTube de 11 caracteres.
 window.VAT_PRACTICA = {
+  s5completa: {id: 'Hac4xalwM9E', duracion: '35 min 13 s', publicable: true},
+  s5diaria: {id: 'ffbzhmCyjEY', duracion: '29 min 39 s', publicable: true},
+  s5satsang: {id: 'xZwttMx2gm4', duracion: '75 min 36 s', publicable: true},
   s4completa: {id: 'MQMlhex2SHo', duracion: '47 min 34 s', publicable: true},
   s4diaria: {id: 'WN-LzWi6FHI', duracion: '25 min 13 s', publicable: true},
   s3completa: {id: 'aoQrIMY9n3A', duracion: '56 min 37 s', publicable: true},
