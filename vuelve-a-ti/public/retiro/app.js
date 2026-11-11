@@ -4,13 +4,13 @@ const offers = {
   pass: {
     title: 'Pase Del 11 al Uno', price: 'US$47 · Un solo pago',
     description: 'Para vivir las once jornadas sin contratar una suscripción.',
-    summary: ['Pago en Hotmart; prácticas y grabaciones en Portal Origen, dentro de Skool.', 'Acceso al programa y estancia temporal hasta el 13 de diciembre de 2026.'],
+    summary: ['Pago en Hotmart; prácticas y grabaciones en Portal Origen.', 'Acceso al programa y estancia temporal hasta el 13 de diciembre de 2026.'],
     status: 'La inscripción al retiro abre el 26 de octubre, después del capítulo 3 del camino gratuito.'
   },
   premium: {
     title: 'Membresía Premium', price: 'US$37 al mes · Renovación mensual',
     description: 'Incluye el retiro Del 11 al Uno completo, más bibliotecas de meditación y clases y kriyas de Kundalini Yoga, cursos, desafíos, streaming y encuentros de comunidad según el calendario vigente.',
-    summary: ['Contratación en Skool. El programa está incluido mientras tu membresía esté activa.', 'El cobro empieza al incorporarte y se renueva cada mes.'],
+    summary: ['Contratación directa en Portal Origen. El programa está incluido mientras tu membresía esté activa.', 'El cobro empieza al incorporarte y se renueva cada mes.'],
     status: 'La inscripción al retiro abre el 26 de octubre, después del capítulo 3 del camino gratuito.'
   },
   standard: {
