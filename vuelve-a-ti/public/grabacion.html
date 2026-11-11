@@ -169,7 +169,7 @@
       var el = $('cuenta');
       (function tick(){
         var ms = abre - Date.now();
-        if (ms <= 0){ location.reload(); return; }
+        if (ms <= 0){ if (!C.videoId){ el.textContent = 'Estamos subiendo la grabación. Esta página se actualiza sola en unos minutos.'; setTimeout(function(){ location.reload(); }, 120000); return; } location.reload(); return; }
         var h = Math.floor(ms/3600000), m = Math.floor(ms%3600000/60000), s = Math.floor(ms%60000/1000);
         el.textContent = h >= 1 ? ('Faltan ' + h + ' h ' + (m < 10 ? '0' : '') + m + ' min') : ('Faltan ' + m + ' min ' + (s < 10 ? '0' : '') + s + ' s');
         setTimeout(tick, 1000);
