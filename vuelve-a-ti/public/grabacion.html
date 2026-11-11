@@ -52,9 +52,12 @@
     .tell h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.6vw,30px);line-height:1.2;margin:0 0 8px}
     .tell p{color:#cfd8ca;font-size:15px;margin:0 0 16px;max-width:640px}
     .tell form{display:flex;flex-wrap:wrap;gap:10px}
+    .tell textarea{flex:1 1 100%;min-height:96px;padding:12px 14px;border-radius:4px;border:1px solid #d8b57455;background:#071e19;color:var(--cream);font-size:16px;font-family:var(--sans);line-height:1.5;resize:vertical}
+    .tell textarea::placeholder{color:#93a493}
     .tell input{flex:1 1 220px;min-width:0;min-height:50px;padding:12px 14px;border-radius:4px;border:1px solid #d8b57455;background:#071e19;color:var(--cream);font-size:16px}
     .tell input::placeholder{color:#93a493}
     .tell button{min-height:50px;padding:12px 24px;border:0;border-radius:4px;background:var(--gold);color:#102f28;font-weight:700;font-size:16px;cursor:pointer}
+    .tell button{flex:1 1 100%}
     .tell button[disabled]{opacity:.6;cursor:default}
     .tell small{display:block;color:#9fae9b;font-size:12px;margin-top:12px}
     .tell .ok{font-family:'Cormorant',Georgia,serif;font-style:italic;font-size:24px;color:#e7c894;margin:6px 0 0}
@@ -115,16 +118,18 @@
     </section>
 
     <section class="tell" id="cuentame" hidden aria-labelledby="cuentame-title">
-      <h3 id="cuentame-title">Si viste el Portal, cuéntamelo.</h3>
-      <p>Déjame tu nombre y tu correo y te escribo yo.</p>
+      <h3 id="cuentame-title">Deja tu semilla por escrito.</h3>
+      <p>Escribe la única cosa que elegiste sostener. La leo y te escribo. Satya</p>
       <form id="form-cuentame" novalidate>
+        <textarea id="c-semilla" name="semilla" maxlength="400" placeholder="Durante once días, yo…" aria-label="Tu semilla" required></textarea>
         <input id="c-nombre" name="nombre" type="text" autocomplete="given-name" placeholder="Tu nombre" aria-label="Tu nombre" maxlength="60" required>
         <input id="c-correo" name="correo" type="email" autocomplete="email" placeholder="Tu correo" aria-label="Tu correo" maxlength="120" required>
-        <button type="submit" id="c-enviar">Enviar</button>
+        <input id="c-wa" name="whatsapp" type="tel" autocomplete="tel" placeholder="Tu WhatsApp (opcional)" aria-label="Tu WhatsApp, opcional" maxlength="24">
+        <button type="submit" id="c-enviar">Guardar mi semilla</button>
       </form>
       <p class="err" id="c-error" hidden></p>
       <p class="ok" id="c-gracias" hidden></p>
-      <small>Te escribo sobre el retiro y lo que viene. Puedes darte de baja cuando quieras.</small>
+      <small>Te escribo sobre tu semilla, el retiro y lo que viene. Puedes darte de baja cuando quieras.</small>
     </section>
 
     <footer>SCHOOL OF LOVE · SATYA Y NAVKIRAN</footer>
@@ -212,6 +217,7 @@
     }
     // Contador de visitas y «cuéntamelo» (formulario MailerLite 203793434468681358)
     var FORM = 'https://assets.mailerlite.com/jsonp/2197783/forms/203793434468681358/';
+    var SEM = 'https://assets.mailerlite.com/jsonp/2197783/forms/203837075087164997/subscribe';
     if ((estado === 'video' || estado === 'cerrado') && !forzar){
       var VKEY = 'portal1111-visita';
       var ya = false; try { ya = localStorage.getItem(VKEY) === '1'; } catch(e) {}
@@ -225,18 +231,19 @@
       var fm = $('form-cuentame'), btn = $('c-enviar'), err = $('c-error'), ok = $('c-gracias');
       fm.addEventListener('submit', function(ev){
         ev.preventDefault();
-        var n = $('c-nombre').value.trim(), e = $('c-correo').value.trim();
+        var n = $('c-nombre').value.trim(), e = $('c-correo').value.trim(), sm = $('c-semilla').value.trim(), wa = $('c-wa').value.trim();
         err.hidden = true;
+        if (sm.length < 3){ err.textContent = 'Escribe tu semilla, aunque sea una frase.'; err.hidden = false; return; }
         if (!n || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){ err.textContent = 'Revisa tu nombre y tu correo.'; err.hidden = false; return; }
         btn.disabled = true; btn.textContent = 'Enviando…';
         var fd = new FormData();
-        fd.append('fields[name]', n); fd.append('fields[email]', e); fd.append('ml-submit', '1'); fd.append('anticsrf', 'true');
-        var listo = function(){ fm.hidden = true; ok.textContent = 'Gracias, ' + n + '. Te escribo pronto 🙏'; ok.hidden = false; };
-        fetch(FORM + 'subscribe', { method: 'POST', body: fd, referrerPolicy: 'no-referrer' })
+        fd.append('fields[name]', n); fd.append('fields[email]', e); fd.append('fields[semilla]', sm); if (wa) fd.append('fields[whatsapp]', wa); fd.append('fields[fuente]', 'semilla_grabacion'); fd.append('ml-submit', '1'); fd.append('anticsrf', 'true');
+        var listo = function(){ fm.hidden = true; ok.textContent = 'Gracias, ' + n + '. Tu semilla quedó guardada 🙏'; mostrarCta(); ok.hidden = false; };
+        fetch(SEM, { method: 'POST', body: fd, referrerPolicy: 'no-referrer' })
           .then(function(res){ return res.json().catch(function(){ return { success: res.ok }; }); })
           .then(function(j){ if (j && j.success === false){ throw new Error('x'); } listo(); })
           .catch(function(){
-            fetch(FORM + 'subscribe', { method: 'POST', body: fd, mode: 'no-cors', referrerPolicy: 'no-referrer' })
+            fetch(SEM, { method: 'POST', body: fd, mode: 'no-cors', referrerPolicy: 'no-referrer' })
               .then(listo)
               .catch(function(){ btn.disabled = false; btn.textContent = 'Enviar'; err.textContent = 'No se pudo enviar. Prueba de nuevo en un momento.'; err.hidden = false; });
           });
