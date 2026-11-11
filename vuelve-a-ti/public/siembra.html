@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071e19">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="El 11 del 11 cada persona eligió una sola palabra. En 11 minutos, Satya te guía para sembrar la tuya.">
+  <title>Siembra tu palabra · 11 minutos · Portal 11:11</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="School of Love">
+  <meta property="og:url" content="https://vuelveati.schooloflove.cl/siembra">
+  <meta property="og:title" content="Siembra tu palabra · 11 minutos con Satya">
+  <meta property="og:description" content="El 11 del 11 cada persona eligió una sola palabra. Estas son las que nacieron. Siembra la tuya.">
+  <meta property="og:image" content="https://vuelveati.schooloflove.cl/retiro/assets/og-siembra.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="retiro/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="font" href="retiro/assets/fonts/CormorantGaramond-Italic.ttf" type="font/ttf" crossorigin>
+  <style>
+    @font-face{font-family:'Cormorant';src:url('retiro/assets/fonts/CormorantGaramond-Italic.ttf') format('truetype');font-style:italic;font-weight:300 700;font-display:swap}
+    :root{--ink:#18382e;--forest:#102f28;--deep:#071e19;--cream:#f6f3eb;--paper:#fdfbf6;--gold:#d8b574;--muted:#57675f;--serif:Georgia,'Times New Roman',serif;--sans:Arial,Helvetica,sans-serif}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--deep);color:var(--cream);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .wrap{max-width:620px;width:calc(100% - 40px);margin-inline:auto}
+    header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid #d8b57426}
+    .wordmark{font-size:13px;letter-spacing:.19em;font-weight:600;line-height:1.5;text-decoration:none}
+    .wordmark span{display:block;letter-spacing:.29em;font-size:9px;font-weight:400;margin-top:4px;color:#c9cfc2}
+    .top-note{font-size:11px;letter-spacing:.15em;color:var(--gold)}
+    .eyebrow{font-size:12px;font-weight:700;letter-spacing:.19em;color:var(--gold);margin:0 0 14px}
+    h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:-.03em;line-height:1.1;margin:0}
+    h1{font-size:clamp(42px,9vw,64px);margin-bottom:14px}
+    h1 em,h2 em{font-family:'Cormorant',Georgia,serif;font-weight:500;color:#e7c894}
+    .intro{padding:34px 0 8px}
+    .intro p{color:#d4dcd0;margin:0 0 10px}
+    form{display:grid;gap:12px;margin:18px 0 0}
+    label{font-size:13px;letter-spacing:.06em;color:#c9d3c4;display:block;margin-bottom:5px}
+    input,textarea{width:100%;min-height:52px;padding:13px 14px;border-radius:5px;border:1px solid #d8b57455;background:#0b2a23;color:var(--cream);font-size:17px;font-family:var(--sans)}
+    textarea{min-height:120px;resize:vertical;line-height:1.5}
+    input::placeholder,textarea::placeholder{color:#8fa08f}
+    input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+    button{min-height:56px;padding:14px 24px;border:0;border-radius:5px;background:var(--gold);color:#102f28;font-weight:700;font-size:17px;cursor:pointer;margin-top:4px}
+    button[disabled]{opacity:.6;cursor:default}
+    .small{color:#9fae9b;font-size:12.5px;margin:10px 0 0}
+    .err{color:#f0b9a5;font-size:14px;margin:4px 0 0}
+    .ok{padding:34px 0 6px}
+    .ok .gracias{font-family:'Cormorant',Georgia,serif;font-style:italic;font-size:30px;line-height:1.2;color:#e7c894;margin:0 0 10px}
+    .ok p{color:#d4dcd0;margin:0 0 12px}
+    .cta{background:var(--cream);color:var(--ink);border-radius:8px;padding:28px 26px;margin:22px 0 10px}
+    .cta .eyebrow{color:#8a6f36}
+    .cta h2{font-size:clamp(28px,6vw,36px);margin-bottom:14px}
+    .cta h2 em{color:#7a6435}
+    .cta p{font-size:16px;color:var(--muted);margin:0 0 12px}
+    .button{display:flex;min-height:56px;align-items:center;justify-content:center;padding:14px 24px;border-radius:5px;text-decoration:none;font-size:17px;font-weight:700;background:var(--forest);color:var(--paper);margin-top:10px}
+    .member{display:block;font-size:14px;margin-top:14px;color:var(--ink)}
+    footer{padding:36px 0 30px;text-align:center;font-size:12px;color:#9fae9b;letter-spacing:.08em}
+    .video{position:relative;aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden;border:1px solid #d8b57433;margin:18px 0 10px}
+    .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .otra{font-size:14.5px;color:#c9d3c4;margin:0 0 6px}
+    .otra a{color:#e7c894}
+    .paso2{padding:26px 0 8px;border-top:1px solid #d8b57426;margin-top:22px}
+    h2.t{font-size:clamp(32px,7vw,44px);margin-bottom:12px}
+    .nube{display:block;width:100%;max-width:420px;height:auto;border-radius:8px;margin:14px auto 6px}
+    [hidden]{display:none!important}
+    @media (max-width:520px){.top-note{display:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="wordmark" href="https://schooloflove.cl">PORTAL ORIGEN<span>SCHOOL OF LOVE</span></a>
+      <span class="top-note">PORTAL 11:11</span>
+    </header>
+
+    <div id="paso-form">
+    <section class="intro">
+      <p class="eyebrow">PORTAL 11:11 · LA SIEMBRA</p>
+      <h1>Siembra tu <em>palabra.</em></h1>
+      <p>El 11 del 11 nos sentamos en círculo y cada persona eligió una sola palabra para cultivar. En 11 minutos te cuento por qué sembrarla y te guío para sembrar la tuya.</p>
+      <p>Ten a mano papel y lápiz 🙏</p>
+      <div class="video"><iframe id="v" title="La siembra · Portal 11:11" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+      <p class="otra">Tienes más tiempo? La ceremonia completa dura 2 horas y está abierta hasta el sábado: <a id="ir-ceremonia" href="grabacion">verla completa</a>.</p>
+    </section>
+
+    <section class="paso2">
+      <p class="eyebrow">DESPUÉS DE SEMBRARLA</p>
+      <h2 class="t">Déjala por <em>escrito.</em></h2>
+      <p style="color:#d4dcd0;margin:0 0 10px">Al ponerla por escrito, empieza a ser real. La leo. Tu palabra entra al círculo, y el sábado empezamos a regarla juntos. Satya</p>
+      <form id="f" novalidate>
+        <div><label for="s">Tu palabra</label><textarea id="s" name="semilla" maxlength="400" placeholder="Una palabra, o una frase corta" required style="min-height:84px"></textarea></div>
+        <div><label for="n">Tu nombre</label><input id="n" name="nombre" type="text" autocomplete="given-name" maxlength="60" required></div>
+        <div><label for="e">Tu correo</label><input id="e" name="correo" type="email" autocomplete="email" maxlength="120" required></div>
+        <div><label for="w">Tu WhatsApp, con código de país (opcional)</label><input id="w" name="whatsapp" type="tel" autocomplete="tel" maxlength="24" placeholder="+56 9 …"></div>
+        <button type="submit" id="b">Sembrar mi palabra</button>
+        <p class="err" id="err" hidden></p>
+      </form>
+      <p class="small">Te escribo al correo con el enlace del sábado y lo que viene. Puedes darte de baja cuando quieras.</p>
+    </section>
+    </div>
+
+    <section class="ok" id="paso-ok" hidden>
+      <p class="gracias" id="gracias"></p>
+      <p>Tu palabra quedó sembrada 🙏 Mañana al despertar, antes de tomar el teléfono, léela una vez en voz alta. Así empieza a regarse.</p>
+      <img class="nube" src="retiro/assets/palabras-del-circulo.jpg" alt="Las palabras que sembró el círculo el 11 del 11: gratitud, paz, presencia, disciplina, amor y otras" width="864" height="1080" loading="lazy">
+      <p>Estas son las palabras que nacieron en el círculo. La tuya ya está entre ellas.</p>
+      <div class="cta">
+        <p class="eyebrow">EL SÁBADO EMPEZAMOS A REGARLA</p>
+        <h2>Una semilla sin riego <em>dura unos días.</em></h2>
+        <p>El sábado 14 a las 13:00 de Chile (10:00 México · 11:00 Colombia y Perú · 17:00 España) es el primer día, y es abierto: te mando el enlace a tu correo.</p>
+        <p>Del sábado 14 al martes 24 de noviembre la regamos juntos en el retiro <strong>Del 11 al Uno</strong>: once días, unos 25 minutos al día, desde tu casa y en compañía. Todo queda grabado, para que practiques a tu hora.</p>
+        <p>Quienes hacen el retiro reciben de regalo el libro digital <em>Llaves del Alma</em>, de Satya. Si eliges el pase, tienes 7 días desde tu compra para pedir la devolución.</p>
+        <p>La inscripción está abierta hasta el lunes 16 a las 23:59 de Chile.</p>
+        <a class="button" id="ir-retiro" href="retiro">Quiero regar mi semilla en el retiro</a>
+        <a class="member" id="ir-miembros" href="retiro#miembros">Eres Premium o VIP de Portal Origen? El retiro ya es tuyo.</a>
+      </div>
+    </section>
+
+    <footer>SCHOOL OF LOVE · SATYA Y NAVKIRAN</footer>
+  </div>
+  <script>window.SIEMBRA_VIDEO = "tPw_n2N3Vbo";</script>
+  <script>
+  (function(){
+    var FORM = 'https://assets.mailerlite.com/jsonp/2197783/forms/203837075087164997/subscribe';
+    var p = new URLSearchParams(location.search);
+    var r = (p.get('r') || '').replace(/[^a-z0-9_-]/gi,'').slice(0,20);
+    if (!r) r = 'wa';
+    var VIDEO = window.SIEMBRA_VIDEO || '';
+    if (VIDEO) document.getElementById('v').src = 'https://www.youtube-nocookie.com/embed/' + VIDEO + '?rel=0&playsinline=1';
+    document.getElementById('ir-ceremonia').href = 'grabacion?r=siembra_' + r;
+    function $(id){ return document.getElementById(id); }
+    var q = '?utm_source=siembra&utm_medium=' + r + '&utm_campaign=portal1111';
+    $('ir-retiro').href = 'retiro' + q; $('ir-miembros').href = 'retiro' + q + '#miembros';
+    var f = $('f'), b = $('b'), err = $('err');
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var s = $('s').value.trim(), n = $('n').value.trim(), e = $('e').value.trim(), w = $('w').value.trim();
+      err.hidden = true;
+      if (s.length < 2){ err.textContent = 'Escribe tu palabra, aunque sea una sola.'; err.hidden = false; $('s').focus(); return; }
+      if (!n || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){ err.textContent = 'Revisa tu nombre y tu correo.'; err.hidden = false; return; }
+      b.disabled = true; b.textContent = 'Guardando…';
+      var fd = new FormData();
+      fd.append('fields[name]', n); fd.append('fields[email]', e); fd.append('fields[semilla]', s);
+      if (w) fd.append('fields[whatsapp]', w);
+      fd.append('fields[fuente]', 'siembra_' + r);
+      fd.append('ml-submit', '1'); fd.append('anticsrf', 'true');
+      var listo = function(){
+        $('paso-form').hidden = true; $('gracias').textContent = 'Gracias, ' + n + '.'; $('paso-ok').hidden = false;
+        try { localStorage.setItem('portal1111-semilla', '1'); localStorage.setItem('portal1111-cta-visto', '1'); } catch(x) {}
+        window.scrollTo(0, 0);
+      };
+      fetch(FORM, { method: 'POST', body: fd, referrerPolicy: 'no-referrer' })
+        .then(function(res){ return res.json().catch(function(){ return { success: res.ok }; }); })
+        .then(function(j){ if (j && j.success === false) throw new Error('x'); listo(); })
+        .catch(function(){
+          fetch(FORM, { method: 'POST', body: fd, mode: 'no-cors', referrerPolicy: 'no-referrer' }).then(listo)
+            .catch(function(){ b.disabled = false; b.textContent = 'Sembrar mi palabra'; err.textContent = 'No se pudo guardar. Prueba de nuevo en un momento.'; err.hidden = false; });
+        });
+    });
+  })();
+  </script>
+</body>
+</html>
