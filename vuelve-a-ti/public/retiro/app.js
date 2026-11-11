@@ -10,7 +10,7 @@ const offers = {
   premium: {
     title: 'Membresía Premium', price: 'US$37 al mes · Renovación mensual',
     description: 'Incluye el retiro Del 11 al Uno completo, más bibliotecas de meditación y clases y kriyas de Kundalini Yoga, cursos, desafíos, streaming y encuentros de comunidad según el calendario vigente.',
-    summary: ['Contratación en Skool. El programa está incluido mientras tu membresía esté activa.', 'El cobro empieza al incorporarte; si entras antes del programa, la membresía puede renovar antes de su inicio.'],
+    summary: ['Contratación en Skool. El programa está incluido mientras tu membresía esté activa.', 'El cobro empieza al incorporarte y se renueva cada mes.'],
     status: 'La inscripción al retiro abre el 26 de octubre, después del capítulo 3 del camino gratuito.'
   },
   standard: {
@@ -40,7 +40,7 @@ function openOffer(key, trigger) {
   summary.replaceChildren(...offer.summary.map(text => {
     const p = document.createElement('p'); p.textContent = text; return p;
   }));
-  document.querySelector('#offer-status').textContent = enrollmentReady(key) ? 'Primero guardamos tus datos para acompañarte. Este paso no realiza ningún cobro.' : offer.status + ' Vista previa: todavía no se envían datos ni se realizan pagos.';
+  document.querySelector('#offer-status').textContent = enrollmentReady(key) ? (key === 'pass' ? 'Guardamos tus datos para acompañarte y te llevamos directo al pago en Hotmart.' : 'Primero guardamos tus datos para acompañarte. Este paso no realiza ningún cobro.') : offer.status + ' Vista previa: todavía no se envían datos ni se realizan pagos.';
   document.querySelector('#checkout-button').textContent = key === 'member' ? 'Acceso al programa próximamente' : 'Inscripciones desde el 26 de octubre';
   dialog.dataset.offer = key;
   prepareEnrollment(key);
@@ -135,11 +135,24 @@ enrollmentForm.addEventListener('submit', event => {
   const submit = document.querySelector('#checkout-button');
   submit.disabled = true;
   document.querySelector('.loading').hidden = false;
-  document.querySelector('#offer-status').textContent = 'Estamos enviando tus datos. Revisa la confirmación del formulario para seguir con tu modalidad. Todavía no has realizado ningún pago.';
   // CSP-safe submit: the page CSP only allows scripts from 'self', so MailerLite's webforms.min.js
   // cannot load. Post the same fields with fetch (connect-src allows assets.mailerlite.com), as the landing does.
   event.preventDefault();
   event.stopImmediatePropagation();
+  // Pase: el registro en MailerLite sigue (sirve para detectar pagos a medias), pero se va directo al pago.
+  // Si MailerLite falla o tarda más de 2 s, igual se abre Hotmart. keepalive deja terminar el envío al salir.
+  if (dialog.dataset.offer === 'pass' && registrationConfig.destinations.pass) {
+    document.querySelector('#offer-status').textContent = 'Guardando tus datos. Te llevamos al pago en Hotmart…';
+    let gone = false;
+    const goPay = () => { if (gone) return; gone = true; location.assign(registrationConfig.destinations.pass); };
+    setTimeout(goPay, 2000);
+    try {
+      fetch(enrollmentForm.action, { method: 'POST', body: new FormData(enrollmentForm), keepalive: true, referrerPolicy: 'no-referrer' })
+        .then(r => r.json()).then(goPay, goPay);
+    } catch (e) { goPay(); }
+    return;
+  }
+  document.querySelector('#offer-status').textContent = 'Estamos enviando tus datos. Revisa la confirmación del formulario para seguir con tu modalidad. Todavía no has realizado ningún pago.';
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 15000);
   fetch(enrollmentForm.action, { method: 'POST', body: new FormData(enrollmentForm), signal: controller.signal, referrerPolicy: 'no-referrer' })
