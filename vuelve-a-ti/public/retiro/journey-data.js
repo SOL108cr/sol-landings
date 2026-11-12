@@ -28,10 +28,10 @@ const journeyStations = [
   },
   {
     "number": 8,
-    "title": "Motivación",
+    "title": "Pureza",
     "body": "Cuerpo pránico",
     "guru": "Guru Har Krishan",
-    "meaning": "Observamos qué sostiene nuestro ánimo y cómo cuidar la disposición con la que entramos en el día.",
+    "meaning": "Volvemos a la respiración para soltar el ruido y dejar que la energía del día circule limpia, sin esfuerzo.",
     "question": "Qué merece hoy mi energía y mi atención?",
     "date": "DÍA 4 · 17 NOVIEMBRE"
   },
