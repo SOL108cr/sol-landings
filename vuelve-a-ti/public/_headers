@@ -31,3 +31,7 @@
 /retiro/practica*
   Referrer-Policy: no-referrer
   X-Robots-Tag: noindex, nofollow
+
+# Guía del retiro (PDF): no indexar
+/retiro/guia-del-retiro*
+  X-Robots-Tag: noindex, nofollow
