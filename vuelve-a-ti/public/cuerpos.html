@@ -42,6 +42,23 @@
     .compartir { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
     .compartir .boton { flex: 1 1 auto; text-align: center; }
     .aviso { font-size: .82rem; color: var(--texto-suave); margin-top: 26px; line-height: 1.5; }
+    .mapa { display: grid; gap: 9px; margin: 6px 0 14px; }
+    .fila { display: grid; grid-template-columns: minmax(0, 46%) minmax(0, 1fr); gap: 10px; align-items: center; font-size: .9rem; line-height: 1.25; }
+    .fila .quien { color: var(--crema); }
+    .fila .quien small { display: block; color: var(--texto-suave); font-size: .78rem; }
+    .fila.tope .quien { color: var(--oro-claro); font-weight: 600; }
+    .barras { display: grid; gap: 3px; }
+    .barra { height: 9px; border-radius: 99px; background: var(--linea); overflow: hidden; }
+    .barra i { display: block; height: 100%; border-radius: 99px; background: var(--oro); }
+    .barra.antes { height: 6px; }
+    .barra.antes i { background: var(--texto-suave); opacity: .7; }
+    .leyenda { display: flex; gap: 16px; flex-wrap: wrap; font-size: .8rem; color: var(--texto-suave); margin: 0 0 12px; }
+    .leyenda span::before { content: ""; display: inline-block; width: 18px; height: 7px; border-radius: 99px; margin-right: 6px; background: var(--oro); vertical-align: middle; }
+    .leyenda span.a::before { background: var(--texto-suave); opacity: .7; }
+    .mapa-nota { font-size: .9rem; }
+    #mapa-texto { width: 100%; margin-top: 10px; font: inherit; font-size: .85rem; color: var(--crema); background: rgba(26, 10, 46, .6); border: 1px solid var(--linea); border-radius: 12px; padding: 12px; }
+    #copiado { font-size: .85rem; color: var(--oro-claro); margin-left: 8px; }
+    .cierre-enlace { display: inline-block; margin-top: 14px; font-size: .92rem; color: var(--oro-claro); }
     [hidden] { display: none !important; }
   </style>
 </head>
@@ -82,22 +99,21 @@
       <p class="segundo" id="r-segundo"></p>
       <p>Y cuando los diez vuelven a trabajar juntos aparece lo que la tradición llama el once: tú, en un solo lugar.</p>
 
-      <div class="tarjeta-form" id="inscripcion" style="margin-top:26px">
-        <h2>Empieza hoy a encenderlo</h2>
-        <p class="sub">Te mando gratis la práctica de esta semana del camino Vuelve a ti, guiada por Satya: quince minutos al día hasta el 11 de noviembre.</p>
-        <form id="form-inscripcion" novalidate>
-          <div class="campo">
-            <label for="nombre">Tu nombre</label>
-            <input id="nombre" name="nombre" type="text" autocomplete="given-name" required maxlength="80" placeholder="Cómo quieres que te llamemos">
-          </div>
-          <div class="campo">
-            <label for="email">Tu correo</label>
-            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="120" placeholder="nombre@correo.com">
-          </div>
-          <button class="boton" type="submit" id="enviar">Recibir la práctica gratis</button>
-          <p class="estado" id="estado" role="status" aria-live="polite"></p>
-          <p class="nota">Recibes los correos del camino y del Portal 11:11, y novedades de School of Love. Te das de baja con un clic. <a href="/privacidad">Privacidad</a>.</p>
-        </form>
+      <div class="bloque" id="mapa-bloque">
+        <h3 id="mapa-titulo">Tu mapa de hoy</h3>
+        <p class="mapa-nota" id="mapa-nota"></p>
+        <p class="leyenda" id="leyenda" hidden><span class="a" id="ley-antes"></span><span id="ley-hoy">Hoy</span></p>
+        <div id="mapa" class="mapa"></div>
+        <p id="mapa-cambio" hidden></p>
+        <p><button class="boton secundario" id="copiar" type="button">Copiar mi mapa</button><span id="copiado" role="status" aria-live="polite"></span></p>
+        <textarea id="mapa-texto" hidden readonly rows="14" aria-label="Tu mapa en texto"></textarea>
+      </div>
+
+      <div class="tarjeta-form" id="cierre" style="margin-top:26px" hidden>
+        <h2 id="c-titulo"></h2>
+        <p class="sub" id="c-texto"></p>
+        <p id="c-accion"><a class="boton" id="c-boton" href="/retiro"></a></p>
+        <a class="cierre-enlace" id="c-segundo" href="/retiro" hidden></a>
       </div>
 
       <div class="compartir">
@@ -118,16 +134,16 @@
   <script>
   (function () {
     var CUERPOS = {
-      1: { nombre: 'El cuerpo del alma', senal: 'Cumples, haces lo correcto, pero algo no se enciende. Decides con la cabeza aunque el corazón diga otra cosa, y los días se parecen demasiado entre sí.', despierta: 'Volver a sentir antes de pensar. Prácticas que abren el pecho y te devuelven al corazón, y pequeños gestos que haces solo porque los amas.' },
-      2: { nombre: 'La mente protectora', senal: 'Te cuesta poner un límite o decir que no. Dices que sí y después te arrepientes, o te defiendes antes de escuchar. Esta mente existe para cuidarte, y cuando se apaga quedas expuesto.', despierta: 'Una pausa antes de responder. Escuchar la primera señal del cuerpo, esa que sabe antes que tú si algo te hace bien.' },
-      3: { nombre: 'La mente que ve lo posible', senal: 'Ves primero lo que puede salir mal. Postergas, te desanimas fácil y te cuesta imaginar qué es posible para ti.', despierta: 'Un paso pequeño cada día, aunque no estés seguro del resultado. Esta mente se enciende con acción, no con planes.' },
-      4: { nombre: 'La mente neutral', senal: 'Das vueltas a las decisiones durante días y repasas lo que pasó una y otra vez. Hay tantas voces opinando que no escuchas la tuya.', despierta: 'Meditación: un espacio entre lo que pasa y lo que respondes. Desde ahí se decide sin miedo y sin culpa.' },
-      5: { nombre: 'El cuerpo físico', senal: 'Tu cuerpo va al final de la lista. Lo usas para cumplir con todos y le das lo que sobra, si sobra.', despierta: 'Movimiento sostenido y un equilibrio honesto entre lo que das y lo que recibes. El cuerpo es el templo donde ocurre todo lo demás.' },
-      6: { nombre: 'La línea de arco', senal: 'Te dispersas. Empiezas mil cosas, te cuesta mantener la atención en una y te prometes cosas que no cumples.', despierta: 'Foco y palabra: una sola promesa pequeña que sí cumples. Cada vez que la cumples, tu atención vuelve a juntarse.' },
-      7: { nombre: 'El aura', senal: 'Absorbes el ambiente. Sales agotado de lugares con mucha gente y lo que sienten otros se te queda pegado.', despierta: 'Elegir qué entra y qué no. Prácticas que te devuelven a tu propio espacio y te dejan sentir que estás protegido.' },
-      8: { nombre: 'El cuerpo pránico', senal: 'Cansancio que no se va. La energía se te acaba temprano, respiras corto y el miedo aparece más de lo que quisieras.', despierta: 'La respiración. En la tradición, la fuerza de vida viaja con el aliento: cuando aprendes a respirar, la energía y la valentía vuelven.' },
-      9: { nombre: 'El cuerpo sutil', senal: 'Impaciencia. Quieres que todo vaya más rápido, reaccionas antes de entender y te pierdes lo que no se dice.', despierta: 'Sostener una práctica en el tiempo. La calma y la finura llegan con la constancia, no con la intensidad.' },
-      10: { nombre: 'El cuerpo radiante', senal: 'Te achicas para no incomodar. Hay algo que sabes que tienes que hacer y no te atreves, y a veces dejas las cosas a medias.', despierta: 'Coraje y compromiso: terminar lo que empiezas. Cuando este cuerpo se enciende, potencia a los otros nueve.' }
+      1: { corto: 'Alma', palabra: 'Humildad', nombre: 'El cuerpo del alma', senal: 'Cumples, haces lo correcto, pero algo no se enciende. Decides con la cabeza aunque el corazón diga otra cosa, y los días se parecen demasiado entre sí.', despierta: 'Volver a sentir antes de pensar. Prácticas que abren el pecho y te devuelven al corazón, y pequeños gestos que haces solo porque los amas.' },
+      2: { corto: 'Mente protectora', palabra: 'Discernimiento', nombre: 'La mente protectora', senal: 'Te cuesta poner un límite o decir que no. Dices que sí y después te arrepientes, o te defiendes antes de escuchar. Esta mente existe para cuidarte, y cuando se apaga quedas expuesto.', despierta: 'Una pausa antes de responder. Escuchar la primera señal del cuerpo, esa que sabe antes que tú si algo te hace bien.' },
+      3: { corto: 'Mente de lo posible', palabra: 'Apertura', nombre: 'La mente que ve lo posible', senal: 'Ves primero lo que puede salir mal. Postergas, te desanimas fácil y te cuesta imaginar qué es posible para ti.', despierta: 'Un paso pequeño cada día, aunque no estés seguro del resultado. Esta mente se enciende con acción, no con planes.' },
+      4: { corto: 'Mente neutral', palabra: 'Servicio', nombre: 'La mente neutral', senal: 'Das vueltas a las decisiones durante días y repasas lo que pasó una y otra vez. Hay tantas voces opinando que no escuchas la tuya.', despierta: 'Meditación: un espacio entre lo que pasa y lo que respondes. Desde ahí se decide sin miedo y sin culpa.' },
+      5: { corto: 'Cuerpo físico', palabra: 'Equilibrio', nombre: 'El cuerpo físico', senal: 'Tu cuerpo va al final de la lista. Lo usas para cumplir con todos y le das lo que sobra, si sobra.', despierta: 'Movimiento sostenido y un equilibrio honesto entre lo que das y lo que recibes. El cuerpo es el templo donde ocurre todo lo demás.' },
+      6: { corto: 'Línea de arco', palabra: 'Enfoque', nombre: 'La línea de arco', senal: 'Te dispersas. Empiezas mil cosas, te cuesta mantener la atención en una y te prometes cosas que no cumples.', despierta: 'Foco y palabra: una sola promesa pequeña que sí cumples. Cada vez que la cumples, tu atención vuelve a juntarse.' },
+      7: { corto: 'Aura', palabra: 'Compasión', nombre: 'El aura', senal: 'Absorbes el ambiente. Sales agotado de lugares con mucha gente y lo que sienten otros se te queda pegado.', despierta: 'Elegir qué entra y qué no. Prácticas que te devuelven a tu propio espacio y te dejan sentir que estás protegido.' },
+      8: { corto: 'Cuerpo pránico', palabra: 'Pureza', nombre: 'El cuerpo pránico', senal: 'Cansancio que no se va. La energía se te acaba temprano, respiras corto y el miedo aparece más de lo que quisieras.', despierta: 'La respiración. En la tradición, la fuerza de vida viaja con el aliento: cuando aprendes a respirar, la energía y la valentía vuelven.' },
+      9: { corto: 'Cuerpo sutil', palabra: 'Sutileza', nombre: 'El cuerpo sutil', senal: 'Impaciencia. Quieres que todo vaya más rápido, reaccionas antes de entender y te pierdes lo que no se dice.', despierta: 'Sostener una práctica en el tiempo. La calma y la finura llegan con la constancia, no con la intensidad.' },
+      10: { corto: 'Cuerpo radiante', palabra: 'Coraje', nombre: 'El cuerpo radiante', senal: 'Te achicas para no incomodar. Hay algo que sabes que tienes que hacer y no te atreves, y a veces dejas las cosas a medias.', despierta: 'Coraje y compromiso: terminar lo que empiezas. Cuando este cuerpo se enciende, potencia a los otros nueve.' }
     };
     var P = [
       { q: 'Cuando termina tu día, lo que más sientes es…', o: [
@@ -201,51 +217,156 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     function calcular() {
-      var s = {}; for (var b = 1; b <= 10; b++) s[b] = 0;
+      var s = {}, v = {}; for (var b = 1; b <= 10; b++) s[b] = 0;
       resp.forEach(function (k, n) { P[n].o[k][1].forEach(function (b) { s[b] += 1; }); });
+      for (b = 1; b <= 10; b++) v[b] = Math.round(s[b] / veces[b] * 100) / 100;
       var orden = Object.keys(s).map(Number).sort(function (a, b) { return (s[b] / veces[b]) - (s[a] / veces[a]) || s[b] - s[a] || a - b; });
-      return orden;
+      return { orden: orden, v: v };
     }
+
+    // Fechas del retiro en hora de Chile (UTC-3 en noviembre)
+    var AHORA = Date.now();
+    var T_SABADO = Date.UTC(2026, 10, 14, 16, 0);   // sáb 14, 13:00 Chile
+    var T_CIERRE = Date.UTC(2026, 10, 17, 2, 59);   // lun 16, 23:59 Chile
+    var T_FIN = Date.UTC(2026, 10, 25, 2, 59);      // mar 24, 23:59 Chile
+    var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    var EN_RETIRO = /[?&]retiro\b/.test(window.location.search);
     function fecha(b) { var dia = 12 - b; return { dia: dia, fecha: (13 + dia) + ' de noviembre' }; }
+    function hoyClave() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+    function fechaLarga(clave) { var p = clave.split('-'); return Number(p[2]) + ' de ' + MESES[Number(p[1]) - 1]; }
+
+    // El mapa se guarda solo en este dispositivo, uno por día
+    var CLAVE = 'cuerpos-mapas';
+    function leerMapas() { try { var m = JSON.parse(localStorage.getItem(CLAVE) || '[]'); return Array.isArray(m) ? m : []; } catch (e) { return []; } }
+    function guardarMapa(m) {
+      var todos = leerMapas().filter(function (x) { return x && x.d !== m.d; });
+      todos.push(m); todos.sort(function (a, b) { return a.d < b.d ? -1 : 1; });
+      if (todos.length > 8) todos = [todos[0]].concat(todos.slice(-7));
+      try { localStorage.setItem(CLAVE, JSON.stringify(todos)); return true; } catch (e) { return false; }
+    }
+
+    function pintarMapa(hoy, antes) {
+      var cont = $('mapa'); cont.innerHTML = '';
+      var max = 0.01, b;
+      for (b = 1; b <= 10; b++) { max = Math.max(max, hoy.v[b] || 0, antes ? (antes.v[b] || 0) : 0); }
+      for (b = 10; b >= 1; b--) {
+        var c = CUERPOS[b], fila = document.createElement('div');
+        fila.className = 'fila' + (b === hoy.top ? ' tope' : '');
+        var quien = document.createElement('div'); quien.className = 'quien';
+        quien.textContent = b + ' · ' + c.corto;
+        var sm = document.createElement('small'); sm.textContent = c.palabra; quien.appendChild(sm);
+        var barras = document.createElement('div'); barras.className = 'barras';
+        if (antes) { barras.appendChild(barra(antes.v[b] || 0, max, 'barra antes')); }
+        barras.appendChild(barra(hoy.v[b] || 0, max, 'barra'));
+        fila.appendChild(quien); fila.appendChild(barras); cont.appendChild(fila);
+      }
+    }
+    function barra(valor, max, clase) {
+      var o = document.createElement('div'); o.className = clase;
+      var n = document.createElement('i'); n.style.width = Math.max(4, Math.round(valor / max * 100)) + '%';
+      o.appendChild(n); return o;
+    }
+    function textoMapa(hoy, antes) {
+      var max = 0.01, b, l = [];
+      for (b = 1; b <= 10; b++) max = Math.max(max, hoy.v[b] || 0);
+      l.push('Mi mapa de los diez cuerpos · ' + fechaLarga(hoy.d));
+      l.push('El que más me pide volver: ' + CUERPOS[hoy.top].corto + ' (' + CUERPOS[hoy.top].palabra + ')');
+      l.push('');
+      for (b = 10; b >= 1; b--) {
+        var n = Math.round((hoy.v[b] || 0) / max * 5), t = '';
+        for (var k = 0; k < 5; k++) t += k < n ? '●' : '○';
+        l.push(t + ' ' + b + ' ' + CUERPOS[b].corto);
+      }
+      if (antes) { l.push(''); l.push('El ' + fechaLarga(antes.d) + ' era: ' + CUERPOS[antes.top].corto); }
+      l.push(''); l.push('vuelveati.schooloflove.cl/cuerpos');
+      return l.join('\n');
+    }
+
+    function cierre(b, antes) {
+      var caja = $('cierre'), f = fecha(b);
+      if (EN_RETIRO && antes) {
+        $('c-titulo').textContent = 'Tus dos mapas';
+        $('c-texto').textContent = 'Arriba están juntos el de antes y el de hoy. No es una nota ni una meta: mira qué se movió y qué sigue pidiendo atención.';
+        $('c-accion').hidden = true; $('c-segundo').hidden = true; caja.hidden = false; return;
+      }
+      if (EN_RETIRO) {
+        $('c-titulo').textContent = 'Guarda este mapa';
+        $('c-texto').textContent = AHORA < T_FIN
+          ? 'Quedó guardado en este teléfono. El martes 24, cuando cerremos el retiro, hazlo de nuevo aquí mismo y verás los dos mapas juntos. No busques que cambie: solo mira qué se movió.'
+          : 'Quedó guardado en este teléfono. Puedes volver a hacerlo cuando quieras y comparar.';
+        $('c-accion').hidden = true; $('c-segundo').hidden = true; caja.hidden = false; return;
+      }
+      if (AHORA < T_SABADO) {
+        $('c-titulo').textContent = 'El sábado 14 empezamos, y ese día es abierto';
+        $('c-texto').textContent = 'Del 11 al Uno son once días, un cuerpo por día, con unos veinticinco minutos de práctica guiada por Satya. El primer día, el sábado 14 a las 13:00 de Chile, puedes venir a conocerlo.';
+        $('c-boton').textContent = 'Quiero venir el sábado'; $('c-boton').href = '/sabado';
+        $('c-segundo').textContent = 'Ver el retiro completo'; $('c-segundo').href = '/retiro'; $('c-segundo').hidden = false;
+        caja.hidden = false; return;
+      }
+      if (AHORA < T_CIERRE) {
+        $('c-titulo').textContent = 'Este cuerpo tiene su día en el retiro';
+        $('c-texto').textContent = 'Del 11 al Uno ya empezó: once días, un cuerpo por día, con unos veinticinco minutos de práctica guiada por Satya. El tuyo se trabaja el ' + f.fecha + '. La inscripción sigue abierta hasta el lunes 16 en la noche.';
+        $('c-boton').textContent = 'Ver el retiro'; $('c-boton').href = '/retiro';
+        caja.hidden = false; return;
+      }
+      caja.hidden = true;
+    }
+
     function resultado() {
-      var orden = calcular(), b = orden[0], c = CUERPOS[b], f = fecha(b), b2 = orden[1];
+      var r = calcular(), orden = r.orden, b = orden[0], c = CUERPOS[b], f = fecha(b), b2 = orden[1];
+      var hoy = { d: hoyClave(), top: b, v: r.v };
+      var previos = leerMapas().filter(function (x) { return x && x.v && x.d < hoy.d; });
+      var antes = previos.length ? previos[0] : null;
+      var guardado = guardarMapa(hoy);
       $('preguntas').hidden = true; $('resultado').hidden = false;
       $('r-etiqueta').textContent = 'El que más te pide volver';
       $('r-nombre').textContent = c.nombre;
-      $('r-dia').innerHTML = 'Es tu cuerpo número ' + b + '. En el retiro <strong>Del 11 al Uno</strong>, que va del 11 al 1, un cuerpo por día, se trabaja el <strong>día ' + f.dia + ', el ' + f.fecha + '</strong>.';
+      $('r-dia').innerHTML = AHORA < T_FIN
+        ? 'Es tu cuerpo número ' + b + '. En el retiro <strong>Del 11 al Uno</strong>, que va del 11 al 1, un cuerpo por día, se trabaja el <strong>día ' + f.dia + ', el ' + f.fecha + '</strong>. Su palabra es <strong>' + c.palabra.toLowerCase() + '</strong>.'
+        : 'Es tu cuerpo número ' + b + '. Su palabra es <strong>' + c.palabra.toLowerCase() + '</strong>.';
       $('r-senal').textContent = c.senal;
       $('r-despierta').textContent = c.despierta;
       $('r-segundo').innerHTML = 'Le sigue <strong>' + CUERPOS[b2].nombre.toLowerCase() + '</strong>. Suelen apagarse juntos: cuando uno vuelve, el otro también.';
+
+      pintarMapa(hoy, antes);
+      if (antes) {
+        $('mapa-titulo').textContent = 'Tu mapa, antes y hoy';
+        $('mapa-nota').textContent = 'Los diez cuerpos, en el orden del retiro. Mientras más larga la barra, más te pedía atención ese cuerpo.';
+        $('ley-antes').textContent = 'El ' + fechaLarga(antes.d); $('leyenda').hidden = false;
+        var baja = 0, cual = 0;
+        for (var k = 1; k <= 10; k++) { var dif = (antes.v[k] || 0) - (hoy.v[k] || 0); if (dif > baja) { baja = dif; cual = k; } }
+        var frase = antes.top === b
+          ? 'Las dos veces te pidió volver ' + c.nombre.toLowerCase() + '.'
+          : 'El ' + fechaLarga(antes.d) + ' te pedía volver ' + CUERPOS[antes.top].nombre.toLowerCase() + '. Hoy, ' + c.nombre.toLowerCase() + '.';
+        if (cual) frase += ' El que más se aquietó: ' + CUERPOS[cual].nombre.toLowerCase() + '.';
+        $('mapa-cambio').textContent = frase; $('mapa-cambio').hidden = false;
+      } else {
+        $('mapa-titulo').textContent = 'Tu mapa de hoy';
+        $('mapa-nota').textContent = 'Los diez cuerpos, en el orden del retiro. Mientras más larga la barra, más te pide atención hoy ese cuerpo.' + (guardado ? ' Queda guardado en este teléfono: si lo repites otro día, verás los dos mapas juntos.' : '');
+        $('leyenda').hidden = true; $('mapa-cambio').hidden = true;
+      }
+      var texto = textoMapa(hoy, antes);
+      $('mapa-texto').value = texto; $('mapa-texto').hidden = true; $('copiado').textContent = '';
+      $('copiar').onclick = function () {
+        var listo = function () { $('copiado').textContent = 'Copiado. Pégalo en tus notas.'; };
+        var aMano = function () { var t = $('mapa-texto'); t.hidden = false; t.focus(); t.select(); $('copiado').textContent = 'Selecciónalo y cópialo.'; };
+        try { navigator.clipboard.writeText(texto).then(listo, aMano); } catch (e) { aMano(); }
+      };
+      cierre(b, antes);
+
       var txt = 'Hice este test de dos minutos y me salió que mi cuerpo más apagado es ' + c.nombre.toLowerCase() + '. Mira cuál es el tuyo: https://vuelveati.schooloflove.cl/cuerpos';
       $('wa').href = 'https://wa.me/?text=' + encodeURIComponent(txt);
       try { sessionStorage.setItem('vat_cuerpo', String(b)); } catch (e) {}
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    if (EN_RETIRO) {
+      var bj = document.querySelectorAll('#inicio .bajada');
+      if (bj[0]) bj[0].textContent = AHORA < T_FIN ? 'Antes de empezar el retiro, mira dónde estás hoy. Y el martes 24, cuando cerremos, lo haces de nuevo.' : 'Mira dónde estás hoy.';
+      if (bj[1]) bj[1].textContent = 'En la tradición del Kundalini Yoga no eres solo cuerpo y mente: eres diez cuerpos. Responde pensando en las últimas semanas, sin buscar la respuesta correcta. Tu mapa queda guardado en este teléfono.';
+    }
     $('empezar').addEventListener('click', function () { $('inicio').hidden = true; $('preguntas').hidden = false; i = 0; resp = []; mostrar(); });
     $('atras').addEventListener('click', function () { if (i > 0) { i--; mostrar(); } });
     $('otra').addEventListener('click', function () { $('resultado').hidden = true; $('inicio').hidden = false; window.scrollTo({ top: 0 }); });
-
-    // Formulario: el mismo del camino (MailerLite 200852478258841299)
-    var ENDPOINT = 'https://assets.mailerlite.com/jsonp/2197783/forms/200852478258841299/subscribe';
-    var form = $('form-inscripcion'), boton = $('enviar'), estado = $('estado');
-    function aviso(t) { estado.textContent = t; estado.className = 'estado error'; }
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (boton.disabled) return;
-      var nombre = form.nombre.value.trim();
-      var email = form.email.value.replace(/^\s*mailto:/i, '').replace(/\s+/g, '');
-      form.email.value = email;
-      if (!nombre) { aviso('Escribe tu nombre para saber cómo llamarte.'); form.nombre.focus(); return; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { aviso('Revisa tu correo: falta algo, por ejemplo nombre@correo.com.'); form.email.focus(); return; }
-      boton.disabled = true; boton.textContent = 'Abriendo el camino…'; estado.textContent = ''; estado.className = 'estado';
-      var fd = new FormData();
-      fd.append('fields[name]', nombre); fd.append('fields[email]', email); fd.append('ml-submit', '1'); fd.append('anticsrf', 'true');
-      var controller = new AbortController(), timer = setTimeout(function () { controller.abort(); }, 15000);
-      fetch(ENDPOINT, { method: 'POST', body: fd, signal: controller.signal, referrerPolicy: 'no-referrer' })
-        .then(function (r) { return r.json().then(function (j) { if (r.ok && j.success === true) { try { sessionStorage.setItem('vat_nombre', nombre.split(' ')[0]); localStorage.setItem('vat_practica_v2', '1'); } catch (err) {} window.location.assign('/gracias?desde=cuerpos'); } else throw new Error(); }); })
-        .catch(function () { boton.disabled = false; boton.textContent = 'Recibir la práctica gratis'; aviso('No pudimos confirmar tu inscripción. Revisa tu correo antes de volver a enviar o escríbenos a satya@schooloflove.cl.'); })
-        .finally(function () { clearTimeout(timer); });
-    });
   })();
   </script>
 </body>
