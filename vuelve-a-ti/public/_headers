@@ -35,3 +35,7 @@
 # Guía del retiro (PDF): no indexar
 /retiro/guia-del-retiro*
   X-Robots-Tag: noindex, nofollow
+
+# Fondos de pantalla del retiro: no indexar
+/retiro/fondos/*
+  X-Robots-Tag: noindex, nofollow
