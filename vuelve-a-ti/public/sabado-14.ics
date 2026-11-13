@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//School of Love//Del 11 al Uno//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:sabado14-del11aluno@schooloflove.cl
+DTSTAMP:20261113T130000Z
+DTSTART:20261114T160000Z
+DTEND:20261114T170000Z
+SUMMARY:Del 11 al Uno · primer día abierto con Satya
+DESCRIPTION:Entra desde la página donde te registraste: https://vuelveati.schooloflove.cl/sabado\nEl botón aparece desde las 12:30 de Chile. Ten a mano tu palabra\, un lugar tranquilo y agua.
+URL:https://vuelveati.schooloflove.cl/sabado
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:En 30 minutos empieza el primer día
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR
