@@ -148,6 +148,9 @@
     var guardado = null;
     try { guardado = JSON.parse(localStorage.getItem(CLAVE) || 'null'); } catch(x) {}
     if (guardado && guardado.ok) mostrarLugar(guardado.n || '');
+    // Quien llega desde el correo «Tu lugar está guardado» (solo va a registrados) ya dejó sus datos:
+    // se le muestra el botón aunque abra desde otro teléfono o navegador, sin pedirle el formulario otra vez.
+    else if (new URLSearchParams(location.search).get('utm_campaign') === 'sabado_registrados') mostrarLugar('');
 
     // Desde el sábado 14 a las 00:00 de Chile (UTC-3), el título dice «Hoy».
     if (Date.now() >= Date.parse('2026-11-14T03:00:00Z')) {
