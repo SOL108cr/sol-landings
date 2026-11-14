@@ -28,7 +28,7 @@ window.RETIRO_PRACTICA = {
   dias: [
     {dia: 1, fecha: '2026-11-14', cuerpo: 'El once', palabra: 'Integración', llave: '',
       '13:00': {tipo: 'zoom', url: '/sabado'},
-      '20:00': {tipo: 'video', youtube: '', bunny: '', duracionSeg: 3600}},
+      '20:00': {tipo: 'video', youtube: 'xhpvHw4zstw', bunny: '', duracionSeg: 4325}},
     {dia: 2, fecha: '2026-11-15', cuerpo: 'Cuerpo radiante', palabra: 'Coraje', llave: ''},
     {dia: 3, fecha: '2026-11-16', cuerpo: 'Cuerpo sutil', palabra: 'Sutileza', llave: ''},
     {dia: 4, fecha: '2026-11-17', cuerpo: 'Cuerpo pránico', palabra: 'Pureza', llave: ''},
