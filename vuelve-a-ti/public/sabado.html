@@ -80,14 +80,14 @@
     </header>
 
     <section class="intro">
-      <p class="eyebrow">SÁBADO 14 · PRIMER DÍA ABIERTO</p>
+      <p class="eyebrow" id="ceja">SÁBADO 14 · PRIMER DÍA ABIERTO</p>
       <h1 id="titulo">El sábado empezamos a <em>regarla.</em></h1>
-      <p>El primer día del retiro Del 11 al Uno es abierto, y lo vivimos juntos en vivo. Si el 11 sembraste tu palabra, tráela. Si no, la eliges ese día.</p>
-      <div class="horas">
+      <p id="bajada">El primer día del retiro Del 11 al Uno es abierto, y lo vivimos juntos en vivo. Si el 11 sembraste tu palabra, tráela. Si no, la eliges ese día.</p>
+      <div class="horas" id="horas">
         <b>Sábado 14 de noviembre · 13:00 de Chile y Argentina</b>
         <span>10:00 México · 11:00 Colombia y Perú · 17:00 España</span>
       </div>
-      <p class="mano">Ten a mano tu palabra, un lugar tranquilo y agua.</p>
+      <p class="mano" id="mano">Ten a mano tu palabra, un lugar tranquilo y agua.</p>
       <div class="reg" id="paso-form">
         <h2>Reserva tu lugar</h2>
         <p class="nota">El primer día es abierto, con registro. Deja tus datos y aquí mismo aparece el botón para entrar.</p>
@@ -105,6 +105,9 @@
         <p class="small">Uso tus datos para avisarte del primer día y contarte del retiro. Puedes pedirme que no te escriba más cuando quieras. <a href="privacidad">Privacidad</a></p>
         <p class="small">Si quieres invitar a alguien, compártele esta página para que también se registre.</p>
       </div>
+      <div class="entrar" id="vivido" hidden>
+        <a class="zoom" id="ir-retiro-2" href="retiro">Ver el retiro</a>
+      </div>
       <div class="entrar" id="entrar" hidden>
         <p class="listo" id="listo">Tu lugar está guardado.</p>
         <p id="sin-enlace">El botón para entrar aparece aquí el sábado desde las 12:30 de Chile. Vuelve a esta página desde este mismo teléfono o computador.</p>
@@ -118,7 +121,7 @@
       <h2 id="cta-title">Una semilla sin riego <em>dura unos días.</em></h2>
       <p>Del sábado 14 al martes 24 de noviembre la regamos juntos en el retiro <strong>Del 11 al Uno</strong>: once días, unos 25 minutos al día, desde tu casa y en compañía.</p>
       <p>La inscripción está abierta hasta el lunes 16 a las 23:59 de Chile.</p>
-      <p>El primer día se vive en vivo. La grabación, como la de todo el retiro, queda solo para quienes están inscritos: si a las 13:00 no puedes, o quieres repetirlo, inscrito lo haces a tu hora.</p>
+      <p id="cta-grab">El primer día se vive en vivo. La grabación, como la de todo el retiro, queda solo para quienes están inscritos: si a las 13:00 no puedes, o quieres repetirlo, inscrito lo haces a tu hora.</p>
       <a class="button" href="pase">Quiero los once días</a>
       <a class="detalle" id="ir-retiro" href="retiro">Ver el detalle</a>
       <a class="member" id="ir-miembros" href="retiro#miembros">Eres Premium o VIP de Portal Origen? El retiro ya es tuyo.</a>
@@ -159,6 +162,19 @@
     var q = '?utm_source=sabado&utm_medium=' + r + '&utm_campaign=portal1111';
     $('ir-retiro').href = 'retiro' + q;
     $('ir-miembros').href = 'retiro' + q + '#miembros';
+
+    // Desde el sábado 14 a las 14:15 de Chile el primer día ya se vivió: sin registro ni botón de Zoom.
+    // La grabación queda dentro del retiro, solo para inscritos.
+    if (window.SABADO_VIVIDO === true || Date.now() >= Date.parse('2026-11-14T17:15:00Z')) {
+      $('ceja').textContent = 'SÁBADO 14 · PRIMER DÍA';
+      $('titulo').innerHTML = 'El primer día <em>ya se vivió.</em>';
+      $('bajada').textContent = 'El sábado 14 abrimos en vivo el retiro Del 11 al Uno. La grabación queda dentro del retiro, para quienes están inscritos: si entras antes del lunes 16 a las 23:59 de Chile, empiezas por el día uno a tu hora.';
+      $('horas').hidden = true; $('mano').hidden = true;
+      $('paso-form').hidden = true; $('entrar').hidden = true;
+      $('ir-retiro-2').href = 'retiro' + q;
+      $('vivido').hidden = false;
+      $('cta-grab').textContent = 'El primer día ya se vivió. La grabación, como la de todo el retiro, queda solo para quienes están inscritos: inscrito, empiezas por el día uno y sigues a tu hora.';
+    }
 
     var f = $('f'), b = $('b'), err = $('err');
     var rechazos = 0;
