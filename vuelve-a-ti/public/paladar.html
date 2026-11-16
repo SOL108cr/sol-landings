@@ -115,6 +115,8 @@
       q.delete('email'); q.delete('name'); q.delete('last_name');
       try { history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q.toString() : '') + location.hash); } catch (e) {}
     }
+    // Quien llega desde un correo nuestro ya está suscrito: abre el video sin pedir datos.
+    if (q.get('desde') === 'correo') { abrir(false); return; }
     try { if (localStorage.getItem(KEY) === '1') { abrir(false); return; } } catch (e) {}
     function aviso(t) { estado.textContent = t; estado.className = 'estado error'; }
     form.addEventListener('submit', async function (ev) {
