@@ -73,6 +73,14 @@
         <div class="acciones"><a class="boton" href="https://portal.schooloflove.cl/" rel="noopener">Quiero entrar a Portal Origen</a></div>
       </div>
     </section>
+    <section id="bloque-cierre" class="portal" hidden>
+      <h2>El Satsang sigue, ahora dentro de Portal Origen</h2>
+      <p>La grabación de «El paladar del alma» estuvo abierta hasta el domingo 22. Desde el lunes 23 nos encontramos cada semana dentro de Portal Origen, nuestra comunidad.</p>
+      <p>Ahí seguimos afinando ese paladar juntos: el Satsang de cada lunes, en vivo; meditaciones y prácticas de Kundalini Yoga para sostener tu día; los Micro Reset para volver a ti en pocos minutos cuando el ruido sube; cursos para avanzar a tu ritmo, y más de 340 personas que practican contigo.</p>
+      <p>Si algo de lo que escuchaste te tocó, este es el lugar para que no se quede en una sola vez.</p>
+      <div class="acciones"><a class="boton" href="https://portal.schooloflove.cl/" rel="noopener">Quiero entrar a Portal Origen</a></div>
+      <p class="precio" style="margin-top:12px">Entras desde US$9 al mes.</p>
+    </section>
   </main>
   <footer class="contenedor pie"><p>School of Love · Portal Origen · <a href="/privacidad">Privacidad</a> · <a href="mailto:satya@schooloflove.cl">Escríbenos</a></p></footer>
   <script>
@@ -107,6 +115,14 @@
       }
       try { localStorage.setItem(KEY, '1'); } catch (e) {}
       if (enfocar) host.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    // Cierre real de la grabación abierta: domingo 22-nov 23:59 Chile (aprobado por Satya 16-nov 16:31).
+    var CIERRE = Date.parse('2026-11-22T23:59:59-03:00');
+    if (Date.now() > CIERRE) {
+      ['bloque-form', 'bloque-video'].forEach(function (b) { document.getElementById(b).hidden = true; });
+      document.getElementById('bloque-cierre').hidden = false;
+      var pz = document.querySelector('.plazo'); if (pz) pz.hidden = true;
+      return;
     }
     var q = new URLSearchParams(location.search);
     if (q.get('email')) form.email.value = q.get('email').slice(0, 120);
