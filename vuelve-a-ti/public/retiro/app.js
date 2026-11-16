@@ -123,11 +123,22 @@ function prepareEnrollment(key) {
   document.querySelector('#checkout-button').disabled = !ready;
   document.querySelector('#checkout-button').textContent = ready ? (key === 'standard' ? 'Guardar y verificar mi membresía' : key === 'member' ? 'Guardar y entrar al programa' : 'Guardar y continuar al pago') : 'Inscripciones desde el 26 de octubre';
 }
+// WhatsApp (16-nov): normaliza y nunca bloquea por formato. Solo frena si no hay ningún dígito (campo obligatorio).
+function normalizeWhatsapp(raw) {
+  let v = String(raw || '').replace(/[\s().\-]/g, '');
+  if (v.startsWith('00')) v = '+' + v.slice(2);
+  if (!v.startsWith('+') && /^\d{10,15}$/.test(v)) v = '+' + v;
+  return v;
+}
 enrollmentForm.addEventListener('submit', event => {
   const ready = enrollmentReady(dialog.dataset.offer);
   const phone = document.querySelector('#enroll-whatsapp');
-  const compact = phone.value.replace(/[ ()-]/g, '');
-  phone.setCustomValidity(/^\+[1-9]\d{6,14}$/.test(compact) ? '' : 'Escribe tu WhatsApp con + y código de país.');
+  const compact = normalizeWhatsapp(phone.value);
+  phone.setCustomValidity(/\d/.test(compact) ? '' : 'Escribe tu WhatsApp con + y código de país.');
+  if (/\d/.test(compact) && !/^\+[1-9]\d{6,14}$/.test(compact)) {
+    const help = document.querySelector('#whatsapp-help');
+    if (help) help.textContent = 'Guardamos tu número tal como lo escribiste. Si puedes, agrega tu código de país: +56 Chile, +34 España…';
+  }
   if (!ready || captureState.pending || !enrollmentForm.reportValidity()) { event.preventDefault(); event.stopImmediatePropagation(); return; }
   phone.value = compact;
   captureState.pending = true;
