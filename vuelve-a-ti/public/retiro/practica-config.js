@@ -37,7 +37,7 @@ window.RETIRO_PRACTICA = {
       practica: {youtube: 'scGKJfTr7zU', duracionSeg: 1888}},
     {dia: 5, fecha: '2026-11-18', cuerpo: 'Aura', palabra: 'Compasión', llave: '',
       '13:00': {tipo: 'zoom', url: '/vivo'},
-      '20:00': {tipo: 'video', youtube: '', bunny: '', duracionSeg: 3600}},
+      '20:00': {tipo: 'video', youtube: 'kyxGMvuYZZA', bunny: '', duracionSeg: 3483}},
     {dia: 6, fecha: '2026-11-19', cuerpo: 'Línea de arco', palabra: 'Enfoque', llave: '',
       practica: {youtube: 'wXSKIiTW0PM', duracionSeg: 1853}},
     {dia: 7, fecha: '2026-11-20', cuerpo: 'Cuerpo físico', palabra: 'Equilibrio', llave: '',
