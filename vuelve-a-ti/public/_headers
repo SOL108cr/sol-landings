@@ -43,3 +43,9 @@
 # MAN·TRA, versión privada para quienes hicieron el retiro: no indexar
 /mantra/r*
   X-Robots-Tag: noindex, nofollow
+
+# TEMPORAL hasta el mié 25-nov 07:00 (apertura): /mantra oculta a buscadores
+/mantra
+  X-Robots-Tag: noindex, nofollow
+/mantra/
+  X-Robots-Tag: noindex, nofollow
