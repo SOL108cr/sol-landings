@@ -39,3 +39,7 @@
 # Fondos de pantalla del retiro: no indexar
 /retiro/fondos/*
   X-Robots-Tag: noindex, nofollow
+
+# MAN·TRA, versión privada para quienes hicieron el retiro: no indexar
+/mantra/r*
+  X-Robots-Tag: noindex, nofollow
