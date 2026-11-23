@@ -257,3 +257,17 @@ p{margin:0 0 1em}
 .wk-adv-out{margin:22px 0 0;padding:14px 16px;border-left:3px solid var(--deep);background:#7a2a1210;font-size:15.5px;color:#3c261b;max-width:760px}
 .wk-adv-out b{color:var(--deep)}
 @media(prefers-reduced-motion:reduce){.btn:active{transform:none}}
+
+.adv-extra{background:linear-gradient(170deg,var(--night),var(--night-2));color:var(--paper)}
+.adv-extra h2 em{color:var(--gold)}
+.adv-extra .lead{color:#f1e1c6}
+.adv-grid{display:grid;gap:16px;margin-top:30px}
+.adv-grid article{border:1px solid #f1d8a640;border-top:3px solid var(--gold);border-radius:6px;padding:18px 18px 8px;background:#ffffff0d}
+.adv-grid .when{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+.adv-grid h3{font-size:24px;color:#fffaf2;margin:0 0 4px}
+.adv-grid .d{font-size:15px;color:#ecd9b9;margin:0 0 14px}
+.adv-japji{margin:22px 0 0;font-size:16px;color:#fff3df;max-width:760px}
+.adv-japji b{color:var(--gold)}
+.adv-note{font-size:14px;color:#e9d6b4;margin:10px 0 24px}
+.card.adv li a{color:var(--gold)}
+@media(min-width:860px){.adv-grid{grid-template-columns:1fr 1fr}}
