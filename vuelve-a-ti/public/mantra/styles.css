@@ -31,7 +31,7 @@ p{margin:0 0 1em}
 /* Cabecera */
 .site-header{position:absolute;inset:0 0 auto;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(20px,calc((100% - var(--wrap))/2));color:var(--paper)}
 .wordmark{display:flex;flex-direction:column;line-height:1.1;text-decoration:none;color:var(--paper);font-family:var(--serif);font-weight:700;font-size:28px;letter-spacing:.04em;min-height:44px;justify-content:center}
-.wordmark span{font-family:var(--sans);font-weight:600;font-size:9.5px;letter-spacing:.24em;color:#f1d8a6}
+.wordmark span{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.2em;color:#f1d8a6}
 .site-header nav{display:flex;align-items:center;gap:6px}
 .site-header nav a{display:none;color:#f6e7cd;text-decoration:none;font-weight:600;font-size:13.5px;padding:10px 12px;min-height:44px;align-items:center}
 .site-header nav a:hover{text-decoration:underline}
@@ -237,3 +237,23 @@ p{margin:0 0 1em}
 @media print{.site-header,.player{display:none}}
 .site-footer a{display:inline-flex;align-items:center;min-height:44px}
 .faq details p a{display:inline-block;padding:10px 0}
+
+/* 23-nov: hero corto, foto, desplegables y respuesta al tocar */
+.hero .cta-row{margin-top:26px}
+.hero-price{margin:16px 0 0;font-size:15.5px;font-weight:600;color:#f4c378}
+.hero .facts{margin:22px 0 0}
+.btn:active{transform:scale(.97);filter:brightness(.92);transition-duration:.08s}
+.chapters button:active,.faq-list summary:active,.how-list summary:active{filter:brightness(.9)}
+.guide-photo{margin:26px 0 0}
+.guide-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
+.guide-photo figcaption{font-size:13px;color:#e9d6b4;margin-top:8px}
+.how-list .sum{font-weight:600}
+.how-list details{margin-top:6px}
+.how-list summary{display:inline-flex;align-items:center;min-height:44px;cursor:pointer;color:var(--deep);font-weight:700;font-size:14.5px;list-style:none}
+.how-list summary::-webkit-details-marker{display:none}
+.how-list summary:after{content:'+';margin-left:8px;font-size:18px}
+.how-list details[open] summary:after{content:'–'}
+.how-list details p{margin-top:4px}
+.wk-adv-out{margin:22px 0 0;padding:14px 16px;border-left:3px solid var(--deep);background:#7a2a1210;font-size:15.5px;color:#3c261b;max-width:760px}
+.wk-adv-out b{color:var(--deep)}
+@media(prefers-reduced-motion:reduce){.btn:active{transform:none}}
