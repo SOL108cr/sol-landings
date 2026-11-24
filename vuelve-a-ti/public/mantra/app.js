@@ -37,3 +37,19 @@
   var vencida = Date.now() > Date.parse('2026-11-27T01:30:00Z');
   if (social || vencida) band.hidden = true;
 })();
+
+/* MAN·TRA: video de la landing. Fachada con póster local; al tocar se carga el iframe youtube-nocookie (no listado). */
+(function () {
+  var btn = document.getElementById('film-btn');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.youtube-nocookie.com/embed/qq68A21tGcM?rel=0&autoplay=1&playsinline=1';
+    frame.title = 'MAN·TRA en dos minutos · Satya · School of Love';
+    frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.setAttribute('allowfullscreen', '');
+    frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    btn.replaceWith(frame);
+    try { frame.focus(); } catch (e) {}
+  });
+})();
