@@ -50,6 +50,6 @@ window.RETIRO_PRACTICA = {
       practica: {youtube: 'mwl6UTqt51o', duracionSeg: 1892}},
     {dia: 11, fecha: '2026-11-24', cuerpo: 'Alma', palabra: 'Humildad', llave: '',
       '13:00': {tipo: 'zoom', url: '/vivo'},
-      '20:00': {tipo: 'video', youtube: '', bunny: '', duracionSeg: 3600}}
+      '20:00': {tipo: 'video', youtube: 'xjC5gsbuLdA', bunny: '', duracionSeg: 5012}}
   ]
 };
