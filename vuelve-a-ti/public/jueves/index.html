@@ -120,16 +120,6 @@
               <input type="email" id="e" name="correo" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" required aria-describedby="e-e">
               <p class="j-err" id="e-e" hidden></p>
             </div>
-            <div class="j-field">
-              <label for="w">Tu WhatsApp <span class="opt">(opcional)</span></label>
-              <input type="tel" id="w" name="whatsapp" autocomplete="tel" inputmode="tel" aria-describedby="h-w e-w">
-              <p class="j-help" id="h-w">Con código de país, por ejemplo +56 9 1234 5678.</p>
-              <p class="j-err" id="e-w" hidden></p>
-            </div>
-            <div class="j-check" id="wrap-wa" hidden>
-              <input type="checkbox" id="wa-ok" name="wa_ok">
-              <label for="wa-ok">Acepto que me escriban a este WhatsApp para recordarme el encuentro. Puedo pedir que paren cuando quiera.</label>
-            </div>
             <div class="j-trap" aria-hidden="true"><label for="web">No llenar</label><input type="text" id="web" name="web" tabindex="-1" autocomplete="off"></div>
             <button class="btn j-submit" type="submit" id="b">Inscribirme</button>
             <p class="j-status" id="status" role="alert" hidden></p>
@@ -141,7 +131,8 @@
         <div class="j-thanks" id="gracias" tabindex="-1" hidden>
           <p class="eyebrow gold">INSCRIPCIÓN LISTA</p>
           <h2><span id="g-nombre">Listo</span>, <em>te esperamos el jueves.</em></h2>
-          <p>Jueves 26 de noviembre a las 21:00 de Chile y Argentina (19:00 en Colombia y Perú, 18:00 en México y Costa Rica, 01:00 en España). Te escribimos al correo con el enlace y un recordatorio. Si en unos minutos no lo ves, mira en spam o en Promociones.</p>
+          <p><strong>Tu inscripción está lista.</strong> Te mandamos al correo el enlace para entrar el jueves; si no lo ves en unos minutos, mira en spam o en Promociones.</p>
+          <p>Jueves 26 de noviembre a las 21:00 de Chile y Argentina (19:00 en Colombia y Perú, 18:00 en México y Costa Rica, 01:00 en España).</p>
           <div class="j-zoom">
             <p><strong>El jueves entras por aquí.</strong> Guarda este enlace: es el mismo.</p>
             <p>ID <code>848 2175 7001</code> · código <code>492325</code></p>
@@ -151,9 +142,35 @@
             <a class="btn btn-ghost" id="gcal" href="#" rel="noopener" target="_blank">Agregar a Google Calendar</a>
             <a class="btn btn-ghost" href="/jueves/jueves-26.ics" download>Descargar para Apple u Outlook</a>
           </div>
+
+          <form class="j-paso2" id="f2" novalidate>
+            <h3 id="p2-t">Quieres que te recordemos por WhatsApp el jueves?</h3>
+            <div id="p2-form">
+              <div class="j-field" id="p2-mail-wrap" hidden>
+                <label for="e2">Tu correo</label>
+                <input type="email" id="e2" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" aria-describedby="e-e2">
+                <p class="j-err" id="e-e2" hidden></p>
+              </div>
+              <div class="j-field">
+                <label for="w">Tu WhatsApp</label>
+                <input type="tel" id="w" autocomplete="tel" inputmode="tel" aria-describedby="h-w e-w">
+                <p class="j-help" id="h-w">Con código de país, por ejemplo +56 9 1234 5678.</p>
+                <p class="j-err" id="e-w" hidden></p>
+              </div>
+              <div class="j-check">
+                <input type="checkbox" id="wa-ok" aria-describedby="e-ok">
+                <label for="wa-ok">Acepto que School of Love me escriba por WhatsApp para recordarme este encuentro.</label>
+              </div>
+              <p class="j-err" id="e-ok" hidden></p>
+              <button class="btn btn-gold" type="submit" id="b2">Recordarme por WhatsApp</button>
+              <p class="j-status" id="status2" role="alert" hidden></p>
+            </div>
+            <p class="j-okmsg" id="p2-ok" role="status" hidden>Listo: te escribimos el jueves en la tarde.</p>
+          </form>
+
           <div class="j-soft">
-            <p>Si quieres saber antes qué es MAN·TRA, puedes leerlo con calma. No hace falta decidir nada.</p>
-            <a href="/mantra?utm_source=jueves&amp;utm_medium=gracias&amp;utm_campaign=jueves26">Conocer MAN·TRA</a>
+            <p>Y si quieres, conoce MAN·TRA, el programa que empieza el sábado 28.</p>
+            <a class="btn btn-ghost" id="ver-mantra" href="/mantra/?utm_source=jueves&amp;utm_medium=gracias&amp;utm_campaign=mantra">Ver el programa MAN·TRA</a>
           </div>
         </div>
 
@@ -162,7 +179,6 @@
           <p>Si quieres conocer MAN·TRA, que empezó el sábado 28, aquí está.</p>
           <a class="btn btn-gold" href="/mantra?utm_source=jueves&amp;utm_medium=pasado&amp;utm_campaign=jueves26">Conocer MAN·TRA</a>
         </div>
-        <p class="j-note" id="suave">Quieres ver primero de qué se trata MAN·TRA? <a href="/mantra?utm_source=jueves&amp;utm_medium=pie&amp;utm_campaign=jueves26">Conocer MAN·TRA</a></p>
       </div>
     </section>
 

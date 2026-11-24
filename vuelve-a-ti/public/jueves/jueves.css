@@ -73,3 +73,18 @@
 .j-over p{color:#f6e9d3}
 @media(max-width:560px){.j-table td{font-size:23px}.j-table th,.j-table td{padding:12px}.j-card{padding:22px 16px}}
 @media(max-width:380px){.j-table thead{display:none}.j-table th,.j-table td{display:block;border:0;padding:10px 14px 0}.j-table tr{display:block;border-bottom:1px solid var(--line);padding-bottom:10px}}
+
+.j-paso2{margin:24px 0 0;padding:20px 18px;border:1px solid #f1d8a640;border-radius:6px;background:#ffffff10}
+.j-paso2 h3{font-size:clamp(24px,4vw,30px);color:#fff3df}
+.j-paso2 .j-field label{color:#fff3df}
+.j-paso2 .j-help{color:#ecd9b9}
+.j-paso2 .j-err{color:#ffc7bd}
+.j-paso2 .j-check{background:#ffffff14;border-left-color:var(--gold)}
+.j-paso2 .j-check label{color:#fff3df}
+.j-paso2 .j-check input{accent-color:var(--gold)}
+.j-paso2 .btn{width:100%}
+.j-paso2 .j-status{background:#fbe9e4}
+.j-okmsg{margin:0;padding:14px 16px;border-radius:5px;background:var(--gold);color:#2b1008!important;font-weight:800;font-size:17px}
+.j-okmsg[hidden]{display:none}
+.j-soft .btn{margin-top:8px}
+@media(min-width:560px){.j-soft .btn{width:auto}}
