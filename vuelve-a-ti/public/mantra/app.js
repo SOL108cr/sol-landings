@@ -25,3 +25,15 @@
   audio.addEventListener('timeupdate', mark);
   audio.addEventListener('seeked', mark);
 })();
+
+/* MAN·TRA: la banda del jueves 26 es para gente cercana. Se oculta a quien llega desde redes (instagram, facebook, youtube)
+   y para todos desde el jue 26 a las 22:30 de Chile. Sin JS, la banda se ve (es lo seguro para quien llega por correo o 1 a 1). */
+(function () {
+  var band = document.querySelector('.jueves-band');
+  if (!band) return;
+  var src = '';
+  try { src = (new URLSearchParams(location.search).get('utm_source') || '').toLowerCase(); } catch (e) {}
+  var social = ['instagram', 'facebook', 'youtube', 'ig', 'fb', 'yt'].indexOf(src) !== -1;
+  var vencida = Date.now() > Date.parse('2026-11-27T01:30:00Z');
+  if (social || vencida) band.hidden = true;
+})();
