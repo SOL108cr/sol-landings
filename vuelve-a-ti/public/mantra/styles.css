@@ -286,3 +286,9 @@ p{margin:0 0 1em}
 .cita.oscura blockquote p{color:var(--gold)}
 .cita.oscura .cita-es{color:#f6ead6}
 .cita.oscura figcaption{color:#e9d6b4}
+
+/* 24-nov: banda secundaria hacia /jueves (sin competir con los botones de inscripción) */
+.jueves-band{background:var(--sand);border-bottom:1px solid var(--line);padding:14px 0}
+.jueves-band .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 24px}
+.jueves-band p{margin:0;font-size:16px;color:var(--ink);max-width:720px}
+.jueves-band .btn-link{padding:8px 0}
