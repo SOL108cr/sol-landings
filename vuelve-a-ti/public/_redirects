@@ -87,3 +87,11 @@
 # /jueves/zoom: enlace limpio al Zoom del jueves 26 (correo de confirmación, calendario y página de gracias)
 /jueves/zoom https://us06web.zoom.us/j/84821757001?pwd=HaZdzuXKsmtZGPmaqQyx3ClhR2k3ri.1 302
 /jueves/zoom/ https://us06web.zoom.us/j/84821757001?pwd=HaZdzuXKsmtZGPmaqQyx3ClhR2k3ri.1 302
+
+# /jueves por canal (enlaces cortos y limpios para medir de dónde llega cada inscripción; el formulario guarda la fuente)
+/jueves/mail /jueves/?utm_source=mail&utm_medium=correo 302
+/jueves/po /jueves/?utm_source=po&utm_medium=portal 302
+/jueves/ig /jueves/?utm_source=ig&utm_medium=social 302
+/jueves/fb /jueves/?utm_source=fb&utm_medium=social 302
+/jueves/tg /jueves/?utm_source=tg&utm_medium=social 302
+/jueves/wa /jueves/?utm_source=wa&utm_medium=grupos 302
