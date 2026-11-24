@@ -83,3 +83,7 @@
 /mantra/yt/ /mantra/?utm_source=youtube&utm_medium=descripcion&utm_campaign=mantra 302
 /mantra/gr /mantra/?utm_source=whatsapp&utm_medium=grupos&utm_campaign=mantra 302
 /mantra/gr/ /mantra/?utm_source=whatsapp&utm_medium=grupos&utm_campaign=mantra 302
+
+# /jueves/zoom: enlace limpio al Zoom del jueves 26 (correo de confirmación, calendario y página de gracias)
+/jueves/zoom https://us06web.zoom.us/j/84821757001?pwd=HaZdzuXKsmtZGPmaqQyx3ClhR2k3ri.1 302
+/jueves/zoom/ https://us06web.zoom.us/j/84821757001?pwd=HaZdzuXKsmtZGPmaqQyx3ClhR2k3ri.1 302

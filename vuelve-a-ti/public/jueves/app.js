@@ -28,7 +28,7 @@
   $('gcal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
     + '&text=' + encodeURIComponent('31 minutos juntos con Satya · School of Love')
     + '&dates=20261127T000000Z/20261127T011000Z'
-    + '&details=' + encodeURIComponent('Zoom: https://us06web.zoom.us/j/84821757001?pwd=HaZdzuXKsmtZGPmaqQyx3ClhR2k3ri.1\nID 848 2175 7001 · código 492325\nCantamos 31 minutos un mantra de la mañana, silencio, y después Satya cuenta MAN·TRA y responde preguntas. Unos 70 minutos.\nhttps://vuelveati.schooloflove.cl/jueves')
+    + '&details=' + encodeURIComponent('Zoom: https://vuelveati.schooloflove.cl/jueves/zoom\nID 848 2175 7001 · código 492325\nCantamos 31 minutos un mantra de la mañana, silencio, y después Satya cuenta MAN·TRA y responde preguntas. Unos 70 minutos.\nhttps://vuelveati.schooloflove.cl/jueves')
     + '&location=' + encodeURIComponent('Zoom');
 
   try {
