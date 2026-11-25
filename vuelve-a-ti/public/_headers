@@ -44,12 +44,6 @@
 /mantra/r*
   X-Robots-Tag: noindex, nofollow
 
-# TEMPORAL hasta el mié 25-nov 07:00 (apertura): /mantra oculta a buscadores
-/mantra
-  X-Robots-Tag: noindex, nofollow
-/mantra/
-  X-Robots-Tag: noindex, nofollow
-
 # Mini landing del encuentro del jueves 26-nov: no indexar
 /jueves*
   X-Robots-Tag: noindex, nofollow
