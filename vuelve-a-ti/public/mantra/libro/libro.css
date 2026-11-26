@@ -1,0 +1,57 @@
+
+:root{--paper:#fbf6ec;--card:#fffdf8;--ink:#2a2733;--navy:#1d2451;--gold:#b8913a;--gold-l:#ecd9ad;--line:#e6d8bc;--muted:#5e5868;--sky:#eef2fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 Montserrat,Arial,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:0 18px}
+.hero{background:radial-gradient(circle at 50% -10%,#fff 0,#fbf3e2 55%,var(--paper) 100%);padding:46px 0 26px;text-align:center;border-bottom:1px solid var(--line)}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;color:var(--navy);line-height:1.15;margin:.2em 0 .45em}
+h1{font-size:40px;font-weight:600}h2{font-size:34px;font-weight:600}h3{font-size:26px;margin-top:1.4em}h4{font-size:23px;margin:0 0 .3em}
+.eyebrow,.tag{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:12.5px;color:#8a6a22;margin:0}
+.lead{font-size:18.5px;max-width:640px;margin:10px auto}.small{font-size:15px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.chips a{display:inline-block;padding:10px 15px;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--navy);text-decoration:none;font-weight:600;font-size:14.5px;min-height:44px;line-height:22px}
+.chips a:active{background:var(--gold-l)}
+section{padding:38px 0 8px;border-bottom:1px solid var(--line)}section:last-of-type{border-bottom:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;margin:16px 0;box-shadow:0 2px 10px rgba(80,60,20,.05)}
+.card.soft{background:var(--sky);border-color:#d9e0f2}
+.grid2{display:grid;gap:14px}.grid3{display:grid;gap:12px}
+@media(min-width:720px){.grid2{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr 1fr 1fr}}
+.grid2 .card{margin:0}
+.btn{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:10px;min-height:44px;margin:6px 0;border:0;font:700 15.5px Montserrat,sans-serif;cursor:pointer}
+.btn:active{transform:scale(.98);opacity:.9}.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.vid{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--ink);margin:12px 0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px;min-height:44px}
+.vid:active{background:var(--gold-l)}
+.thumb{flex:0 0 128px;height:72px;border-radius:8px;background-size:cover;background-position:center;position:relative}
+.play{position:absolute;inset:0;margin:auto;width:34px;height:34px;border-radius:50%;background:rgba(29,36,81,.85);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
+.vt b{display:block;color:var(--navy);font-size:15.5px;line-height:1.3}.vt small{color:var(--muted);font-size:13.5px}
+.gema{text-align:center;margin:26px auto;max-width:600px;padding:18px;border-top:1px solid var(--gold-l);border-bottom:1px solid var(--gold-l)}
+.gema p{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:var(--navy);margin:.2em 0}
+.gema small{color:var(--muted);font-size:13.5px}
+.gm{font-family:'Noto Sans Gurmukhi',sans-serif;font-style:normal!important;color:var(--navy)}.gema .gm{font-size:21px}
+.gm.big{font-size:25px;line-height:1.7;margin:.15em 0;text-align:center}.gm.s{font-size:18px}
+.mul{background:#fff;border:1px solid var(--gold-l);border-radius:16px;padding:20px 16px;margin:20px 0;text-align:center}
+.tl{font-weight:600;color:var(--ink)}.mul small{color:var(--muted);font-size:13.5px}
+.reglas li,.ritmo li{margin:.55em 0}
+.inicio{display:block;font-weight:600;margin:6px 0}.inicio input{font:600 16px Montserrat;padding:8px;border:1px solid var(--line);border-radius:8px;min-height:44px;margin-left:6px}
+.hoyes{font-weight:700;color:var(--navy)}
+.dias{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:10px 0}
+.d{min-height:44px;border:1px solid #c9d1ea;background:#fff;border-radius:8px;font:600 15px Montserrat;color:var(--navy);cursor:pointer}
+.d.ok{background:var(--navy);color:#fff;border-color:var(--navy)}.d.hoy{outline:2.5px solid var(--gold);outline-offset:1px}.d:active{transform:scale(.95)}
+.cal{width:100%;border-collapse:collapse;font-size:15.5px}.cal th{text-align:left;color:#8a6a22;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;padding:6px}
+.cal td{padding:10px 6px;border-top:1px solid var(--line);vertical-align:top}.cal td small{display:block;color:var(--muted);font-size:13.5px}
+.cal tr.hoy td{background:#fff7e4}
+.note{font-size:14.5px;color:var(--muted)}
+.tip{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}.tip b{color:var(--navy)}.tip p{margin:.3em 0 0;font-size:15.5px}
+audio{width:100%;margin:8px 0}
+details{margin:12px 0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+summary{cursor:pointer;font-weight:700;color:var(--navy);min-height:32px}
+.son{width:100%;border-collapse:collapse;font-size:15px}.son td{padding:7px 4px;border-top:1px solid var(--line);vertical-align:top}
+.pal{list-style:none;padding:0;display:grid;gap:6px}@media(min-width:720px){.pal{grid-template-columns:1fr 1fr}}
+.pal li{display:flex;gap:12px;align-items:baseline;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.pal .gm{min-width:96px}
+blockquote{margin:12px 0;padding:14px 18px;background:#fff;border-left:3px solid var(--gold);border-radius:0 12px 12px 0;font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.5;color:var(--navy)}
+.verso{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}.verso .gm{font-size:20px;margin:0}.verso p{margin:.25em 0}
+.verso .es{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--navy)}.verso .alt{font-size:17.5px;color:var(--muted)}
+.links li{margin:.6em 0}.links a{color:var(--navy);font-weight:700}
+a{color:var(--navy)}
+footer{padding:30px 0 44px;text-align:center;color:var(--muted)}
