@@ -84,9 +84,11 @@
 /mantra/gr /mantra/?utm_source=whatsapp&utm_medium=grupos&utm_campaign=mantra 302
 /mantra/gr/ /mantra/?utm_source=whatsapp&utm_medium=grupos&utm_campaign=mantra 302
 
-# /jueves/zoom: enlace limpio al Zoom del jueves 26 (correo de confirmación, calendario y página de gracias)
-/jueves/zoom https://us06web.zoom.us/j/84821757001?pwd=HaZdzuXKsmtZGPmaqQyx3ClhR2k3ri.1 302
-/jueves/zoom/ https://us06web.zoom.us/j/84821757001?pwd=HaZdzuXKsmtZGPmaqQyx3ClhR2k3ri.1 302
+# /jueves/grabacion y /jueves/zoom: grabación del jueves 26 (temporal en Zoom; cambiar a YouTube no listado)
+/jueves/grabacion https://us06web.zoom.us/rec/share/ku15jpWjOUDlzLrRSLCb7AdanZYQrWZtJIvxs36m9FcdxTY7jafE9hxFY4hdhlrq.CHBj4IE6U9DRhy_T?pwd=DG49Tx9XNN22nrf_VAAAIAAAAEEgDrZqI26Iw17nB2EPuIjvqdZONvZ09OJWPMoIPEFJd9i0Kex0SggHwKV3MTX04jAwMDAwNA 302
+/jueves/grabacion/ https://us06web.zoom.us/rec/share/ku15jpWjOUDlzLrRSLCb7AdanZYQrWZtJIvxs36m9FcdxTY7jafE9hxFY4hdhlrq.CHBj4IE6U9DRhy_T?pwd=DG49Tx9XNN22nrf_VAAAIAAAAEEgDrZqI26Iw17nB2EPuIjvqdZONvZ09OJWPMoIPEFJd9i0Kex0SggHwKV3MTX04jAwMDAwNA 302
+/jueves/zoom https://us06web.zoom.us/rec/share/ku15jpWjOUDlzLrRSLCb7AdanZYQrWZtJIvxs36m9FcdxTY7jafE9hxFY4hdhlrq.CHBj4IE6U9DRhy_T?pwd=DG49Tx9XNN22nrf_VAAAIAAAAEEgDrZqI26Iw17nB2EPuIjvqdZONvZ09OJWPMoIPEFJd9i0Kex0SggHwKV3MTX04jAwMDAwNA 302
+/jueves/zoom/ https://us06web.zoom.us/rec/share/ku15jpWjOUDlzLrRSLCb7AdanZYQrWZtJIvxs36m9FcdxTY7jafE9hxFY4hdhlrq.CHBj4IE6U9DRhy_T?pwd=DG49Tx9XNN22nrf_VAAAIAAAAEEgDrZqI26Iw17nB2EPuIjvqdZONvZ09OJWPMoIPEFJd9i0Kex0SggHwKV3MTX04jAwMDAwNA 302
 
 # /jueves por canal (enlaces cortos y limpios para medir de dónde llega cada inscripción; el formulario guarda la fuente)
 /jueves/mail /jueves/?utm_source=mail&utm_medium=correo 302
